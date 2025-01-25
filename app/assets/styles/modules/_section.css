@@ -1,0 +1,76 @@
+.section {
+  counter-reset: section;
+
+  &--h2 {
+    counter-reset: subsection;
+    margin-bottom: 0px;
+    font-size: 2rem;
+    font-weight: 400;
+
+    @mixin atMin1200Wide {
+      font-size: 2.5rem;
+    }
+
+    &:before {
+      counter-increment: section;
+      content: counter(section) ". ";
+    }
+  }
+
+  &--h3 {
+    counter-reset: subsubsection;
+    margin-bottom: 0px;
+    font-size: 1.75rem;
+    font-weight: 400;
+
+    @mixin atMin1200Wide {
+      font-size: 2rem;
+    }
+
+    &:before {
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) ". ";
+    }
+  }
+
+  &--h4 {
+    margin-bottom: 0px;
+    /*font-size: 1.17rem;*/
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    @mixin atMin1200Wide {
+      font-size: 1.7rem;
+    }
+
+    &:before {
+      counter-increment: subsubsection;
+      content: counter(section) "." counter(subsection) "." counter(subsubsection) ". ";
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+  }
+
+  p {
+    /*font family NexusSans?*/
+    /*font-size: 1.2rem;*/
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-top: 5px;
+  }
+  p.references {
+    font-size: 1.1rem;
+  }
+
+  li {
+    /*font-size: 1.1rem;*/
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding-bottom: 10px;
+  }
+
+  &__refs {
+    text-align: center;
+    margin-top: 2em;
+  }
+}

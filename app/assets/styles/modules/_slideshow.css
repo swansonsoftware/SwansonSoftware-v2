@@ -1,0 +1,275 @@
+.slideshow {
+  background-color: #000;
+  float: left;
+  width: 100%;
+  height: 100%;
+
+  &__slides {
+    list-style-type: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    &__slide {
+      background: #000;
+      display: flex;
+      justify-content: center; /* portrait images */
+      opacity: 0;
+      position: absolute;
+      transition: opacity $slideTransition ease-in;
+      width: 100%;
+      /*height: calc(100% - 90px); ? what was this for*/
+      height: 100%;
+
+      &--is-visible {
+        opacity: 1;
+      }
+
+      &--full-screen {
+        height: 100%;
+      }
+
+      .slide-image {
+        height: auto;
+        max-width: 100%;
+        object-fit: contain; /*on picture element, object-fit requires height and width values*/
+        object-position: 50% 50%;
+        width: auto;
+      }
+
+      .titletext {
+        display: none;
+      }
+
+      picture {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+      }
+
+      &--spinner {
+        position: absolute;
+        z-index: $zIndex--1-BelowAll;
+        top: 50%;
+        margin: auto;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        border: 0.25rem solid #fff;
+        border-top-color: #686868;
+        -webkit-animation: spin 1s infinite linear;
+        animation: spin 1s infinite linear;
+      }
+      @-moz-keyframes spin {
+        from {
+          -moz-transform: rotate(0deg);
+        }
+        to {
+          -moz-transform: rotate(359deg);
+        }
+      }
+      @-webkit-keyframes spin {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(359deg);
+        }
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+    }
+  }
+
+  &__slide-caption-box {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200px;
+    transform: translateY(-50%);
+    padding: 5px 20px 5px 3px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: "Tangerine", sans-serif;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    background: $albumPhotoCaptionBackgroundColor;
+    opacity: 1;
+    transition: all $photoCaptionTransition ease-in;
+    z-index: $zIndex-1-FirstLevel;
+    /*border: 5px solid yellow;*/
+
+    &--is-collapsed {
+      left: -185px;
+    }
+
+    &--is-hidden {
+      left: -200px;
+      transition: all 0.01s ease-in;
+    }
+
+    &__button {
+      position: fixed;
+      top: 0%;
+      right: 0%;
+      height: 100%;
+      width: 15px;
+      padding: 0;
+      border: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      background-color: $albumPhotoCaptionBackgroundColor;
+      text-decoration: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      z-index: $zIndex-1-FirstLevel;
+
+      &:hover {
+        cursor: pointer;
+        background: $albumPhotoCaptionBackgroundHoverColor;
+      }
+
+      &:focus {
+        background: $albumPhotoCaptionBackgroundHoverColor;
+      }
+
+      &--icon-path {
+        stroke: $bodyLiteBGFontColor;
+        stroke-linecap: round;
+        &--dark {
+          stroke: $bodyDarkBGFontColor;
+          stroke-linecap: round;
+        }
+      }
+      &--icon-rotate-180 {
+        transform: translateX(0) translateY(0) rotate(180deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+      }
+      svg {
+        height: 16px;
+        width: 16px;
+        stroke-width: 3px;
+        transition-duration: $menuVisibilityTransition;
+        transition-property: all;
+        transition-timing-function: $timingFunction;
+      }
+    }
+  }
+
+  &__slide-caption {
+    color: $albumPhotoCaptionBackgroundColor; /* hide caption - make text the same color as background */
+    transition: color $slideTransition ease-in-out;
+
+    &--is-visible {
+      color: #000;
+    }
+
+    @mixin atMax620Wide {
+      font-size: 1.1em;
+    }
+  }
+
+  &__vcr-container {
+    position: absolute;
+    transition: opacity $menuButtonOutlineTransition ease-out;
+    /*top: calc(100% - 60px); 1/16*/
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 56px;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid yellow;
+
+    /*@mixin atMaxWidthForVisibleMenuIcon {
+      bottom: 10px;
+    }*/
+
+    &--fullscreen {
+      bottom: 0;
+    }
+    @mixin atMinWidthToHideeMenuIcon {
+      top: calc(100vh - 165px);
+      &--fullscreen {
+        top: calc(100vh - 65px);
+      }
+    }
+
+    &--is-hidden {
+      opacity: 0;
+    }
+
+    &--is-visible {
+      opacity: 1;
+    }
+
+    &--kill {
+      left: -1000px;
+    }
+
+    &--svg {
+      height: 48px;
+      width: 48px;
+      fill: #ff0000;
+      stroke-width: 1px;
+      overflow: visible;
+      &--path {
+        stroke: #ff0000;
+        stroke-linecap: round;
+      }
+      &--polygon {
+        stroke: #ff0000;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      &:hover {
+        stroke-width: 2px;
+      }
+      &:focus-within {
+        stroke-width: 2px;
+      }
+    }
+    &--svg-dbl-stroke {
+      height: 48px;
+      width: 48px;
+      fill: #ff0000;
+      stroke-width: 2.5px;
+      stroke-linecap: round;
+      overflow: visible;
+      &--path {
+        stroke: #ff0000;
+      }
+      &:hover {
+        stroke-width: 3.5px;
+      }
+    }
+
+    &__vcr-button {
+      display: flex;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      &:focus {
+        outline: 3px solid yellow;
+      }
+    }
+  }
+}

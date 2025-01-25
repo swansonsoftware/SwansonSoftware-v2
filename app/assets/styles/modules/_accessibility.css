@@ -1,0 +1,52 @@
+.accessibility {
+  /*hidden link text*/
+  &--hidden {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    top: -10px;
+  }
+
+  /*Skip to content link*/
+  &__skiptocontent {
+    outline-style: none;
+    padding: 10px 30px; /*top right bottom left*/
+    position: absolute;
+    height: 70px;
+    top: -100px;
+    left: 10px;
+    background-color: $HeaderFooterLiteBackground;
+    color: $bodyLiteBGFontColor;
+    border: 1px solid $bodyLiteBGFontColor;
+    border-radius: 9999px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: $zIndex-2-SecondLevel;
+
+    &:focus {
+      top: 10px;
+      outline-color: transparent;
+      -webkit-transition: top 0.1s ease-in;
+      transition: top 0.1s ease-in;
+    }
+    &:hover {
+      background-color: $hoverColorLiteBG;
+      color: $bodyLiteBGFontColor;
+    }
+
+    &--dark {
+      background-color: $siteHeaderMenuIconDarkBackgroundColor;
+      color: $bodyDarkBGFontColor;
+      border: 1px solid $bodyDarkBGFontColor;
+
+      &:hover {
+        background-color: $siteHeaderMenuIconHoverColorDarkBG;
+        color: $bodyDarkBGFontColor;
+      }
+    }
+  }
+}

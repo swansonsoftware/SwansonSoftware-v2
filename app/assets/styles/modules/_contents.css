@@ -1,0 +1,26 @@
+.contents {
+  counter-reset: section; /* Creates a new instance of the section counter with each ol element */
+  list-style-type: none;
+  padding-inline-start: 0px;
+
+  @mixin atMin1200Wide {
+    padding-inline-start: 40px;
+  }
+
+  li::before {
+    counter-increment: section; /* Increments only this instance of the section counter */
+    content: counters(section, ".") ". "; /* Combines the values of all instances of the section counter, separated by a period */
+  }
+
+  ol {
+    padding-inline-start: 20px;
+
+    @mixin atMin1200Wide {
+      padding-inline-start: 40px;
+    }
+  }
+  li {
+    font-size: 1.3rem;
+    line-height: 1.7;
+  }
+}

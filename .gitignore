@@ -1,0 +1,12 @@
+dist/
+node_modules/
+bundled.js
+*.asp
+*.jpg
+*.psp
+*.jbf
+*.doc
+*.JPG
+*.AVI
+*.MP4
+*.webp

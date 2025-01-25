@@ -1,0 +1,58 @@
+.album-recipe {
+  padding-top: 10px;
+
+  &__author {
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 30px;
+  }
+
+  &__intro {
+    font-style: italic;
+  }
+
+  &__listItem {
+    padding-top: 4px;
+  }
+
+  &__ingredient {
+    font-weight: 500;
+
+    a {
+      font-size: 1rem;
+    }
+  }
+
+  &__ingredientAmount {
+    width: 60px;
+    padding-right: 10px;
+    float: left;
+    text-align: right;
+    font-weight: 500;
+  }
+
+  ol {
+    margin-top: 0;
+  }
+
+  li {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 0px;
+    padding: 2px;
+  }
+
+  p,
+  div {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  &__print {
+    text-align: right;
+    float: right;
+    display: inline;
+    line-height: 2;
+    text-decoration: underline;
+  }
+}

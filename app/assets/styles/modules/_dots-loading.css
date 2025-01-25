@@ -1,0 +1,56 @@
+.dots-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+
+  &__dot {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    background-color: #c4c4c4;
+    border-radius: 50%;
+    /*animation: bounce 1.4s infinite ease-in-out both;*/
+    animation: opacitychange 1s ease-in-out infinite;
+
+    &:nth-child(1) {
+      animation-delay: -0.66s; /* -0.32s */
+    }
+    &:nth-child(2) {
+      animation-delay: -0.33s; /* -0.16s */
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    80%,
+    100% {
+      transform: scale(0);
+    }
+    40% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes opacitychange {
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes opacitychange {
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 1;
+    }
+  }
+}

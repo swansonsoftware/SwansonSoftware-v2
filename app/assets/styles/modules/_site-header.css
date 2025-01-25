@@ -1,0 +1,221 @@
+.site-header {
+  background-color: $HeaderFooterLiteBackground;
+  z-index: $zIndex-1-FirstLevel;
+  position: fixed; /* was sticky; need position: fixed with display: grid */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*border: 1px solid yellow;*/
+
+  &--slideshow {
+    background-color: $HeaderFooterDarkBackgroundTransparent;
+  }
+
+  &--collapse {
+    top: -100px;
+    transition: top $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+  }
+  &--expand {
+    top: 0;
+    transition: top $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+  }
+
+  &--dark {
+    background-color: $HeaderFooterDarkBackground;
+  }
+
+  &__breadcrumb {
+    /*border: 1px solid green;*/
+    display: block;
+    position: relative;
+    width: 100%;
+    background-color: $bodyLiteBGColor;
+    padding: 10px 0;
+    z-index: $zIndex-1-FirstLevel;
+    transition: all $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+    &--dark-bg {
+      background-color: $bodyDarkBGColor;
+    }
+    &__fixed {
+      position: fixed;
+      top: 0;
+      padding: 10px 0;
+      transition: all $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+    }
+    &__scroll-up {
+      position: fixed;
+      top: 89px;
+    }
+    &--transparent {
+      background-color: $HeaderFooterDarkBackgroundTransparent;
+    }
+
+    &--is-hidden {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  &__menu-dropdown {
+    position: fixed;
+    top: 88px;
+    left: 0;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    transition-property: opacity, visibility;
+    transition-duration: $transitionDuration;
+    transition-timing-function: $timingFunction;
+
+    &--visible {
+      visibility: visible;
+      opacity: 1;
+    }
+    &--container {
+      position: relative;
+      opacity: 1;
+      background-color: $HeaderFooterLiteBackground;
+      height: fit-content;
+      width: calc(100% - 2px); /*fix border cut off at left*/
+      left: 1px;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 40px;
+      &--dark {
+        background-color: $HeaderFooterDarkBackground;
+      }
+      @mixin atMinWidthToHideeMenuIcon {
+        border: 1px solid #ababc0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      @mixin atMaxWidthForVisibleMenuIcon {
+        border: 0;
+        padding-left: 10px;
+        @media (orientation: landscape) {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+      }
+      @mixin atMin1200Wide {
+        padding-top: 38px;
+        padding-bottom: 38px;
+      }
+    }
+    @mixin atMaxWidthForVisibleMenuIcon {
+      /* mobile menu */
+      position: relative;
+      top: 7px;
+    }
+  }
+
+  @mixin atMaxWidthForVisibleMenuIcon {
+    height: 90px;
+    right: 0px;
+    padding-top: 0;
+    width: 100%;
+    &__breadcrumb {
+      &__fixed {
+        top: 0;
+      }
+    }
+    [class*="col-"] {
+      width: 100%;
+    }
+    .col-1 {
+      display: none;
+    }
+    .col-2 {
+      max-height: 0;
+      transition: max-height $transitionDuration $timingFunction;
+      &--grow {
+        /*max-height: 500px;*/
+        max-height: calc(100vw - 150px);
+        overflow-y: auto;
+      }
+      &--shrink {
+        max-height: 0;
+      }
+    }
+  }
+
+  .col-2 {
+    &--grow {
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+  }
+  @mixin atMinWidthToHideeMenuIcon {
+    padding: 13px 0;
+  }
+
+  &__logo {
+    padding-top: 17px;
+    border: 0;
+    width: 220px;
+    position: relative;
+    z-index: $zIndex-1-FirstLevel;
+  }
+
+  &__menu-icon {
+    width: 90px;
+    height: 70px;
+    position: absolute;
+    z-index: $zIndex-1-FirstLevel;
+    top: 10px;
+    right: 50px;
+    background-color: $HeaderFooterLiteBackground;
+    color: $bodyLiteBGFontColor;
+    border: 1px solid $bodyLiteBGFontColor;
+    border-radius: 9999px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: $hoverColorLiteBG;
+      border: 3px solid $bodyLiteBGFontColor;
+    }
+
+    &:focus {
+      border: 3px solid $bodyLiteBGFontColor;
+    }
+
+    &--dark {
+      background-color: $siteHeaderMenuIconDarkBackgroundColor;
+      color: $bodyDarkBGFontColor;
+      border: 1px solid $bodyDarkBGFontColor;
+
+      &:hover {
+        background-color: $siteHeaderMenuIconHoverColorDarkBG;
+        border: 3px solid $bodyDarkBGFontColor;
+      }
+
+      &:focus {
+        border: 3px solid $bodyDarkBGFontColor;
+      }
+    }
+
+    @mixin atMaxWidthForVisibleMenuIcon {
+      right: 10px;
+    }
+
+    @mixin atMinWidthToHideeMenuIcon {
+      display: none;
+    }
+  }
+
+  &__menu-icon--collapsed::after {
+    font-size: 30px;
+    font-family: "Material Icons";
+    content: "\e5d2";
+  }
+
+  &__menu-icon--expanded::after {
+    font-size: 30px;
+    font-family: "Material Icons";
+    content: "\e5cd";
+  }
+}

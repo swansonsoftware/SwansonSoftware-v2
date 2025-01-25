@@ -1,0 +1,132 @@
+@define-mixin atMin200Wide {
+  @media (min-width: 200px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMaxWidthForVisibleMenuIcon {
+  @media (max-width: 800px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMinWidthToHideeMenuIcon {
+  @media (min-width: 801px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMax620Wide {
+  @media (max-width: 620px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMin620Wide {
+  @media (min-width: 621px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMaxHight620 {
+  @media (max-height: 620px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMaxHeight700 {
+  @media (max-height: 700px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMax799Wide {
+  @media (max-width: 799px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMin800Wide {
+  @media (min-width: 800px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMin820Wide {
+  @media (min-width: 820px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMax860Wide {
+  @media (max-width: 860px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMin1200Wide {
+  @media (min-width: 1200px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMax1200Wide {
+  @media (max-width: 1199px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMax1500Wide {
+  @media (max-width: 1500px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMin1500Wide {
+  @media (min-width: 1501px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMin1900Wide {
+  @media (min-width: 1900px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMax2000Wide {
+  @media (max-width: 2000px) {
+    @mixin-content;
+  }
+}
+@define-mixin atMin2000Wide {
+  @media (min-width: 2001px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMinHight200 {
+  @media (min-height: 200px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMinHeight389 {
+  @media (min-height: 389px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMinHeight550 {
+  @media (min-height: 550px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@define-mixin gsPrint {
+  @media print {
+    @mixin-content;
+  }
+}

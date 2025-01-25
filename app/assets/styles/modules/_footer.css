@@ -1,0 +1,57 @@
+.footer {
+  background-color: $HeaderFooterLiteBackground;
+  font-size: 1rem;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 0 5px 0;
+
+  a {
+    color: $bodyLiteBGFontColor;
+  }
+
+  &__hidden {
+    display: none;
+  }
+
+  &--dark-bg {
+    background-color: $HeaderFooterDarkBackground;
+    a {
+      color: $bodyDarkBGFontColor;
+    }
+  }
+
+  &__copyright {
+    display: block;
+    padding: 10px 0;
+  }
+
+  &__about-us-link {
+    display: block;
+    padding: 10px 0 10px 5px;
+  }
+
+  @mixin atMaxWidthForVisibleMenuIcon {
+    font-size: 1.2rem;
+    @media (orientation: portrait) {
+      &__copyright::after {
+        content: "";
+      }
+      &__about-us-link::before {
+        content: "";
+      }
+      &__about-us-link {
+        padding: 10px 0;
+      }
+    }
+  }
+
+  @mixin atMinWidthToHideeMenuIcon {
+    font-weight: 300;
+
+    &__copyright::after {
+      content: " | ";
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.page {
+  /*padding-bottom: 15px;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*border: 2px solid red;*/
+
+  p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-top: 15px;
+  }
+
+  /* are these needed? 
+  @mixin atMinHeight389 {
+    position: relative;
+  }
+  @mixin atMinHeight550 {
+    position: relative;
+  }*/
+}

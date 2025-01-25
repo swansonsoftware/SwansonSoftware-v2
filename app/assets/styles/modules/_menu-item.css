@@ -1,0 +1,100 @@
+.menu-item {
+  display: inline-grid;
+
+  li {
+    padding-bottom: 5px;
+    text-align: left;
+    &:first-child {
+      padding-bottom: 5px;
+    }
+  }
+
+  @mixin atMaxWidthForVisibleMenuIcon {
+    li {
+      &:last-child {
+        padding-bottom: 15px;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition-property: outline;
+    transition-duration: $menuButtonOutlineTransition;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &--dark {
+      color: $bodyDarkBGFontColor;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+        text-decoration-thickness: 1px;
+      }
+      &:focus {
+        outline: 3px solid $bodyDarkBGFontColor;
+        outline-offset: 2px;
+        border-radius: 9999px;
+      }
+      &:active {
+        outline: 3px solid $bodyDarkBGFontColor;
+        outline-offset: 2px;
+        border-radius: 9999px;
+      }
+    }
+
+    &--lite {
+      color: $bodyLiteBGFontColor;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+        text-decoration-thickness: 1px;
+      }
+      &:focus {
+        outline: 3px solid $bodyLiteBGFontColor;
+        outline-offset: 2px;
+        border-radius: 9999px;
+      }
+      &:active {
+        outline: 3px solid $bodyLiteBGFontColor;
+        outline-offset: 2px;
+        border-radius: 9999px;
+      }
+    }
+  }
+
+  &__subheading-2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 4px 0;
+    color: $bodyLiteBGFontColor;
+    &--dark {
+      margin: 4px 0;
+      color: $bodyDarkBGFontColor;
+    }
+  }
+
+  @mixin atMin1200Wide {
+    li {
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    /*
+    &__link {
+      font-weight: 300;
+      line-height: 1.25;
+    }
+      */
+
+    /*
+    &__subheading-2 {
+      font-weight: 300;
+      line-height: 1.25;
+      letter-spacing: 0.003em;
+    }*/
+  }
+}

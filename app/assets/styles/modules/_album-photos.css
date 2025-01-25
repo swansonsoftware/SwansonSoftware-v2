@@ -1,0 +1,107 @@
+.album-photos {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  padding-bottom: 50px;
+
+  &--pull-left {
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+
+  &__video-row {
+    display: flex;
+    flex-direction: column;
+    @mixin atMin1200Wide {
+      flex-direction: row;
+      column-gap: 15px;
+    }
+  }
+
+  &__photo-caption-box {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200px;
+    transform: translateY(-50%);
+    padding: 5px 20px 5px 3px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-family: "Tangerine", sans-serif;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    background: $albumPhotoCaptionBackgroundColor;
+    opacity: 1;
+    transition: all $photoCaptionTransition ease-in;
+    z-index: $zIndex-1-FirstLevel;
+    /*border: 5px solid yellow;*/
+
+    @mixin atMax620Wide {
+      font-size: 1.3em;
+    }
+    @mixin atMax860Wide {
+      font-size: 1.9rem;
+    }
+
+    &--is-collapsed {
+      left: -185px;
+    }
+
+    &--is-hidden {
+      left: -200px;
+      transition: all 0.01s ease-in;
+    }
+
+    &__button {
+      position: fixed;
+      top: 0%;
+      right: 0%;
+      height: 100%;
+      width: 15px;
+      padding: 0;
+      border: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      background-color: $albumPhotoCaptionBackgroundColor;
+      text-decoration: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      z-index: $zIndex-1-FirstLevel;
+
+      &:hover {
+        cursor: pointer;
+        background: $albumPhotoCaptionBackgroundHoverColor;
+      }
+
+      &:focus {
+        background: $albumPhotoCaptionBackgroundHoverColor;
+      }
+
+      &--icon-path {
+        stroke: $bodyLiteBGFontColor;
+        stroke-linecap: round;
+        &--dark {
+          stroke: $bodyDarkBGFontColor;
+          stroke-linecap: round;
+        }
+      }
+      &--icon-rotate-180 {
+        transform: translateX(0) translateY(0) rotate(180deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+      }
+      svg {
+        height: 16px;
+        width: 16px;
+        stroke-width: 3px;
+        transition-duration: $menuVisibilityTransition;
+        transition-property: all;
+        transition-timing-function: $timingFunction;
+      }
+    }
+  }
+
+  &__photo-caption {
+    color: $bodyLiteBGFontColor;
+  }
+}

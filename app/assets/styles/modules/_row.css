@@ -1,0 +1,51 @@
+.row {
+  @mixin atMin1200Wide {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    &--gutters {
+      column-gap: 5.3%;
+    }
+
+    /* not used
+    &--gutters-large {
+      column-gap: 8%;
+    }*/
+
+    &--gutters-small {
+      column-gap: 3.6%;
+    }
+
+    &__margin-bottom-0 {
+      margin-bottom: 0;
+    }
+
+    /* not used
+    &__col-span-2 {
+      grid-column: span 2;
+    }*/
+
+    &__col-span-4 {
+      grid-column: span 4;
+    }
+
+    /* not used
+    &__col-span-6 {
+      grid-column: span 6;
+    }*/
+
+    &__col-span-8 {
+      grid-column: span 8;
+      &--end {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  /*
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 15px;
+  }*/
+}

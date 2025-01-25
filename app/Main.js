@@ -1,0 +1,132 @@
+import React, { useEffect, useReducer, Suspense } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import ReactDOM from "react-dom/client"
+import "./assets/styles/styles.css"
+import StateContext from "./StateContext"
+import DispatchContext from "./DispatchContext"
+
+// Components
+import NotFound from "./components/NotFound"
+import LoadingDotsIcon from "./components/DotsLoading"
+import Home from "./components/Home"
+import SkipToContent from "./components/SkipToContent"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+const _1900s = React.lazy(() => import("./components/album/_1900s"))
+const _1999KauaiSlideshow = React.lazy(() => import("./components/album/_1999KauaiSlideshow"))
+const _2000s = React.lazy(() => import("./components/album/_2000s"))
+const _2010s = React.lazy(() => import("./components/album/_2010s"))
+const _2010sSlideshow = React.lazy(() => import("./components/album/_2010sSlideshow"))
+const _2020s = React.lazy(() => import("./components/album/_2020s"))
+const About = React.lazy(() => import("./components/About"))
+const Blogs2025 = React.lazy(() => import("./components/blog/_2025"))
+const Design = React.lazy(() => import("./components/principles/Design"))
+const Favorites = React.lazy(() => import("./components/album/Favorites"))
+const FavoritesCats = React.lazy(() => import("./components/album/FavoritesCats"))
+const FavoritesGardens = React.lazy(() => import("./components/album/FavoritesGardens"))
+const FavoritesKauai = React.lazy(() => import("./components/album/FavoritesKauai"))
+const FavoritesKauaiSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiSlideshow"))
+const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersomons"))
+const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow"))
+const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels"))
+const ProcessModels = React.lazy(() => import("./components/principles/ProcessModels"))
+const Recipes = React.lazy(() => import("./components/album/Recipes"))
+const RecipeClamChowder = React.lazy(() => import("./components/album/RecipeClamChowder"))
+const RecipeVegetableStock = React.lazy(() => import("./components/album/RecipeVegetableStock"))
+const Requirements = React.lazy(() => import("./components/principles/Requirements"))
+const Reviews = React.lazy(() => import("./components/principles/Reviews"))
+const BlogResolutionSwitchingImages = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching"))
+const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
+
+function Main() {
+  const initialState = { backgroundStyle: "dark", color: "red", isMenuOpen: false }
+
+  function theReducer(state, action) {
+    // console.log("Main - action type: " + action.type + ", change to: " + action.color)
+    switch (action.type) {
+      case "backgroundStyleChange": {
+        return {
+          backgroundStyle: action.color,
+          color: state.color,
+          isMenuOpen: state.isMenuOpen
+        }
+      }
+      case "closeOverlay": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          color: state.color,
+          isMenuOpen: false
+        }
+      }
+      case "openOverlay": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          color: state.color,
+          isMenuOpen: true
+        }
+      }
+    }
+  }
+
+  const [state, dispatch] = useReducer(theReducer, initialState)
+
+  // useEffect(() => {
+  //   if (state.isMenuOpen) {
+  //     console.log("Main - (useEffect) state.isMenuOpen is true")
+  //   } else {
+  //     console.log("Main - (useEffect) state.isMenuOpen is false")
+  //   }
+  // }, [state.isMenuOpen])
+
+  return (
+    <StateContext.Provider value={state}>
+      <DispatchContext.Provider value={dispatch}>
+        <BrowserRouter>
+          <SkipToContent />
+          <Header />
+          <main className="page" id="maincontent">
+            <Suspense fallback={<LoadingDotsIcon />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about-us" element={<About body="light" />} />
+                <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
+                <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
+                <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
+                <Route path="/principles/process-models" element={<ProcessModels body="light" />} />
+                <Route path="/principles/requirements" element={<Requirements body="light" />} />
+                <Route path="/principles/design" element={<Design body="light" />} />
+                <Route path="/principles/lifecycle-models" element={<LifecycleModels body="light" />} />
+                <Route path="/principles/reviews" element={<Reviews body="light" />} />
+                <Route path="/album/recipes" element={<Recipes />} />
+                <Route path="/album/favorites" element={<Favorites />} />
+                <Route path="/album/favorites-kauai" element={<FavoritesKauai />} />
+                <Route path="/album/favorites-kauai-slideshow" element={<FavoritesKauaiSlideshow />} />
+                <Route path="/album/favorites-cats" element={<FavoritesCats />} />
+                <Route path="/album/favorites-persimons" element={<FavoritesPersimons />} />
+                <Route path="/album/favorites-gardens" element={<FavoritesGardens />} />
+                <Route path="/album/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
+                <Route path="/album/1900s" element={<_1900s />} />
+                <Route path="/album/2000s" element={<_2000s />} />
+                <Route path="/album/2010s" element={<_2010s />} />
+                <Route path="/album/2020s" element={<_2020s />} />
+                <Route path="/album/1999-kauai-slideshow" element={<_1999KauaiSlideshow />} />
+                <Route path="/album/2010s-slideshow" element={<_2010sSlideshow />} />
+                <Route path="/album/clam-chowder" element={<RecipeClamChowder />} />
+                <Route path="/album/vegetable-stock" element={<RecipeVegetableStock />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+        </BrowserRouter>
+      </DispatchContext.Provider>
+    </StateContext.Provider>
+  )
+}
+
+const root = ReactDOM.createRoot(document.querySelector("#app"))
+root.render(<Main />)
+
+if (module.hot) {
+  module.hot.accept()
+}
