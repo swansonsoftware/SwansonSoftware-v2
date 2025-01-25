@@ -13,8 +13,7 @@ postCSSPlugins = [require("postcss-import"), require("postcss-mixins"), require(
 class RunAfterCompile {
   apply(compiler) {
     compiler.hooks.done.tap("Copy Images", function () {
-      fse.copySync("./assets/images", "./dist/assets/images")
-      fse.copySync("./album/images", "./dist/assets/images")
+      fse.copySync("./app/assets/images", "./dist/assets/images")
     })
   }
 }
@@ -45,7 +44,7 @@ let config = {
     // new Dotenv(),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: "app/index-template.html",
+      template: "./app/index-template.html",
       alwaysWriteToDisk: true
     }),
     new HtmlWebpackHarddiskPlugin()
