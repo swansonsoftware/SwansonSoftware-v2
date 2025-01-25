@@ -3,13 +3,8 @@
 @import "base/_mixins.css";
 @import "base/_global";
 @import "modules/_accessibility";
-/*@import "modules/_album.css";*/
 @import "modules/_album-photos";
 @import "modules/_album-recipe";
-/*
-@import "modules/_album-headline";
-@import "modules/_album-nav";
-*/
 @import "modules/_banner";
 @import "modules/_contents";
 @import "modules/_dots-loading";
