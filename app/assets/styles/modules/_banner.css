@@ -7,6 +7,8 @@
   }
 
   &__image {
+    position: fixed;
+    z-index: $zIndex--1-BelowAll;
     img {
       max-width: 100%;
       height: auto;
