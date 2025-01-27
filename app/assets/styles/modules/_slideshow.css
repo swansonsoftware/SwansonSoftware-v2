@@ -109,7 +109,6 @@
     opacity: 1;
     transition: all $photoCaptionTransition ease-in;
     z-index: $zIndex-1-FirstLevel;
-    /*border: 5px solid yellow;*/
 
     &--is-collapsed {
       left: -185px;
