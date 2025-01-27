@@ -171,8 +171,6 @@ function SlideShow(props) {
    * Hide VCR buttons and menu, for mobile devices
    */
   function runOnTouchEnd() {
-    // alert("runOnTouchEnd")
-    // alert("delay? " + delayHideVcrBtns.current)
     if (touch.current == 0) {
       touch.current = 1
       clearInterval(vcrButtonsIntervalRef.current)
@@ -257,7 +255,6 @@ function SlideShow(props) {
     let breadcrumb = document.getElementById("breadcrumb")
 
     if (pointermoveFlag.current == 1 || touch.current == 1) {
-      // alert("pointer")
       if (noHideMenu.current == false) {
         siteHeader.classList.add("site-header--collapse")
         siteHeader.classList.remove("site-header--expand")
@@ -291,7 +288,6 @@ function SlideShow(props) {
   }
 
   function hideVcrButtons() {
-    // console.log("hide VCR")
     let vcrContainer = document.querySelector(".slideshow__vcr-container")
     if (vcrContainer) {
       vcrContainer.classList.add("slideshow__vcr-container--is-hidden")
@@ -317,8 +313,6 @@ function SlideShow(props) {
     FooterVisible(false)
 
     let slider = document.querySelector(".slideshow__slides")
-    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
-    const slideCaptionText = document.querySelector(".slideshow__slide-caption")
 
     if (slider) {
       let slides = slider.getElementsByTagName("li")
@@ -333,23 +327,15 @@ function SlideShow(props) {
 
         if (prevSlideIndex > 0) {
           slides[prevSlideIndex - 1].classList.remove("slideshow__slides__slide--is-visible")
-          slideCaptionText.classList.remove("slideshow__slide-caption--is-visible")
         }
 
         //Show the slide
         slides[slideIndex - 1].classList.add("slideshow__slides__slide--is-visible")
-        slideCaptionText.classList.add("slideshow__slide-caption--is-visible")
 
-        // with this view we need a separate caption box than the one in the full screen overlay
         slideImg = slides[slideIndex - 1].querySelector(".slide-image")
 
         captionText = slideImg.dataset["caption"]
-        HandleSlideCaption(slideCaptionText, slideCaptionBox, captionText, "slideshow__slide-")
-
-        //Hide the slide caption box arrow if no text
-        // checkForSlideCaptionText()
       } else {
-        // console.log("slides <= 2")
         prevSlideIndex = slideIndex
         slideIndex++
         if (slideIndex > slides.length) {
@@ -359,23 +345,20 @@ function SlideShow(props) {
         if (prevSlideIndex == 0) {
           slides[0].classList.add("slideshow__slides__slide--is-visible")
           slideImg = slides[0].querySelector(".slide-image")
-          slideCaptionText.classList.add("slideshow__slide-caption--is-visible")
         } else if (prevSlideIndex == 1) {
           slides[1].classList.add("slideshow__slides__slide--is-visible")
           slideImg = slides[1].querySelector(".slide-image")
           slides[0].classList.remove("slideshow__slides__slide--is-visible")
-          slideCaptionText.classList.add("slideshow__slide-caption--is-visible")
         } else if (prevSlideIndex == 2) {
           slides[0].classList.add("slideshow__slides__slide--is-visible")
           slides[1].classList.remove("slideshow__slides__slide--is-visible")
           slideImg = slides[0].querySelector(".slide-image")
-          slideCaptionText.classList.add("slideshow__slide-caption--is-visible")
         }
 
         captionText = slideImg.dataset["caption"]
-
-        HandleSlideCaption(slideCaptionText, slideCaptionBox, captionText, "slideshow__slide-")
       }
+
+      HandleSlideCaption(captionText)
     } else {
       console.log("Play - no slider?")
     }
@@ -387,16 +370,19 @@ function SlideShow(props) {
     }, slideInterval * 1000)
   }
 
-  function HandleSlideCaption(captionBoxText, captionBox, captionText, classPrefix) {
-    var cssclass = classPrefix + "caption-box--is-hidden"
+  function HandleSlideCaption(captionText) {
+    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
+    const slideCaption = document.querySelector(".slideshow__slide-caption")
 
-    if (captionBoxText) {
+    if (slideCaption) {
       if (captionText.length == 0) {
-        captionBox.classList.add(cssclass)
-        captionBoxText.innerText = ""
+        slideCaptionBox.classList.add("slideshow__slide-caption-box--is-hidden")
+        slideCaption.innerText = ""
+        slideCaption.classList.remove("slideshow__slide-caption--is-visible")
       } else {
-        captionBox.classList.remove(cssclass)
-        captionBoxText.innerText = captionText
+        slideCaptionBox.classList.remove("slideshow__slide-caption-box--is-hidden")
+        slideCaption.innerText = captionText
+        slideCaption.classList.add("slideshow__slide-caption--is-visible")
       }
     }
   }
@@ -424,8 +410,6 @@ function SlideShow(props) {
 
     swapVcrBtn(PAUSE)
 
-    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
-    const slideCaptionText = document.querySelector(".slideshow__slide-caption")
     let captionText = ""
     let slideImg = null
 
@@ -448,7 +432,7 @@ function SlideShow(props) {
       slideImg = slides[slideIndex - 1].querySelector(".slide-image")
       captionText = slideImg.dataset["caption"]
       slides[slideIndex - 1].classList.add("slideshow__slides__slide--is-visible")
-      HandleSlideCaption(slideCaptionText, slideCaptionBox, captionText, "slideshow__slide-")
+      HandleSlideCaption(captionText)
 
       prevSlideIndex = slideIndex - 1
       if (prevSlideIndex < 1) {
@@ -463,8 +447,6 @@ function SlideShow(props) {
 
     swapVcrBtn(PAUSE)
 
-    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
-    const slideCaptionText = document.querySelector(".slideshow__slide-caption")
     let captionText = ""
     let slideImg = null
 
@@ -487,7 +469,7 @@ function SlideShow(props) {
       slideImg = slides[slideIndex - 1].querySelector(".slide-image")
       captionText = slideImg.dataset["caption"]
       slides[slideIndex - 1].classList.add("slideshow__slides__slide--is-visible")
-      HandleSlideCaption(slideCaptionText, slideCaptionBox, captionText, "slideshow__slide-")
+      HandleSlideCaption(captionText)
 
       prevSlideIndex = slideIndex - 1
       if (prevSlideIndex < 1) {
