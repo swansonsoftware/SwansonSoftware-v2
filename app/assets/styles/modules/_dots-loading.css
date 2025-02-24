@@ -10,7 +10,6 @@
     margin: 0 10px;
     background-color: #c4c4c4;
     border-radius: 50%;
-    /*animation: bounce 1.4s infinite ease-in-out both;*/
     animation: opacitychange 1s ease-in-out infinite;
 
     &:nth-child(1) {
