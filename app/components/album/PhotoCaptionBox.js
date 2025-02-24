@@ -6,8 +6,6 @@ function PhotoCaptionBox() {
   let captionBoxBtnOrientation = TITLEBTNLEFT
 
   function doToggleButtonClick(e) {
-    // console.log("doToggleButtonClick " + e.code)
-
     if (e.code == "Enter" || e.type == "click") {
       e.stopPropagation(), e.preventDefault()
       if (captionBoxBtnOrientation == TITLEBTNRIGHT) {
@@ -37,7 +35,6 @@ function PhotoCaptionBox() {
     let captionBoxToggleButton = document.querySelector(".album-photos__photo-caption-box__button")
     if (captionBoxToggleButton) {
       captionBoxToggleButton.addEventListener("click", e => doToggleButtonClick(e), { signal: eventListenerAbortCtrlr.signal })
-      // captionBoxToggleButton.addEventListener("keydown", e => doToggleButtonClick(e))
       return () => eventListenerAbortCtrlr.abort()
     }
   }, [])
