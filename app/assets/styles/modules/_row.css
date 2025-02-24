@@ -2,15 +2,12 @@
   @mixin atMin1200Wide {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
+    row-gap: 1em;
+    margin-bottom: 40px;
 
     &--gutters {
       column-gap: 5.3%;
     }
-
-    /* not used
-    &--gutters-large {
-      column-gap: 8%;
-    }*/
 
     &--gutters-small {
       column-gap: 3.6%;
@@ -20,32 +17,40 @@
       margin-bottom: 0;
     }
 
-    /* not used
-    &__col-span-2 {
-      grid-column: span 2;
-    }*/
+    &__colspan-1 {
+      grid-column: span 1;
+    }
 
-    &__col-span-4 {
+    &__colspan-2 {
+      grid-column: span 2;
+    }
+
+    &__colspan-4 {
       grid-column: span 4;
     }
 
-    /* not used
-    &__col-span-6 {
-      grid-column: span 6;
-    }*/
+    &__colspan-7 {
+      grid-column: span 7;
+    }
 
-    &__col-span-8 {
+    &__colspan-8 {
       grid-column: span 8;
-      &--end {
-        padding-top: 20px;
+    }
+
+    &__colspan-9 {
+      grid-column: span 9;
+    }
+
+    &__colspan-10 {
+      grid-column: span 10;
+    }
+
+    &__colspan-12 {
+      grid-column: span 12;
+      padding-top: 20px;
+      &--no-top-pad {
+        padding-top: 0;
       }
     }
   }
-
-  /*
-  p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-top: 15px;
-  }*/
 }
