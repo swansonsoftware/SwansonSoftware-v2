@@ -1,0 +1,59 @@
+.table {
+  width: 100%;
+
+  &--no-border {
+    border-collapse: collapse;
+  }
+
+  &--cell-border-dark {
+    td,
+    th {
+      border: 1px solid black;
+      text-align: left;
+      padding: 8px;
+    }
+  }
+
+  &--cell-border {
+    td,
+    th {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    &__aleft {
+      text-align: left;
+    }
+    &__acenter {
+      text-align: center;
+    }
+  }
+
+  &--vert {
+    writing-mode: sideways-lr;
+    text-align: left;
+  }
+
+  &--cell-border-dark-no-align {
+    td,
+    th {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--alternate-row-color {
+    tr:nth-child(odd) {
+      background-color: $HeaderFooterLiteBackground;
+    }
+  }
+  &--row-color-light {
+    background-color: #fff;
+  }
+  &--row-color-shadow {
+    background-color: $HeaderFooterLiteBackground;
+  }
+}
