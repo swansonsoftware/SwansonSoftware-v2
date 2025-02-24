@@ -6,7 +6,6 @@ function SlideCaptionBox() {
   const captionBoxBtnOrientation = useRef(TITLEBTNLEFT)
 
   function doToggleButtonClick(e) {
-    console.log("doToggleBtn")
     if (captionBoxBtnOrientation.current == TITLEBTNRIGHT) {
       swapCaptionBoxBtnIco(TITLEBTNLEFT)
     } else {
