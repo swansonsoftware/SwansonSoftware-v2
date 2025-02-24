@@ -32,6 +32,11 @@
     padding: 10px 0 10px 5px;
   }
 
+  &__contact-us-link {
+    display: block;
+    padding: 10px 0 10px 5px;
+  }
+
   @mixin atMaxWidthForVisibleMenuIcon {
     font-size: 1.2rem;
     @media (orientation: portrait) {
@@ -44,6 +49,12 @@
       &__about-us-link {
         padding: 10px 0;
       }
+      &__contact-us-link::before {
+        content: "";
+      }
+      &__contact-us-link {
+        padding: 10px 0;
+      }
     }
   }
 
@@ -51,6 +62,9 @@
     font-weight: 300;
 
     &__copyright::after {
+      content: " | ";
+    }
+    &__about-us-link::after {
       content: " | ";
     }
   }
