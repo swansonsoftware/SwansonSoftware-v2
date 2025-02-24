@@ -4,7 +4,6 @@ class OverlayOpener {
   constructor(e, image) {
     this.e = e
     this.image = image
-    // console.log("OverlayOpener " + e.target.nodeName + ", " + e.type + ", " + e.code)
   }
 
   openOverlay() {
@@ -77,6 +76,7 @@ class OverlayOpener {
           let srcsetFilename = ""
 
           srcsetFilename = "../" + files.filter(file => file.id == sizesArray[0])[0].filename
+          // console.log("srcsetFilename: " + srcsetFilename)
 
           if (srcsetString.length) {
             srcsetString += ", " + srcsetFilename + " " + descriptor[0] + "w"
@@ -91,13 +91,25 @@ class OverlayOpener {
 
         var filename = imgElem.src.substring(imgElem.src.lastIndexOf("../assets/"))
 
-        overlayImageDiv.innerHTML = `
-      <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;'></div>
-      <div class='lightbox__photo-overlay__selectedImg'>
-      <img  src="${filename}" style="max-height:${window.innerHeight}px"
-        alt="${this.image.alt}" srcset="${srcsetString}" sizes="${sizes.toString()}" />
-        </div>
-      `
+        if (orientation != "portrait") {
+          // When displaying landscape images at 100% we don't need sizes, it defaults to 100vw
+          overlayImageDiv.innerHTML = `
+        <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;'></div>
+        <div class='lightbox__photo-overlay__selectedImg'>
+        <img  src="${filename}" style="max-height:${window.innerHeight}px"
+          alt="${this.image.alt}" srcset="${srcsetString}" />
+          </div>
+        `
+        } else {
+          // When displaying portrait images at 100% we need sizes
+          overlayImageDiv.innerHTML = `
+        <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;'></div>
+        <div class='lightbox__photo-overlay__selectedImg'>
+        <img  src="${filename}" style="max-height:${window.innerHeight}px"
+          alt="${this.image.alt}" srcset="${srcsetString}" sizes="${sizes.toString()}" />
+          </div>
+        `
+        }
       }
 
       overlay.classList.add("lightbox__photo-overlay--visible")
