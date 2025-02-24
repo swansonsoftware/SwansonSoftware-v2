@@ -8,10 +8,9 @@
     top: -10px;
   }
 
-  /*Skip to content link*/
   &__skiptocontent {
     outline-style: none;
-    padding: 10px 30px; /*top right bottom left*/
+    padding: 10px 30px; /*t r b l*/
     position: absolute;
     height: 70px;
     top: -100px;
@@ -23,15 +22,15 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    -webkit-transition: top 1s ease-out;
-    transition: top 1s ease-out;
+    -webkit-transition: top 1s $cb-ease-out;
+    transition: top 1s $cb-ease-out;
     z-index: $zIndex-2-SecondLevel;
 
     &:focus {
       top: 10px;
       outline-color: transparent;
-      -webkit-transition: top 0.1s ease-in;
-      transition: top 0.1s ease-in;
+      -webkit-transition: top 0.1s $cb-ease-in;
+      transition: top 0.1s $cb-ease-in;
     }
     &:hover {
       background-color: $hoverColorLiteBG;
