@@ -44,10 +44,20 @@
     font-weight: 400;
     padding: 10px 0;
     margin: 0;
+    &--bold {
+      font-weight: 700;
+    }
 
     @mixin atMin1200Wide {
       font-size: 2rem;
     }
+  }
+
+  &__h3-cg {
+    font-family: "Cormorant Garamond";
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: normal;
   }
 
   &__h3-album-thumbnail {
@@ -79,5 +89,6 @@
   &__author {
     font-size: 1.3rem;
     font-style: italic;
+    margin-bottom: 30px;
   }
 }
