@@ -21,6 +21,7 @@ function SlideShow(props) {
   const pointermoveFlag = useRef(0)
   const touch = useRef(0)
   const noHideMenu = useRef(false)
+  const touchInitialted = useRef(false)
   const delayHideVcrBtns = useRef(false)
   const passiveSupported = useRef(false)
 
@@ -34,18 +35,16 @@ function SlideShow(props) {
   let slideIndex = 0
 
   function setNoHideMenu(e, hideMenuOption) {
-    // console.log("setNoHide " + e + ", " + hideMenuOption)
     if (!isSmallScreen) {
       noHideMenu.current = hideMenuOption
     }
     pointermoveFlag.current = 0
   }
 
-  const pointerListener = new AbortController()
+  let pointerListener = new AbortController()
 
   function ToggleFullScreen(e) {
     e.preventDefault()
-    // console.log("ToggleFullScreen")
 
     let wrapper = document.querySelector(".wrapper--album-slideshow")
     let siteHeader = document.querySelector(".site-header")
@@ -53,12 +52,11 @@ function SlideShow(props) {
 
     if (siteHeader) {
       if (isFullScreen.current == false) {
-        if (isSmallScreen) {
-          // console.log("passive supported? " + passiveSupported.current)
+        wrapper.addEventListener("pointermove", () => RunOnPointerMove(), { signal: pointerListener.signal })
+        if (passiveSupported.current) {
           wrapper.addEventListener("touchstart", e => runOnTouch(e), { signal: pointerListener.signal, passive: passiveSupported.current })
           wrapper.addEventListener("touchend", () => runOnTouchEnd(), { signal: pointerListener.signal })
-        } else {
-          wrapper.addEventListener("pointermove", () => RunOnPointerMove(), { signal: pointerListener.signal })
+          touchInitialted.current = true
         }
         pointermoveFlag.current = 1
         touch.current = 1
@@ -70,6 +68,8 @@ function SlideShow(props) {
         isFullScreen.current = true
       } else {
         pointerListener.abort()
+        pointerListener = new AbortController()
+
         clearInterval(headerIntervalRef.current)
         clearInterval(vcrButtonsIntervalRef.current)
 
@@ -171,9 +171,11 @@ function SlideShow(props) {
    * Hide VCR buttons and menu, for mobile devices
    */
   function runOnTouchEnd() {
+    touchInitialted.current = true
     if (touch.current == 0) {
       touch.current = 1
       clearInterval(vcrButtonsIntervalRef.current)
+      // console.log("runOnTouchEnd - call touchHideNav")
       vcrButtonsIntervalRef.current = setInterval(() => {
         touchHideNav()
       }, hideDelayMS)
@@ -253,9 +255,8 @@ function SlideShow(props) {
   function HideControlsForFullScreen() {
     let siteHeader = document.querySelector(".site-header")
     let breadcrumb = document.getElementById("breadcrumb")
-
     if (pointermoveFlag.current == 1 || touch.current == 1) {
-      if (noHideMenu.current == false) {
+      if (noHideMenu.current == false || touchInitialted.current == true) {
         siteHeader.classList.add("site-header--collapse")
         siteHeader.classList.remove("site-header--expand")
 
@@ -283,6 +284,7 @@ function SlideShow(props) {
         }
         pointermoveFlag.current = 0
         touch.current = 0
+        touchInitialted.current = false
       }
     }
   }
@@ -304,7 +306,6 @@ function SlideShow(props) {
   }
 
   function play(e) {
-    // console.log("Play")
     if (e) {
       e.preventDefault()
     }
@@ -388,7 +389,6 @@ function SlideShow(props) {
   }
 
   function pause(e) {
-    // console.log("pause")
     e.preventDefault()
     clearInterval(slideIntervalRef.current)
     swapVcrBtn(PAUSE)
@@ -479,7 +479,6 @@ function SlideShow(props) {
   }
 
   function swapVcrBtn(btnId) {
-    // console.log("swapVcrBtn - btnId (play=1): " + btnId)
     const svgPause = document.getElementById("pause")
     const svgPlay = document.getElementById("play")
     if (svgPause && svgPlay) {
@@ -496,7 +495,6 @@ function SlideShow(props) {
   }
 
   function CancelTimers() {
-    console.log("CancelTimers")
     noHideMenu.current = true
     clearInterval(slideIntervalRef.current)
     clearInterval(headerIntervalRef.current)
@@ -525,7 +523,7 @@ function SlideShow(props) {
       }
       passiveSupported.current = true
     } catch (e) {
-      console.log("no passive supporrt")
+      console.log("Error testing passive support")
     }
   }
 
@@ -570,6 +568,7 @@ function SlideShow(props) {
     if (btnFullScreen) {
       btnFullScreen.addEventListener("click", e => ToggleFullScreen(e), { signal: VcrButtonsListener.signal })
       btnFullScreen.addEventListener("focus", e => showVcrButtons(), { signal: VcrButtonsListener.signal })
+      btnFullScreen.addEventListener("touchend", e => showVcrButtons(), { signal: VcrButtonsListener.signal })
     }
     return () => VcrButtonsListener.abort()
   }, [])
