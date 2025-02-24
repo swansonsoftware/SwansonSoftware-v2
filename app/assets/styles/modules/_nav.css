@@ -7,12 +7,12 @@
     list-style: none;
     display: block;
     font-size: 1.8rem;
-    padding-top: 2px; /*12/12/2024 was 4px*/
+    padding-top: 2px;
   }
 
   li:first-child {
     padding-top: 0px;
-    padding-bottom: 2px; /*12/12/2024 was 5px*/
+    padding-bottom: 2px;
     border-top: none;
   }
 
@@ -31,7 +31,7 @@
     border-radius: 9999px;
     transition-property: outline;
     transition-duration: $menuButtonOutlineTransition;
-    transition-timing-function: $timingFunction;
+    transition-timing-function: $cb-ease-in-out;
 
     &--selected {
       text-decoration: underline;
@@ -73,7 +73,7 @@
       z-index: $zIndex-1-FirstLevel;
       transition-duration: $menuVisibilityTransition;
       transition-property: all;
-      transition-timing-function: $timingFunction;
+      transition-timing-function: $cb-ease-in-out;
     }
 
     &:hover {
@@ -95,11 +95,11 @@
 
   &__menu-content {
     position: fixed;
-    transition: all $menuVisibilityTransition $timingFunction;
+    transition: all $menuVisibilityTransition $cb-ease-in-out;
     text-align: left;
 
     &--icon-visible {
-      left: calc(100% - $verticalMenuBarWidth); /* transition will not work without a left value*/
+      left: calc(100% - $verticalMenuBarWidth); /* transition requires left value*/
       right: 0;
       width: $verticalMenuBarWidth;
       height: 100%;
@@ -107,7 +107,6 @@
       opacity: 1;
       background: rgba(0, 0, 0, 0.9);
       background-color: $HeaderFooterLiteBackground;
-      /*overflow-y: auto;*/
 
       &--dark {
         background-color: $bodyDarkBGColor;
@@ -143,7 +142,6 @@
       opacity: 1;
       transform: scale(1);
       background: rgba(0, 0, 0, 0.9);
-      /*overflow-y: scroll;*/
     }
 
     &--collapse {
@@ -154,10 +152,6 @@
       top: 0;
     }
   }
-  /* causes menu items to align center on small mobile screens
-  &__topnav > li {
-    text-align: center;
-  }*/
 
   @mixin atMinWidthToHideeMenuIcon {
     &--pull-right {
@@ -175,18 +169,14 @@
 
     li {
       float: left;
-      padding-top: 0; /*12/12/2024 was 4px*/
+      padding-top: 0;
       border-top: none;
       font-size: 1.2rem;
       height: 40px;
     }
     li:first-child {
-      padding-top: 0; /*12/12/2024 was 4px*/
+      padding-top: 0;
     }
-    /*
-    li:last-child {
-      padding-right: 20px;
-    }*/
 
     &__button {
       font-size: 1.45rem;
