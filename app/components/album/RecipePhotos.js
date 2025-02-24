@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useRef } from "react"
 import PhotoBlock from "./PhotoBlock"
 import PhotoCaptionBox from "./PhotoCaptionBox"
 import PhotoOverlayEvents from "./PhotoOverlayEvents"
