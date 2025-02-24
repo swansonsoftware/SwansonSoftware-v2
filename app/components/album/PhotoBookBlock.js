@@ -13,6 +13,7 @@ function PhotoBookBlock(props) {
       key={props.id}
       type="button"
       name={props.caption}
+      tabIndex="0"
       onClick={e => {
         OpenPhotoBook(e)
       }}
