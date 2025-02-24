@@ -33,9 +33,8 @@
     font-weight: 700;
     background: $albumPhotoCaptionBackgroundColor;
     opacity: 1;
-    transition: all $photoCaptionTransition ease-in;
+    transition: all $photoCaptionTransition $cb-ease-in;
     z-index: $zIndex-1-FirstLevel;
-    /*border: 5px solid yellow;*/
 
     @mixin atMax620Wide {
       font-size: 1.3em;
@@ -50,7 +49,7 @@
 
     &--is-hidden {
       left: -200px;
-      transition: all 0.01s ease-in;
+      transition: all 0.01s $cb-ease-in;
     }
 
     &__button {
@@ -96,7 +95,7 @@
         stroke-width: 3px;
         transition-duration: $menuVisibilityTransition;
         transition-property: all;
-        transition-timing-function: $timingFunction;
+        transition-timing-function: $cb-ease-in-out;
       }
     }
   }
