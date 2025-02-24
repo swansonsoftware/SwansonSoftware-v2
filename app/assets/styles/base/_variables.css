@@ -3,6 +3,7 @@ $bodyLiteBGColor: #fff;
 $bodyLiteBGFontColor: #000;
 $bodyDarkBGFontColor: #fff;
 $hoverColorLiteBG: #dedfe3; /*links (was #e8e8e8)*/
+$hoverColorLiteBGAlt: #383838;
 $hoverColorDarkBG: #e8e8e8;
 $siteHeaderMenuIconDarkBackgroundColor: #383838;
 $siteHeaderMenuIconHoverColorDarkBG: #282828;
@@ -10,12 +11,15 @@ $HeaderFooterDarkBackground: #000;
 $HeaderFooterLiteBackground: #ebecf0;
 $HeaderFooterDarkBackgroundTransparent: rgba(0, 0, 0, 0.5);
 $lightboxPhotoOverlayBackgroundColor: #000;
+$lightboxImageOverlayBackgroundColor: rgba(255, 255, 255, 0.8);
 $albumSlideshowHeaderBackground: rgba(0, 0, 0, 0.5);
 $menuButtonOutlineTransition: 0.2s;
-$menuVisibilityTransition: 0.3s; /*0.3s;*/
+$menuVisibilityTransition: 0.3s;
 $transitionDuration_siteHeaderMenuVisibilityOnScroll: 0.2s;
 $transitionDuration: 0.4s;
-$timingFunction: cubic-bezier(0.4, 0, 0.2, 1);
+$cb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$cb-ease-out: cubic-bezier(0, 0, 0.58, 1);
+$cb-ease-in: cubic-bezier(0.4, 0, 1, 1);
 $slideTransition: 1s;
 $photoCaptionTransition: 0.5s;
 $vcrButtonColor: #ff0000;
@@ -27,4 +31,3 @@ $verticalMenuBarWidth: 320px;
 $zIndex--1-BelowAll: -1;
 $zIndex-1-FirstLevel: 1;
 $zIndex-2-SecondLevel: 2;
-/*#fcfdff  grey-99 */

@@ -35,6 +35,11 @@
     @mixin-content;
   }
 }
+@define-mixin atMin760Wide {
+  @media (min-width: 760px) {
+    @mixin-content;
+  }
+}
 
 @define-mixin atMax799Wide {
   @media (max-width: 799px) {
@@ -55,6 +60,18 @@
 
 @define-mixin atMax860Wide {
   @media (max-width: 860px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMin900Wide {
+  @media (min-width: 900px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMin1020Wide {
+  @media (min-width: 1020px) {
     @mixin-content;
   }
 }
