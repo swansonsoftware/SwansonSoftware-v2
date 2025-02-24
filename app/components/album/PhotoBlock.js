@@ -1,7 +1,6 @@
 import React from "react"
 
 function PhotoBlock(props) {
-  // console.log("PhotoBlock - ")
   const image = props.photo
   const HIDE = false
 
@@ -11,8 +10,6 @@ function PhotoBlock(props) {
     // MenuContentDisplay(HIDE)
     // Show_Hamburger_MenuIcon()
     UnRotateMenuIcon()
-
-    //scroll into view
   }
   function UnRotateMenuIcon() {
     // Un-rotate any rotated menu icon
@@ -78,7 +75,7 @@ function PhotoBlock(props) {
       }}
     >
       <div className="wrapper--album-photo-polaroid">
-        <img loading={image.lazy ? "lazy" : "eager"} src={image.src} width={image.width} height={image.height} alt={image.alt} data-srcset={image.dataSrcset} data-orientation={image.dataOrientation ? image.dataOrientation : ""} data-portraitsizes={image.dataPortraitsizes ? image.dataPortraitsizes : ""}></img>
+        <img loading={image.lazy ? "lazy" : "eager"} src={image.src} width={image.width} height={image.height} srcSet={image.srcset ? image.srcset : ""} alt={image.alt} data-srcset={image.dataSrcset} data-orientation={image.dataOrientation ? image.dataOrientation : ""} data-portraitsizes={image.dataPortraitsizes ? image.dataPortraitsizes : ""}></img>
         {image.captionHeading ? <h3 className="headline__h3-album-thumbnail headline__h3-album-thumbnail--center">{image.captionHeading}</h3> : ""}
       </div>
     </button>
