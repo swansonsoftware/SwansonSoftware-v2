@@ -17,15 +17,22 @@ const _1999KauaiSlideshow = React.lazy(() => import("./components/album/_1999Kau
 const _2000s = React.lazy(() => import("./components/album/_2000s"))
 const _2010s = React.lazy(() => import("./components/album/_2010s"))
 const _2010sSlideshow = React.lazy(() => import("./components/album/_2010sSlideshow"))
+const _2010sSlideshowGardens = React.lazy(() => import("./components/album/_2010sSlideshowGardens"))
+const _2010sSlideshowWashington = React.lazy(() => import("./components/album/_2012SlideshowWashington"))
+const _2013SlideshowNormas = React.lazy(() => import("./components/album/_2013SlideshowNormas"))
 const _2020s = React.lazy(() => import("./components/album/_2020s"))
+const _2020sSlideshow = React.lazy(() => import("./components/album/_2020sSlideshow"))
 const About = React.lazy(() => import("./components/About"))
 const Blogs2025 = React.lazy(() => import("./components/blog/_2025"))
+const ContactUs = React.lazy(() => import("./components/ContactUs"))
 const Design = React.lazy(() => import("./components/principles/Design"))
 const Favorites = React.lazy(() => import("./components/album/Favorites"))
 const FavoritesCats = React.lazy(() => import("./components/album/FavoritesCats"))
 const FavoritesGardens = React.lazy(() => import("./components/album/FavoritesGardens"))
 const FavoritesKauai = React.lazy(() => import("./components/album/FavoritesKauai"))
 const FavoritesKauaiSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiSlideshow"))
+const FavoritesKauaiBeachVillasSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiBeachVillasSlideshow"))
+const FavoritesKauaiStreamSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiStreamSlideshow"))
 const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersomons"))
 const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow"))
 const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels"))
@@ -89,30 +96,37 @@ function Main() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about-us" element={<About body="light" />} />
-                <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
-                <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
-                <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
-                <Route path="/principles/process-models" element={<ProcessModels body="light" />} />
-                <Route path="/principles/requirements" element={<Requirements body="light" />} />
-                <Route path="/principles/design" element={<Design body="light" />} />
-                <Route path="/principles/lifecycle-models" element={<LifecycleModels body="light" />} />
-                <Route path="/principles/reviews" element={<Reviews body="light" />} />
-                <Route path="/album/recipes" element={<Recipes />} />
-                <Route path="/album/favorites" element={<Favorites />} />
-                <Route path="/album/favorites-kauai" element={<FavoritesKauai />} />
-                <Route path="/album/favorites-kauai-slideshow" element={<FavoritesKauaiSlideshow />} />
-                <Route path="/album/favorites-cats" element={<FavoritesCats />} />
-                <Route path="/album/favorites-persimons" element={<FavoritesPersimons />} />
-                <Route path="/album/favorites-gardens" element={<FavoritesGardens />} />
-                <Route path="/album/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
                 <Route path="/album/1900s" element={<_1900s />} />
                 <Route path="/album/2000s" element={<_2000s />} />
                 <Route path="/album/2010s" element={<_2010s />} />
                 <Route path="/album/2020s" element={<_2020s />} />
                 <Route path="/album/1999-kauai-slideshow" element={<_1999KauaiSlideshow />} />
                 <Route path="/album/2010s-slideshow" element={<_2010sSlideshow />} />
+                <Route path="/album/2010s-slideshow-gardens" element={<_2010sSlideshowGardens />} />
+                <Route path="/album/2012-slideshow-washington" element={<_2010sSlideshowWashington />} />
+                <Route path="/album/2013-slideshow-normas" element={<_2013SlideshowNormas />} />
+                <Route path="/album/2020s-slideshow" element={<_2020sSlideshow />} />
                 <Route path="/album/clam-chowder" element={<RecipeClamChowder />} />
+                <Route path="/album/favorites" element={<Favorites />} />
+                <Route path="/album/favorites-kauai" element={<FavoritesKauai />} />
+                <Route path="/album/favorites-kauai-slideshow" element={<FavoritesKauaiSlideshow />} />
+                <Route path="/album/favorites-kauai-beach-villas-slideshow" element={<FavoritesKauaiBeachVillasSlideshow />} />
+                <Route path="/album/favorites-kauai-stream-slideshow" element={<FavoritesKauaiStreamSlideshow />} />
+                <Route path="/album/favorites-cats" element={<FavoritesCats />} />
+                <Route path="/album/favorites-persimons" element={<FavoritesPersimons />} />
+                <Route path="/album/favorites-gardens" element={<FavoritesGardens />} />
+                <Route path="/album/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
+                <Route path="/album/recipes" element={<Recipes />} />
                 <Route path="/album/vegetable-stock" element={<RecipeVegetableStock />} />
+                <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
+                <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
+                <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
+                <Route path="/contact" element={<ContactUs body="light" />} />
+                <Route path="/principles/process-models" element={<ProcessModels body="light" />} />
+                <Route path="/principles/requirements" element={<Requirements body="light" />} />
+                <Route path="/principles/design" element={<Design body="light" />} />
+                <Route path="/principles/lifecycle-models" element={<LifecycleModels body="light" />} />
+                <Route path="/principles/reviews" element={<Reviews body="light" />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
