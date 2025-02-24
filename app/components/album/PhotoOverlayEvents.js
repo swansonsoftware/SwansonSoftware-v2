@@ -11,8 +11,6 @@ function PhotoOverlayEvents(props) {
   function CloseOverlay(e) {
     e.preventDefault()
     if (e.keyCode == 27 || e.code == "Enter" || e.type == "click") {
-      // console.log("CloseOverlay ")
-
       let overlay = document.querySelector(".lightbox__photo-overlay")
       if (overlay) {
         overlay.classList.remove("lightbox__photo-overlay--visible")
