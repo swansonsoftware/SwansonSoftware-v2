@@ -1,12 +1,11 @@
 .site-header {
   background-color: $HeaderFooterLiteBackground;
   z-index: $zIndex-1-FirstLevel;
-  position: fixed; /* was sticky; need position: fixed with display: grid */
+  position: fixed;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*border: 1px solid yellow;*/
 
   &--slideshow {
     background-color: $HeaderFooterDarkBackgroundTransparent;
@@ -14,11 +13,11 @@
 
   &--collapse {
     top: -100px;
-    transition: top $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+    transition: top $transitionDuration_siteHeaderMenuVisibilityOnScroll $cb-ease-in-out;
   }
   &--expand {
     top: 0;
-    transition: top $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+    transition: top $transitionDuration_siteHeaderMenuVisibilityOnScroll $cb-ease-in-out;
   }
 
   &--dark {
@@ -26,14 +25,13 @@
   }
 
   &__breadcrumb {
-    /*border: 1px solid green;*/
     display: block;
     position: relative;
     width: 100%;
     background-color: $bodyLiteBGColor;
     padding: 10px 0;
     z-index: $zIndex-1-FirstLevel;
-    transition: all $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+    transition: all $transitionDuration_siteHeaderMenuVisibilityOnScroll $cb-ease-in-out;
     &--dark-bg {
       background-color: $bodyDarkBGColor;
     }
@@ -41,11 +39,11 @@
       position: fixed;
       top: 0;
       padding: 10px 0;
-      transition: all $transitionDuration_siteHeaderMenuVisibilityOnScroll $timingFunction;
+      transition: all $transitionDuration_siteHeaderMenuVisibilityOnScroll $cb-ease-in-out;
     }
     &__scroll-up {
       position: fixed;
-      top: 89px;
+      /*top: 89px; 2/21/2025*/
     }
     &--transparent {
       background-color: $HeaderFooterDarkBackgroundTransparent;
@@ -67,7 +65,7 @@
     display: flex;
     transition-property: opacity, visibility;
     transition-duration: $transitionDuration;
-    transition-timing-function: $timingFunction;
+    transition-timing-function: $cb-ease-in-out;
 
     &--visible {
       visibility: visible;
@@ -105,7 +103,6 @@
       }
     }
     @mixin atMaxWidthForVisibleMenuIcon {
-      /* mobile menu */
       position: relative;
       top: 7px;
     }
@@ -129,9 +126,8 @@
     }
     .col-2 {
       max-height: 0;
-      transition: max-height $transitionDuration $timingFunction;
+      transition: max-height $transitionDuration $cb-ease-in-out;
       &--grow {
-        /*max-height: 500px;*/
         max-height: calc(100vw - 150px);
         overflow-y: auto;
       }
