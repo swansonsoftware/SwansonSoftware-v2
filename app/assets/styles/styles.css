@@ -9,8 +9,11 @@
 @import "modules/_contents";
 @import "modules/_dots-loading";
 @import "modules/_footer";
+@import "modules/_footnote";
+@import "modules/_form";
 @import "modules/_headline";
 @import "modules/_lightbox";
+@import "modules/_list";
 @import "modules/_lyt-video";
 @import "modules/_menu-item";
 @import "modules/_nav";
@@ -21,4 +24,5 @@
 @import "modules/_section";
 @import "modules/_site-header";
 @import "modules/_slideshow";
+@import "modules/_table.css";
 @import "modules/_wrapper";

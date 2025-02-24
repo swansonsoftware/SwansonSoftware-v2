@@ -25,46 +25,40 @@ function About() {
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1">About Swanson Software</h1>
         <div className="row row--gutters">
-          <div className="row__col-span-4 row__margin-bottom-0">
+          <div className="row__colspan-4">
             <h2 className="headline__h2">What is Swanson Software</h2>
           </div>
-          <div className="row__col-span-8 row__margin-bottom-0">
+          <div className="row__colspan-8">
             <h3 className="headline__h3">Not a business</h3>
             <p>SwansonSoftware.com is not a business, it is my personal Web site. You will find no advertisements on this site, it is not a source of income.</p>
           </div>
-          <div className="row__col-span-4 row__margin-bottom-0"></div>
-          <div className="row__col-span-8 row__margin-bottom-0">
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-8">
             <h3 className="headline__h3">Mission</h3>
-            <p>To disseminate the principles and practices of software construction.</p>
+            <p>To disseminate the principles and practices of software construction that lead to quality software and successful projects.</p>
           </div>
 
-          <div className="row__col-span-4 row__margin-bottom-0"></div>
-          <div className="row__col-span-8 row__margin-bottom-0">&nbsp;</div>
-
-          <div className="row__col-span-4 row__margin-bottom-0">
+          <div className="row__colspan-4">
             <h2 className="headline__h2">Background</h2>
           </div>
-          <div className="row__col-span-8 row__margin-bottom-0">
-            <p>I haved worked in software development for over 30 years, for companies of all sizes from 2 developers to hundreds, and I have seen the tools and processes evolve. The evolution has been dramatic: the first programs I wrote were on punch cards, and now I use SVN and github to store work on network servers or the internet.</p>
+          <div className="row__colspan-8">
+            <p>Having worked in software development for over 30 years, for companies of all sizes from 2 developers to hundreds, I have seen the tools and processes evolve. The evolution has been dramatic: the first programming I did was on punch cards; later it was on teletype with a modem connected to a time share computer and programs stored on punched tape; after that it was on a PC with program code stored in a source control systems including SourceSafe and SVN; and now we have web-based source control with github, which SwansonSoftware uses to store its application code.</p>
           </div>
 
-          <div className="row__col-span-4 row__margin-bottom-0"></div>
-          <div className="row__col-span-8 row__margin-bottom-0">
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-8">
             <h3 className="headline__h3">Historical Perspective</h3>
-            <p>Long ago, we didn't use applications to track software bugs. Bugs were tracked in a text file or spreadsheet. Source code control was a manual process, there was no application for that. Software editing was done in a character-based terminal connected to a main frame, or in a command window on a pc, or on a teletype that used paper feed instead of a display monitor, or with a text editor. Code editors did not highlight syntax or provide any help with spelling.</p>
+            <p>Long ago, source code control was a manual process, there was no application for that. Software editing was done in a character-based terminal connected to a main frame, or the character-based screen of a PC, or on a teletype that used paper feed instead of a display monitor; later, with Mac and Windows PCs, editing was made easier with a text editor. Code editors did not highlight syntax or provide help with spelling like they do today.</p>
 
-            <p>Today we use applications for tracking bugs and for source control; we have development environments that not only highlight syntax, but provide suggestions on syntax alternatives, fix mistakes, and much more.</p>
+            <p>Years ago, we didn't use applications to track software bugs. Bugs were tracked in a text file or spreadsheet, or not at all. From 1997 through 1999 I worked for an insurance company that didn’t track software bugs; a colleague of mine, a business analyst, kept a spreadsheet of bugs for his own use. Today we have web-based applications for tracking bugs and for source control, many with free plans for small teams; we have development environments that not only highlight syntax, but provide suggestions on syntax alternatives, fix mistakes, and much more.</p>
 
-            <p>We also learned about software life cycles and design, and how to improve programming skills with reviews. That learning, however, is spread piecemeal on the internet and in dozens of books.</p>
+            <p>We also learned about software life cycles and design, and how to improve programming skills with reviews. Yet, things still go wrong; and when they go right, perhaps no one knows why. Too often projects are not finished on time, or a product release is buggy, or performance is unacceptable. These are the issues SwansonSoftware strives to address, through a set of pages that gather together many of the best sources that have stood the test of time, and through anecdotes from experience.</p>
           </div>
 
-          <div className="row__col-span-4 row__margin-bottom-0"></div>
-          <div className="row__col-span-8 row__margin-bottom-0">&nbsp;</div>
-
-          <div className="row__col-span-4 row__margin-bottom-0">
+          <div className="row__colspan-4">
             <h2 className="headline__h2">Social</h2>
           </div>
-          <div className="row__col-span-8 row__margin-bottom-0">
+          <div className="row__colspan-8">
             <Link className="social" to="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ" rel="noopener noreferrer" target="_blank" title="Swanson YouTube Channel">
               <span className="accessibility--hidden">Go to Gregory Swanson YouTube Channel.</span>
               <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
