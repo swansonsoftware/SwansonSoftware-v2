@@ -22,7 +22,7 @@
     text-decoration: none;
     transition-property: outline;
     transition-duration: $menuButtonOutlineTransition;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: $cb-ease-in-out;
     padding-left: 10px;
     padding-right: 10px;
 
@@ -82,19 +82,5 @@
         padding-bottom: 0;
       }
     }
-
-    /*
-    &__link {
-      font-weight: 300;
-      line-height: 1.25;
-    }
-      */
-
-    /*
-    &__subheading-2 {
-      font-weight: 300;
-      line-height: 1.25;
-      letter-spacing: 0.003em;
-    }*/
   }
 }
