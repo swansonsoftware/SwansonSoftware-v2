@@ -35,7 +35,7 @@ function FavoritesKauai() {
   const slideshows = [
     { id: 1, url: "/album/favorites-kauai-slideshow", caption: "Kauai Slideshow" },
     { id: 2, url: "/album/favorites-kauai-stream-slideshow", caption: "Kauai Stream Slideshow" },
-    { id: 3, url: "/album/favorites-kauai-kbv-slideshow", caption: "Kauai Beach Villas" }
+    { id: 3, url: "/album/favorites-kauai-beach-villas-slideshow", caption: "Kauai Beach Villas" }
   ]
 
   const videos = [
