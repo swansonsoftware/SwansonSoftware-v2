@@ -97,7 +97,7 @@ class OverlayOpener {
         <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;'></div>
         <div class='lightbox__photo-overlay__selectedImg'>
         <img  src="${filename}" style="max-height:${window.innerHeight}px"
-          alt="${this.image.alt}" srcset="${srcsetString}" />
+          alt="${this.image.alt}" srcset="${srcsetString}" sizes="100vw" />
           </div>
         `
         } else {
