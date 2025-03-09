@@ -45,8 +45,9 @@ function Header() {
         if (!overlay.classList.contains("lightbox__menu-overlay--visible")) {
           overlay.classList.add("lightbox__menu-overlay--visible")
         }
-        document.body.classList.add("no-scroll")
+        // document.body.classList.add("no-scroll") can't do this because it makes the menu jump on X.
       } else {
+        // console.log("hide menu")
         if (overlay.classList.contains("lightbox__menu-overlay--visible")) {
           overlay.classList.remove("lightbox__menu-overlay--visible")
         }
