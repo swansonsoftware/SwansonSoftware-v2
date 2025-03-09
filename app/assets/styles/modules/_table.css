@@ -1,5 +1,5 @@
 .table {
-  width: 100%;
+  width: 90%; /* was 100% 2/26/2025 */
 
   &--no-border {
     border-collapse: collapse;
@@ -10,7 +10,10 @@
     th {
       border: 1px solid black;
       text-align: left;
-      padding: 8px;
+      padding: 4px;
+      @mixin atMaxWidthForVisibleMenuIcon {
+        padding: 2px;
+      }
     }
   }
 
@@ -18,7 +21,10 @@
     td,
     th {
       border: 1px solid black;
-      padding: 8px;
+      padding: 4px;
+      @mixin atMaxWidthForVisibleMenuIcon {
+        padding: 2px;
+      }
     }
     &__aleft {
       text-align: left;
@@ -28,8 +34,14 @@
     }
   }
 
+  &--light-blue {
+    background-color: rgb(180, 198, 231);
+  }
+
   &--vert {
-    writing-mode: sideways-lr;
+    /* not supported on iPhone 12 iOS 16.3 */
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
     text-align: left;
   }
 
@@ -37,7 +49,10 @@
     td,
     th {
       border: 1px solid black;
-      padding: 8px;
+      padding: 4px;
+      @mixin atMaxWidthForVisibleMenuIcon {
+        padding: 2px;
+      }
     }
   }
 
