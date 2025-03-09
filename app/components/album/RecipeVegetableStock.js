@@ -29,50 +29,49 @@ function VegetableStock() {
 
         <div className="album-recipe__author">Gregory Swanson</div>
         <div>
-          <b>PREP:</b> 60 min; <b>Cooking time:</b> 2 hr 30 min
+          <b>PREP:</b> 30 min; <b>Cooking time:</b> 4 hours
         </div>
 
-        <div>Makes about 5 cups</div>
+        <div>Makes about 9 cups</div>
 
         <p className="album-recipe__intro">I use this vegetable stock as the base in the clam chowder recipe and for risotto. As it takes a few hours to make, I like to make it ahead of time and freeze it in ready-to-use portions.</p>
 
-        <p>Leeks often have soil between the leaves and need to be washed carefully. You can speed up the chore by cutting them crosswise into rings and then soak the rings in a bowl of water for 5 minutes. Then stir the leeks in the water with your hands, pushing through the rings and disloging any remaining soil. Drain the leeks in a collander and rinse once more.</p>
-        <p>The leeks and all the vegetables can be washed, cut up and refrigerated a day or two ahead to reduce cooking fatigue. When the vegetables are prepared ahead of time you can add them all at once if the pot is large enough, then occasionally push them down into the liquid as they soften.</p>
+        <p>The leeks and all the vegetables can be washed, cut up and refrigerated a day or two ahead to reduce cooking fatigue.</p>
 
         <RecipePhotos photos={photos} />
 
         <h2 className="headline__h2 headline__h2--recipe">Ingredients</h2>
 
         <div className="album-recipe__listItem">
-          <span className="album-recipe__ingredientAmount">3.5</span>
-          <span className="album-recipe__ingredient">lbs leeks coarsly chopped, including greens</span>
+          <span className="album-recipe__ingredientAmount">24</span>
+          <span className="album-recipe__ingredient">Oz. leeks (about 8 small leeks, only the white and light-green parts only, sliced into 1/4-inch-thick rounds</span>
         </div>
         <div className="album-recipe__listItem">
           <span className="album-recipe__ingredientAmount">1</span>
-          <span className="album-recipe__ingredient">fennel bulb coarsly chopped</span>
+          <span className="album-recipe__ingredient">fennel bulb, coarsly chopped</span>
         </div>
         <div className="album-recipe__listItem">
-          <span className="album-recipe__ingredientAmount">6+</span>
-          <span className="album-recipe__ingredient">baby carrots sliced in half lengthwise</span>
-        </div>
-        <div className="album-recipe__listItem">
-          <span className="album-recipe__ingredientAmount">6+</span>
-          <span className="album-recipe__ingredient">stalks celery</span>
+          <span className="album-recipe__ingredientAmount">1</span>
+          <span className="album-recipe__ingredient">16 oz. bag baby carrots</span>
         </div>
         <div className="album-recipe__listItem">
           <span className="album-recipe__ingredientAmount">2</span>
           <span className="album-recipe__ingredient">sprigs thyme (optional)</span>
         </div>
         <div className="album-recipe__listItem">
-          <span className="album-recipe__ingredientAmount">7</span>
+          <span className="album-recipe__ingredientAmount">12</span>
           <span className="album-recipe__ingredient">cups water</span>
         </div>
 
         <h2 className="headline__h2 headline__h2--recipe">Directions</h2>
         <ol>
-          <li>In a large (6 quart) pot add the water and all the ingredients (alternatively you can add the vegetables a little at a time as they soften in the liquid). Bring to a boil on high heat, then reduce heat to a fast simmer. Simmer uncovered for 2 to 2.5 hours. Push the vegetables down into the liquid occasionally. Adjust the time as desired; the longer the stock simmers the more the volume reduces, concentrating the flavor.</li>
-          <li>Off heat, strain the stock and press the liquid from the vegetables. Once the solids have been strained, strain all the stock through a fine sieve.</li>
-          <li>Separate into portions as desired.</li>
+          <li>Add 12 cups of water to a large (6 1/2 quart) stock pot</li>
+          <li>
+            <b>Cut and wash the leeks</b>: Cut off the roots and any greens that extend beyond the round body of the leeks. Slice the round body of the leeks crosswise into rounds about 1/4-inch thick. Put the rounds in a large (4 quart) mixing bowl, then fill the bowl with water to cover the leeks by a couple of inches. Soak for 5 minutes, then stir the leeks with your hands, breaking apart the rounds so that any dirt lodged in them is released. Transfer the leeks a few at a time to a colander or another bowl of water and rinse. Transfer the rinsed leeks to the stock pot.
+          </li>
+          <li>Add the remaining ingredients to the stock pot. Bring to a boil, then reduce heat to a slow simmer and simmer for 4 hours, partially covered.</li>
+          <li>Off heat, strain the stock, pressing the liquid from the vegetables.</li>
+          <li>Once the solids have been strained, re-strain the stock. Portion the stock as desired and freeze until needed.</li>
         </ol>
       </div>
     </Page>

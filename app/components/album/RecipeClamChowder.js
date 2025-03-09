@@ -92,12 +92,12 @@ function ClamChowder() {
             <br />
             Option 2: fresh clams.
             <br />
-            Rinse clams under cold water and put them in a steamer. Bring to a boil and steam the clams no more than four or five minutes. Rinse clams under cold water again. Save the steamer water, adjust it to 1 cup, and pour it into the stock.
+            Rinse clams under cold water and put them in a steamer. Bring to boil and steam the clams for no more than four or five minutes. Rinse clams under cold water again. Save the steamer water, adjust it to 1 cup, and pour it into the stock leaving behind any sand.
           </li>
 
           <li>Add the diced potatoes to the stock. If using bacon, add it to the stock. Stir to mix the ingredients.</li>
 
-          <li>Bring to a boil on medium heat, then reduce heat to a simmer. Simmer uncovered until the liquid is almost all gone, which takes about 1 to 1 1/4 hour. Turn off the heat and let cool for 15 minutes. Remove the bay leaf.</li>
+          <li>Bring to a boil on medium heat, then reduce heat to a simmer. Simmer uncovered until the liquid is almost all gone, which takes about 1 to 1 1/4 hour. It is done when you hear a slurping sound when stirring at the bottom of the pan. Turn off the heat and remove the bay leaf.</li>
 
           <li>Pour in the heavy cream and stir well.</li>
         </ol>
