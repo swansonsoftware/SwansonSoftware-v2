@@ -3,7 +3,7 @@
     font-size: 2.5rem;
     font-weight: 400;
     padding: 20px 0;
-    margin: 0;
+    margin: 0.67em 0 0 0;
 
     &--center {
       text-align: center;
@@ -15,9 +15,12 @@
   }
   &__h1-cg {
     font-family: "Cormorant Garamond";
-    font-size: 4.5rem;
+    font-size: 3.4rem;
     font-weight: 300;
     font-style: normal;
+    @mixin atMin1200Wide {
+      font-size: 4.5rem;
+    }
   }
 
   &__h2 {
@@ -46,6 +49,9 @@
     margin: 0;
     &--bold {
       font-weight: 700;
+    }
+    &--xtra-pad {
+      padding-top: 18px;
     }
 
     @mixin atMin1200Wide {
