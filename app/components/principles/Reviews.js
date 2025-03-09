@@ -20,8 +20,7 @@ function Reviews() {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Software Reviews",
-        "datePublished": "2007-05-18T12:01:06-08:00",
-        "dateModified" : "2025-02-18T08:51:06-08:00",
+        "datePublished": "2025-03-06T08:26:21-08:00",
         "author": [{
             "@type": "Person",
             "name": "Gregory Swanson",
@@ -131,14 +130,14 @@ function Reviews() {
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#refs" className="list--toc--a">
-                  References
+                <HashLink to="#notes" className="list--toc--a">
+                  Notes
                 </HashLink>
               </li>
             </ul>
           </div>
           <div className="row__colspan-7">
-            <p>Software reviews are perhaps the best way to improve software quality, reduce development costs, and disseminate technical knowledge. A review can be performed on requirements, designs, code, test cases, and test data.</p>
+            <p className="dropCap">Software reviews are perhaps the best way to improve software quality, reduce development costs, and disseminate technical knowledge. A review can be performed on requirements, designs, code, test cases, and test data.</p>
             <p>Code reviews ensure that requirements are fulfilled and reduce the chance that code based on a misinterpreted understanding of the requirements gets very far through the life cycle. Code reviews are a way for less experienced team members to learn coding techniques as well as for more experienced team members to hone skills.</p>
             <p>Reviews can be informal, where a team peer reads the code at their leisure; more formal, where a team peer walks through the code with the developer; and quite formal, where peers and non-peers perform what is called an inspection.</p>
           </div>
@@ -174,7 +173,7 @@ function Reviews() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note2">
+            <p id="note2" className="dropCap">
               Software reviews have the following components; not all are required: software inspections which are a more formal process will include more of them; walkthroughs which are a less formal process will include fewer (Watts describes the more formal software inspection in the following):
               <HashLink to="#footnote2" className="footnote">
                 <sup>[2]</sup>
@@ -199,7 +198,7 @@ function Reviews() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note3">
+            <p id="note3" className="dropCap">
               It takes time to hold reviews, but reviews reduce rework and that saves time later. The cost factors of reviews include:
               <HashLink to="#footnote3" className="footnote">
                 <sup>[3]</sup>
@@ -232,7 +231,7 @@ function Reviews() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note6">
+            <p id="note6" className="dropCap">
               Some authors have found it sufficient to classify reviews based mostly on formality. For example, McConnell has found the following categories:
               <HashLink to="#footnote6" className="footnote">
                 <sup>[6]</sup>
@@ -257,7 +256,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note8">
+            <p id="note8" className="dropCap">
               Michael Fagan had two purposes in mind: 1) improve software quality, and 2) increase software developer productivity. The review process he describes includes six main steps:
               <HashLink to="#footnote8" className="footnote">
                 <sup>[8]</sup>
@@ -285,7 +284,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note9">
+            <p id="note9" className="dropCap">
               The Active Design Review (ADR) was described by Parnas and Weiss.
               <HashLink to="#footnote9" className="footnote">
                 <sup>[9]</sup>
@@ -320,7 +319,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note12">
+            <p id="note12" className="dropCap">
               The Two-Person Review (TPR) was described by Bisant and Lyle.
               <HashLink to="#footnote12" className="footnote">
                 <sup>[12]</sup>
@@ -338,7 +337,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note14">
+            <p id="note14" className="dropCap">
               The N-Fold Review was described by Martin and Tsai.
               <HashLink to="#footnote14" className="footnote">
                 <sup>[14]</sup>
@@ -369,7 +368,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note18">
+            <p id="note18" className="dropCap">
               Phased Review (PR) was described by Knight and Myers.
               <HashLink to="#footnote18" className="footnote">
                 <sup>[18]</sup>
@@ -394,7 +393,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note21">
+            <p id="note21" className="dropCap">
               The standard describes a systematic, seven step review process:
               <HashLink to="#footnote21" className="footnote">
                 <sup>[21]</sup>
@@ -428,7 +427,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p>A walkthrough is where the author describes the artifact to a group of peers and seeks comments. A walkthrough differs from a formal software review in that</p>
+            <p className="dropCap">A walkthrough is where the author describes the artifact to a group of peers and seeks comments. A walkthrough differs from a formal software review in that</p>
             <ul>
               <li className="list">The process is largely unstructured</li>
               <li className="list">It does not follow a defined procedure</li>
@@ -449,27 +448,22 @@ function Reviews() {
               <b>Formality</b>
             </p>
             <p>Formality varies between review types as described above. There are a few other relationships between formality and the review process that are worth mentioning. Formality plays a role in determining who participates in the review, and the preparation time. Results from less formal reviews may not be added to a process database.</p>
-            <table className="table table--no-border table--cell-border-dark">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Formal</th>
-                  <th>Informal</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Participants</td>
-                  <td>Peers & non-peers</td>
-                  <td>Peers</td>
-                </tr>
-                <tr>
-                  <td>Prep time</td>
-                  <td>Long</td>
-                  <td>Little</td>
-                </tr>
-              </tbody>
-            </table>
+            <ul>
+              <li className="list">
+                Participants:
+                <ul>
+                  <li className="list">Formal: Peers and non-peers</li>
+                  <li className="list">Informal: Peers</li>
+                </ul>
+              </li>
+              <li className="list">
+                Prep time:
+                <ul>
+                  <li className="list">Formal: Long</li>
+                  <li className="list">Informal: Little</li>
+                </ul>
+              </li>
+            </ul>
             <p>
               <b>Roles</b>
             </p>
@@ -516,7 +510,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note25">
+            <p id="note25" className="dropCap">
               Pair programming is where two programmers work together at a workstation on the same program.
               <HashLink to="#footnote25" className="footnote">
                 <sup>[25]</sup>
@@ -531,7 +525,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note26">
+            <p id="note26" className="dropCap">
               Often presented as the least expensive approach to software review, Peer Check is where only the author and a peer reviewer examines the software artifact.
               <HashLink to="#footnote26" className="footnote">
                 <sup>[26]</sup>
@@ -546,7 +540,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note27">
+            <p id="note27" className="dropCap">
               Pass-around is where the author distributes copies of the artifact to reviewers for concurrent review.
               <HashLink to="#footnote27" className="footnote">
                 <sup>[27]</sup>
@@ -563,7 +557,7 @@ function Reviews() {
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
             <h3 className="headline__h3">Review Task</h3>
-            <p id="note28">
+            <p id="note28" className="dropCap">
               Review tasks are categorized into four artifacts, the work products that are reviewed:
               <HashLink to="#footnote28" className="footnote">
                 <sup>[28]</sup>
@@ -603,7 +597,7 @@ function Reviews() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note30">
+            <p id="note30" className="dropCap">
               Freedman and Weinberg
               <HashLink to="#footnote30" className="footnote">
                 <sup>[30]</sup>
@@ -670,8 +664,8 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="refs">
-            <h3 className="headline__h3">References</h3>
+          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
+            <h3 className="headline__h3">Notes</h3>
           </div>
 
           <div className="row__colspan-1"></div>

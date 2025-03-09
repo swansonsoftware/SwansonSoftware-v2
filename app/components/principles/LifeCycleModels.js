@@ -19,8 +19,7 @@ function LifecycleModels() {
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "Software Life Cycle Models",
-          "datePublished": "2007-05-18T12:01:06-08:00",
-          "dateModified" : "2025-02-18T08:51:06-08:00",
+          "datePublished": "2025-03-06T08:26:21-08:00",
           "author": [{
               "@type": "Person",
               "name": "Gregory Swanson",
@@ -109,14 +108,14 @@ function LifecycleModels() {
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#refs" className="list--toc--a">
-                  References
+                <HashLink to="#notes" className="list--toc--a">
+                  Notes
                 </HashLink>
               </li>
             </ul>
           </div>
           <div className="row__colspan-7">
-            <p>Probably every software developer knows what a software life cycle is but knowing what a software life cycle is doesn’t make a better programmer. Not all managers know what a software life cycle is but for any manager faced with managing a software project, knowing about software life cycle models will make a better manager.</p>
+            <p className="dropCap">Probably every software developer knows what a software life cycle is but knowing what a software life cycle is doesn’t make a better programmer. Not all managers know what a software life cycle is but for any manager faced with managing a software project, knowing about software life cycle models will make a better manager.</p>
             <p>
               Making software is not hard, unless you have a deadline when it must be finished, or unless the deadline is unreasonably short, or unless the software requirements are vague or incomplete or nonexistent, or unless you have customers with high expectations, or unless the developers are inexperienced or using new and unfamiliar tools or languages or just doing something they have never done before with the tools and language they are most familiar with. In most cases, making software usually <i>is</i> hard. It’s hard to make software on time, it’s hard to know what features customers need and how they expect them to work, it’s hard to make software that is useable and not buggy. The software life cycle was invented to help with these problems.
             </p>
@@ -129,7 +128,7 @@ function LifecycleModels() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note1">
+            <p id="note1" className="dropCap">
               Experience is the best teacher, and after many failed projects and much wasted money, a pattern emerged that led to creation of the software development life cycle (SDLC).
               <HashLink to="#footnote1" className="footnote">
                 <sup>[1]</sup>
@@ -152,7 +151,7 @@ function LifecycleModels() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p>There are two high-level categories of SDLC models:</p>
+            <p className="dropCap">There are two high-level categories of SDLC models:</p>
             <ol>
               <li className="list" id="note4">
                 Named models: for example, Waterfall, Spiral, Sashimi
@@ -178,7 +177,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note6">
+            <p id="note6" className="dropCap">
               If no thought has been given to the use of an SDLC, this is the "model" you are likely using. It means no model. Boehm described this model as the root of the problem from which the first life cycle model appeared in 1956.
               <HashLink to="#footnote6" className="footnote">
                 <sup>[6]</sup>
@@ -194,7 +193,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note7">
+            <p id="note7" className="dropCap">
               The waterfall model is a formal process for developing software in a top-down sequence.
               <HashLink to="#footnote7" className="footnote">
                 <sup>[7]</sup>
@@ -232,11 +231,11 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note12">
+            <p id="note12" className="dropCap">
               The Sashimi model, a modified waterfall model, originated in Japan as an improvement based on experience with the waterfall model.
               <HashLink to="#footnote12" className="footnote">
                 <sup>[12]</sup>
-              </HashLink>
+              </HashLink>{" "}
               With the Sashimi model there is greater overlap between phases, fewer phases, and several activities are merged into the phases (rather than in separate phases). The amount of documentation is reduced because less is needed when there is personnel continuity between phases and activities.
               <HashLink to="#footnote13" className="footnote">
                 <sup>[13]</sup>
@@ -262,7 +261,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note15">
+            <p id="note15" className="dropCap">
               The Waterfall with Subprojects model, a modified waterfall model, solves the problem with the waterfall model in which implementation of well-understood parts of a system are not allowed until the design of difficult parts are complete.
               <HashLink to="#footnote15" className="footnote">
                 <sup>[15]</sup>
@@ -291,7 +290,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note18">
+            <p id="note18" className="dropCap">
               This model addresses the problem with the waterfall model where one step must be complete before you can proceed to the next.
               <HashLink to="#footnote18" className="footnote">
                 <sup>[18]</sup>
@@ -307,7 +306,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note19">
+            <p id="note19" className="dropCap">
               This is one of the "best practices" McConnell describes as key to attaining the most reliable reduction in development time. Evolutionary prototyping addresses the problem of poorly understood or changing requirements by allowing the system concept to evolve as development progresses.
               <HashLink to="#footnote19" className="footnote">
                 <sup>[19]</sup>
@@ -343,7 +342,7 @@ function LifecycleModels() {
                 Poor product performance - when developing a prototype the developer might think that it will be thrown away later, so poor-quality code is written and techniques that would help performance are ignored.
                 <HashLink to="#footnote23" className="footnote">
                   <sup>[23]</sup>
-                </HashLink>
+                </HashLink>{" "}
                 McConnell suggests that the prototype design should be created well enough so that it can be modified easily into production-quality; also, if you create a throwaway prototype, be sure to throw it away
                 <HashLink to="#footnote24" className="footnote">
                   <sup>[24]</sup>
@@ -353,7 +352,7 @@ function LifecycleModels() {
                 Unrealistic expectations for performance - a prototype may perform very well because it does not have to do as much work, e.g. connecting to a production database and displaying the results of a query. On the other hand, a prototype may perform poorly due to the language used.
                 <HashLink to="#footnote25" className="footnote">
                   <sup>[25]</sup>
-                </HashLink>
+                </HashLink>{" "}
                 McConnell suggests adding code to slow down the performance if the prototype is too fast and explain that the final product will be written in a language that performs better.
                 <HashLink to="#footnote26" className="footnote">
                   <sup>[26]</sup>
@@ -396,7 +395,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note30">
+            <p id="note30" className="dropCap">
               Staged delivery addresses the problem with the waterfall model where there is no visible progress of the project from the end user's perspective, because nothing is delivered until everything is finished.
               <HashLink to="#footnote30" className="footnote">
                 <sup>[30]</sup>
@@ -467,7 +466,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note38">
+            <p id="note38" className="dropCap">
               Evolutionary delivery is a combination of evolutionary prototyping and staged delivery.
               <HashLink to="#footnote38" className="footnote">
                 <sup>[38]</sup>
@@ -516,7 +515,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note43">
+            <p id="note43" className="dropCap">
               The spiral model was designed to reduce risks that stem from a lack of understanding of requirements, architecture, the technology used, etc.
               <HashLink to="#footnote43" className="footnote">
                 <sup>[43]</sup>
@@ -536,7 +535,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p id="note45">
+            <p id="note45" className="dropCap">
               If you can answer some questions about your project, then you can use those answers to choose from a matrix that shows how life cycle models work under different circumstances.
               <HashLink to="#footnote45" className="footnote">
                 <sup>[45]</sup>
@@ -711,8 +710,8 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="refs">
-            <h3 className="headline__h3">References</h3>
+          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
+            <h3 className="headline__h3">Notes</h3>
           </div>
 
           <div className="row__colspan-1"></div>
