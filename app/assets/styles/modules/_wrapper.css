@@ -215,6 +215,7 @@
   }
 
   &__article {
+    max-width: inherit;
     @mixin atMin1200Wide {
       max-width: 1075px;
     }
