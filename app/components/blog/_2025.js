@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import GTag from "../GTag"
 
 function Blogs2025() {
   const appDispatch = useContext(DispatchContext)
@@ -16,6 +17,7 @@ function Blogs2025() {
 
   return (
     <Page title="Blog 2025">
+      <GTag></GTag>
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Blog List 2025</h1>
         <div className="row row--gutters">

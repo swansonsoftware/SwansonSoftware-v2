@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import GTag from "../GTag"
 
 function LifecycleModels() {
   const appDispatch = useContext(DispatchContext)
@@ -36,8 +37,8 @@ function LifecycleModels() {
 
   return (
     <Page title="Lifecycle Models" background="dark">
+      <GTag></GTag>
       <meta name="description" content="Software life cycle models" />
-      <meta name="keywords" content="software life cycle, software life cycle models, SDLC, software process" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Life Cycle Models</h1>
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>

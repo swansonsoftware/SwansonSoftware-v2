@@ -3,15 +3,15 @@ import { Link } from "react-router-dom"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import GTag from "./GTag"
 
 function ContactUs() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
-  // console.log("contact - appState.backgroundStyle: " + appState.backgroundStyle)
+
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
   useEffect(() => {
-    // console.log("About.js > useEffect - appDispatch: set backgroundStyle light")
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
@@ -87,6 +87,7 @@ function ContactUs() {
     <Page title="Contact Us">
       <meta name="description" content="Contact Us" />
       <meta name="keywords" content="How to contact Swanson Software" />
+      <GTag></GTag>
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1">Contact Swanson Software</h1>
         <p>Please use the form below to contact SwansonSoftware. SwansonSoftware does not store or share any information you send, and you will not get unsolicited email or marketing material from SwansonSoftware.</p>

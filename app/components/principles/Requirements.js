@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import GTag from "../GTag"
 
 function Requirements() {
   const appDispatch = useContext(DispatchContext)
@@ -37,8 +38,8 @@ function Requirements() {
 
   return (
     <Page title="Requirements">
+      <GTag></GTag>
       <meta name="description" content="Software requirements" />
-      <meta name="keywords" content="software requirements, software process" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Requirements</h1>
 

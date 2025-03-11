@@ -7,6 +7,7 @@ import ImageBlock from "../../ImageBlock"
 import OverlayOpener from "../../../assets/scripts/modules/OverlayOpener"
 import ImageLightboxOverlay from "../../ImageLighboxOverlay"
 import { HashLink } from "react-router-hash-link"
+import GTag from "../../GTag"
 
 function BlogJan2025_ResSwitching() {
   const appDispatch = useContext(DispatchContext)
@@ -82,7 +83,7 @@ function BlogJan2025_ResSwitching() {
     <Page title="Choosing Resolution Switching Breakpoints">
       <ImageLightboxOverlay />
       <meta name="description" content="Resolution switching images, choosing breakpoints" />
-      <meta name="keywords" content="resolution switching, choosing breakpoints" />
+      <GTag></GTag>
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>

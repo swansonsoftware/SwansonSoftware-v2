@@ -1,20 +1,17 @@
 import React, { useContext, useEffect } from "react"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import Page from "./Page"
+import GTag from "./GTag"
 
 function Home() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
-  // console.log("Home - appState.backgroundStyle: " + appState.backgroundStyle)
+
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
-  }, [])
-
-  useEffect(() => {
-    document.title = `SwansonSoftware`
-    window.scrollTo(0, 0)
   }, [])
 
   useEffect(() => {
@@ -25,7 +22,6 @@ function Home() {
       "name": "SwansonSoftware",
       "url": "https://www.swansonsoftware.com/",
     }`
-    //"dateModified": "....",
     const script = document.createElement("script")
     script.setAttribute("type", "application/ld+json")
     script.setAttribute("id", "structure")
@@ -35,7 +31,8 @@ function Home() {
   }, [])
 
   return (
-    <>
+    <Page title="Home" background="dark">
+      <GTag></GTag>
       <div className="wrapper wrapper--banner">
         <meta name="description" content="Swanson Software, disseminating knowledge in the craft of software construction" />
         <picture className="banner__image">
@@ -48,7 +45,7 @@ function Home() {
           <p className="banner__subtitle">Disseminating knowledge in the craft of software construction</p>
         </div>
       </div>
-    </>
+    </Page>
   )
 }
 

@@ -4,6 +4,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import GTag from "../GTag"
 
 function Reviews() {
   const appDispatch = useContext(DispatchContext)
@@ -38,8 +39,8 @@ function Reviews() {
 
   return (
     <Page title="Reviews" background="dark">
+      <GTag></GTag>
       <meta name="description" content="Software reviews" />
-      <meta name="keywords" content="software review, software process" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Reviews</h1>
         <div className="headline__author">Gregory Swanson | updated February 18, 2025</div>

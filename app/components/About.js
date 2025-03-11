@@ -3,11 +3,12 @@ import { Link } from "react-router-dom"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import GTag from "./GTag"
 
 function About() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
-  // console.log("about - appState.backgroundStyle: " + appState.backgroundStyle)
+
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
   const main = document.querySelector("#maincontent")
@@ -16,12 +17,12 @@ function About() {
   }
 
   useEffect(() => {
-    // console.log("About.js > useEffect - appDispatch: set backgroundStyle light")
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
   return (
     <Page title="About Us">
+      <GTag></GTag>
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1">About Swanson Software</h1>
         <div className="row row--gutters">

@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import GTag from "../GTag"
 
 function Design() {
   const appDispatch = useContext(DispatchContext)
@@ -37,8 +38,8 @@ function Design() {
 
   return (
     <Page title="Design" background="dark">
+      <GTag></GTag>
       <meta name="description" content="Software design" />
-      <meta name="keywords" content="software design, software process" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Design</h1>
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>
