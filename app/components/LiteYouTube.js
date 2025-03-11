@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import StateContext from "../StateContext"
 import LiteYTEmbed from "../assets/scripts/modules/lite-yt-embed"
 
