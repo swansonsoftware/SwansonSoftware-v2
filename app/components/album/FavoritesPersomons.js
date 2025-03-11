@@ -25,7 +25,7 @@ function FavoritesPersimons() {
   const videos = []
 
   return (
-    <Page title="Persimon Favorites" background="dark">
+    <Page title="Persimon Favorites">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />

@@ -44,7 +44,7 @@ function _2010sSlideshow() {
   // { id: 3, lazy: true, src: "", width: "320", height: "180", captionHeading: "", caption: "", alt: "", sizes: "100vw", srcset: "" },
 
   return (
-    <Page title="2010s Slideshow" background="dark">
+    <Page title="2010s Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/2010s" linktext="2010s" />
       <SlideShow photos={photos} />

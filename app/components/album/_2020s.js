@@ -30,7 +30,7 @@ function _2020s() {
   const videos = []
 
   return (
-    <Page title="2020s" background="dark">
+    <Page title="2020s">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">2020s</h1>

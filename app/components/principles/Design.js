@@ -37,7 +37,7 @@ function Design() {
   }, [])
 
   return (
-    <Page title="Design" background="dark">
+    <Page title="Design">
       <GTag></GTag>
       <meta name="description" content="Software design" />
       <div className="wrapper wrapper__article">

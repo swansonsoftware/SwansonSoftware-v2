@@ -32,7 +32,7 @@ function _2020sSlideshow() {
   ]
 
   return (
-    <Page title="2020s Slideshow" background="dark">
+    <Page title="2020s Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/2020s" linktext="2020s" />
       <SlideShow photos={photos} />

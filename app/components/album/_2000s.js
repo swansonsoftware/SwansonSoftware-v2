@@ -38,7 +38,7 @@ function _2000s() {
   ]
 
   return (
-    <Page title="2000s" background="dark">
+    <Page title="2000s">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">2000s</h1>

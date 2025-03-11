@@ -24,7 +24,7 @@ function _2010sSlideshowNormas() {
   ]
 
   return (
-    <Page title="2013 Old House Slideshow" background="dark">
+    <Page title="2013 Old House Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/2010s" linktext="2010s" />
       <SlideShow photos={photos} />

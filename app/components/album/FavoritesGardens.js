@@ -32,7 +32,7 @@ function FavoritesGardens() {
   const videos = [{ id: 1, videoId: "KOq_u868VOM", caption: "Filoli Estate", caption2: "2016" }]
 
   return (
-    <Page title="Garden Favorites" background="dark">
+    <Page title="Garden Favorites">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />

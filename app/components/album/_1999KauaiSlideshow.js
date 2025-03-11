@@ -28,7 +28,7 @@ function _1999KauaiSlideshow() {
   // { id: 3, lazy: false, src: "", width: "320", height: "180", captionHeading: "Kauai, 1999", caption: "", alt: "", sizes: "100vw", srcset: "" },
 
   return (
-    <Page title="1999 Kauai Slideshow" background="dark">
+    <Page title="1999 Kauai Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/1900s" linktext="1900s" />
       <SlideShow photos={photos} />

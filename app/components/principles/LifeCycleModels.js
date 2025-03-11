@@ -36,7 +36,7 @@ function LifecycleModels() {
   }, [])
 
   return (
-    <Page title="Lifecycle Models" background="dark">
+    <Page title="Lifecycle Models">
       <GTag></GTag>
       <meta name="description" content="Software life cycle models" />
       <div className="wrapper wrapper__article">

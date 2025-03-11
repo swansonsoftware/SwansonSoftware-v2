@@ -23,7 +23,7 @@ function _1900s() {
   const videos = []
 
   return (
-    <Page title="1900s" background="dark">
+    <Page title="1900s">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">1900s - Old Times</h1>

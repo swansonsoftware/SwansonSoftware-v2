@@ -5,6 +5,7 @@ import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import GTag from "../GTag"
+import GStructuredData from "../GStructuredData"
 
 function Reviews() {
   const appDispatch = useContext(DispatchContext)
@@ -16,30 +17,10 @@ function Reviews() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  useEffect(() => {
-    let structuredDataText = `{
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Software Reviews",
-        "datePublished": "2025-03-06T08:26:21-08:00",
-        "author": [{
-            "@type": "Person",
-            "name": "Gregory Swanson",
-            "url": "https://www.linkedin.com/in/gregory-swanson-7b92b68/"
-          }]
-      }`
-
-    const script = document.createElement("script")
-    script.setAttribute("type", "application/ld+json")
-    script.setAttribute("id", "structure")
-    script.textContent = structuredDataText
-    document.head.appendChild(script)
-    return () => document.head.removeChild(script)
-  }, [])
-
   return (
-    <Page title="Reviews" background="dark">
+    <Page title="Reviews">
       <GTag></GTag>
+      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-11T11:29:25-07:00" headline="Software Reviews"></GStructuredData>
       <meta name="description" content="Software reviews" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Reviews</h1>

@@ -31,7 +31,7 @@ function Home() {
   }, [])
 
   return (
-    <Page title="Home" background="dark">
+    <Page title="Home">
       <GTag></GTag>
       <div className="wrapper wrapper--banner">
         <meta name="description" content="Swanson Software, disseminating knowledge in the craft of software construction" />

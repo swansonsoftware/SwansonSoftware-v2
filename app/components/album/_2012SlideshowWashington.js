@@ -24,7 +24,7 @@ function _2010sSlideshowWashington() {
   ]
 
   return (
-    <Page title="2012 Washington D. C. Slideshow" background="dark">
+    <Page title="2012 Washington D. C. Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/2010s" linktext="2010s" />
       <SlideShow photos={photos} />

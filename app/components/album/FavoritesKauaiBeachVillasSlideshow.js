@@ -40,7 +40,7 @@ function FavoritesKauaiBeachVillasSlideshow() {
   ]
 
   return (
-    <Page title="Kauai Beach Villas Favorites Slideshow" background="dark">
+    <Page title="Kauai Beach Villas Favorites Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />

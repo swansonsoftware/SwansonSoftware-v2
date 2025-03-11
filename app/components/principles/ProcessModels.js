@@ -37,7 +37,7 @@ function ProcessModels() {
   }, [])
 
   return (
-    <Page title="Process Models" background="dark">
+    <Page title="Process Models">
       <GTag></GTag>
       <meta name="description" content="Software process models" />
       <div className="wrapper wrapper__article">

@@ -39,7 +39,7 @@ function FavoritesCats() {
   ]
 
   return (
-    <Page title="Cats Favorites" background="dark">
+    <Page title="Cats Favorites">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />

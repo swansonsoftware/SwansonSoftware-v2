@@ -8,7 +8,7 @@ import GTag from "../GTag"
 function FavoritesKauai() {
   const appState = useContext(StateContext)
 
-  appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+  // appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
   const photos = [
     { id: 1, lazy: false, src: "../assets/images/1900s/1999-kauai-a013-b-test.webp", srcset: "../assets/images/1900s/1999-kauai-a013-b-test.webp 1x, ../assets/images/1900s/1999-kauai-a013-b-test-672.webp 2x", width: "320", height: "180", alt: "Hanalei valley farm fields from the Scenic Overlook", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", captionHeading: "Kauai, August 1999", caption: "Hanalei Scenic Overlook" },
@@ -46,7 +46,7 @@ function FavoritesKauai() {
   ]
 
   return (
-    <Page title="Kauai Favorites" background="dark">
+    <Page title="Kauai Favorites">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />

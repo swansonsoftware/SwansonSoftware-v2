@@ -52,7 +52,7 @@ function _2010s() {
   ]
 
   return (
-    <Page title="2010s" background="dark">
+    <Page title="2010s">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">2010s</h1>

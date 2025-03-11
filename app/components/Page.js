@@ -6,12 +6,6 @@ function Page(props) {
     window.scrollTo(0, 0)
   }, [props.title])
 
-  // let pagestyle = "page"
-
-  if (props.background == "light") {
-    // pagestyle = props.pagestyle
-    document.body.classList.remove("dark")
-  }
   return props.children
 }
 

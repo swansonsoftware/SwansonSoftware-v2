@@ -21,7 +21,7 @@ function FavoritesKauaiStreamSlideshow() {
   ]
 
   return (
-    <Page title="Kauai Stream Erosion" background="dark">
+    <Page title="Kauai Stream Erosion">
       <GTag></GTag>
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />

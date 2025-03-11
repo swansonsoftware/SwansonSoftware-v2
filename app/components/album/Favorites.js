@@ -1,13 +1,19 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
+import DispatchContext from "../../DispatchContext"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoBookBlock from "./PhotoBookBlock"
 import GTag from "../GTag"
 
 function Favorites() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+
+  useEffect(() => {
+    appDispatch({ type: "backgroundStyleChange", color: "dark" })
+  }, [])
 
   const photobooks = [
     { id: 1, href: "/album/favorites-kauai", src: "../assets/images/2000s/2001-006-thumbnail.webp", width: "320", height: "213", alt: "Photo album of Kauai favorites", caption: "Kauai (mostly)" },
@@ -17,7 +23,7 @@ function Favorites() {
   ]
 
   return (
-    <Page title="Favorites" background="dark">
+    <Page title="Favorites">
       <GTag></GTag>
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">Favorites</h1>

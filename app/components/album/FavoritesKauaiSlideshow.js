@@ -46,7 +46,7 @@ function FavoritesKauaiSlideshow() {
   // { id: 3, lazy: true, src: "", width: "320", height: "180", captionHeading: "", caption: "", alt: "", sizes: "100vw", srcset: "" },
 
   return (
-    <Page title="Kauai Favorites Slideshow" background="dark">
+    <Page title="Kauai Favorites Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />

@@ -37,7 +37,7 @@ function _2010sSlideshowGardens() {
   ]
 
   return (
-    <Page title="2010s Gardens Slideshow" background="dark">
+    <Page title="2010s Gardens Slideshow">
       <GTag></GTag>
       <Breadcrumb to="/album/2010s" linktext="2010s" />
       <SlideShow photos={photos} />
