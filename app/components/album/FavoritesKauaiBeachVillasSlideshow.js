@@ -3,6 +3,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
+import GTag from "../GTag"
 
 function FavoritesKauaiBeachVillasSlideshow() {
   const appState = useContext(StateContext)
@@ -40,6 +41,7 @@ function FavoritesKauaiBeachVillasSlideshow() {
 
   return (
     <Page title="Kauai Beach Villas Favorites Slideshow" background="dark">
+      <GTag></GTag>
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />
     </Page>

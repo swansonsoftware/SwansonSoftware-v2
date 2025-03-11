@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
-import { Link } from "react-router-dom"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
+import GTag from "../GTag"
 
 function _1999KauaiSlideshow() {
   const appState = useContext(StateContext)
@@ -29,6 +29,7 @@ function _1999KauaiSlideshow() {
 
   return (
     <Page title="1999 Kauai Slideshow" background="dark">
+      <GTag></GTag>
       <Breadcrumb to="/album/1900s" linktext="1900s" />
       <SlideShow photos={photos} />
     </Page>

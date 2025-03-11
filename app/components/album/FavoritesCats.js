@@ -3,6 +3,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
 import Breadcrumb from "../Breadcrumb"
+import GTag from "../GTag"
 
 function FavoritesCats() {
   const appState = useContext(StateContext)
@@ -39,6 +40,7 @@ function FavoritesCats() {
 
   return (
     <Page title="Cats Favorites" background="dark">
+      <GTag></GTag>
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />
         <h1 className="headline__h1">Cats Favorites</h1>

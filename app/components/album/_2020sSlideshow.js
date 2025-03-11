@@ -3,6 +3,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
+import GTag from "../GTag"
 
 function _2020sSlideshow() {
   const appState = useContext(StateContext)
@@ -32,6 +33,7 @@ function _2020sSlideshow() {
 
   return (
     <Page title="2020s Slideshow" background="dark">
+      <GTag></GTag>
       <Breadcrumb to="/album/2020s" linktext="2020s" />
       <SlideShow photos={photos} />
     </Page>

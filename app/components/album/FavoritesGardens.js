@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
 import Breadcrumb from "../Breadcrumb"
+import GTag from "../GTag"
 
 function FavoritesGardens() {
   const appState = useContext(StateContext)
@@ -32,6 +33,7 @@ function FavoritesGardens() {
 
   return (
     <Page title="Garden Favorites" background="dark">
+      <GTag></GTag>
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />
         <h1 className="headline__h1">Garden Favorites</h1>

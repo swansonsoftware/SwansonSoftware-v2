@@ -1,19 +1,14 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import Page from "../Page"
-import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
 import RecipePhotos from "./RecipePhotos"
+import GTag from "../GTag"
 
 function VegetableStock() {
-  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
-
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "dark" })
-  }, [])
 
   const photos = [
     { id: 1, src: "../assets/images/2020s/2021-03-21-DSC03648-thumbnail.webp", width: "320", height: "180", alt: "Pot filled to the top with chopped Leeks.", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", captionHeading: "", caption: "Coarsley chopped leeks, piled high in a 6.5 quart pot." },
@@ -22,6 +17,7 @@ function VegetableStock() {
 
   return (
     <Page title="Vegetable Stock" background="dark">
+      <GTag></GTag>
       <div className="wrapper wrapper--album wrapper--album--pull-left album-recipe">
         <Breadcrumb to="../album/Recipes" linktext="Recipes" />
 

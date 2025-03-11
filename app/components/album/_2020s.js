@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
+import GTag from "../GTag"
 
 function _2020s() {
   const appState = useContext(StateContext)
@@ -30,6 +31,7 @@ function _2020s() {
 
   return (
     <Page title="2020s" background="dark">
+      <GTag></GTag>
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">2020s</h1>
 

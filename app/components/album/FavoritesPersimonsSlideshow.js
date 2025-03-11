@@ -3,6 +3,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
+import GTag from "../GTag"
 
 function FavoritesPersimonsSlideshow() {
   const appState = useContext(StateContext)
@@ -20,6 +21,7 @@ function FavoritesPersimonsSlideshow() {
 
   return (
     <Page title="2010s Slideshow" background="dark">
+      <GTag></GTag>
       <Breadcrumb to="/album/favorites-persimons" linktext="Persimon Favorites" />
       <SlideShow photos={photos} />
     </Page>

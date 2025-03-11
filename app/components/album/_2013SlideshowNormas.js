@@ -3,6 +3,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
+import GTag from "../GTag"
 
 function _2010sSlideshowNormas() {
   const appState = useContext(StateContext)
@@ -24,6 +25,7 @@ function _2010sSlideshowNormas() {
 
   return (
     <Page title="2013 Old House Slideshow" background="dark">
+      <GTag></GTag>
       <Breadcrumb to="/album/2010s" linktext="2010s" />
       <SlideShow photos={photos} />
     </Page>

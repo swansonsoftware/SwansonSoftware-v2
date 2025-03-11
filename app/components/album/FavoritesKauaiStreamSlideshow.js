@@ -3,6 +3,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
+import GTag from "../GTag"
 
 function FavoritesKauaiStreamSlideshow() {
   const appState = useContext(StateContext)
@@ -21,6 +22,7 @@ function FavoritesKauaiStreamSlideshow() {
 
   return (
     <Page title="Kauai Stream Erosion" background="dark">
+      <GTag></GTag>
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />
     </Page>
