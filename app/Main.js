@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, Suspense } from "react"
+import React, { useReducer, Suspense } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 import "./assets/styles/styles.css"
@@ -49,7 +49,7 @@ function Main() {
   const initialState = { backgroundStyle: "dark", color: "red", isMenuOpen: false }
 
   function theReducer(state, action) {
-    // console.log("Main - action type: " + action.type + ", change to: " + action.color)
+    console.log("Main - action type: " + action.type + ", change to: " + action.color)
     switch (action.type) {
       case "backgroundStyleChange": {
         return {
@@ -77,14 +77,6 @@ function Main() {
 
   const [state, dispatch] = useReducer(theReducer, initialState)
 
-  // useEffect(() => {
-  //   if (state.isMenuOpen) {
-  //     console.log("Main - (useEffect) state.isMenuOpen is true")
-  //   } else {
-  //     console.log("Main - (useEffect) state.isMenuOpen is false")
-  //   }
-  // }, [state.isMenuOpen])
-
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
@@ -95,7 +87,7 @@ function Main() {
             <Suspense fallback={<LoadingDotsIcon />}>
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about-us" element={<About body="light" />} />
+                <Route path="/about-us" element={<About />} />
                 <Route path="/album/1900s" element={<_1900s />} />
                 <Route path="/album/2000s" element={<_2000s />} />
                 <Route path="/album/2010s" element={<_2010s />} />
@@ -122,11 +114,11 @@ function Main() {
                 <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
                 <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
                 <Route path="/contact" element={<ContactUs body="light" />} />
-                <Route path="/principles/process-models" element={<ProcessModels body="light" />} />
-                <Route path="/principles/requirements" element={<Requirements body="light" />} />
-                <Route path="/principles/design" element={<Design body="light" />} />
-                <Route path="/principles/lifecycle-models" element={<LifecycleModels body="light" />} />
-                <Route path="/principles/reviews" element={<Reviews body="light" />} />
+                {/* <Route path="/principles/process-models" element={<ProcessModels body="light" />} /> */}
+                <Route path="/principles/requirements" element={<Requirements />} />
+                <Route path="/principles/design" element={<Design />} />
+                <Route path="/principles/lifecycle-models" element={<LifecycleModels />} />
+                <Route path="/principles/reviews" element={<Reviews />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
