@@ -4,6 +4,7 @@ import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import GTag from "../GTag"
+import GStructuredData from "../GStructuredData"
 
 function ProcessModels() {
   const appDispatch = useContext(DispatchContext)
@@ -15,30 +16,10 @@ function ProcessModels() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  useEffect(() => {
-    //add structured data
-    let structuredDataText = `{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "Software Process Models",
-          "datePublished": "2025-03-06T08:26:21-08:00",
-          "author": [{
-              "@type": "Person",
-              "name": "Gregory Swanson",
-              "url": "https://www.linkedin.com/in/gregory-swanson-7b92b68/"
-            }]
-        }`
-    const script = document.createElement("script")
-    script.setAttribute("type", "application/ld+json")
-    script.setAttribute("id", "structure")
-    script.textContent = structuredDataText
-    document.head.appendChild(script)
-    return () => document.head.removeChild(script)
-  }, [])
-
   return (
     <Page title="Process Models">
       <GTag></GTag>
+      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Process Models"></GStructuredData>
       <meta name="description" content="Software process models" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Process Models</h1>

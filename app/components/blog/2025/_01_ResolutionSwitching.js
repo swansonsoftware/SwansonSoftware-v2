@@ -8,6 +8,7 @@ import OverlayOpener from "../../../assets/scripts/modules/OverlayOpener"
 import ImageLightboxOverlay from "../../ImageLighboxOverlay"
 import { HashLink } from "react-router-hash-link"
 import GTag from "../../GTag"
+import GStructuredData from "../../GStructuredData"
 
 function BlogJan2025_ResSwitching() {
   const appDispatch = useContext(DispatchContext)
@@ -52,27 +53,6 @@ function BlogJan2025_ResSwitching() {
     }
   }
 
-  useEffect(() => {
-    //add structured data
-    let structuredDataText = `{
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Resolution Switching Images",
-      "datePublished": "2025-03-06T08:26:21-08:00",
-      "author": [{
-          "@type": "Person",
-          "name": "Gregory Swanson",
-          "url": "https://www.linkedin.com/in/gregory-swanson-7b92b68/"
-        }]
-    }`
-    const script = document.createElement("script")
-    script.setAttribute("type", "application/ld+json")
-    script.setAttribute("id", "structure")
-    script.textContent = structuredDataText
-    document.head.appendChild(script)
-    return () => document.head.removeChild(script)
-  }, [])
-
   const imgborder = {
     border: "1px solid black"
   }
@@ -84,6 +64,7 @@ function BlogJan2025_ResSwitching() {
       <ImageLightboxOverlay />
       <meta name="description" content="Resolution switching images, choosing breakpoints" />
       <GTag></GTag>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-06T08:26:21-08:00" headline="Resolution Switching Images"></GStructuredData>
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>

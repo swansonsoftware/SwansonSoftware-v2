@@ -3,6 +3,7 @@ import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 import Page from "./Page"
 import GTag from "./GTag"
+import GStructuredData from "./GStructuredData"
 
 function Home() {
   const appDispatch = useContext(DispatchContext)
@@ -14,25 +15,10 @@ function Home() {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
   }, [])
 
-  useEffect(() => {
-    //add structured data
-    let structuredDataText = `{
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "SwansonSoftware",
-      "url": "https://www.swansonsoftware.com/",
-    }`
-    const script = document.createElement("script")
-    script.setAttribute("type", "application/ld+json")
-    script.setAttribute("id", "structure")
-    script.textContent = structuredDataText
-    document.head.appendChild(script)
-    return () => document.head.removeChild(script)
-  }, [])
-
   return (
     <Page title="Home">
       <GTag></GTag>
+      <GStructuredData type="WebSite" name="SwansonSoftware"></GStructuredData>
       <div className="wrapper wrapper--banner">
         <meta name="description" content="Swanson Software, disseminating knowledge in the craft of software construction" />
         <picture className="banner__image">

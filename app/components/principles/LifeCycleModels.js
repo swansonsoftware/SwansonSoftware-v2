@@ -4,6 +4,7 @@ import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import GTag from "../GTag"
+import GStructuredData from "../GStructuredData"
 
 function LifecycleModels() {
   const appDispatch = useContext(DispatchContext)
@@ -15,29 +16,10 @@ function LifecycleModels() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  useEffect(() => {
-    let structuredDataText = `{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "Software Life Cycle Models",
-          "datePublished": "2025-03-06T08:26:21-08:00",
-          "author": [{
-              "@type": "Person",
-              "name": "Gregory Swanson",
-              "url": "https://www.linkedin.com/in/gregory-swanson-7b92b68/"
-            }]
-        }`
-    const script = document.createElement("script")
-    script.setAttribute("type", "application/ld+json")
-    script.setAttribute("id", "structure")
-    script.textContent = structuredDataText
-    document.head.appendChild(script)
-    return () => document.head.removeChild(script)
-  }, [])
-
   return (
     <Page title="Lifecycle Models">
       <GTag></GTag>
+      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Life Cycle Models"></GStructuredData>
       <meta name="description" content="Software life cycle models" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Life Cycle Models</h1>

@@ -20,7 +20,7 @@ function Reviews() {
   return (
     <Page title="Reviews">
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-11T11:29:25-07:00" headline="Software Reviews"></GStructuredData>
+      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Reviews"></GStructuredData>
       <meta name="description" content="Software reviews" />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Reviews</h1>
