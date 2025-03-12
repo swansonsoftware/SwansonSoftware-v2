@@ -33,6 +33,7 @@ function Header() {
     if (siteHeaderMenuIcon) {
       siteHeaderMenuIcon.classList.remove("site-header__menu-icon--expanded")
       siteHeaderMenuIcon.classList.add("site-header__menu-icon--collapsed")
+      siteHeaderMenuIcon.setAttribute("aria-label", "Open menu")
       MenuOverlayDisplay(HIDE)
     }
   }

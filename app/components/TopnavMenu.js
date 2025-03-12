@@ -7,8 +7,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
-  // console.log("TopnavMenu render - isMenuExpanded: " + isMenuExpanded)
-
   const SHOW = true
   const HIDE = false
 
@@ -127,7 +125,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   }
 
   function ToggleMenuExpansion(e) {
-    // console.log("ToggleMenuExpansion - " + e.target.nodeName)
     let targetText = ""
     let icon = null
 
@@ -183,7 +180,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
     // If the same menu was selected, close it;
     // if a different menu was selected, close the open menu (if any) and open the selected menu
     if (pageOverlay) {
-      // console.log("pageOverlay: " + pageOverlay)
       // Can't call ShrinkDropdownMenu here because it breaks the logic below
       if (pageOverlay.classList.contains("site-header__menu-dropdown--visible")) {
         ShrinkDropdownMenu()
@@ -237,11 +233,8 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
 
   // Menu icon event handler
   function ToggleMenuIcon(e) {
-    // console.log("ToggleMenuIcon - enter")
-
     if (e.code == "Enter" || e.type == "click") {
       if (!isMenuExpanded) {
-        // console.log("show")
         NavMenuContentDisplay(SHOW)
       }
 
@@ -251,9 +244,9 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
       let slideshowCaptionBox = document.querySelector(".slideshow__slide-caption-box")
 
       if (siteHeaderMenuIcon && !isMenuExpanded) {
-        // console.log("show X menu icon")
         siteHeaderMenuIcon.classList.remove("site-header__menu-icon--collapsed")
         siteHeaderMenuIcon.classList.add("site-header__menu-icon--expanded")
+        siteHeaderMenuIcon.setAttribute("aria-label", "Close menu")
         LightboxOverlayDisplay(SHOW)
         if (menuButtons) {
           menuButtons.forEach(button => {
@@ -268,7 +261,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
           breadcrumb.classList.add("site-header__breadcrumb--is-hidden")
         }
       } else {
-        // console.log("show Hamburger menu icon")
         ShrinkDropdownMenu()
         NavMenuContentDisplay(HIDE)
         Show_Hamburger_MenuIcon()
@@ -282,7 +274,7 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
         if (slideshowCaptionBox) {
           slideshowCaptionBox.style.zIndex = "1"
         }
-        //unhide breadcrumb
+
         if (breadcrumb) {
           breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
         }
@@ -293,8 +285,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   const prevIndex = useRef(-2)
 
   function menuKeyPressHandler(e) {
-    // console.log(e)
-
     if (e.code == "Escape") {
       appDispatch({ type: "closeOverlay", isMenuOpen: false })
       CloseMenu()
@@ -305,7 +295,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
       } else if (e.code == "ArrowUp" || e.code == "ArrowLeft") {
         direction = -1
       }
-      // console.log("direction: " + direction)
 
       const currentElement = document.activeElement
       const focusableElements = Array.from(document.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')).filter(el => !el.hasAttribute("disabled"))
@@ -313,20 +302,12 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
       const currentIndex = focusableElements.indexOf(currentElement)
 
       let nextIndex = currentIndex + direction
-      // console.log("Before increment: Next index " + nextIndex + ", prevIndex " + prevIndex.current)
-      // if (nextIndex == prevIndex.current) {
-      //   console.log("INCREMENTING nextIndex " + direction)
-      //   nextIndex += direction
-      // }
-      // prevIndex.current = currentIndex
 
-      // console.log("After increment: Next index " + nextIndex + ", prevIndex " + prevIndex.current)
       if (nextIndex >= focusableElements.length) {
         nextIndex = 0
       } else if (nextIndex < 0) {
         nextIndex = focusableElements.length - 1
       }
-      // console.log("Next index: " + nextIndex)
       focusableElements[nextIndex].focus()
     }
   }
