@@ -33,7 +33,7 @@ const FavoritesKauai = React.lazy(() => import("./components/album/FavoritesKaua
 const FavoritesKauaiSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiSlideshow"))
 const FavoritesKauaiBeachVillasSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiBeachVillasSlideshow"))
 const FavoritesKauaiStreamSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiStreamSlideshow"))
-const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersomons"))
+const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersimons"))
 const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow"))
 const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels"))
 const ProcessModels = React.lazy(() => import("./components/principles/ProcessModels"))
