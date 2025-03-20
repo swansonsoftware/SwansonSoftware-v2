@@ -4,7 +4,6 @@ import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
 import Breadcrumb from "../../Breadcrumb"
 import ImageBlock from "../../ImageBlock"
-import OverlayOpener from "../../../assets/scripts/modules/OverlayOpener"
 import ImageLightboxOverlay from "../../ImageLighboxOverlay"
 import { HashLink } from "react-router-hash-link"
 import GTag from "../../GTag"
@@ -21,50 +20,14 @@ function BlogJan2025_ResSwitching() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  function GetSelectedImage() {
-    return selectedImage.current
-  }
-
-  function FindButtonElement(obj) {
-    let node = obj,
-      i = 0
-    if (node.nodeName != "BUTTON") {
-      do {
-        i++
-        node = node.parentElement
-        if (!node) {
-          return null
-        }
-        if (i > 10) {
-          return null
-        }
-      } while (node.nodeName != "BUTTON")
-    }
-
-    return node
-  }
-
-  function OpenOverlay(e, image) {
-    if (e.code == "Enter" || e.type == "click") {
-      selectedImage.current = FindButtonElement(e.target)
-
-      let opener = new OverlayOpener(e, image)
-      opener.openOverlay()
-    }
-  }
-
-  const imgborder = {
-    border: "1px solid black"
-  }
-
   const images = [{ id: 1, lazy: false, src: "../../../../assets/images/blog/2025/_01_sbgs-example-thumbnail.webp", srcset: "../../../../assets/images/blog/2025/_01_sbgs-example-thumbnail.webp 1x, ../../../../assets/images/blog/2025/_01_sbgs-example-672.webp 2x", width: "320", height: "213", alt: "Developer console of browser showing a small image displayed but is 30.6 Mb in size", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "A 30 Mb image is used, even for a 320px wide mobile phone screen. This is a thoughtless waste of the user’s data plan, and it takes several seconds for the image to appear.", dataSrcset: "320=320x213;360=360x240;393=393x262;432=432x288;608=608x405;672=672x448;768=768x512;896=896x597;960=960x640", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" }]
 
   return (
     <Page title="Choosing Resolution Switching Breakpoints">
       <ImageLightboxOverlay />
-      <meta name="description" content="Resolution switching images, choosing breakpoints" />
+      <meta name="description" content="Resolution switching images, choosing breakpoints for responsive images" />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-06T08:26:21-08:00" headline="Resolution Switching Images"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>
@@ -129,14 +92,16 @@ function BlogJan2025_ResSwitching() {
           </div>
           <div className="row__colspan-8">
             <p className="dropCap">The question of how many breakpoints are needed and how to choose them comes up a lot when doing resolution switching of images for a responsive design. In this post I describe a technique based on an analysis of device sizes to answer the question.</p>
-            <p>For the album on this website, I have photos that display as a 320px wide thumbnail for preview, and when the user selects the image, a larger size will appear that fills the screen as best as possible depending on screen dimensions and the aspect ratio of the image. The goal is to optimize the image size for desktop and laptop screens as well as for tablets and mobile phones. I will cover images in both landscape and portrait orientation, and three aspect ratios.</p>
+            <p>For the album on this website, I have photos that display as a 320px wide thumbnail for preview, and when the user selects the image, a larger size will appear that fills the screen as best as possible depending on screen dimensions and the aspect ratio of the image. The goal is to optimize the image size for desktop and laptop screens as well as for tablets and mobile phones. I will cover images in both landscape and portrait orientation.</p>
           </div>
           <div className="row__colspan-4">
-            <h3 className="headline__h3">Don't do this!</h3>
+            <h3 className="headline__h3">Ouch! Don't do that!</h3>
             <ImageBlock key={images[0].id} image={images[0]}></ImageBlock>
           </div>
           <div className="row__colspan-8">
-            <p>When we put an image on a webpage, if we only provide a single full-size image, say one that looks good when the page is viewed on our desktop machine, then users who view the page on a smaller mobile device must download the large image. That wastes their bandwidth and uses up their data plan. However, if we only provide a smaller image that looks good when viewed on a smaller device it might look grainy when viewed on a desktop machine. To solve this, we need a responsive image design where we provide copies of the image in different resolutions for the browser to choose from, and we use the image tag’s srcset and sizes attributes to help the browser determine which image to choose.</p>
+            <p>
+              When we put an image on a webpage, if we only provide a single full-size image, say one that looks good when the page is viewed on our desktop machine, then users who view the page on a smaller mobile device must download the large image. That wastes their bandwidth and uses up their data plan. However, if we only provide a smaller image that looks good when viewed on a smaller device it might look grainy when viewed on a desktop machine. To solve this, we need a responsive image design where we provide copies of the image in different sizes so the browser can choose an appropriate image size for the user’s screen. We indicate the copies we have provided with the image tag’s <code>srcset</code> attribute, and we use the <code>sizes</code> attribute to provide hints to the browser about which copy we want it to use based on screen size.
+            </p>
             <p>Although these attributes are relatively new, support is now widespread and we can use them to provide a set of images; however, we need to have an idea of the image sizes to provide, and at what points (breakpoints) the browser should choose between images (resolution switching).</p>
 
             <p className="note">
@@ -148,30 +113,49 @@ function BlogJan2025_ResSwitching() {
             <h2 className="headline__h2">Ideas for Choosing Breakpoints</h2>
           </div>
           <div className="row__colspan-8">
-            <p className="dropCap">We can’t provide an unlimited number of images, for example having breakpoints 1px apart; if wasted bandwidth means anything larger than the exact size needed, then we accept that there will be some wasted bandwidth, but we try to minimize that. Here are other ideas for choosing breakpoints that can work depending on the situation.</p>
+            <p className="dropCap">We can’t provide an unlimited number of images, for example having breakpoints 1px apart; so, let’s make a rule: if wasted bandwidth means anything larger than the exact size needed, then we accept that there will be some wasted bandwidth, but we try to minimize that.</p>
+            <p>While researching this post I came across other ideas for choosing break points. Consider these as they might be appropriate for your situation.</p>
           </div>
           <div className="row__colspan-4">
             <p>
-              Jason Grigsby describes this technique in his post <HashLink to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">Responsive Images 101, Part 9: Image Breakpoints – Cloud Four</HashLink>.
+              Jason Grigsby describes this technique in his post{" "}
+              <HashLink className="wrapper__article__outbound-link" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
+                Responsive Images 101, Part 9: Image Breakpoints – Cloud Four.
+              </HashLink>
             </p>
           </div>
           <div className="row__colspan-8">
             <h3 className="headline__h3">Choosing Breakpoints using a Performance Budget</h3>
-            <p className="dropCap">The idea of using a performance budget to choose breakpoints makes perfect sense: breakpoints occur at intervals, say 20k. Thus, your srcset attribute includes images that differ by about 20k in size, regardless of the image resolution.</p>
-            <p>This may be a solution when the image does not need to fill the screen; you may only need two or three sizes of the image. I could not make this approach work for images that fit the screen; to summarize what I found:</p>
+            <p className="dropCap">
+              The idea of using a performance budget to choose breakpoints makes perfect sense: breakpoints occur at intervals, say 20k. Thus, your <code>srcset</code> attribute includes images that differ by about 20k in size, regardless of the image resolution.
+            </p>
+            <p>This may be a solution when you only need a few sizes of the image. I could not make this approach work for images that span a large range of sizes to fit the screen; to summarize what I found:</p>
             <ul>
               <li className="list">
-                To generate images at 20k sizes, you must resize the image, save it in a compressed format, then check the size and if it’s not 20k smaller (or larger depending on how you’re doing this) then you start over. Unless there is a tool that lets you specify the size to compress to (<HashLink to="https://squoosh.app/">Squoosh</HashLink> shows a preview of the compressed image and its size but does not support automating via script), you can’t know the compressed size of an image until you compress it, and each image compresses to a different degree based on the complexity of the image, which causes a lot of work, and we want to avoid unnecessary work
+                To generate image copies at 20k intervals, you must resize the image, save it in a compressed format, then check the size and if it’s not 20k smaller (or larger depending on how you’re doing this) then you start over. Unless there is a tool that lets you specify the size to compress to (
+                <HashLink className="wrapper__article__outbound-link" to="https://squoosh.app/">
+                  Squoosh
+                </HashLink>{" "}
+                shows a preview of the compressed image and its size but does not support automating via script), you can’t know the compressed size of an image until you compress it, and each image compresses to a different degree based on the complexity of the image, which causes a lot of work, and we want to avoid unnecessary work
               </li>
               <li className="list">
-                Tools like Cloudinary.com’s <HashLink to="https://www.responsivebreakpoints.com/">Responsive Image Breakpoints Generator by Cloudinary</HashLink> can work if all you need is a small range of sizes. But when the range is large this tool won’t help: trials with a 5.8 Mb high resolution image generated a package of files where the images for larger screen sizes were much too large (from 500k to over 1Mb) and the images for smaller screen sizes were too grainy
+                Tools like Cloudinary.com’s{" "}
+                <HashLink className="wrapper__article__outbound-link" to="https://www.responsivebreakpoints.com/">
+                  Responsive Image Breakpoints Generator by Cloudinary
+                </HashLink>{" "}
+                can work if all you need is a small range of sizes. But when the range is large this tool won’t help. Trials with a 5.8 Mb high resolution image generated a package of files where the images for larger screen sizes were much too large (from 500k to over 1Mb) and trials on a compressed copy of the same image produced images for smaller screen sizes that were too grainy
               </li>
-              <li className="list">A 20 kb performance budget creates nonsensical breakpoints at smaller image sizes, creating big jumps between breakpoints that has consequences related to DPR (explained below) if you use the sizes attribute</li>
+              <li className="list">
+                A 20 kb performance budget creates nonsensical breakpoints at smaller image sizes, creating big jumps between breakpoints that has consequences related to DPR (explained below) if you use the <code>sizes</code> attribute with anything other than the default 100vw
+              </li>
             </ul>
           </div>
           <div className="row__colspan-4">
             <p>
-              I learned about this from imagekit.io’s post <HashLink to="https://imagekit.io/responsive-images/">Responsive Images - A Reference Guide from A to Z</HashLink>
+              I learned about this from imagekit.io’s post{" "}
+              <HashLink className="wrapper__article__outbound-link" to="https://imagekit.io/responsive-images/">
+                Responsive Images - A Reference Guide from A to Z
+              </HashLink>
             </p>
           </div>
           <div className="row__colspan-8">
@@ -183,13 +167,18 @@ function BlogJan2025_ResSwitching() {
               <li className="list">Medium: 1200px to 1400px (smaller laptops)</li>
               <li className="list">Large: 1400px and larger (larger laptops and desktops from 1280px)</li>
             </ul>
-            <p>Based on the common size range, we might use the following breakpoints: 480px, 768px, 1024px, and 1280px. If we have a thumbnail size image 320px wide, then the image srcset we would include copies at 480px wide, 768px wide, 1024px wide, and 1280px wide. The image tag’s sizes attribute might be:</p>
+            <p>
+              Based on the common size range, we might use the following breakpoints: 480px, 768px, 1024px, and 1280px. If we have a thumbnail size image 320px wide, then in the image <code>srcset</code> we would include copies at 480px wide, 768px wide, 1024px wide, and 1280px wide. The image tag’s <code>sizes</code> attribute might be:
+            </p>
 
             <p className="code">sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"</p>
-            <p>Notes:</p>
+
+            <h4 className="headline__h4">Notes</h4>
             <ul>
               <li className="list">100vw means that the image will take 100% of the screen on devices up to 480px wide; 50vw means it will take up to 50% on devices from 481px to 768px wide; 33vw, 33% on screens from 769px to 1024px wide; and 25vw, 25% on all larger screens.</li>
-              <li className="list">The vw is viewport width, and in the sizes attribute it gets smaller as the viewport width (max-width) increases because the column count is increasing and as each column takes a smaller percentage of the viewport width, the column with the image is taking a smaller percentage of the viewport.</li>
+              <li className="list">
+                The vw is viewport width, and in the <code>sizes</code> attribute it gets smaller as the viewport width (max-width) increases because the column count is increasing and as each column takes a smaller percentage of the viewport width, the column with the image is taking a smaller percentage of the viewport.
+              </li>
             </ul>
             <p></p>
             <p>Then considering that most devices today have a DPR of 2 or higher, we have the following image widths, or breakpoints:</p>
@@ -209,12 +198,24 @@ function BlogJan2025_ResSwitching() {
             <h2 className="headline__h2">Finding Breakpoints Through Analysis of Device Screen Sizes</h2>
           </div>
           <div className="row__colspan-8">
+            <p className="dropCap">Any discussion about choosing breakpoints for resolution switching is difficult because assumptions need to be made that impact the choice of breakpoints. There may be no single correct way to choose breakpoints that covers all situations. </p>
             <h3 className="headline__h3 headline__h3--xtra-pad">Two Cases</h3>
-            <p className="dropCap">There are two cases I will cover:</p>
+            <p>I will cover two cases:</p>
             <ol>
-              <li className="list">Images in a landscape orientation show full screen with sizes attribute set to 100vw</li>
-              <li className="list">Images in portrait orientation show full screen and each image specified in the srcset attribute has a corresponding size in the sizes attribute, using a media query with max-height</li>
+              <li className="list">
+                Images in a landscape orientation show full screen width (or as best as possible depending on the image aspect ratio) with <code>sizes</code> attribute set to 100vw
+              </li>
+              <li className="list">
+                Images in portrait orientation show full screen height and each image specified in the <code>srcset</code> attribute has a corresponding size in the <code>sizes</code> attribute, using a media query with max-height
+              </li>
             </ol>
+            <p>
+              To extend this technique for other situations you can use the same images in the{" "}
+              <HashLink to="#tblImageSizes" className="list--toc--a">
+                Table of Image Sizes
+              </HashLink>{" "}
+              below, or your own version of it, but with different media queries in the <code>sizes</code> attribute.{" "}
+            </p>
             <h3 className="headline__h3">A List of Device Screen Sizes</h3>
             <p className="dropCap">To approach this in a pragmatic, organized way, we will group devices by their screen size. To illustrate, consider two copies of an image: one that is 412px wide and one that is 430px wide. The difference in file size between the two is not enough to be concerned about, so we might group those. Our grouping is a bit different though, because we consider more sizes as will be shown below.</p>
             <p>Using online sources and the list of devices in a browser’s device emulator (located in the developer console), and ignoring devices more than say 10 years old, a good sampling of screen sizes (including DPR (Device Pixel Ratio) multiples) is:</p>
@@ -1017,7 +1018,7 @@ function BlogJan2025_ResSwitching() {
             <h3 className="headline__h3">The List of Breakpoints</h3>
           </div>
           <div className="row__colspan-8">
-            <p className="dropCap">From the above table we have 23 groups, or breakpoints. This list is long, but you will likely not use the entire list:</p>
+            <p className="dropCap">From the above table we have 23 groups, or breakpoints. This list is long, but for many image situations only part of the list is needed:</p>
             <table className="table table--no-border table--cell-border-dark">
               <thead className="table--light-blue">
                 <tr>
@@ -1101,13 +1102,15 @@ function BlogJan2025_ResSwitching() {
             <h3 className="headline__h3">Table of Image Sizes</h3>
           </div>
           <div className="row__colspan-8">
-            <p className="dropCap">The photos we have include three common photo aspect ratios: 16:9, 4:3, and 3:2. Breakpoints are based on image width and are the same for each aspect ratio, but the image heights vary. The table includes a Size Compressed column; the size indicated is what to try for when compressing the image. The compressed sizes are arbitrary, but they are reasonable, and I used them for the album on this website. </p>
+            <p className="dropCap">The photos we have include three common photo aspect ratios: 16:9, 4:3, and 3:2. Breakpoints are based on image width and are the same for each aspect ratio. The table includes a Size Compressed column; the size indicated is what to try for when compressing the image. The compressed sizes are arbitrary, but they are reasonable, and I used them for the album on this website. </p>
             <p>Again, you would likely not use all these sizes most of the time. For images that will display full screen, just the sizes from 1180 width and up would do because most devices today have a DPR of 2 or higher, so the browser will never download the smaller sizes.</p>
             <p className="note dropCapNote">
               <span className="note">One caveat with this technique is that there is no way to prevent a device with high DPR, say 3 or 4, from downloading the 3x or 4x copy.</span>
-              <span className="note">To illustrate, take a device like the Samsung Galaxy S9 that has DPR 4.5. Create a webpage with an image that has a srcset with all the image sizes from the table and sizes=”100vw”, rotate the device so the long side is horizontal, then load the page in the device’s browser. The screen size is 658px wide by 320px high. The table has one image at 608 x 342 followed by another at 672 x 378, and so the browser chooses the 672 x 378 image as the basis for the DPR calculation:</span>
+              <span className="note">
+                To illustrate, take a device like the Samsung Galaxy S9 that has DPR 4.5. Create a webpage with an image that has a <code>srcset</code> with all the image sizes from the table and <code>sizes="100vw"</code>, rotate the device so the long side is horizontal, then load the page in the device’s browser. The screen size is 658px wide by 320px high. The table does not have a 658px wide image, but the next image larger than 658px is 672 x 378, and so the browser chooses that as the basis for the DPR calculation:
+              </span>
               <span className="note">4.5 x 672 = 3024</span>
-              <span className="note">The table does not have an image that is 3024px wide; it has an image at 2960 x 1665 followed by one at 3240 x 1822, so the image that the browser downloads is the 3240 x 1822 copy. Nobody can tell the difference between an image at 2x and one at 4x on a 658px x 320px screen, so it would be better if we could make the browser choose, say, the 1368 x 769 copy.</span>
+              <span className="note">The table does not have an image that is 3024px wide; the next largest image is 3240 x 1822, so the browser downloads that. Nobody can tell the difference between an image at 2x and one at 4x on a 658px x 320px screen, so it would be a smaller hit on the user’s data plan if we could make the browser choose, say, the 1368 x 769 copy.</span>
             </p>
             <p>For completeness, all the breakpoints are shown in the table, and as I mentioned above, the breakpoints are a bit arbitrary because of the way I did the grouping. This is a presentation of the technique, and you can use it to create your own list.</p>
 
@@ -1487,46 +1490,105 @@ function BlogJan2025_ResSwitching() {
             <h2 className="headline__h2">Sizes for Portrait Orientation</h2>
           </div>
           <div className="row__colspan-8">
-            <p className="dropCap">While images with landscape orientation default to 100vw, images that have a portrait orientation must use a max-height media query in the sizes attribute. The max-height media query allows you to tell the browser to use an image of a specific width when the viewport is up to a certain height.</p>
-            <p>A list of sizes for 3:4 (portrait) based on the above table is:</p>
+            <p className="dropCap">
+              For images with landscape orientation displayed full screen <code>sizes</code> should be set to 100vw. Images that have a portrait orientation, however, must use a max-height media query in the <code>sizes</code> attribute. The max-height media query allows you to tell the browser to use an image of a specific width when the viewport is up to a certain height.
+            </p>
+            <p>
+              The <code>sizes</code> for 3:4 (portrait) based on the above table is:
+            </p>
             <p className="code">sizes="(max-height: 320px) 240px,(max-height: 360px) 270px,(max-height: 393px) 295px,(max-height: 432px) 324px,(max-height: 608px) 456px,(max-height: 672px) 504px,(max-height: 768px) 576px,(max-height: 896px) 672px,(max-height: 960px) 720px,(max-height: 1180px) 885px,(max-height: 1290px) 968px,(max-height: 1368px) 1026px,(max-height: 1442px) 1082px,(max-height: 1600px) 1200px,(max-height: 1852px) 1389px,(max-height: 1920px) 1440px,(max-height: 2120px) 1590px,(max-height: 2379px) 1784px,(max-height: 2560px) 1920px,(max-height: 2796px) 2097px,(max-height: 2960px) 2220px,(max-height: 3240px) 2430px,(max-height: 3840px) 2880px,2880px"</p>
             <p className="note dropCapNote">
-              We are simply reversing the values from the portrait size to construct the media query: 720x960 <code>-&gt;</code> (max-height: 960px) 720px
+              <span className="note">We are simply reversing the values from the portrait size to construct the media query.</span>
+              <span className="note">
+                For example, 720x960 <code>-&gt;</code> (max-height: 960px) 720px
+              </span>
             </p>
-            <p>For example, let’s say we have a standard 1920 x 1080 monitor, and we have a webpage with an image in 3:4 (portrait) orientation, with srcset that includes all the images in the table for 3:4, and a sizes attribute with the list of sizes above.</p>
-            <p>When we view the image full screen, the media query (max-height: 1180px) 885px will come into play because the viewport is 1080px high, telling the browser to consider the 885x1180 image.</p>
-            <p>Using the developer console, we can enable device emulation and see how the same image would look on an iPhone 12 Pro with screen size 390w x 844h and DPR 3.0. While the emulator is not a real device, my tests show identical results on a real iPhone, as well as emulators in other browsers. Which image should be downloaded? 3 x 844 = 2532, so you might reasonably assume that the media query (max-height: 2560px) 1920px comes into play, and the 1920x2560 image should be downloaded. But it is not, the 2097x2796 is downloaded. Why? Because when sizes is present, the DPR calculation is not based on the screen size, it is based on the image (specified in the sizes attribute) closest to or larger than the screen size, which in this case the table above shows is 885x1180. The calculation is 885 x 3 = 2655, and the media query that comes into play is (max-height: 2796px) 2097px.</p>
+            <p>
+              To illustrate how this works, let’s say we have a standard 1920 x 1080 monitor, and we have a webpage with an image in 3:4 (portrait) orientation, with <code>srcset</code> that includes all the images in the table for 3:4, and a <code>sizes</code> attribute as shown above. When we view the image full screen, the media query <code>(max-height: 1180px) 885px</code> will come into play because the viewport is 1080px high, and the browser downloads the 885x1180 image.
+            </p>
+            <p>Using the developer console, we can enable device emulation and see what happens when we view the webpage on an iPhone 12 Pro with screen size 390w x 844h and DPR 3.0.</p>
+            <p className="note">If you are following along using the developer console, be sure to disable caching.</p>
+            <p>
+              While the emulator is not a real device, my tests show identical results on a real iPhone, as well as emulators in other browsers. Which image should be downloaded? 3 x 844 = 2532, so you might reasonably assume that the media query <code>(max-height: 2560px) 1920px</code> comes into play, and the 1920x2560 image should be downloaded. But it is not, the 2097x2796 is downloaded. Why? Because when <code>sizes</code> is present, the DPR calculation is not based on the screen size, it is based on the media query specified in the <code>sizes</code> attribute that is closest to or larger than the device screen size.
+            </p>
+            <p className="note">
+              ..."when <code>sizes</code> is present, the DPR calculation is not based on the screen size, it is based on the media query specified in the <code>sizes</code> attribute that is closest to or larger than the device screen size."
+            </p>
+            <p>
+              In this case the table above shows that we don’t have an image 844x390, and the next largest is 885x1180. Thus, the calculation is 885 x 3 = 2655, and the media query that comes into play is <code>(max-height: 2796px) 2097px</code>.
+            </p>
             <p>More on this in the next topic, DPR and Sizes.</p>
           </div>
           <div className="row__colspan-4" id="dprAndSizes">
             <h2 className="headline__h2">DPR and Sizes</h2>
           </div>
           <div className="row__colspan-8">
-            <h3 className="headline__h3 headline__h3--xtra-pad">Be careful when specifying sizes</h3>
-            <p className="dropCap">When an image displays full screen there is usually no need to include the sizes attribute and including one may cause the browser to download a different image than you expect. (An exception to this is when the image is in portrait orientation with height larger than width.) For example, take an iPad Air 5th generation, with screen width 820px and DPR 2.0.</p>
+            <h3 className="headline__h3 headline__h3--xtra-pad">
+              Be careful when specifying <code>sizes</code>
+            </h3>
+            <p className="dropCap">
+              When an image displays full screen it is overkill to specify anything other than 100vw for the <code>sizes</code> attribute and doing otherwise may cause the browser to download a different image than you expect. (An exception to this is when the image is in portrait orientation with height larger than width, as described in the previous section Sizes for Portrait Orientation.) For example, take an iPad Air 5th generation, with screen width 820px and DPR 2.0.
+            </p>
             <p className="note">
               <span className="headline__h3">What is DPR?</span>
               <br></br>
               DPR, or Device Pixel Ratio, also known as CSS pixel ratio, is the number of physical pixels that make up a CSS pixel in one direction of a screen (width or height). Higher resolution devices have a higher DPR.
             </p>
-            <p>Assume that you have 4 images in your source set: a small image for small screens, a 2x copy of that for screens with DPR 2, a large copy for desktops at 1920x1080, and an extra-large 2x copy of that for 4k screens at 3840x2160. Your srcset is:</p>
+            <p>
+              Assume that you have a <code>srcset</code> with 4 images: a small image for small screens, a 2x copy of that for screens with DPR 2, a large copy for desktops at 1920x1080, and an extra-large 2x copy of that for 4k screens at 3840x2160. Your <code>srcset</code> is:
+            </p>
 
-            <p className="code">srcset=”640.webp 640w, 1280.webp 1280w, 1920.webp 1920w, 3840.webp 3840w”</p>
+            <p className="code">srcset="640.webp 640w, 1280.webp 1280w, 1920.webp 1920w, 3840.webp 3840w"</p>
 
-            <p>You include the following sizes attribute:</p>
+            <p>
+              You include the following <code>sizes</code> attribute:
+            </p>
 
-            <p className="code">sizes=”(max-width: 640px) 640px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, (max-width: 3840px) 3840px”</p>
+            <p className="code">sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, (max-width: 3840px) 3840px"</p>
+            <p className="note dropCapNote">
+              Specifying <code>sizes</code> in this way is redundant. Instead, you should specify <code>sizes="100vw"</code>. If instead you want to instruct the browser to use a 1x or 2x image based on the screen size and device DPR you can do this: <code>sizes="(max-width: 640px) 1x, (max-width: 1280px) 2x, (max-width: 1920px) 1x, (max-width: 3840) 2x"</code>
+            </p>
             <p>Seems benign, right? Because the iPad’s screen width is 820px, the media query (max-width: 1280px) 1280px comes into play.</p>
           </div>
 
-          <div className="row__colspan-4" id="compressingImgs">
+          <div className="row__colspan-4">
             <p>
-              (I believe this is related to the dynamic x descriptors that Eric Portis mentioned in his blog <HashLink to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">w descriptors and sizes: Under the hood</HashLink>.)
+              I believe this is related to the dynamic x descriptors that Eric Portis mentioned in his blog{" "}
+              <HashLink className="wrapper__article__outbound-link" to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
+                w descriptors and sizes: Under the hood.
+              </HashLink>{" "}
             </p>
           </div>
           <div className="row__colspan-8">
-            <p>Because DPR = 2, the image that the browser selects to download is 3840.webp, because 2 x 1280 = 2560, and because the srcset does not include a 2560px image. The browser chooses the image next larger in size than 2560 to download. (By the way, if your source set and sizes stopped at 1920 then that file would be downloaded.) If your source set included a 820px image, then the calculation would be 2 x 820 = 1640 and the 1920px image would have been selected by the browser. I checked this behavior in Chrome, Edge, Firefox, and Safari and it appears to be the same in each browser.</p>
-            <p className="note dropCapNote">Specifying sizes in this way is redundant. Instead, you should specify sizes="100vw". An example where you would include a sizes attribute is to instruct the browser to use a 1x or 2x image based on the screen size and device DPR: sizes=”(max-width: 640px) 1x, (max-width: 1280px) 2x, (max-width: 1920px) 1x, (max-width: 3840) 2x”</p>
+            <p>
+              Because DPR = 2, the image that the browser selects to download is 3840.webp, because 2 x 1280 = 2560, and because the <code>sizes</code> attribute indicates that everything between 1920px and 3840px should use the 3840px image. If instead you set <code>sizes</code> to 100vw then the browser will base the DPR calculation on screen width:
+            </p>
+            <p>2 x 820 = 1640</p>
+            <p>
+              And because <code>srcset</code> does not include a 1640px wide image the browser chooses the next largest image which is 1920px.
+            </p>
+            <h3 className="headline__h3 headline__h3--xtra-pad">Another Example</h3>
+            <p>
+              Let’s say you have a set of images that you want to display at 320px on small devices, 672px on small devices with retina screens, at 768px on larger tablets, and at 896px on larger monitors. Your <code>srcset</code> is:
+            </p>
+            <p className="code">srcset="img-320.webp 320w, img-672.webp 672w, img-768.webp 768w, img-896.webp 896w"</p>
+            <p>
+              and your <code>sizes</code> is:
+            </p>
+            <p className="code">sizes="(max-width: 320px) 320px, (max-width: 672px) 672px, (max-width: 768px) 768px, 896px"</p>
+            <p>
+              Your test on a 360px wide, DPR 2 device and find that the 896px image is downloaded. What’s going on? Remember that when <code>sizes</code> is present, the DPR calculation is not based on the screen size, it is based on the media query specified in the <code>sizes</code> attribute that is closest to or larger than the device screen size (mentioned in the previous section, Sizes for Portrait Orientation). In this case, the screen size is 360px and the media query closest to or larger is <code>(max-width: 672px) 672px</code>, and max-width x DPR (672 x 2) is 1344px. The largest image is 896px so the browser downloads that.
+            </p>
+            <p>How can we fix it? With a screen width of 360px and DPR 2, the best we can hope for is to create a media query that will make the browser download the 768px wide image. The 672px image is out of the question because 672 / DPR = 336, which is smaller than the device’s 360px wide screen. </p>
+            <p>
+              If you really want the smaller 768px image to download you are going to need to provide a copy at between about 360px and (768 / DPR =) 384px. As a simple test just add a media query for 380px to the <code>sizes</code>, we can forego creating another image for this test:
+            </p>
+            <p className="code">sizes="(max-width: 320px) 320px, (max-width: 380px) 380px, (max-width: 672px) 672px, (max-width: 768px) 768px, 896px"</p>
+            <p>
+              This works, although we have not created the image or specified it in <code>srcset</code>, so not production ready.
+            </p>
+            <p>I have checked this behavior and found that it’s the same in Chrome, Edge, and Firefox browsers on Windows 10, and in Safari on an iPad Air 5th generation and iPhone 12.</p>
+
             <p className="note">
               <b>Note:</b> When using srcset with width descriptors the sizes attribute must be present. While the value will default to 100vw if sizes is not present with srcset, and browsers appear to work fine without it, HTML validators will show an error.
             </p>
@@ -1536,12 +1598,18 @@ function BlogJan2025_ResSwitching() {
             <h2 className="headline__h2">Compressing Images</h2>
           </div>
           <div className="row__colspan-8">
-            <p className="dropCap">When saving images and perhaps converting them to a newer format such as WEBP, compression is adjusted to get the size within the range indicated in the table. Two factors affect how much compression is needed:</p>
+            <p className="dropCap">
+              When saving images and perhaps converting them to a newer format such as WEBP, compression must be adjusted to get the size within the range indicated in the table above (see{" "}
+              <HashLink to="#tblImageSizes" className="list--toc--a">
+                Table of Image Sizes
+              </HashLink>
+              . Two factors affect how much compression is needed:
+            </p>
             <ol>
-              <li className="list">Smaller images require less compression than larger images</li>
-              <li className="list">Given the same compression setting and image size, an image with less visual diversity compresses to a smaller size than an image with more visual diversity</li>
+              <li className="list">Smaller images compress more easily than larger images</li>
+              <li className="list">Given the same compression factor and image size, an image with less visual diversity compresses to a smaller size than an image with more visual diversity</li>
             </ol>
-            <p>Because of these factors, it is necessary to use a sliding compression scale where compression is higher for larger images and lower for smaller images.</p>
+            <p>Because of these factors, it is necessary to use a sliding compression factor scale that varies both by the image's size and visual diversity. I have not found a tool that can automate this, although it might be possible with Adobe Photoshop (see the next section, Automation).</p>
           </div>
 
           <div className="row__colspan-4" id="automation">
@@ -1549,8 +1617,8 @@ function BlogJan2025_ResSwitching() {
           </div>
           <div className="row__colspan-8">
             <h3 className="headline__h3 headline__h3--xtra-pad">Automating Image Generation</h3>
-            <p className="dropCap">Creating so many images to provide optimized resolution switching is not really feasible unless you can automate the task. Some image editing applications such as Corel PaintShop and Adobe Photoshop have a recording capability, where you record while performing these operations and save the recording as a script that can be played back. The recording must be edited to make it generic. For example, you make the script operate on a full-size image that is open in the application, resize it, create a new filename based on the new size, save it with the new filename, and repeat the operation in a loop to create a set of files in the sizes you need.</p>
-            <p>PaintShop’s scripts are recorded (or written) in the Python language. Unfortunately, Corel’s PaintShop does not let you choose a compression factor while saving in WEBP format, but Adobe’s PhotoShop does.</p>
+            <p className="dropCap">Creating so many images to provide optimized resolution switching is not really feasible unless you can automate the task. Some image editing applications such as Corel PaintShop and Adobe Photoshop have a recording capability, where you record while performing these operations on an image, creating a resized copy for each image size you need, then save the recording as a script that can be played back. The recording must be edited to make it generic.</p>
+            <p>PaintShop's scripts are recorded (or written) in the Python language. Unfortunately, Corel's PaintShop does not let you choose a compression factor while saving in WEBP format, but Adobe's PhotoShop does.</p>
           </div>
           <div className="row__colspan-4" id="refs">
             <h3 className="headline__h3">References</h3>
@@ -1558,13 +1626,22 @@ function BlogJan2025_ResSwitching() {
           <div className="row__colspan-8">
             <p>I used a lot of online resources when researching for this post and I would like to thank:</p>
             <p>
-              Chris Coyier: <HashLink to="https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/">HTML Responsive Images Guide | CSS-Tricks</HashLink>
+              Chris Coyier:{" "}
+              <HashLink className="wrapper__article__outbound-link" to="https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/">
+                HTML Responsive Images Guide | CSS-Tricks
+              </HashLink>{" "}
             </p>
             <p>
-              Jason Grigsby: <HashLink to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">Responsive Images 101, Part 1: Definitions – Cloud Four</HashLink>
+              Jason Grigsby:{" "}
+              <HashLink className="wrapper__article__outbound-link" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
+                Responsive Images 101, Part 1: Definitions – Cloud Four
+              </HashLink>{" "}
             </p>
             <p>
-              Eric Portis <HashLink to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">w descriptors and sizes: Under the hood</HashLink>
+              Eric Portis{" "}
+              <HashLink className="wrapper__article__outbound-link" to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
+                w descriptors and sizes: Under the hood
+              </HashLink>
             </p>
             <p>
               <HashLink to="https://imagekit.io/responsive-images/">ImageKit.io: Responsive Images - A Reference Guide from A to Z | ImageKit.io</HashLink>
