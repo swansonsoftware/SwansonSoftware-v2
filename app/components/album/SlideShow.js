@@ -9,6 +9,9 @@ function SlideShow(props) {
   const PAUSE = 0
   const PLAY = 1
   let btnIcon = PLAY
+  const FULLSCREEN = 0
+  const EXITFULLSCREEN = 1
+  const btnFullScreen = useRef(EXITFULLSCREEN)
 
   const slideIntervalRef = useRef(null)
   const headerIntervalRef = useRef(null)
@@ -78,6 +81,7 @@ function SlideShow(props) {
       if (isFullScreen.current == true) {
         SetHeaderTransparency(true)
         vcrContainer.classList.add("slideshow__vcr-container--fullscreen")
+        swapVcrFullscreenBtn(FULLSCREEN)
         if (!isSmallScreen) {
           document.body.classList.add("no-scroll")
         }
@@ -88,6 +92,7 @@ function SlideShow(props) {
           document.body.classList.remove("no-scroll")
         }
         ShowControlsOnFullScreenClose()
+        swapVcrFullscreenBtn(EXITFULLSCREEN)
       }
     }
 
@@ -310,7 +315,7 @@ function SlideShow(props) {
       e.preventDefault()
     }
 
-    swapVcrBtn(PLAY)
+    swapVcrPausePlayBtn(PLAY)
     FooterVisible(false)
 
     let slider = document.querySelector(".slideshow__slides")
@@ -391,7 +396,7 @@ function SlideShow(props) {
   function pause(e) {
     e.preventDefault()
     clearInterval(slideIntervalRef.current)
-    swapVcrBtn(PAUSE)
+    swapVcrPausePlayBtn(PAUSE)
   }
 
   function TogglePlay(e) {
@@ -408,7 +413,7 @@ function SlideShow(props) {
     clearInterval(slideIntervalRef.current)
     delayHideVcrBtns.current = true
 
-    swapVcrBtn(PAUSE)
+    swapVcrPausePlayBtn(PAUSE)
 
     let captionText = ""
     let slideImg = null
@@ -445,7 +450,7 @@ function SlideShow(props) {
     clearInterval(slideIntervalRef.current)
     delayHideVcrBtns.current = true
 
-    swapVcrBtn(PAUSE)
+    swapVcrPausePlayBtn(PAUSE)
 
     let captionText = ""
     let slideImg = null
@@ -478,7 +483,7 @@ function SlideShow(props) {
     }
   }
 
-  function swapVcrBtn(btnId) {
+  function swapVcrPausePlayBtn(btnId) {
     const svgPause = document.getElementById("pause")
     const svgPlay = document.getElementById("play")
     if (svgPause && svgPlay) {
@@ -490,6 +495,21 @@ function SlideShow(props) {
         svgPause.style.display = "inline"
         svgPlay.style.display = "none"
         btnIcon = PAUSE
+      }
+    }
+  }
+
+  function swapVcrFullscreenBtn(btnId) {
+    console.log("swapVcrFullscreenBtn " + btnId)
+    const svgFullscreen = document.getElementById("showFullscreen")
+    const svgFullscreenExit = document.getElementById("exitFullscreen")
+    if (svgFullscreen && svgFullscreenExit) {
+      if (btnId == FULLSCREEN) {
+        svgFullscreen.style.display = "none"
+        svgFullscreenExit.style.display = "inline"
+      } else {
+        svgFullscreen.style.display = "inline"
+        svgFullscreenExit.style.display = "none"
       }
     }
   }
@@ -582,6 +602,7 @@ function SlideShow(props) {
   }, [])
 
   useEffect(() => {
+    swapVcrFullscreenBtn(EXITFULLSCREEN)
     play()
     return () => {
       CancelTimers(), document.body.classList.remove("no-scroll")
