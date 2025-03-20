@@ -28,9 +28,12 @@ function SlideShowVcrButtons() {
         </svg>
       </button>
       <button id="fullscreen" className="slideshow__vcr-container__vcr-button">
-        <span className="accessibility--hidden">Select to show in full screen</span>
-        <svg className="slideshow__vcr-container--svg-dbl-stroke" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+        <span className="accessibility--hidden">Select to toggle full screen</span>
+        <svg id="showFullscreen" className="slideshow__vcr-container--svg-dbl-stroke" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
           <path className="slideshow__vcr-container--svg-dbl-stroke--path" d="M19.494 25h5.505M19.494 1H25M1 1h5.501M1 25v-5.503M1 25h5.507M1 6.506V1M25 6.506V1M24.999 25v-5.503" />
+        </svg>
+        <svg id="exitFullscreen" className="slideshow__vcr-container--svg-dbl-stroke" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+          <path className="slideshow__vcr-container--svg-dbl-stroke--path" d="M19.495 25.001v-5.505M19.494 1v5.506M6.504 6.504V1.002M6.505 19.495H1.002M6.505 19.495v5.507M.998 6.504h5.506M25 6.506h-5.506M19.495 19.496h5.502" />
         </svg>
       </button>
     </div>
