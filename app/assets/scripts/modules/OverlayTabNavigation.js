@@ -27,6 +27,10 @@ class OverlayTabNavigation {
     if (aboutUsLink) {
       aboutUsLink.tabIndex = tabindex
     }
+    let contactUsLink = document.getElementById("contact-us-link")
+    if (contactUsLink) {
+      contactUsLink.tabIndex = tabindex
+    }
     let headerLogoLink = document.getElementById("header-logo-link")
     if (headerLogoLink) {
       headerLogoLink.tabIndex = tabindex
