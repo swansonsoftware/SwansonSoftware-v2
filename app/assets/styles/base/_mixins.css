@@ -9,7 +9,7 @@
     @mixin-content;
   }
 }
-@define-mixin atMinWidthToHideeMenuIcon {
+@define-mixin atMinWidthToHideMenuIcon {
   @media (min-width: 801px) {
     @mixin-content;
   }

@@ -58,7 +58,7 @@
     }
   }
 
-  @mixin atMinWidthToHideeMenuIcon {
+  @mixin atMinWidthToHideMenuIcon {
     font-weight: 300;
 
     &__copyright::after {

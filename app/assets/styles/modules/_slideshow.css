@@ -199,7 +199,7 @@
     &--fullscreen {
       bottom: 0;
     }
-    @mixin atMinWidthToHideeMenuIcon {
+    @mixin atMinWidthToHideMenuIcon {
       top: calc(100vh - 220px);
       &--fullscreen {
         top: calc(100vh - 120px);

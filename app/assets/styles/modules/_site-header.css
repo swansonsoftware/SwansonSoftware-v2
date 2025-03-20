@@ -86,7 +86,7 @@
       &--dark {
         background-color: $HeaderFooterDarkBackground;
       }
-      @mixin atMinWidthToHideeMenuIcon {
+      @mixin atMinWidthToHideMenuIcon {
         border: 1px solid #ababc0;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -141,7 +141,7 @@
       overflow-y: auto;
     }
   }
-  @mixin atMinWidthToHideeMenuIcon {
+  @mixin atMinWidthToHideMenuIcon {
     padding: 13px 0;
   }
 
@@ -196,7 +196,7 @@
       right: 10px;
     }
 
-    @mixin atMinWidthToHideeMenuIcon {
+    @mixin atMinWidthToHideMenuIcon {
       display: none;
     }
   }
