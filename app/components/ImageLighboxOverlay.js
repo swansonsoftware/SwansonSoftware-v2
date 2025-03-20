@@ -17,6 +17,7 @@ function ImageLightboxOverlay() {
         document.body.classList.remove("no-scroll")
       }
       let overlayTabNav = new OverlayTabNavigation()
+      overlayTabNav.SetTabIndexUnderOverlay("0", null)
     }
   }
 
