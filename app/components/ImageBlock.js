@@ -92,9 +92,9 @@ function ImageBlock(props) {
           closeMenuOverlay(e)
         }}
       >
-        <img style={imgborder} loading={image.lazy ? "lazy" : "eager"} width={image.width} height={image.height} src={image.src} srcSet={image.srcset ? image.srcset : ""} alt={image.alt} data-srcset={image.dataSrcset} sizes={image.sizes}></img>
+        <img style={imgborder} loading={image.lazy ? "lazy" : "eager"} width={image.width} height={image.height} src={image.src} srcSet={image.srcset ? image.srcset : undefined} alt={image.alt} data-srcset={image.dataSrcset} sizes={image.sizes ? image.sizes : undefined}></img>
       </button>
-      {image.caption ? <span>{image.caption}</span> : ""}
+      {image.caption ? <span className="row__imageCaptionSpan">{image.caption}</span> : ""}
     </div>
   )
 }
