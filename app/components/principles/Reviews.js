@@ -225,7 +225,7 @@ function Reviews() {
               <li className="list">Inspections - The most formal of the three review types, inspections include non-peers in the process. Non-peers are other people who have an interest in the product. Inspections allow longer preparation time, and more time between the review and follow-up.</li>
             </ul>
             <p id="note7">
-              Wong describes several review types:
+              The following sections are brief summaries of the review types thoroughly covered in Wong’s <i>Modern Software Review: Techniques And Technologies</i>.
               <HashLink to="#footnote7" className="footnote">
                 <sup>[7]</sup>
               </HashLink>
@@ -426,9 +426,9 @@ function Reviews() {
                 <sup>[23]</sup>
               </HashLink>
             </p>
-            <p>
-              <b>Formality</b>
-            </p>
+
+            <h4 className="headline__h4">Formality</h4>
+
             <p>Formality varies between review types as described above. There are a few other relationships between formality and the review process that are worth mentioning. Formality plays a role in determining who participates in the review, and the preparation time. Results from less formal reviews may not be added to a process database.</p>
             <ul>
               <li className="list">
@@ -446,9 +446,9 @@ function Reviews() {
                 </ul>
               </li>
             </ul>
-            <p>
-              <b>Roles</b>
-            </p>
+
+            <h4 className="headline__h4">Roles</h4>
+
             <p>Depending on the type of review, the number of roles will vary. Inspections require three roles performed by three different people; walkthroughs and code readings can have two (author and reviewer).</p>
             <ul>
               <li className="list">Author - the person who wrote the artifact. The author might give an overview of the material, explain sections that are unclear, and help clear up misperceived errors</li>
@@ -457,14 +457,12 @@ function Reviews() {
               <li className="list">Scribe - takes notes on defects found during the meeting and who is assigned to take action. The scribe role can be combined with reviewer or author roles</li>
             </ul>
 
-            <p>
-              <b>Preparation</b>
-            </p>
+            <h4 className="headline__h4">Preparation</h4>
+
             <p>Each reviewer prepares for the review by reading over the artifact, using the specified reading technique as a guide.</p>
 
-            <p>
-              <b>The Review</b>
-            </p>
+            <h4 className="headline__h4">The Review</h4>
+
             <p id="note24">
               The moderator begins the meeting and guides the discussion. One rule that must be followed is that the product is being reviewed, not the author.
               <HashLink to="#footnote24" className="footnote">
@@ -474,15 +472,13 @@ function Reviews() {
             </p>
             <p>Someone is chosen to read through and describe the artifact. When the artifact is a code listing, each branch of code is explained. The scribe notes errors that are discovered using a form for this purpose. Meetings should last one to two hours.</p>
 
-            <p>
-              <b>Follow up</b>
-            </p>
+            <h4 className="headline__h4">Follow up</h4>
+
             <p>The moderator is responsible for writing a report of the meeting that lists each defect. A template is used to ensure consistent reporting. Action items and assignees are indicated.</p>
             <p>Rework assigned on the inspection report is checked by the moderator, who is responsible for keeping track of the timeline for repairs. The moderator assesses the review with regards to reinspection criteria and determines whether reinspection is needed.</p>
 
-            <p>
-              <b>Reinspection Criteria</b>
-            </p>
+            <h4 className="headline__h4">Reinspection Criteria</h4>
+
             <p>Certain results indicate problems in the process. These are used to determine when reinspection is needed.</p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">

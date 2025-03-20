@@ -187,9 +187,8 @@ function LifecycleModels() {
               </HashLink>
             </p>
 
-            <p>
-              <b>Main weaknesses</b>
-            </p>
+            <h4 className="headline__h4">Main Weaknesses</h4>
+
             <p id="note9">
               The waterfall model treats activities as sequential and disjoint and expects that the project is well-defined.
               <HashLink to="#footnote9" className="footnote">
@@ -224,9 +223,9 @@ function LifecycleModels() {
                 <sup>[13]</sup>
               </HashLink>
             </p>
-            <p>
-              <b>Main weaknesses</b>
-            </p>
+
+            <h4 className="headline__h4">Main Weaknesses</h4>
+
             <p id="note14">
               Greater overlap between phases causes difficulty in determining milestones and reduces your ability to track progress.
               <HashLink to="#footnote14" className="footnote">
@@ -254,9 +253,9 @@ function LifecycleModels() {
                 <sup>[16]</sup>
               </HashLink>
             </p>
-            <p>
-              <b>Main weaknesses</b>
-            </p>
+
+            <h4 className="headline__h4">Main Weaknesses</h4>
+
             <p id="note17">
               Unforeseen interdependencies between the subsystems.
               <HashLink to="#footnote17" className="footnote">
@@ -296,9 +295,9 @@ function LifecycleModels() {
               </HashLink>{" "}
               The customer is shown a prototype of some aspect of the system, provides feedback, and functionality is adjusted for the next prototype. At some point, agreement on functionality is reached and the final development phase begins, where all remaining work is completed.
             </p>
-            <p>
-              <b>Main weaknesses</b>
-            </p>
+
+            <h4 className="headline__h4">Main Weaknesses</h4>
+
             <p id="note20">
               There are many potential risks associated with this model, but most are easily managed. Even with so many potential risks, the potential to reduce development time by 45 to 80 percent should outweigh them.
               <HashLink to="#footnote20" className="footnote">
@@ -392,7 +391,9 @@ function LifecycleModels() {
               </HashLink>{" "}
               If there are problems, you will know sooner.
             </p>
-            <p>Other benefits provided by staged delivery:</p>
+
+            <h4 className="headline__h4">Other benefits provided by staged delivery</h4>
+
             <ul>
               <li className="list" id="note32">
                 Reduced estimation error - allows you to break up the project estimate into smaller estimates
@@ -408,9 +409,8 @@ function LifecycleModels() {
               </li>
             </ul>
 
-            <p>
-              <b>Requirements</b>
-            </p>
+            <h4 className="headline__h4">Requirements</h4>
+
             <p id="note34">
               You need a good understanding of technical dependencies so that the features in one planned release do not leap frog planned release of required feature dependencies.
               <HashLink to="#footnote34" className="footnote">
@@ -430,9 +430,8 @@ function LifecycleModels() {
               </HashLink>
             </p>
 
-            <p>
-              <b>Main weaknesses</b>
-            </p>
+            <h4 className="headline__h4">Main Weaknesses</h4>
+
             <p id="note37">
               Feature creep - it is typical for users to find functionality that they want added, once they have a system to use.
               <HashLink to="#footnote37" className="footnote">
@@ -463,9 +462,9 @@ function LifecycleModels() {
               </HashLink>{" "}
               provides flexibility to change the system based on user requests, and provides less control for management in terms of project schedule. On the other hand, evolutionary delivery can be balanced more toward staged delivery; this also provides the customer with "highly visible signs of progress” but provides little flexibility to change the system based on user requests and provides more control for management.
             </p>
-            <p>
-              <b>Requirements</b>
-            </p>
+
+            <h4 className="headline__h4">Requirements</h4>
+
             <p id="note40">
               Successful use of evolutionary delivery requires you to begin with a basic idea of the system, and you use that to build a system architecture and core.
               <HashLink to="#footnote40" className="footnote">
@@ -479,9 +478,9 @@ function LifecycleModels() {
                 <sup>[41]</sup>
               </HashLink>
             </p>
-            <p>
-              <b>Main weaknesses</b>
-            </p>
+
+            <h4 className="headline__h4">Main Weaknesses</h4>
+
             <p id="note42">
               When an evolutionary delivery model is balanced more towards evolutionary prototyping, it takes on the same risks associated with that model. When an evolutionary delivery model is balanced towards staged delivery, it takes on the risks associated with staged delivery.
               <HashLink to="#footnote42" className="footnote">
