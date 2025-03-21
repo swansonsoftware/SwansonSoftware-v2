@@ -222,5 +222,11 @@
     @mixin atMin2000Wide {
       max-width: 1200px;
     }
+    &__outbound-link {
+      &::after {
+        padding-left: 5px;
+        content: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNiAyNiIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMi4wIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0eWxlPSJsaW5lLWhlaWdodDowOyBjdXJzb3I6cG9pbnRlciI+PHBhdGggZD0iTTEgMjVWNC40NiIvPjxwYXRoIGQ9Ik0yMS41MDYgMjVIMSIvPjxwYXRoIGQ9Ik01LjgwMSA0LjQ2SDFNMjEuNTA2IDIwLjE5OVYyNSIvPjxwYXRoIGQ9Im05LjQ1IDE2LjU1IDE1LjUtMTUuNSIvPjxwYXRoIGQ9Ik0yNS40NzguNTU1IDE2LjAzMi41MjZsOS40NzUgOS40NzZ6IiBzdHlsZT0ic3Ryb2tlOiMwMDA7ZmlsbDojMDAwO3N0cm9rZS13aWR0aDoxLjA7c3Ryb2tlLWxpbmVqb2luOnJvdW5kOyIvPjwvc3ZnPg==);
+      }
+    }
   }
 }
