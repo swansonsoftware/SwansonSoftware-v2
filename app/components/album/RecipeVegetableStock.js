@@ -5,6 +5,8 @@ import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
 import RecipePhotos from "./RecipePhotos"
 import GTag from "../GTag"
+import ImageBlock from "../ImageBlock"
+import ImageLightboxOverlay from "../ImageLighboxOverlay"
 
 function VegetableStock() {
   const appDispatch = useContext(DispatchContext)
@@ -16,13 +18,15 @@ function VegetableStock() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  const photos = [
-    { id: 1, src: "../assets/images/2020s/2021-03-21-DSC03648-thumbnail.webp", width: "320", height: "180", alt: "Pot filled to the top with chopped Leeks.", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", captionHeading: "", caption: "Coarsley chopped leeks, piled high in a 6.5 quart pot." },
-    { id: 2, src: "../assets/images/2020s/2023-05-13-DSC04068-thumbnail.webp", width: "320", height: "180", alt: "Pot with leeks softened and floating in stock.", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", captionHeading: "", caption: "Leeks soften after a while and float in the stock." }
+  const images = [
+    { id: 1, lazy: false, src: "../assets/images/2020s/DSC04271-b-thumbnail.webp", srcset: "../assets/images/2020s/DSC04271-b-thumbnail.webp 1x, ../assets/images/2020s/DSC04271-b-672.webp 2x", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw", width: "320", height: "180", alt: "Sliced leeks on white cutting board", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Leeks sliced thinly crosswise", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160" },
+    { id: 2, lazy: false, src: "../assets/images/2020s/DSC04273-b-thumbnail.webp", srcset: "../assets/images/2020s/DSC04273-b-thumbnail.webp 1x, ../assets/images/2020s/DSC04273-b-672.webp 2x", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw", width: "320", height: "180", alt: "Sliced leeks on bowl of water", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Soak the leeks to loosen any dirt", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160" },
+    { id: 3, lazy: false, src: "../assets/images/2020s/DSC04276-b-thumbnail.webp", srcset: "../assets/images/2020s/DSC04276-b-thumbnail.webp 1x, ../assets/images/2020s/DSC04276-b-672.webp 2x", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw", width: "320", height: "180", alt: "Steamer pot with cooked leeks and slotted spoon.", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Pressing juices out of cooked leeks", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160" }
   ]
 
   return (
     <Page title="Vegetable Stock">
+      <ImageLightboxOverlay />
       <GTag></GTag>
       <div className="wrapper wrapper--album wrapper--album--pull-left album-recipe">
         <Breadcrumb to="../album/Recipes" linktext="Recipes" />
@@ -36,11 +40,32 @@ function VegetableStock() {
 
         <div>Makes about 9 cups</div>
 
-        <p className="album-recipe__intro">I use this vegetable stock as the base in the clam chowder recipe and for risotto. As it takes a few hours to make, I like to make it ahead of time and freeze it in ready-to-use portions.</p>
+        <div className="row row--gutters">
+          <div className="row__colspan-12">
+            <p className="album-recipe__intro">I use this vegetable stock as the base in the clam chowder recipe and for risotto. As it takes a few hours to make, I like to make it ahead of time and freeze it in ready-to-use portions.</p>
 
-        <p>The leeks and all the vegetables can be washed, cut up and refrigerated a day or two ahead to reduce cooking fatigue.</p>
+            <p>The leeks and all the vegetables can be washed, cut up and refrigerated a day or two ahead to reduce cooking fatigue.</p>
+          </div>
 
-        <RecipePhotos photos={photos} />
+          <div className="row__colspan-4">
+            <ImageBlock key={images[0].id} image={images[0]}></ImageBlock>
+          </div>
+          <div className="row__colspan-8">
+            <p>Cut off the roots and any greens that extend beyond the round body of the leeks, then slice the leeks crosswise into rounds about 1/4-inch-thick.</p>
+          </div>
+          <div className="row__colspan-4">
+            <ImageBlock key={images[1].id} image={images[1]}></ImageBlock>
+          </div>
+          <div className="row__colspan-8">
+            <p>Soak the leeks a few minutes, then break apart the green rounds where soil is often trapped.</p>
+          </div>
+          <div className="row__colspan-4">
+            <ImageBlock key={images[2].id} image={images[2]}></ImageBlock>
+          </div>
+          <div className="row__colspan-8">
+            <p>A sturdy steamer can be used to press the liquid from the vegetables. Remove the carrots first and set them aside for snacks.</p>
+          </div>
+        </div>
 
         <h2 className="headline__h2 headline__h2--recipe">Ingredients</h2>
 
