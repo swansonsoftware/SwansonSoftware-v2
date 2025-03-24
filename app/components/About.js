@@ -22,6 +22,7 @@ function About() {
 
   return (
     <Page title="About Us">
+      <meta name="description" content="About Swanson Software" />
       <GTag></GTag>
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1">About Swanson Software</h1>
@@ -51,7 +52,7 @@ function About() {
             <h3 className="headline__h3">Historical Perspective</h3>
             <p>Years ago, companies I worked for didn't use applications to track software bugs. Bugs were tracked in a text file or spreadsheet, or not at all. From 1997 through 1999 I worked for an insurance company that didn’t track software bugs; a colleague of mine, a business analyst who doubled as QA engineer, kept a spreadsheet of bugs for his own use. Today we have web-based applications for tracking bugs and for source control, many with free plans.</p>
 
-            <p>We have learned about software life cycles and design patterns, and how to improve programming skills with reviews. Yet, things still go wrong; and when they go right, perhaps no one knows why. Too often projects are not finished on time, or a product release is buggy, or performance is unacceptable. These are the issues SwansonSoftware strives to address, through a set of pages that gather many of the best sources that have stood the test of time, and through anecdotes from experience.</p>
+            <p>We have learned about software life cycles and design patterns, and how to improve programming skills with reviews. Yet, things still go wrong; and when they go right, perhaps no one knows why. Too often projects are not finished on time, or a product release is buggy, or performance is unacceptable. These are the issues SwansonSoftware strives to address, through articles that gather many of the best sources that have stood the test of time, and through anecdotes from experience.</p>
           </div>
 
           <div className="row__colspan-4">
