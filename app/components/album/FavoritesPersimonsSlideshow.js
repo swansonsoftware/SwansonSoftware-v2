@@ -22,6 +22,7 @@ function FavoritesPersimonsSlideshow() {
   return (
     <Page title="2010s Slideshow">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Persimons Slideshow" />
       <Breadcrumb to="/album/favorites-persimons" linktext="Persimon Favorites" />
       <SlideShow photos={photos} />
     </Page>

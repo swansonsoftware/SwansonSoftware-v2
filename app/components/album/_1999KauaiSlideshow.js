@@ -30,6 +30,7 @@ function _1999KauaiSlideshow() {
   return (
     <Page title="1999 Kauai Slideshow">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Kauai 1999 Slideshow" />
       <Breadcrumb to="/album/1900s" linktext="1900s" />
       <SlideShow photos={photos} />
     </Page>

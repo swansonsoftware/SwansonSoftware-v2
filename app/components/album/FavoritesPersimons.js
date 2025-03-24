@@ -27,6 +27,7 @@ function FavoritesPersimons() {
   return (
     <Page title="Persimon Favorites">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Persimon Favorites" />
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />
         <h1 className="headline__h1">Persimon Favorites</h1>

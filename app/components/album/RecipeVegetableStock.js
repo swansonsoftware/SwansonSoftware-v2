@@ -3,10 +3,10 @@ import DispatchContext from "../../DispatchContext"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
-import RecipePhotos from "./RecipePhotos"
 import GTag from "../GTag"
 import ImageBlock from "../ImageBlock"
 import ImageLightboxOverlay from "../ImageLighboxOverlay"
+import GStructuredData from "../GStructuredData"
 
 function VegetableStock() {
   const appDispatch = useContext(DispatchContext)
@@ -28,6 +28,7 @@ function VegetableStock() {
     <Page title="Vegetable Stock">
       <ImageLightboxOverlay />
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Vegetable Stock Recipe" />
       <div className="wrapper wrapper--album wrapper--album--pull-left album-recipe">
         <Breadcrumb to="../album/Recipes" linktext="Recipes" />
 
@@ -43,8 +44,6 @@ function VegetableStock() {
         <div className="row row--gutters">
           <div className="row__colspan-12">
             <p className="album-recipe__intro">I use this vegetable stock as the base in the clam chowder recipe and for risotto. As it takes a few hours to make, I like to make it ahead of time and freeze it in ready-to-use portions.</p>
-
-            <p>The leeks and all the vegetables can be washed, cut up and refrigerated a day or two ahead to reduce cooking fatigue.</p>
           </div>
 
           <div className="row__colspan-4">
@@ -71,7 +70,7 @@ function VegetableStock() {
 
         <div className="album-recipe__listItem">
           <span className="album-recipe__ingredientAmount">24</span>
-          <span className="album-recipe__ingredient">Oz. leeks (about 8 small leeks, only the white and light-green parts only, sliced into 1/4-inch-thick rounds</span>
+          <span className="album-recipe__ingredient">Oz. leeks (about 8 small leeks)</span>
         </div>
         <div className="album-recipe__listItem">
           <span className="album-recipe__ingredientAmount">1</span>

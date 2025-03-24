@@ -40,6 +40,7 @@ function _2000s() {
   return (
     <Page title="2000s">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, 2000s" />
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">2000s</h1>
 

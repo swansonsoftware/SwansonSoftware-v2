@@ -24,6 +24,7 @@ function ClamChowder() {
     <Page title="Clam Chowder">
       <ImageLightboxOverlay />
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Clam Chowder Recipe" />
       <div className="wrapper wrapper--album wrapper--album--pull-left album-recipe">
         <Breadcrumb to="../album/Recipes" linktext="Recipes" />
 
@@ -39,7 +40,7 @@ function ClamChowder() {
             <p className="album-recipe__intro">This is the New England (white) clam chowder. All chowders are made with pork, often bacon. I prefer to make this without any pork at all.</p>
             <p>
               The leek broth from leek and potato soup is a good starting point for clam chowder. This chowder uses the&nbsp;
-              <Link to="../album/vegetable-stock">vegetable stock</Link> recipe which starts with lots of leeks and adds a few character-building extras. The salt from the canned clams and bottled clam juice seems to be enough so that additional salt is not required. Correct the seasoning as needed.
+              <Link to="../album/vegetable-stock">vegetable stock</Link> recipe which uses not only leeks, but includes fennel and carrots to add character. The salt from the canned clams and bottled clam juice seems to be enough so that additional salt is not required. Correct the seasoning as needed.
             </p>
           </div>
           <div className="row__colspan-4">
