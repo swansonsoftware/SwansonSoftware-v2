@@ -26,6 +26,7 @@ function _2010sSlideshowNormas() {
   return (
     <Page title="2013 Old House Slideshow">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, 2013 Slideshow" />
       <Breadcrumb to="/album/2010s" linktext="2010s" />
       <SlideShow photos={photos} />
     </Page>

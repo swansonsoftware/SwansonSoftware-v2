@@ -32,6 +32,7 @@ function _2020s() {
   return (
     <Page title="2020s">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, 2020s" />
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">2020s</h1>
 

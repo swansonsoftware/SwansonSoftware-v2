@@ -34,6 +34,7 @@ function _2020sSlideshow() {
   return (
     <Page title="2020s Slideshow">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, 2020s Slideshow" />
       <Breadcrumb to="/album/2020s" linktext="2020s" />
       <SlideShow photos={photos} />
     </Page>
