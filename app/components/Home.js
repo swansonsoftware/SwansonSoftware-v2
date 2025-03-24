@@ -19,8 +19,8 @@ function Home() {
     <Page title="Home">
       <GTag></GTag>
       <GStructuredData type="WebSite" name="SwansonSoftware"></GStructuredData>
+      <meta name="description" content="Swanson Software, disseminating knowledge in the craft of software construction" />
       <div className="wrapper wrapper--banner">
-        <meta name="description" content="Swanson Software, disseminating knowledge in the craft of software construction" />
         <picture className="banner__image">
           <source srcSet="../assets/images/0a-hero.webp" media="(min-width: 1380px)" width="1920" height="950"></source>
           <source srcSet="../assets/images/0a-hero--medium.webp" media="(min-width: 640px)" width="1380" height="950"></source>
