@@ -500,7 +500,7 @@ function SlideShow(props) {
   }
 
   function swapVcrFullscreenBtn(btnId) {
-    console.log("swapVcrFullscreenBtn " + btnId)
+    // console.log("swapVcrFullscreenBtn " + btnId)
     const svgFullscreen = document.getElementById("showFullscreen")
     const svgFullscreenExit = document.getElementById("exitFullscreen")
     if (svgFullscreen && svgFullscreenExit) {
