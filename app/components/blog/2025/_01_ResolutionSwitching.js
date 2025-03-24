@@ -20,7 +20,7 @@ function BlogJan2025_ResSwitching() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  const images = [{ id: 1, lazy: false, src: "../../../../assets/images/blog/2025/_01_sbgs-example-thumbnail.webp", srcset: "../../../../assets/images/blog/2025/_01_sbgs-example-thumbnail.webp 1x, ../../../../assets/images/blog/2025/_01_sbgs-example-672.webp 2x", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw", width: "320", height: "213", alt: "Developer console of browser showing a small image displayed but is 30.6 Mb in size", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "A 30 Mb image is used, even for a 320px wide mobile phone screen. This is a thoughtless waste of the user’s data plan, and it takes several seconds for the image to appear.", dataSrcset: "320=320x213;360=360x240;393=393x262;432=432x288;608=608x405;672=672x448;768=768x512;896=896x597;960=960x640" }]
+  const images = [{ id: 1, lazy: false, src: "../../../../assets/images/blog/2025/_01_sbgs-example-thumbnail.webp", width: "320", height: "213", alt: "Developer console of browser showing a small image displayed but is 30.6 Mb in size", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "A 30 Mb image is used, even for a 320px wide mobile phone screen. This is a thoughtless waste of the user’s data plan, and it takes several seconds for the image to appear.", dataSrcset: "320=320x213;360=360x240;393=393x262;432=432x288;608=608x405;672=672x448;768=768x512;896=896x597;960=960x640" }]
 
   return (
     <Page title="Choosing Resolution Switching Breakpoints">
@@ -114,7 +114,9 @@ function BlogJan2025_ResSwitching() {
             <p>
               When we put an image on a webpage, if we only provide a single full-size image, say one that looks good when the page is viewed on our desktop monitor, then users who view the page on a smaller mobile device must download the large image. That wastes their bandwidth and uses up their data plan. However, if we only provide a smaller image that looks good when viewed on a smaller device it might look grainy when viewed on a desktop monitor. To solve this, we need a responsive image design where we provide copies of the image in different sizes so the browser can choose an appropriate image size for the user’s screen. We indicate the copies we have provided with the image tag’s <code>srcset</code> attribute, and we use the <code>sizes</code> attribute to provide hints to the browser about which copy we want it to use based on screen size.
             </p>
-            <p>Although these attributes are relatively new, support is now widespread and we can use them to provide a set of images; however, we need to have an idea of the image sizes to provide, and at what points (breakpoints) the browser should choose between images (resolution switching).</p>
+            <p>
+              Although the <code>srcset</code> and <code>sizes</code> attributes are relatively new, support is now widespread and we can use them to provide a set of images; however, we need to have an idea of the image sizes to provide, and at what points (breakpoints) the browser should choose between images (resolution switching).
+            </p>
 
             <p className="note">
               <span className="headline__h3">What is a breakpoint?</span>
@@ -1122,7 +1124,7 @@ function BlogJan2025_ResSwitching() {
             <p className="note dropCapNote">
               <span className="note">One caveat with this technique is that there is no way to prevent a device with high DPR, say 3 or 4, from downloading the 3x or 4x copy.</span>
               <span className="note">
-                To illustrate, take a device like the Samsung Galaxy S9 that has DPR 4.5. Create a webpage with an image that has a <code>srcset</code> with all the image sizes from the table and <code>sizes="100vw"</code>, rotate the device so the long side is horizontal, then load the page in the device’s browser. The screen size is 658px wide by 320px high. The table does not have a 658px wide image, but the next image larger than 658px is 672 x 378, and so the browser chooses that as the basis for the DPR calculation:
+                To illustrate, take a device like the Samsung Galaxy S9 that has DPR 4.5. Create a webpage with an image that has a <code>srcset</code> with all the image sizes from the table and <code>sizes="100vw"</code>, rotate the device so the long side is horizontal, then load the page in the device’s browser. The screen size is 658px wide by 320px high. The table does not have a 658px wide image, but the next image larger than 658px is 672 x 378, and so the browser chooses that as the basis for the DPR calculation (the DPR calculation is <HashLink to="#anotherExample">explained below</HashLink>):
               </span>
               <span className="note">4.5 x 672 = 3024</span>
               <span className="note">The table does not have an image that is 3024px wide; the next largest image is 3240 x 1822, so the browser downloads that. Nobody can tell the difference between an image at 2x and one at 4x on a 658px x 320px screen, so it would be a smaller hit on the user’s data plan if we could make the browser choose, say, the 2x copy or next largest (2 x 672 = 1344, so the 1368 x 769 copy).</span>
@@ -1523,8 +1525,8 @@ function BlogJan2025_ResSwitching() {
             </p>
             <p>Using the developer console, we can enable device emulation and see what happens when we view the webpage on an iPhone 12 Pro with screen size 390w x 844h and DPR 3.0.</p>
             <p className="note">
-              If you are following along using the developer console, be sure to disable caching.<br></br>
-              <br></br>In this test I used Chrome on Windows 10 and while the emulator is not a real device, my tests show identical results on a real iPhone, as well as emulators in other browsers.
+              If you try this, be sure to disable caching in the developer console.<br></br>
+              <br></br>In this test I used Chrome on Windows 10 and while the emulator is not a real device, my tests show identical results on a real iPhone, as well as with emulators in other browsers.
             </p>
             <p>
               Which image should be downloaded? 3 x 844 = 2532, so you might reasonably assume that the media query <code>(max-height: 2560px) 1920px</code> comes into play, and the 1920x2560 image should be downloaded. But it is not, the 2097x2796 is downloaded. Why? Because when <code>sizes</code> is present, the DPR calculation is not based on the screen size, it is based on the media query specified in the <code>sizes</code> attribute that is equal to or larger than the device screen size.
@@ -1545,7 +1547,7 @@ function BlogJan2025_ResSwitching() {
               Be careful when specifying <code>sizes</code>
             </h3>
             <p className="dropCap">
-              When an image displays full screen it is overkill to specify anything other than 100vw for the <code>sizes</code> attribute and doing otherwise may cause the browser to download a different image than you expect. (An exception to this is when the image is in portrait orientation with height larger than width, as described in the previous section Sizes for Portrait Orientation.) For example, take an iPad Air 5th generation, with screen width 820px and DPR 2.0.
+              When an image displays full screen it is overkill to specify anything other than 100vw for the <code>sizes</code> attribute and specifying anything other than 100vw may cause the browser to download a different image than you expect. (An exception to this is when the image is in portrait orientation with height larger than width, as described in the previous section Sizes for Portrait Orientation.) For example, take an iPad Air 5th generation, with screen width 820px and DPR 2.0.
             </p>
             <p className="note">
               <span className="headline__h3">What is DPR?</span>
@@ -1564,7 +1566,7 @@ function BlogJan2025_ResSwitching() {
 
             <p className="code">sizes="(max-width: 640px) 640px, (max-width: 1280px) 1280px, (max-width: 1920px) 1920px, (max-width: 3840px) 3840px"</p>
             <p className="note dropCapNote">
-              Specifying <code>sizes</code> in this way is redundant. Instead, you should specify <code>sizes="100vw"</code>. If instead you want to instruct the browser to use a 1x or 2x image based on the screen size and device DPR you can do this: <code>sizes="(max-width: 640px) 1x, (max-width: 1280px) 2x, (max-width: 1920px) 1x, (max-width: 3840) 2x"</code>
+              Specifying <code>sizes</code> in this way is redundant. Instead, you should specify <code>sizes="100vw"</code>. If instead you want to instruct the browser to use a 1x or 2x image based on the screen size and device DPR you can do this: <code>sizes="(max-width: 640px) 1x, (max-width: 1280px) 2x, (max-width: 1920px) 1x, (max-width: 3840) 2x, 1x"</code>
             </p>
             <p>Seems benign, right? Because the iPad’s screen width is 820px, the media query (max-width: 1280px) 1280px comes into play.</p>
           </div>
@@ -1597,20 +1599,18 @@ function BlogJan2025_ResSwitching() {
             </p>
             <p className="code">sizes="(max-width: 320px) 320px, (max-width: 672px) 672px, (max-width: 768px) 768px, 896px"</p>
             <p>
-              You test on a 360px wide, DPR 2 device and find that the 896px image is downloaded but you expected a smaller image. What’s going on? Remember that when <code>sizes</code> is present, the DPR calculation is not based on the screen size, it is based on the media query specified in the <code>sizes</code> attribute that is equal to or larger than the device screen size (mentioned in the previous section, Sizes for Portrait Orientation). In this case, the screen size is 360px and the media query equal to or larger is <code>(max-width: 672px) 672px</code>, and max-width x DPR (672 x 2) is 1344px. The largest image is 896px so the browser downloads that.
+              You test on a 360px wide, DPR 2 device and find that the 896px image is downloaded but you expected a smaller image. What’s going on? Remember that when <code>sizes</code> is present, the DPR calculation is not based on the screen size, it is based on the media query specified in the <code>sizes</code> attribute that is equal to or larger than the device screen size (mentioned in the previous section, Sizes for Portrait Orientation). In this case, the screen size is 360px and the media query equal to or larger is <code>(max-width: 672px) 672px</code>, and max-width x DPR (672 x 2) is 1344px. There is no 1344px wide image, the next largest image is 896px so the browser downloads that.
             </p>
             <p>How can we fix it? With a screen width of 360px and DPR 2, the best we can hope for is to create a media query that will make the browser download the 768px wide image. The 672px image is out of the question because 672 / DPR = 336, which is smaller than the device’s 360px wide screen. </p>
             <p>
-              If you really want the smaller 768px image to download you are going to need to provide a copy at between about 360px and (768 / DPR =) 384px. Remember the warning about “creating nonsensical breakpoints at smaller image sizes, creating big jumps between breakpoints that has consequences related to DPR” in the section{" "}
+              If you really want the smaller 768px image to download you are going to need to provide a copy between about 360px and (768 / DPR =) 384px. Remember the warning about “creating nonsensical breakpoints at smaller image sizes, creating big jumps between breakpoints that has consequences related to DPR” in the section{" "}
               <HashLink to="#ideasPerfBudget" className="list--toc--a">
                 Choosing Breakpoints using a Performance Budget
               </HashLink>
               , this is what I was referring to. The difference between compressed images at 320px and 384px will usually if not always be less than 20k. At any rate, as a simple test just add a media query for 380px to the <code>sizes</code>, we can forego creating another image for this test:
             </p>
             <p className="code">sizes="(max-width: 320px) 320px, (max-width: 380px) 380px, (max-width: 672px) 672px, (max-width: 768px) 768px, 896px"</p>
-            <p>
-              This works, although we have not created the image or specified it in <code>srcset</code>, so not production ready.
-            </p>
+            <p>This works, the browser downloads the smaller 768px image.</p>
             <p>I have checked this behavior and found that it’s the same in Chrome, Edge, and Firefox browsers on Windows 10, and in Safari on an iPad Air 5th generation and iPhone 12.</p>
 
             <p className="note">
