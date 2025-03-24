@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useContext, useEffect, useRef } from "react"
+import { Link, useNavigate } from "react-router-dom"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
@@ -8,6 +8,8 @@ import GTag from "./GTag"
 function ContactUs() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
+  const navigate = useNavigate()
+  const inputRefs = useRef([])
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
@@ -16,6 +18,16 @@ function ContactUs() {
   }, [])
 
   const eventListenerAbortCtrlr = new AbortController()
+
+  const handleBlur = event => {
+    if (
+      !event.relatedTarget || // No related target (e.g., clicked outside)
+      (event.relatedTarget.tagName !== "INPUT" && event.relatedTarget.tagName !== "TEXTAREA" && event.relatedTarget.tagName !== "BUTTON")
+    ) {
+      // Focus back to the current input
+      event.target.focus()
+    }
+  }
 
   useEffect(() => {
     let submitBtn = document.getElementById("send")
@@ -27,15 +39,11 @@ function ContactUs() {
 
   function handleSubmit(e) {
     e.preventDefault()
-
-    // console.log("name: " + name.current)
-    // console.log(JSON.stringify(formData))
+    console.log("handleSubmit")
     let contactFrm = document.getElementById("contactus")
 
     if (contactFrm) {
       if (contactFrm.checkValidity()) {
-        console.log("handleSubmit called, form validation succeeded")
-
         let name = document.getElementById("name")
         let email = document.getElementById("email")
         let phone = document.getElementById("phone")
@@ -53,15 +61,11 @@ function ContactUs() {
         console.log("JSON strinify: " + JSON.stringify(jsonstring))
 
         submit(jsonstring)
-
-        // contactFrm.method = "POST"
-        // contactFrm.submit()
-        // contactFrm.reset()
       } else {
         contactFrm.reportValidity()
       }
     } else {
-      console.log("Did not get form")
+      console.error("Did not get form")
     }
 
     return false
@@ -69,24 +73,28 @@ function ContactUs() {
 
   async function submit(jsonstring) {
     try {
-      const response = await fetch("https://swansonsoftware.com/contact.php", {
+      const response = await fetch("https://www.swansonsoftware.com/contact.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(jsonstring)
       })
-      const result = await response.json()
-      console.log(result)
+      // console.log("response status: " + response.status)
+
+      if (!response.ok) {
+        console.error("Response error: " + response.status)
+      } else {
+        navigate("/thankyou")
+      }
     } catch (error) {
-      console.error("Error:", error)
+      console.error("Error: ", error.message)
     }
   }
 
   return (
     <Page title="Contact Us">
       <meta name="description" content="Contact Us" />
-      <meta name="keywords" content="How to contact Swanson Software" />
       <GTag></GTag>
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1">Contact Swanson Software</h1>
@@ -99,7 +107,7 @@ function ContactUs() {
             </label>
           </div>
           <div>
-            <input type="text" name="name" id="name" placeholder="Name" maxLength="100" required></input>
+            <input type="text" name="name" id="name" onBlur={handleBlur} ref={el => (inputRefs.current[1] = el)} placeholder="Name" maxLength="100" required></input>
           </div>
 
           <div className="form--field-separation">
@@ -108,7 +116,7 @@ function ContactUs() {
             </label>
           </div>
           <div>
-            <input type="email" name="email" id="email" placeholder="Email" maxLength="100" required></input>
+            <input type="email" name="email" id="email" onBlur={handleBlur} ref={el => (inputRefs.current[2] = el)} placeholder="Email" maxLength="100" required></input>
           </div>
 
           <div className="form--field-separation">
@@ -117,7 +125,7 @@ function ContactUs() {
             </label>
           </div>
           <div>
-            <input type="text" name="subject" id="subject" placeholder="Subject" maxLength="200" required></input>
+            <input type="text" name="subject" id="subject" onBlur={handleBlur} ref={el => (inputRefs.current[3] = el)} placeholder="Subject" maxLength="200" required></input>
           </div>
 
           <div className="form--field-separation">
@@ -126,7 +134,7 @@ function ContactUs() {
             </label>
           </div>
           <div>
-            <textarea name="message" id="message" rows="5" className="form--ta" maxLength="1000" required></textarea>
+            <textarea name="message" id="message" onBlur={handleBlur} ref={el => (inputRefs.current[4] = el)} rows="5" className="form--ta" maxLength="1000" required></textarea>
           </div>
 
           <div>
