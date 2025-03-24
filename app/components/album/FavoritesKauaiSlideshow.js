@@ -48,6 +48,7 @@ function FavoritesKauaiSlideshow() {
   return (
     <Page title="Kauai Favorites Slideshow">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Kauai Favorites Slideshow" />
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />
     </Page>

@@ -23,6 +23,7 @@ function FavoritesKauaiStreamSlideshow() {
   return (
     <Page title="Kauai Stream Erosion">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Kauai Beach Villas Stream Erosion" />
       <Breadcrumb to="/album/favorites-kauai" linktext="Kauai Favorites" />
       <SlideShow photos={photos} />
     </Page>

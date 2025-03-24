@@ -48,6 +48,7 @@ function FavoritesKauai() {
   return (
     <Page title="Kauai Favorites">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Kauai Favorites" />
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />
         <h1 className="headline__h1">Kauai Favorites</h1>

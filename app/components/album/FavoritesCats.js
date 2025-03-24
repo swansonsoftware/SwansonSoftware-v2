@@ -41,6 +41,7 @@ function FavoritesCats() {
   return (
     <Page title="Cats Favorites">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Cat Favorites" />
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />
         <h1 className="headline__h1">Cats Favorites</h1>

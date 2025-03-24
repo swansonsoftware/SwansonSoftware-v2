@@ -34,6 +34,7 @@ function FavoritesGardens() {
   return (
     <Page title="Garden Favorites">
       <GTag></GTag>
+      <meta name="description" content="Swanson Software Album, Garden Favorites" />
       <div className="wrapper wrapper--album">
         <Breadcrumb to="/album/Favorites" linktext="Favorites" />
         <h1 className="headline__h1">Garden Favorites</h1>
