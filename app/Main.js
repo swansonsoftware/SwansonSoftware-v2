@@ -12,6 +12,7 @@ import Home from "./components/Home"
 import SkipToContent from "./components/SkipToContent"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import Thankyou from "./components/Thankyou"
 const _1900s = React.lazy(() => import("./components/album/_1900s"))
 const _1999KauaiSlideshow = React.lazy(() => import("./components/album/_1999KauaiSlideshow"))
 const _2000s = React.lazy(() => import("./components/album/_2000s"))
@@ -49,7 +50,7 @@ function Main() {
   const initialState = { backgroundStyle: "dark", color: "red", isMenuOpen: false }
 
   function theReducer(state, action) {
-    console.log("Main - action type: " + action.type + ", change to: " + action.color)
+    // console.log("Main - action type: " + action.type + ", change to: " + action.color)
     switch (action.type) {
       case "backgroundStyleChange": {
         return {
@@ -119,6 +120,7 @@ function Main() {
                 <Route path="/principles/design" element={<Design />} />
                 <Route path="/principles/lifecycle-models" element={<LifecycleModels />} />
                 <Route path="/principles/reviews" element={<Reviews />} />
+                <Route path="/thankyou" element={<Thankyou />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
