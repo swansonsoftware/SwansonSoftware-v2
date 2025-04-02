@@ -14,7 +14,7 @@ function NotFound() {
   }, [])
 
   return (
-    <Page title="Not Found">
+    <Page title="404 - Page Not Found">
       <h1>Whoops, we cannot find that page.</h1>
     </Page>
   )
