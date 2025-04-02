@@ -15,7 +15,7 @@ function GStructuredData(props) {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "${websiteName}",
-        "url": "https://www.swansonsoftware.com/",
+        "url": "https://www.swansonsoftware.com/"
         }`
     } else if (props.type == "Article" || props.type == "BlogPosting") {
       structuredDataText = `{
