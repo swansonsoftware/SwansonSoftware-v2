@@ -23,6 +23,7 @@ function Blogs2025() {
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2">Responsive Images</h2>
+            <p>March 25</p>
           </div>
           <div className="row__colspan-8">
             <h3 className="headline__h3">Choosing Resolution Switching Breakpoints</h3>
