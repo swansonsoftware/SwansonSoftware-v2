@@ -26,7 +26,7 @@ function ProcessModels() {
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
-            <h3 className="headline__h3">Contents</h3>
+            <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink to="#reqdocs" className="list--toc--a">
