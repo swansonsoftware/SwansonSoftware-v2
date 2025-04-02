@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import GTag from "../GTag"
+import CanonicalLink from "../CanonicalLink"
 
 function Recipes() {
   const appDispatch = useContext(DispatchContext)
@@ -18,6 +19,7 @@ function Recipes() {
   return (
     <Page title="Recipes">
       <GTag></GTag>
+      <CanonicalLink href="https://swansonsoftware.com/album/recipes"></CanonicalLink>
       <div className="wrapper wrapper--album wrapper--album--pull-left">
         <h1 className="headline__h1">Recipes</h1>
         <div className="album-recipe">
