@@ -25,16 +25,16 @@ function BlogJan2025_ResSwitching() {
   return (
     <Page title="Choosing Resolution Switching Breakpoints">
       <ImageLightboxOverlay />
-      <meta name="description" content="Resolution switching images, choosing breakpoints for responsive images" />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-03-25T09:20:18-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
+      <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>
-        <div className="headline__author">Gregory Swanson | March 20, 2025</div>
+        <div className="headline__author">Gregory Swanson | March 25, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
-            <h3 className="headline__h3">Contents</h3>
+            <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink to="#ideasForChoosingBrkpts" className="list--toc--a">

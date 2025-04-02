@@ -20,14 +20,14 @@ function Reviews() {
   return (
     <Page title="Reviews">
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Reviews"></GStructuredData>
-      <meta name="description" content="Software reviews" />
+      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T12:05:58-07:00" headline="Software Reviews"></GStructuredData>
+      <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Reviews</h1>
-        <div className="headline__author">Gregory Swanson | updated February 18, 2025</div>
+        <div className="headline__author">Gregory Swanson | updated March 26, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
-            <h3 className="headline__h3">Contents</h3>
+            <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink to="#components" className="list--toc--a">
@@ -386,7 +386,7 @@ function Reviews() {
               <li className="list">Responsibilities - defines roles and responsibilities</li>
               <li className="list">Inputs - describes the input requirements</li>
               <li className="list">Entry criteria - describes the criteria to be met before starting a review, including authorization and initiating events</li>
-              <li className="list">Procedures - details the procedures, which include planning the review, overview of procedures, preparation, examination/evaluation/recording of results, rework and follow-up</li>
+              <li className="list">Procedures - details the procedures, which include planning the review, overview of procedures, preparation, examination / evaluation / recording of results, rework and follow-up</li>
               <li className="list">Exit criteria - describes the criteria to be met before the review can be considered complete</li>
               <li className="list">Output - describes the minimum set of deliverables to be produced</li>
             </ol>

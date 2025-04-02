@@ -19,14 +19,14 @@ function LifecycleModels() {
   return (
     <Page title="Lifecycle Models">
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Life Cycle Models"></GStructuredData>
-      <meta name="description" content="Software life cycle models" />
+      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T11:51:08-07:00" headline="Software Life Cycle Models"></GStructuredData>
+      <meta name="description" content="A survey of Software Development Life Cycle models and how to choose between them based on factors such as project schedule, requirements, team quality, etc." />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Life Cycle Models</h1>
-        <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>
+        <div className="headline__author">Gregory Swanson | updated March 26, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
-            <h3 className="headline__h3">Contents</h3>
+            <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink to="#thesdlc" className="list--toc--a">
