@@ -39,7 +39,7 @@ function ContactUs() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log("handleSubmit")
+    // console.log("handleSubmit")
     let contactFrm = document.getElementById("contactus")
 
     if (contactFrm) {
@@ -57,8 +57,8 @@ function ContactUs() {
           message: message.value
         }
 
-        console.log("jsonstring: " + jsonstring)
-        console.log("JSON strinify: " + JSON.stringify(jsonstring))
+        // console.log("jsonstring: " + jsonstring)
+        // console.log("JSON strinify: " + JSON.stringify(jsonstring))
 
         submit(jsonstring)
       } else {
@@ -73,7 +73,7 @@ function ContactUs() {
 
   async function submit(jsonstring) {
     try {
-      const response = await fetch("https://www.swansonsoftware.com/contact.php", {
+      const response = await fetch("https://swansonsoftware.com/contact.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
