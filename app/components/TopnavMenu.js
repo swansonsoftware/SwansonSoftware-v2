@@ -10,12 +10,12 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   const SHOW = true
   const HIDE = false
 
+  // { topic: "Principles", name: "Design", link: "/principles/design", pages: "Software Development Principles pages", topicid: 0, id: 2 },
+  // { topic: "Principles", name: "Process Models", link: "/principles/process-models", pages: "Software Development Principles pages", topicid: 0, id: 0 },
+  // { topic: "Principles", name: "Requirements", link: "/principles/requirements", pages: "Software Development Principles pages", topicid: 0, id: 1 },
   const menuitems = [
-    { topic: "Principles", name: "Process Models", link: "/principles/process-models", pages: "Software Development Principles pages", topicid: 0, id: 0 },
-    { topic: "Principles", name: "Requirements", link: "/principles/requirements", pages: "Software Development Principles pages", topicid: 0, id: 1 },
-    { topic: "Principles", name: "Design", link: "/principles/design", pages: "Software Development Principles pages", topicid: 0, id: 2 },
     { topic: "Principles", name: "Life Cycle Models", link: "/principles/lifecycle-models", pages: "Software Development Principles pages", topicid: 0, id: 3 },
-    { topic: "Principles", name: "Reviews", link: "/principles/reviews", pages: "Software Development Principles pages", topicid: 0, id: 4 },
+    { topic: "Principles", name: "Software Reviews", link: "/principles/reviews", pages: "Software Development Principles pages", topicid: 0, id: 4 },
     { topic: "Blog", name: "2025", link: "/blog/2025", pages: "Blog pages", topicid: 1, id: 7 },
     { topic: "Album", name: "Recipes", link: "/album/recipes", pages: "Album pages", topicid: 2, id: 8 },
     { topic: "Album", name: "Favorites", link: "/album/favorites", pages: "Album pages", topicid: 2, id: 9 },
@@ -152,7 +152,7 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
         }
         break
       default:
-        console.log("? " + e.target.parentElement.nodeName)
+        // console.log("? " + e.target.parentElement.nodeName)
         return
     }
 
@@ -206,7 +206,7 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
         //hide breadcrumb
         if (breadcrumb) {
           breadcrumb.classList.add("site-header__breadcrumb--is-hidden")
-          console.log("setting breadcrumb tabindex -1")
+          // console.log("setting breadcrumb tabindex -1")
           if (breadcrumbLink) {
             breadcrumbLink.tabIndex = "-1"
           }
