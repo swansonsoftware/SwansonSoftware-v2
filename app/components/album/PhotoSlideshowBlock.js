@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 
 function PhotoSlideshowBlock(props) {
   return (
-    <p>
+    <h3 className="headline__h3-album-slideshow">
       <Link to={props.url}>{props.caption}</Link>
-    </p>
+    </h3>
   )
 }
 
