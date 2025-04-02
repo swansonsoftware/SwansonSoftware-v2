@@ -4,6 +4,7 @@ import StateContext from "../StateContext"
 import Page from "./Page"
 import GTag from "./GTag"
 import GStructuredData from "./GStructuredData"
+import CanonicalLink from "./CanonicalLink"
 
 function Home() {
   const appDispatch = useContext(DispatchContext)
@@ -19,7 +20,8 @@ function Home() {
     <Page title="Home">
       <GTag></GTag>
       <GStructuredData type="WebSite" name="SwansonSoftware"></GStructuredData>
-      <meta name="description" content="Swanson Software, disseminating knowledge in the craft of software construction" />
+      <CanonicalLink href="https://swansonsoftware.com"></CanonicalLink>
+      <meta name="description" content="SwansonSoftware is on a mission to disseminate the principles and practices of software construction that lead to quality software and successful projects." />
       <div className="wrapper wrapper--banner">
         <picture className="banner__image">
           <source srcSet="../assets/images/0a-hero.webp" media="(min-width: 1380px)" width="1920" height="950"></source>
