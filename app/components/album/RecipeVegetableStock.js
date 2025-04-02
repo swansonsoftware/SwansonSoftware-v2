@@ -25,10 +25,10 @@ function VegetableStock() {
   ]
 
   return (
-    <Page title="Vegetable Stock">
+    <Page title="Vegetable Stock Recipe">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <meta name="description" content="Swanson Software Vegetable Stock Recipe" />
+      <meta name="description" content="Gregory Swanson's Vegetable Stock Recipe" />
       <div className="wrapper wrapper--album wrapper--album--pull-left album-recipe">
         <Breadcrumb to="../album/Recipes" linktext="Recipes" />
 
