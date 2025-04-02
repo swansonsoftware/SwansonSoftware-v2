@@ -4,6 +4,7 @@ import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoBookBlock from "./PhotoBookBlock"
 import GTag from "../GTag"
+import CanonicalLink from "../CanonicalLink"
 
 function Favorites() {
   const appDispatch = useContext(DispatchContext)
@@ -25,6 +26,7 @@ function Favorites() {
   return (
     <Page title="Favorites">
       <GTag></GTag>
+      <CanonicalLink href="https://swansonsoftware.com/album/favorites"></CanonicalLink>
       <meta name="description" content="Swanson Software Album, Favorites" />
       <div className="wrapper wrapper--album">
         <h1 className="headline__h1">Favorites</h1>
