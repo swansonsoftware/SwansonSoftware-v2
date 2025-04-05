@@ -11,7 +11,6 @@ function SlideShow(props) {
   let btnIcon = PLAY
   const FULLSCREEN = 0
   const EXITFULLSCREEN = 1
-  const btnFullScreen = useRef(EXITFULLSCREEN)
 
   const slideIntervalRef = useRef(null)
   const headerIntervalRef = useRef(null)
@@ -300,6 +299,10 @@ function SlideShow(props) {
       vcrContainer.classList.add("slideshow__vcr-container--is-hidden")
       vcrContainer.classList.remove("slideshow__vcr-container--is-visible")
     }
+    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
+    if (slideCaptionBox) {
+      slideCaptionBox.classList.add("slideshow__slide-caption-box--is-hidden")
+    }
   }
 
   function showVcrButtons() {
@@ -307,6 +310,10 @@ function SlideShow(props) {
     if (vcrContainer) {
       vcrContainer.classList.add("slideshow__vcr-container--is-visible")
       vcrContainer.classList.remove("slideshow__vcr-container--is-hidden")
+    }
+    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
+    if (slideCaptionBox) {
+      slideCaptionBox.classList.remove("slideshow__slide-caption-box--is-hidden")
     }
   }
 
@@ -386,7 +393,9 @@ function SlideShow(props) {
         slideCaption.innerText = ""
         slideCaption.classList.remove("slideshow__slide-caption--is-visible")
       } else {
-        slideCaptionBox.classList.remove("slideshow__slide-caption-box--is-hidden")
+        if (isFullScreen.current == false) {
+          slideCaptionBox.classList.remove("slideshow__slide-caption-box--is-hidden")
+        }
         slideCaption.innerText = captionText
         slideCaption.classList.add("slideshow__slide-caption--is-visible")
       }
@@ -410,6 +419,7 @@ function SlideShow(props) {
   }
 
   function prevSlide(e) {
+    e.preventDefault()
     clearInterval(slideIntervalRef.current)
     delayHideVcrBtns.current = true
 
@@ -447,6 +457,7 @@ function SlideShow(props) {
   }
 
   function nextSlide(e) {
+    e.preventDefault()
     clearInterval(slideIntervalRef.current)
     delayHideVcrBtns.current = true
 
@@ -463,7 +474,7 @@ function SlideShow(props) {
       // Hide current slide
       slides[slideIndex - 1].classList.remove("slideshow__slides__slide--is-visible")
 
-      // Update slideIndex to the previous slide index
+      // Update slideIndex to the next slide index
       if (slideIndex == slides.length) {
         slideIndex = 1
       } else {
