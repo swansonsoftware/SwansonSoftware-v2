@@ -48,9 +48,10 @@
   }
   p.dropCap::first-letter {
     float: left;
-    font-size: 4.8rem;
+    font-family: "Cormorant Garamond";
+    font-size: 5.3rem;
     font-weight: 500;
-    line-height: 0.9;
+    line-height: 0.8;
     padding-right: 4px;
   }
   p.dropCapNote::first-letter {
