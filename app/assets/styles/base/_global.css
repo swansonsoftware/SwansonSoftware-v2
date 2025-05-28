@@ -63,6 +63,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+img.logo {
+  width: 220px;
+  height: 53px;
+}
 
 * {
   box-sizing: border-box;

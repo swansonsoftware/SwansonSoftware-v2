@@ -11,7 +11,7 @@ function Logo({ CloseMenu = { CloseMenu } }) {
   return (
     <div className="site-header__logo">
       <Link to="/" id="header-logo-link" tabIndex="0" onClick={CloseMenu}>
-        <img src={appState.backgroundStyle == "dark" ? logoDark : logoLite} width="220" height="53" alt="Swanson Software logo" title="Swanson Software home" />
+        <img src={appState.backgroundStyle == "dark" ? logoDark : logoLite} width="220" height="53" className="logo" alt="Swanson Software logo" title="Swanson Software home" />
       </Link>
     </div>
   )
