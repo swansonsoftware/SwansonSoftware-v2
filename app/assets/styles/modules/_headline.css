@@ -24,6 +24,7 @@
   }
 
   &__h2 {
+    font-family: "Cormorant Garamond";
     font-size: 2rem;
     font-weight: 400;
     padding: 10px 0;
