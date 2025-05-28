@@ -7,12 +7,12 @@ import DispatchContext from "./DispatchContext"
 
 // Components
 import NotFound from "./components/NotFound"
-import LoadingDotsIcon from "./components/DotsLoading"
+const LoadingDotsIcon = React.lazy(() => import("./components/DotsLoading"))
 import Home from "./components/Home"
 import SkipToContent from "./components/SkipToContent"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-import Thankyou from "./components/Thankyou"
+const Thankyou = React.lazy(() => import("./components/Thankyou"))
 const _1900s = React.lazy(() => import("./components/album/_1900s"))
 const _1999KauaiSlideshow = React.lazy(() => import("./components/album/_1999KauaiSlideshow"))
 const _2000s = React.lazy(() => import("./components/album/_2000s"))
@@ -44,6 +44,8 @@ const RecipeVegetableStock = React.lazy(() => import("./components/album/RecipeV
 const Requirements = React.lazy(() => import("./components/principles/Requirements"))
 const Reviews = React.lazy(() => import("./components/principles/Reviews"))
 const BlogResolutionSwitchingImages = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching"))
+const BlogResolutionSwitchingImages2 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching2"))
+const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching3"))
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
@@ -113,6 +115,8 @@ function Main() {
                 <Route path="/album/vegetable-stock" element={<RecipeVegetableStock />} />
                 <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
                 <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part2" element={<BlogResolutionSwitchingImages2 />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part3" element={<BlogResolutionSwitchingImages3 />} />
                 <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
                 <Route path="/contact" element={<ContactUs body="light" />} />
                 {/* <Route path="/principles/process-models" element={<ProcessModels body="light" />} /> */}
