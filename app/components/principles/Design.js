@@ -19,11 +19,11 @@ function Design() {
   return (
     <Page title="Overview of Software Design">
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Overview of Software Design"></GStructuredData>
+      <GStructuredData type="Article" datePublished="2025-05-30T08:36:22-07:00" headline="Software Design"></GStructuredData>
       <meta name="description" content="A survey of software design, including design strategies, methodologies, and the technical spec. Both object-oriented and structured methods are covered." />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Design</h1>
-        <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>
+        <div className="headline__author">Gregory Swanson | Updated May 30, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>
@@ -379,9 +379,9 @@ function Design() {
                 <sup>[33]</sup>
               </HashLink>
             </p>
-            <p className="note dropCapNote">
+            <p className="note dropCapNote" id="note34">
               Decomposition is a “top-down” strategy in which we begin with the big picture and elaborate the details. Composition is a “bottom-up” strategy in which we elaborate the details before considering the big picture. Stepwise refinement is a strategy where decomposition and/or composition are repeated.{" "}
-              <HashLink to="#footnote34" className="footnote" id="note34">
+              <HashLink to="#footnote34" className="footnote">
                 <sup>[34]</sup>
               </HashLink>
             </p>
@@ -677,7 +677,7 @@ function Design() {
               </HashLink>{" "}
             </p>
             <p id="note68">
-              Object-oriented design uses the products of object-oriented analysis, defined as: “…a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.”
+              Object-oriented design uses the products of object-oriented analysis, which is: “…a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.”
               <HashLink to="#footnote68" className="footnote">
                 <sup>[68]</sup>
               </HashLink>{" "}
@@ -706,24 +706,12 @@ function Design() {
               </HashLink>{" "}
             </p>
             <p id="note71">
-              While there are other programming styles besides object-oriented, in which programs are organized on a conceptual model other than the object model, no single programming style is best for all kinds of applications; however, “this paradigm often serves as the architectural framework in which we employ other paradigms” and is “is best suited to the broadest set of applications.”
+              While there are other programming styles besides object-oriented, in which programs are organized on a conceptual model other than the object model, no single programming style is best for all kinds of applications; however, “this paradigm often serves as the architectural framework in which we employ other paradigms” and “is best suited to the broadest set of applications.”
               <HashLink to="#footnote71" className="footnote">
                 <sup>[71]</sup>
               </HashLink>{" "}
             </p>
-            <p className="note" id="note72">
-              <span className="headline__h3">Object-oriented Programming (OOP)</span>
-              <br />
-              Object-oriented programming is a method of implementation in which programs are organized as cooperative collections of objects, each of which represents an instance of some class, and whose classes are all members of a hierarchy of classes united via inheritance relationships.
-              <HashLink to="#footnote72" className="footnote">
-                <sup>[72]</sup>
-              </HashLink>{" "}
-              <br />
-              <br />A program may appear to be object-oriented, but if any of these elements is missing, it is not an object-oriented program. Specifically, programming without inheritance is distinctly not object-oriented; that would merely be programming with abstract data types.
-              <HashLink to="#footnote73" className="footnote" id="note73">
-                <sup>[73]</sup>
-              </HashLink>{" "}
-            </p>
+            <p>Designing software with objects and determining how they fit in a hierarchy requires some knowledge of object technology: definitions of the terms, understanding of an object-oriented language, perhaps a knowledge of the object model. These are beyond the scope of this article, and the reader is referred to the references to learn more.</p>
           </div>
           <div className="row__colspan-1"></div>
 
@@ -733,14 +721,14 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note74">
+            <p className="dropCap" id="note72">
               The primary output of software design is the design specification,
-              <HashLink to="#footnote74" className="footnote">
-                <sup>[74]</sup>
+              <HashLink to="#footnote72" className="footnote">
+                <sup>[72]</sup>
               </HashLink>{" "}
               a.k.a. technical specification, often abbreviated technical spec. In general, design elements that should go into a technical spec include:
-              <HashLink to="#footnote75" className="footnote" id="note75">
-                <sup>[75]</sup>
+              <HashLink to="#footnote73" className="footnote" id="note73">
+                <sup>[73]</sup>
               </HashLink>{" "}
             </p>
             <ul>
@@ -752,10 +740,10 @@ function Design() {
               <li className="list">A description of usage</li>
             </ul>
             <p className="note dropCapNote">A technical spec is not the same as a functional specification (functional spec). Functional specs describe the functionality: what the system should do, how users interact with the system, without technical details. Technical specs describe the system architecture: the technologies used, database structure, modules, interactions between components, frameworks used, interactions via APIs, etc.</p>
-            <p id="note76">
+            <p id="note74">
               In <i>Planning Smarter: Creating Blueprint-Quality Software Specifications</i>, Tyson suggests that a technical spec should be a software blueprint with the following elements:
-              <HashLink to="#footnote76" className="footnote">
-                <sup>[76]</sup>
+              <HashLink to="#footnote74" className="footnote">
+                <sup>[74]</sup>
               </HashLink>{" "}
             </p>
             <ul>
@@ -766,14 +754,14 @@ function Design() {
               <li className="list">Logic to clearly define the rules for data translations</li>
               <li className="list">Narratives to describe relevant background</li>
             </ul>
-            <p id="note77">
+            <p id="note75">
               Design decisions and rational should be documented “only if it will be read in the future.”
-              <HashLink to="#footnote77" className="footnote">
-                <sup>[77]</sup>
+              <HashLink to="#footnote75" className="footnote">
+                <sup>[75]</sup>
               </HashLink>{" "}
               Consider who may need the documentation (Booch suggests “integrators, database administrators, project managers, operational support teams, technical help desk staff… or people who will join the team in the future”).
-              <HashLink to="#footnote78" className="footnote" id="note78">
-                <sup>[78]</sup>
+              <HashLink to="#footnote76" className="footnote" id="note76">
+                <sup>[76]</sup>
               </HashLink>{" "}
             </p>
 
@@ -1373,7 +1361,7 @@ function Design() {
                   <HashLink to="#note72" className="footnote--cite">
                     ^
                   </HashLink>
-                  Booch et. al, 2007, ?
+                  Zhu, 2005, p. 55
                 </span>
               </li>
               <li id="footnote73">
@@ -1381,7 +1369,7 @@ function Design() {
                   <HashLink to="#note73" className="footnote--cite">
                     ^
                   </HashLink>
-                  Booch et. al, 2007, ?
+                  Zhu, 2005, p. 7.
                 </span>
               </li>
               <li id="footnote74">
@@ -1389,7 +1377,7 @@ function Design() {
                   <HashLink to="#note74" className="footnote--cite">
                     ^
                   </HashLink>
-                  Zhu, 2005, p. 55
+                  Gill Tyson, 2002, Planning Smarter: Creating Blueprint-Quality Software Specifications. Prentice Hall.
                 </span>
               </li>
               <li id="footnote75">
@@ -1397,28 +1385,12 @@ function Design() {
                   <HashLink to="#note75" className="footnote--cite">
                     ^
                   </HashLink>
-                  Zhu, 2005, p. 7.
+                  Booch et. al, 2007, section 6.2.
                 </span>
               </li>
               <li id="footnote76">
                 <span className="footnote__ref">
                   <HashLink to="#note76" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Gill Tyson, 2002, Planning Smarter: Creating Blueprint-Quality Software Specifications. Prentice Hall.
-                </span>
-              </li>
-              <li id="footnote77">
-                <span className="footnote__ref">
-                  <HashLink to="#note77" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote78">
-                <span className="footnote__ref">
-                  <HashLink to="#note78" className="footnote--cite">
                     ^
                   </HashLink>
                   Booch et. al, 2007, section 6.2.
