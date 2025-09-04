@@ -3,6 +3,8 @@ import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
 import Breadcrumb from "../../Breadcrumb"
+import GTag from "../../GTag"
+import GStructuredData from "../../GStructuredData"
 
 function BlogJan2025_TimeVsQuality() {
   const appDispatch = useContext(DispatchContext)
@@ -14,45 +16,10 @@ function BlogJan2025_TimeVsQuality() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  function GenerateDate(date) {
-    //generates format like 2025-01-19T09:56:01-08:00
-    //                      2025-01-19T08:00:00-08:00
-    var tzo = -date.getTimezoneOffset(),
-      dif = tzo >= 0 ? "+" : "-",
-      pad = function (num) {
-        return (num < 10 ? "0" : "") + num
-      }
-
-    return date.getFullYear() + "-" + pad(date.getMonth() + 1) + "-" + pad(date.getDate()) + "T" + pad(date.getHours()) + ":" + pad(date.getMinutes()) + ":" + pad(date.getSeconds()) + dif + pad(Math.floor(Math.abs(tzo) / 60)) + ":" + pad(Math.abs(tzo) % 60)
-  }
-
-  // var dt = new Date()
-  // console.log(GenerateDate(dt))
-
-  useEffect(() => {
-    //add structured data
-    let structuredDataText = `{
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Time vs. Quality",
-      "datePublished": "2025-01-19T09:56:01-08:00",
-      "author": [{
-          "@type": "Person",
-          "name": "Gregory Swanson",
-          "url": "https://www.linkedin.com/in/gregory-swanson-7b92b68/"
-        }]
-    }`
-    //"dateModified": "....",
-    const script = document.createElement("script")
-    script.setAttribute("type", "application/ld+json")
-    script.setAttribute("id", "structure")
-    script.textContent = structuredDataText
-    document.head.appendChild(script)
-    return () => document.head.removeChild(script)
-  }, [])
-
   return (
     <Page title="Time vs. Quality">
+      <GTag></GTag>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <meta name="description" content="Time vs. quality in software development" />
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
