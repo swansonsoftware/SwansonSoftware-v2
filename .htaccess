@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirects www to non-www
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+  # fix 404 errors with react front end
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+  
+</IfModule>
+<IfModule mod_headers.c>  <FilesMatch "\.(webp|svg)$">    Header set Cache-Control "max-age=7776000, public"  </FilesMatch>  <FilesMatch "\.(js|css)$">    Header set Cache-Control "max-age=7776000, private"  </FilesMatch></IfModule>
+# Redirect https://swansonsoftware.com/index.html to https://swansonsoftware.com
+Redirect 301 /index.html https://swansonsoftware.com/
+Redirect 301 /index.php https://swansonsoftware.com/
+Redirect 301 /default.asp https://swansonsoftware.com/
+Redirect 301 /emailForm.php https://swansonsoftware.com/contact/
+Redirect 301 /IntroProcess.asp https://swansonsoftware.com/
+Redirect 301 /life-cycle-models.html https://swansonsoftware.com/principles/lifecycle-models

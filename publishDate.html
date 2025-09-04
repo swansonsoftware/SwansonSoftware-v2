@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Article Date</title>
+    <script>
+        function GenerateDate() {
+            //generates format like 2025-01-19T09:56:01-08:00
+            //                      2025-01-19T08:00:00-08:00
+            //                           Note that the -08:00 is the time zone offset
+            let date = new Date();
+            var tzo = -date.getTimezoneOffset(),
+                dif = tzo >= 0 ? "+" : "-",
+                pad = function (num) {
+                    return (num < 10 ? "0" : "") + num
+                };
+
+            return date.getFullYear() + "-" + pad(date.getMonth() + 1) + "-" + pad(date.getDate()) + "T" + pad(date.getHours()) + ":" + pad(date.getMinutes()) + ":" + pad(date.getSeconds()) + dif + pad(Math.floor(Math.abs(tzo) / 60)) + ":" + pad(Math.abs(tzo) % 60);
+        }
+
+
+        function updateDate() {
+            console.log("updateDate");
+            var dateField = document.getElementById("articleDate");
+            if (dateField) {
+                dateField.innerText = GenerateDate();
+            }
+        }
+
+    </script>
+</head>
+
+<body onload=updateDate()>
+    <p id="articleDate"></p>
+
+</body>
+
+</html>
