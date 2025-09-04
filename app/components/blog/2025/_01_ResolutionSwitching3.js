@@ -3,7 +3,6 @@ import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
 import Breadcrumb from "../../Breadcrumb"
-import ImageBlock from "../../ImageBlock"
 import { HashLink } from "react-router-hash-link"
 import { useLocation } from "react-router-dom"
 import GTag from "../../GTag"
@@ -38,12 +37,12 @@ function BlogJan2025_ResSwitching3() {
   return (
     <Page title="Choosing Resolution Switching Breakpoints Part 2">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-03-25T09:20:18-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-05-30T08:31:00-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images Part 3"></GStructuredData>
       <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025/01/resolution-switching-images-part2" linktext="Resolution Switching Images Part 2" />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints - Part 3</h1>
-        <div className="headline__author">Gregory Swanson | March 25, 2025</div>
+        <div className="headline__author">Gregory Swanson | Updated May 30, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>

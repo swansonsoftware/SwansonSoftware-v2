@@ -43,12 +43,12 @@ function BlogJan2025_ResSwitching() {
     <Page title="Choosing Resolution Switching Breakpoints">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-03-25T09:20:18-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-05-30T08:31:00-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
       <div className="wrapper wrapper__article">
         <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>
-        <div className="headline__author">Gregory Swanson | March 25, 2025</div>
+        <div className="headline__author">Gregory Swanson | Updated May 30, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>
@@ -78,6 +78,7 @@ function BlogJan2025_ResSwitching() {
             </ul>
           </div>
           <div className="row__colspan-8">
+            <h3 className="headline__h3">Part 1 of 3</h3>
             <p className="dropCap">The question of how many breakpoints are needed and how to choose them comes up a lot when creating a responsive design that includes resolution switching of images. This post describes a technique based on an analysis of device sizes as one way to answer the question and summarizes a few other ideas for choosing breakpoints.</p>
             <p>For the album on this website, I have photos that display as a 320px wide thumbnail for preview, and when the user selects the image, a larger size will appear that fills the screen as best as possible depending on screen dimensions and the aspect ratio of the image. The goal is to optimize the image size for desktop and laptop screens as well as for tablets and mobile phones. I will cover images in both landscape and portrait orientation.</p>
           </div>
