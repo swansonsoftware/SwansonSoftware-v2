@@ -4,7 +4,7 @@
   align-items: center;
 
   p {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     /*line-height: 1.5; 2/23/2025 */
     line-height: 1.45;
     margin-top: 15px;
@@ -49,7 +49,7 @@
   p.dropCap::first-letter {
     float: left;
     font-family: "Cormorant Garamond";
-    font-size: 5.3rem;
+    font-size: 4.9rem;
     font-weight: 500;
     line-height: 0.8;
     padding-right: 4px;
