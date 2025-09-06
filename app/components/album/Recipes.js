@@ -23,10 +23,10 @@ function Recipes() {
       <div className="wrapper wrapper--album wrapper--album--pull-left">
         <h1 className="headline__h1">Recipes</h1>
         <div className="album-recipe">
-          <Link to="../album/vegetable-stock">Vegetable Stock</Link>
+          <Link to="../album/recipes/vegetable-stock">Vegetable Stock</Link>
         </div>
         <div className="album-recipe">
-          <Link to="../album/clam-chowder">Clam Chowder</Link>
+          <Link to="../album/recipes/clam-chowder">Clam Chowder</Link>
         </div>
       </div>
     </Page>

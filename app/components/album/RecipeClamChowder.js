@@ -18,7 +18,7 @@ function ClamChowder() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
-  const images = [{ id: 1, lazy: false, src: "../assets/images/2020s/2023-05-14-DSC04079-thumbnail.webp", srcset: "../assets/images/2020s/2023-05-14-DSC04079-thumbnail.webp 1x, ../assets/images/2020s/2023-05-14-DSC04079-672.webp 2x", width: "320", height: "180", alt: "New England (white) clam chowder in a pot on stove", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Clam chowder, finished.", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" }]
+  const images = [{ id: 1, lazy: false, src: "../../assets/images/2020s/2023-05-14-DSC04079-thumbnail.webp", srcset: "../../assets/images/2020s/2023-05-14-DSC04079-thumbnail.webp 1x, ../../assets/images/2020s/2023-05-14-DSC04079-672.webp 2x", width: "320", height: "180", alt: "New England (white) clam chowder in a pot on stove", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Clam chowder, finished.", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw" }]
 
   return (
     <Page title="Clam Chowder Recipe">
@@ -26,7 +26,7 @@ function ClamChowder() {
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Clam Chowder Recipe" />
       <div className="wrapper wrapper--album wrapper--album--pull-left album-recipe">
-        <Breadcrumb to="../album/Recipes" linktext="Recipes" />
+        <Breadcrumb to="../album/recipes" linktext="Recipes" />
 
         <h1 className="headline__h1">Clam Chowder</h1>
 
@@ -40,7 +40,7 @@ function ClamChowder() {
             <p className="album-recipe__intro">This is the New England (white) clam chowder. All chowders are made with pork, often bacon. I prefer to make this without any pork at all.</p>
             <p>
               The leek broth from leek and potato soup is a good starting point for clam chowder. This chowder uses the&nbsp;
-              <Link to="../album/vegetable-stock">vegetable stock</Link> recipe which uses not only leeks, but includes fennel and carrots to add character. The salt from the canned clams and bottled clam juice seems to be enough so that additional salt is not required. Correct the seasoning as needed.
+              <Link to="../album/recipes/vegetable-stock">vegetable stock</Link> recipe which uses not only leeks, but includes fennel and carrots to add character. The salt from the canned clams and bottled clam juice seems to be enough so that additional salt is not required. Correct the seasoning as needed.
             </p>
           </div>
           <div className="row__colspan-4">
@@ -56,7 +56,7 @@ function ClamChowder() {
         <div className="album-recipe__listItem">
           <span className="album-recipe__ingredientAmount">2</span>
           <span className="album-recipe__ingredient">
-            cups <Link to="../album/vegetable-stock">vegetable stock</Link>
+            cups <Link to="../album/recipes/vegetable-stock">vegetable stock</Link>
           </span>
         </div>
 

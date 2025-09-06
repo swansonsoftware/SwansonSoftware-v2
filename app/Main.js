@@ -101,7 +101,6 @@ function Main() {
                 <Route path="/album/2012-slideshow-washington" element={<_2010sSlideshowWashington />} />
                 <Route path="/album/2013-slideshow-normas" element={<_2013SlideshowNormas />} />
                 <Route path="/album/2020s-slideshow" element={<_2020sSlideshow />} />
-                <Route path="/album/clam-chowder" element={<RecipeClamChowder />} />
                 <Route path="/album/favorites" element={<Favorites />} />
                 <Route path="/album/favorites-kauai" element={<FavoritesKauai />} />
                 <Route path="/album/favorites-kauai-slideshow" element={<FavoritesKauaiSlideshow />} />
@@ -112,7 +111,8 @@ function Main() {
                 <Route path="/album/favorites-gardens" element={<FavoritesGardens />} />
                 <Route path="/album/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
                 <Route path="/album/recipes" element={<Recipes />} />
-                <Route path="/album/vegetable-stock" element={<RecipeVegetableStock />} />
+                <Route path="/album/recipes/clam-chowder" element={<RecipeClamChowder />} />
+                <Route path="/album/recipes/vegetable-stock" element={<RecipeVegetableStock />} />
                 <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
                 <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
                 <Route path="/blog/2025/01/resolution-switching-images-part2" element={<BlogResolutionSwitchingImages2 />} />
