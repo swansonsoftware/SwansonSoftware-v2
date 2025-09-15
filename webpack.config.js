@@ -72,7 +72,7 @@ if (currentTask == "webpackDev" || currentTask == "dev") {
   cssConfig.use.unshift("style-loader")
 }
 
-if (currentTask == "webpackBuild") {
+if (currentTask == "webpackBuild" || currentTask == "build") {
   config.plugins.push(new CleanWebpackPlugin(), new RunAfterCompile(), new MiniCssExtractPlugin({ filename: "styles.[chunkhash].css" }))
   config.mode = "production"
   config.output = {
