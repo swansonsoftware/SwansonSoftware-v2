@@ -16,14 +16,14 @@ function Blogs2025() {
   }, [])
 
   return (
-    <Page title="Blog 2025">
+    <Page title="2025 Blog">
       <GTag></GTag>
       <div className="wrapper wrapper__article">
-        <h1 className="headline__h1-cg">Blog List 2025</h1>
+        <h1 className="headline__h1-cg">2025</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">
-            <h2 className="headline__h2">Responsive Images</h2>
-            <p>March 25</p>
+            <h2 className="headline__h2">March 25</h2>
+            <p></p>
           </div>
           <div className="row__colspan-8">
             <h3 className="headline__h3">Choosing Resolution Switching Breakpoints</h3>
