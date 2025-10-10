@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import ReactDOM from "react-dom"
 import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
@@ -10,7 +11,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   const SHOW = true
   const HIDE = false
 
-  // { topic: "Principles", name: "Design", link: "/principles/design", pages: "Software Development Principles pages", topicid: 0, id: 2 },
   // { topic: "Principles", name: "Process Models", link: "/principles/process-models", pages: "Software Development Principles pages", topicid: 0, id: 0 },
   // { topic: "Principles", name: "Requirements", link: "/principles/requirements", pages: "Software Development Principles pages", topicid: 0, id: 1 },
   const menuitems = [
@@ -113,16 +113,35 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   }
 
   function CreateSubTopicItems(topic, backgroundStyle) {
+    console.log("CreateSubTopicItems")
+    let theBackgroundStyle = backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite"
+
     let topicitems = menuitems
       .filter(menuitem => menuitem.topic == topic)
       .map(item => (
         <li key={item.id}>
-          <Link to={item.link} tabIndex="0" onClick={CloseMenu} className={backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite"}>
+          <Link
+            to={item.link}
+            tabIndex="0"
+            className={getMenuItemClass(theBackgroundStyle, item.name)}
+            onClick={e => {
+              setSelected(e), CloseMenu()
+            }}
+          >
             {item.name}
           </Link>
         </li>
       ))
     return topicitems
+  }
+
+  function getMenuItemClass(theBackgroundStyle, menuItemName) {
+    let theMenuItemClass = (theBackgroundStyle += appState.selectedMenu == menuItemName ? " menu-item__link__active" : "")
+    return theMenuItemClass
+  }
+
+  function setSelected(e) {
+    appDispatch({ type: "selectMenu", selectedMenu: e.target.innerText })
   }
 
   function ToggleMenuExpansion(e) {

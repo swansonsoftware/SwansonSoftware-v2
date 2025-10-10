@@ -49,7 +49,7 @@ const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blo
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", color: "red", isMenuOpen: false }
+  const initialState = { backgroundStyle: "dark", color: "red", isMenuOpen: false, selectedMenu: "" }
 
   function theReducer(state, action) {
     // console.log("Main - action type: " + action.type + ", change to: " + action.color)
@@ -58,21 +58,32 @@ function Main() {
         return {
           backgroundStyle: action.color,
           color: state.color,
-          isMenuOpen: state.isMenuOpen
+          isMenuOpen: state.isMenuOpen,
+          selectedMenu: state.selectedMenu
         }
       }
       case "closeOverlay": {
         return {
           backgroundStyle: state.backgroundStyle,
           color: state.color,
-          isMenuOpen: false
+          isMenuOpen: false,
+          selectedMenu: state.selectedMenu
         }
       }
       case "openOverlay": {
         return {
           backgroundStyle: state.backgroundStyle,
           color: state.color,
-          isMenuOpen: true
+          isMenuOpen: true,
+          selectedMenu: state.selectedMenu
+        }
+      }
+      case "selectMenu": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          color: state.color,
+          isMenuOpen: state.isMenuOpen,
+          selectedMenu: action.selectedMenu
         }
       }
     }
