@@ -113,7 +113,7 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   }
 
   function CreateSubTopicItems(topic, backgroundStyle) {
-    console.log("CreateSubTopicItems")
+    // console.log("CreateSubTopicItems")
     let theBackgroundStyle = backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite"
 
     let topicitems = menuitems
