@@ -49,41 +49,149 @@ const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blo
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", color: "red", isMenuOpen: false, selectedMenu: "" }
+  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", isMenuOpen: false, breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0" }
 
   function theReducer(state, action) {
-    // console.log("Main - action type: " + action.type + ", change to: " + action.color)
     switch (action.type) {
       case "backgroundStyleChange": {
         return {
           backgroundStyle: action.color,
-          color: state.color,
+          siteHeaderClass: state.siteHeaderClass,
           isMenuOpen: state.isMenuOpen,
-          selectedMenu: state.selectedMenu
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
         }
       }
-      case "closeOverlay": {
+      case "siteHeaderClass": {
         return {
-          backgroundStyle: state.backgroundStyle,
-          color: state.color,
-          isMenuOpen: false,
-          selectedMenu: state.selectedMenu
+          backgroundStyle: state.color,
+          siteHeaderClass: action.class,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
         }
       }
-      case "openOverlay": {
+      case "isMenuOpen": {
+        //not used
         return {
           backgroundStyle: state.backgroundStyle,
-          color: state.color,
-          isMenuOpen: true,
-          selectedMenu: state.selectedMenu
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: action.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
+        }
+      }
+      case "updateBreadcrumbClass": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: action.class,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
         }
       }
       case "selectMenu": {
         return {
           backgroundStyle: state.backgroundStyle,
-          color: state.color,
+          siteHeaderClass: state.siteHeaderClass,
           isMenuOpen: state.isMenuOpen,
-          selectedMenu: action.selectedMenu
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: action.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
+        }
+      }
+      case "menuOverlay": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: action.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
+        }
+      }
+      case "menuDropdownActiveTopic": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: action.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
+        }
+      }
+      case "menuListClassByIconState": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: action.class,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
+        }
+      }
+      case "mobileMenuIconState": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: action.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn
+        }
+      }
+      case "captionBoxBtn": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: action.captionBoxBtn
         }
       }
     }

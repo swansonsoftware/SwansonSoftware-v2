@@ -1,114 +1,129 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
+import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 import Logo from "./Logo"
 import HeaderMenuIcon from "./HeaderMenuIcon"
 import TopnavMenu from "./TopnavMenu"
 
 function Header() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
-  const [isMenuExpanded, setIsMenuExpanded] = useState(false)
 
-  // const SHOW = true
-  const HIDE = false
-
-  function SetMenu(expandedState) {
-    setIsMenuExpanded(isme => (isme = expandedState))
-  }
+  const [siteHeaderClass, setSiteHeaderClass] = useState("site-header site-header--expand")
+  const siteHeaderClassExpanded = useRef("site-header site-header--expand")
+  const siteHeaderClassCollapsed = useRef("site-header site-header--collapse")
+  const breadcrumbFixed = useRef(false)
+  const breadcrumbHidden = useRef(false)
+  const currBreadcrumbStyle = useRef("site-header__breadcrumb")
+  const menuIconState = useRef("site-header__menu-icon--collapsed")
+  const menuIconStyle = useRef(appState.backgroundStyle == "dark" ? "site-header__menu-icon--dark" : "")
 
   function CloseMenu() {
     // console.log("CloseMenu")
-    ShrinkDropdownMenu()
-    MenuOverlayDisplay(HIDE)
-    MenuContentDisplay(HIDE)
-    Show_Hamburger_MenuIcon()
-    UnRotateMenuIcon()
-    let breadcrumb = document.querySelector(".site-header__breadcrumb")
-    if (breadcrumb) {
-      breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
-    }
+    appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
+    appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden" })
+    appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
+    updateBreadcrumbStyle(false, false, false)
+    ShowHamburgerMenuIcon()
   }
 
-  function Show_Hamburger_MenuIcon() {
-    let siteHeaderMenuIcon = document.querySelector(".site-header__menu-icon--expanded")
-    if (siteHeaderMenuIcon) {
-      siteHeaderMenuIcon.classList.remove("site-header__menu-icon--expanded")
-      siteHeaderMenuIcon.classList.add("site-header__menu-icon--collapsed")
-      siteHeaderMenuIcon.setAttribute("aria-label", "Open menu")
-      MenuOverlayDisplay(HIDE)
-    }
+  function ShowHamburgerMenuIcon() {
+    menuIconState.current = "site-header__menu-icon--collapsed"
+    appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
   }
 
-  function MenuOverlayDisplay(visible) {
-    let overlay = document.querySelector(".lightbox__menu-overlay")
+  function updateBreadcrumbStyle(scrollup, fixed, hidden) {
+    // console.log("updateBreadcrumbStyle(scrollup:" + scrollup + ", fixed:" + fixed + ", hidden:" + hidden)
 
-    if (overlay) {
-      if (visible) {
-        if (!overlay.classList.contains("lightbox__menu-overlay--visible")) {
-          overlay.classList.add("lightbox__menu-overlay--visible")
-        }
-        // document.body.classList.add("no-scroll") can't do this because it makes the menu jump on X.
+    var breadcrumbStyle = currBreadcrumbStyle.current
+    let breadcrumbLink = document.querySelector("#breadcrumb-link")
+
+    //10/28/25 scrollup is no longer needed, should remove
+
+    if (fixed != null) {
+      if (fixed === true) {
+        breadcrumbFixed.current = true
+        breadcrumbStyle += " site-header__breadcrumb__fixed"
+      } else if (fixed === false) {
+        breadcrumbFixed.current = false
       } else {
-        // console.log("hide menu")
-        if (overlay.classList.contains("lightbox__menu-overlay--visible")) {
-          overlay.classList.remove("lightbox__menu-overlay--visible")
-        }
-        if (document.body.classList.contains("no-scroll")) {
-          document.body.classList.remove("no-scroll")
+        if (breadcrumbFixed.current == true) {
+          breadcrumbStyle += " site-header__breadcrumb__fixed"
         }
       }
     }
-  }
 
-  function UnRotateMenuIcon() {
-    // Un-rotate any rotated menu icon
-    let rotatedIcons = document.querySelectorAll(".nav__button--icon-rotate-180")
-    if (rotatedIcons) {
-      rotatedIcons.forEach(ri => {
-        ri.classList.remove("nav__button--icon-rotate-180")
-      })
-    }
-  }
-
-  function ShrinkDropdownMenu() {
-    let pageOverlays = document.querySelectorAll(".site-header__menu-dropdown")
-    if (pageOverlays) {
-      pageOverlays.forEach(pageOverlay => {
-        if (pageOverlay.classList.contains("site-header__menu-dropdown--visible")) {
-          pageOverlay.classList.remove("site-header__menu-dropdown--visible")
+    if (hidden != null) {
+      if (hidden === true) {
+        breadcrumbHidden.current = true
+        breadcrumbStyle += " site-header__breadcrumb--is-hidden"
+        if (breadcrumbLink) {
+          breadcrumbLink.tabIndex = "-1"
         }
-        if (pageOverlay.children[0].children[1].classList.contains("col-2--grow")) {
-          pageOverlay.children[0].children[1].classList.remove("col-2--grow")
-        }
-        if (pageOverlay.children[0].children[1].classList.contains("col-2--shrink")) {
-          pageOverlay.children[0].children[1].classList.remove("col-2--shrink")
-        }
-      })
-    }
-    const menu = document.getElementById("exTest")
-    if (menu) {
-      if (menu.classList.contains("nav__menu-content--allow-scroll")) {
-        menu.classList.remove("nav__menu-content--allow-scroll")
-      }
-    }
-  }
-
-  function MenuContentDisplay(visible) {
-    const menu = document.getElementById("exTest")
-    if (menu) {
-      if (visible) {
-        let mode = "" // It seems a kludge to need this, to get around react state (mis?)management
-        document.body.classList.contains("dark") ? (mode = "dark") : (mode = "light")
-        menu.classList.remove("nav__menu-content--icon-hidden")
-        menu.classList.add("nav__menu-content--icon-visible")
-        if (mode == "dark") {
-          menu.classList.add("nav__menu-content--icon-visible--dark")
+      } else if (hidden === false) {
+        breadcrumbHidden.current = false
+        if (breadcrumbLink) {
+          breadcrumbLink.tabIndex = "0"
         }
       } else {
-        menu.classList.remove("nav__menu-content--icon-visible--dark")
-        menu.classList.remove("nav__menu-content--icon-visible")
-        menu.classList.add("nav__menu-content--icon-hidden")
+        if (breadcrumbHidden.current == true) {
+          breadcrumbStyle += " site-header__breadcrumb--is-hidden"
+        }
       }
     }
+    // console.log("updateBreadcrumbStyle 3 breadcrumbStyle: " + breadcrumbStyle)
+    appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+  }
+
+  function updateSiteHeaderClass(expanded) {
+    if (expanded) {
+      setSiteHeaderClass(siteHeaderClassExpanded.current)
+    } else {
+      setSiteHeaderClass(siteHeaderClassCollapsed.current)
+    }
+  }
+
+  let scrollIntervalMS = 300
+
+  function Throttle() {
+    let millisecondsSincLastCall = 0
+    let currentMs = new Date().getMilliseconds()
+    if (currentMs - millisecondsSincLastCall >= scrollIntervalMS) {
+      millisecondsSincLastCall = currentMs
+      SetHeaderVisibility()
+    } else {
+      if (window.scrollY < 50) {
+        setSiteHeaderClass(siteHeaderClassExpanded.current)
+        updateBreadcrumbStyle(false, false, "")
+      }
+    }
+  }
+
+  let prevScrollpos = window.scrollY
+
+  function SetHeaderVisibility() {
+    // console.log("SetHeaderVisibility")
+    var currentScrollPos = window.scrollY
+    const antiBounceBuffer = 10 //reduces bounce when scrolling to top on touch screens
+
+    if (prevScrollpos > currentScrollPos) {
+      //scrolling up
+      setSiteHeaderClass(siteHeaderClassExpanded.current)
+      if (breadcrumbHidden.current != true) {
+        updateBreadcrumbStyle(false, false, "")
+      }
+    } else {
+      //scrolling down
+      if (prevScrollpos + 5 < currentScrollPos && currentScrollPos > antiBounceBuffer) {
+        setSiteHeaderClass(siteHeaderClassCollapsed.current)
+        if (breadcrumbHidden.current != true) {
+          updateBreadcrumbStyle(false, true, "")
+        }
+        appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
+        appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
+      }
+    }
+    prevScrollpos = currentScrollPos
   }
 
   const scrollListener = new AbortController()
@@ -118,68 +133,35 @@ function Header() {
   }, [])
 
   useEffect(() => {
-    setIsMenuExpanded(isme => (isme = appState.isMenuOpen))
-  }, [appState.isMenuOpen])
+    // console.log("useeffect: currBreadcrumbStyle: " + currBreadcrumbStyle.current)
 
-  let scrollIntervalMS = 500
-
-  function Throttle() {
-    // let millisecondsSincLastCall = 0
-    // let currentMs = new Date().getMilliseconds()
-    // if (currentMs - millisecondsSincLastCall >= scrollIntervalMS) {
-    //   millisecondsSincLastCall = currentMs
-    //   SetHeaderVisibility()
-    // }
-    // The above throttle doesn't always work, sometimes the timer takes too long to resolve causing the header to not reappear
-    SetHeaderVisibility()
-  }
-
-  let prevScrollpos = window.scrollY
-
-  function SetHeaderVisibility() {
-    var currentScrollPos = window.scrollY
-    const antiBounceBuffer = 10 //reduces bounce when scrolling to top on touch screens
-    let siteHeader = document.querySelector(".site-header")
-    let breadcrumb = document.getElementById("breadcrumb")
-
-    if (prevScrollpos > currentScrollPos) {
-      //scrolling up
-      if (siteHeader.classList.contains("site-header--collapse")) {
-        siteHeader.classList.remove("site-header--collapse")
-        siteHeader.classList.add("site-header--expand")
-        if (breadcrumb) {
-          breadcrumb.classList.remove("site-header__breadcrumb__fixed")
-          breadcrumb.classList.add("site-header__breadcrumb__scroll-up")
-        }
-      }
-      if (breadcrumb && currentScrollPos < 100) {
-        breadcrumb.classList.remove("site-header__breadcrumb__scroll-up")
-      }
+    if (appState.backgroundStyle == "dark") {
+      // console.log("setting header dark")
+      setSiteHeaderClass("site-header site-header--expand site-header--dark")
+      siteHeaderClassExpanded.current = "site-header site-header--expand site-header--dark"
+      siteHeaderClassCollapsed.current = "site-header site-header--collapse site-header--dark"
+      currBreadcrumbStyle.current = "site-header__breadcrumb site-header__breadcrumb--dark-bg"
+      menuIconStyle.current = "site-header__menu-icon--dark"
     } else {
-      //scrolling down
-      if (prevScrollpos + 5 < currentScrollPos && currentScrollPos > antiBounceBuffer) {
-        if (siteHeader.classList.contains("site-header--expand")) {
-          siteHeader.classList.remove("site-header--expand")
-          siteHeader.classList.add("site-header--collapse")
-        }
-        if (breadcrumb) {
-          breadcrumb.classList.add("site-header__breadcrumb__fixed")
-          breadcrumb.classList.remove("site-header__breadcrumb__scroll-up")
-        }
-        setIsMenuExpanded(isme => (isme = false))
-      }
+      // console.log("setting header light")
+      setSiteHeaderClass("site-header site-header--expand")
+      siteHeaderClassExpanded.current = "site-header site-header--expand"
+      siteHeaderClassCollapsed.current = "site-header site-header--collapse"
+      currBreadcrumbStyle.current = "site-header__breadcrumb"
+      menuIconStyle.current = ""
     }
-    prevScrollpos = currentScrollPos
-  }
+    updateBreadcrumbStyle("", "", "")
+    appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
+  }, [appState.backgroundStyle])
 
   return (
     <>
-      <div className="lightbox__menu-overlay" id="overlay"></div>
-      <header className={appState.backgroundStyle == "dark" ? "site-header site-header--expand site-header--dark" : "site-header site-header--expand"}>
+      <div className={appState.menuOverlay} id="overlay"></div>
+      <header className={siteHeaderClass}>
         <div className="wrapper--site-header">
           <Logo CloseMenu={CloseMenu} />
-          <HeaderMenuIcon />
-          <TopnavMenu isMenuExpanded={isMenuExpanded} setIsMenuExpanded={SetMenu} CloseMenu={CloseMenu} ShrinkDropdownMenu={ShrinkDropdownMenu} UnRotateMenuIcon={UnRotateMenuIcon} LightboxOverlayDisplay={MenuOverlayDisplay} NavMenuContentDisplay={MenuContentDisplay} Show_Hamburger_MenuIcon={Show_Hamburger_MenuIcon} />
+          <HeaderMenuIcon updateBreadcrumbStyle={updateBreadcrumbStyle} />
+          <TopnavMenu CloseMenu={CloseMenu} updateBreadcrumbStyle={updateBreadcrumbStyle} updateSiteHeaderClass={updateSiteHeaderClass} />
         </div>
       </header>
     </>

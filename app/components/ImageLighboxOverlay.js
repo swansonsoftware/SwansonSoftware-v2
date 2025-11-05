@@ -1,7 +1,10 @@
-import React, { useEffect } from "react"
+import React, { useContext, useEffect } from "react"
+import DispatchContext from "../DispatchContext"
 import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation"
 
 function ImageLightboxOverlay() {
+  const appDispatch = useContext(DispatchContext)
+
   function CloseOverlayOnEsc(e) {
     if (e.keyCode == 27) {
       CloseOverlay(e)
@@ -11,11 +14,7 @@ function ImageLightboxOverlay() {
   function CloseOverlay(e) {
     e.preventDefault()
     if (e.keyCode == 27 || e.code == "Enter" || e.type == "click") {
-      let overlay = document.querySelector(".lightbox__image-overlay")
-      if (overlay) {
-        overlay.classList.remove("lightbox__image-overlay--visible")
-        document.body.classList.remove("no-scroll")
-      }
+      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
       let overlayTabNav = new OverlayTabNavigation()
       overlayTabNav.SetTabIndexUnderOverlay("0", null)
     }

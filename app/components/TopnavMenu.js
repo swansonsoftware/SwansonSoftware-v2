@@ -4,12 +4,18 @@ import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 
-function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu = { CloseMenu }, ShrinkDropdownMenu = { ShrinkDropdownMenu }, UnRotateMenuIcon = { UnRotateMenuIcon }, LightboxOverlayDisplay = { MenuOverlayDisplay }, NavMenuContentDisplay = { MenuContentDisplay }, Show_Hamburger_MenuIcon = { Show_Hamburger_MenuIcon } }) {
+function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updateBreadcrumbStyle }, updateSiteHeaderClass = { updateSiteHeaderClass } }) {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
-  const SHOW = true
-  const HIDE = false
+  const ISFIXED = true
+  const EXPANDED = true
+  const HIDE_BREADCRUMB = true
+  const SHOW_BREADCRUMB = false
+
+  var prevTopicId = -1
+  var idprefix = "ul-id-"
+  var idpostfix = "-menu"
 
   // { topic: "Principles", name: "Process Models", link: "/principles/process-models", pages: "Software Development Principles pages", topicid: 0, id: 0 },
   // { topic: "Principles", name: "Requirements", link: "/principles/requirements", pages: "Software Development Principles pages", topicid: 0, id: 1 },
@@ -32,54 +38,7 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
     { topic: "Album", subtext: "Photos, slideshows, a couple recipes" }
   ]
 
-  // Get menu topics for the top level
-  function GetMenuTopics() {
-    var prevTopicId = -1
-
-    let menuTopics = menuitems.filter((curritem, idx, arr) => {
-      if (idx > 0) {
-        return prevTopicId != curritem.topicid ? ((prevTopicId = curritem.topicid), true) : false
-      }
-    })
-
-    return menuTopics
-  }
-
-  function CreateMenuItems(backgroundStyle) {
-    const menuTopicsFiltered = []
-    const menuTopics = GetMenuTopics()
-    var idprefix = "ul-id-"
-    var idpostfix = "-menu"
-
-    menuTopics.forEach(menuTopic =>
-      menuTopicsFiltered.push(
-        <li key={menuTopic.topicid}>
-          <button
-            type="button"
-            tabIndex="0"
-            onClick={e => {
-              e.stopPropagation(), ToggleMenuExpansion(e)
-            }}
-            className={backgroundStyle == "dark" ? "nav__button nav__button--dark" : "nav__button nav__button--lite"}
-            aria-expanded="false"
-            aria-controls={idprefix + menuTopic.topic + idpostfix}
-            aria-label={menuTopic.pages}
-          >
-            <span className="nav__button--icon-spacer">{menuTopic.topic}</span>
-            <svg id={"svg-" + menuTopic.topic} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-              <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835" className={backgroundStyle == "dark" ? "nav__button--icon-stroke--dark" : "nav__button--icon-stroke"} />
-            </svg>
-          </button>
-          {CreateMenuDropdownItems(menuTopic.topic, backgroundStyle)}
-        </li>
-      )
-    )
-
-    return menuTopicsFiltered
-  }
-
-  // Create a dropdown menu with subtopic items for the menu topic
-  function CreateMenuDropdownItems(topic, backgroundStyle) {
+  function CreateMenuDropdownItems(topic, backgroundStyle, idx) {
     var idprefix = "ul-id-"
     var idpostfix = "-menu"
     var prevTopic = ""
@@ -96,13 +55,13 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
     })
 
     return (
-      <div className="site-header__menu-dropdown" data-menuname={topic}>
+      <div className={idx === appState.menuDropdownActiveTopic ? "site-header__menu-dropdown site-header__menu-dropdown--visible" : "site-header__menu-dropdown"} data-menuname={topic}>
         <div className={backgroundStyle == "dark" ? "site-header__menu-dropdown--container site-header__menu-dropdown--container--dark" : "site-header__menu-dropdown--container"}>
           <div className="col-1">
             <h2 className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>{topic}</h2>
-            <p>{subtext}</p>
+            <h3 className={backgroundStyle == "dark" ? "menu-item__subheading-3 menu-item__subheading-3--dark" : "menu-item__subheading-3"}>{subtext}</h3>
           </div>
-          <div className="col-2">
+          <div className={idx === appState.menuDropdownActiveTopic ? "col-2 col-2--grow" : "col-2"}>
             <ul id={idprefix + topic + idpostfix} className="menu-item">
               {CreateSubTopicItems(topic, backgroundStyle)}
             </ul>
@@ -113,7 +72,6 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
   }
 
   function CreateSubTopicItems(topic, backgroundStyle) {
-    // console.log("CreateSubTopicItems")
     let theBackgroundStyle = backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite"
 
     let topicitems = menuitems
@@ -144,169 +102,29 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
     appDispatch({ type: "selectMenu", selectedMenu: e.target.innerText })
   }
 
-  function ToggleMenuExpansion(e) {
-    let targetText = ""
-    let icon = null
-
-    switch (e.target.nodeName) {
-      case "BUTTON":
-        targetText = e.target.innerText
-        icon = e.target.children[1]
-        break
-      case "SPAN":
-        if (e.target.parentElement.nodeName == "BUTTON") {
-          targetText = e.target.parentElement.innerText
-          icon = e.target.parentElement.children[1]
-        }
-        break
-      case "svg":
-        if (e.target.parentElement.nodeName == "BUTTON") {
-          targetText = e.target.parentElement.innerText
-          icon = e.target.parentElement.children[1]
-        }
-        break
-      case "path":
-        if (e.target.parentElement.parentElement.nodeName == "BUTTON") {
-          targetText = e.target.parentElement.parentElement.innerText
-          icon = e.target.parentElement.parentElement.children[1]
-        }
-        break
-      default:
-        // console.log("? " + e.target.parentElement.nodeName)
-        return
-    }
-
-    if (!targetText) {
-      // can't continue
-      return
-    }
-    targetText = targetText.trim()
-
-    let pageOverlays = document.querySelectorAll(".site-header__menu-dropdown")
-    let pageOverlay = null
-
-    // Determine which menu button was selected
-    if (pageOverlays) {
-      pageOverlays.forEach(idx => {
-        if (idx.dataset["menuname"] == targetText) {
-          pageOverlay = idx
-        }
-      })
-    }
-
-    let breadcrumb = document.querySelector(".site-header__breadcrumb")
-    let breadcrumbLink = document.querySelector("#breadcrumb-link")
-
-    // If the same menu was selected, close it;
-    // if a different menu was selected, close the open menu (if any) and open the selected menu
-    if (pageOverlay) {
-      // Can't call ShrinkDropdownMenu here because it breaks the logic below
-      if (pageOverlay.classList.contains("site-header__menu-dropdown--visible")) {
-        ShrinkDropdownMenu()
-
-        // Don't hide the overlay when mobile menu is showing and user clicks/taps to collapse menu topic
-        let siteHeaderMenuIcon = document.querySelector(".site-header__menu-icon--collapsed")
-        if (siteHeaderMenuIcon) {
-          LightboxOverlayDisplay(HIDE)
-
-          //unhide breadcrumb
-          if (breadcrumb) {
-            breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
-            if (breadcrumbLink) {
-              breadcrumbLink.tabIndex = "0"
-            }
-          }
-        }
-        pageOverlay.children[0].children[1].classList.add("col-2--shrink")
-        UnRotateMenuIcon()
-      } else {
-        ShrinkDropdownMenu()
-        LightboxOverlayDisplay(SHOW)
-
-        //hide breadcrumb
-        if (breadcrumb) {
-          breadcrumb.classList.add("site-header__breadcrumb--is-hidden")
-          // console.log("setting breadcrumb tabindex -1")
-          if (breadcrumbLink) {
-            breadcrumbLink.tabIndex = "-1"
-          }
-        }
-
-        pageOverlay.classList.add("site-header__menu-dropdown--visible")
-
-        const menu = document.getElementById("exTest")
-        if (menu) {
-          menu.classList.add("nav__menu-content--allow-scroll")
-        }
-
-        setIsMenuExpanded(true)
-
-        if (icon) {
-          UnRotateMenuIcon()
-          icon.classList.add("nav__button--icon-rotate-180")
-        }
-
-        pageOverlay.children[0].children[1].classList.add("col-2--grow")
+  function ToggleMenuExpansion(e, idx) {
+    // console.log("ToggleMenuExpansion idx: " + idx + ", e: " + e)
+    if (idx === appState.menuDropdownActiveTopic) {
+      appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
+      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
+      let menuIconExpanded = document.querySelector(".site-header__menu-icon--expanded")
+      if (!menuIconExpanded) {
+        updateBreadcrumbStyle("", "", SHOW_BREADCRUMB)
+      }
+    } else {
+      appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: idx })
+      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay lightbox__menu-overlay--visible" })
+      updateBreadcrumbStyle("", "", HIDE_BREADCRUMB)
+      var classList = appState.menuListClassByIconState
+      if (!classList.includes("nav__menu-content--allow-scroll")) {
+        classList += " nav__menu-content--allow-scroll"
+        appDispatch({ type: "menuListClassByIconState", class: classList })
       }
     }
   }
-
-  // Menu icon event handler
-  function ToggleMenuIcon(e) {
-    if (e.code == "Enter" || e.type == "click") {
-      if (!isMenuExpanded) {
-        NavMenuContentDisplay(SHOW)
-      }
-
-      let siteHeaderMenuIcon = document.querySelector(".site-header__menu-icon--collapsed")
-      let menuButtons = document.querySelectorAll(".nav__button")
-      let breadcrumb = document.querySelector(".site-header__breadcrumb")
-      let slideshowCaptionBox = document.querySelector(".slideshow__slide-caption-box")
-
-      if (siteHeaderMenuIcon && !isMenuExpanded) {
-        siteHeaderMenuIcon.classList.remove("site-header__menu-icon--collapsed")
-        siteHeaderMenuIcon.classList.add("site-header__menu-icon--expanded")
-        siteHeaderMenuIcon.setAttribute("aria-label", "Close menu")
-        LightboxOverlayDisplay(SHOW)
-        if (menuButtons) {
-          menuButtons.forEach(button => {
-            button.tabIndex = 0
-          })
-        }
-        if (slideshowCaptionBox) {
-          slideshowCaptionBox.style.zIndex = "0"
-        }
-        //hide breadcrumb
-        if (breadcrumb) {
-          breadcrumb.classList.add("site-header__breadcrumb--is-hidden")
-        }
-      } else {
-        ShrinkDropdownMenu()
-        NavMenuContentDisplay(HIDE)
-        Show_Hamburger_MenuIcon()
-        UnRotateMenuIcon()
-        //prevent tabbinhg to hidden menu buttons
-        if (menuButtons) {
-          menuButtons.forEach(button => {
-            button.tabIndex = -1
-          })
-        }
-        if (slideshowCaptionBox) {
-          slideshowCaptionBox.style.zIndex = "1"
-        }
-
-        if (breadcrumb) {
-          breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
-        }
-      }
-    }
-  }
-
-  const prevIndex = useRef(-2)
 
   function menuKeyPressHandler(e) {
     if (e.code == "Escape") {
-      appDispatch({ type: "closeOverlay", isMenuOpen: false })
       CloseMenu()
     } else if (e.code == "ArrowDown" || e.code == "ArrowUp" || e.code == "ArrowRight" || e.code == "ArrowLeft") {
       let direction = 0
@@ -334,29 +152,17 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
 
   function showHeader() {
     // Same as when scrolling up
-    let siteHeader = document.querySelector(".site-header")
-
-    if (siteHeader.classList.contains("site-header--collapse")) {
-      siteHeader.classList.remove("site-header--collapse")
-      siteHeader.classList.add("site-header--expand")
-
-      let breadcrumb = document.querySelector(".site-header__breadcrumb")
-      if (breadcrumb) {
-        breadcrumb.classList.remove("site-header__breadcrumb__fixed")
-      }
-    }
+    updateSiteHeaderClass(EXPANDED)
+    updateBreadcrumbStyle("", !ISFIXED, "")
   }
 
   const eventListenerAbortCtrlr = new AbortController()
 
   useEffect(() => {
+    // console.log("TopnavMenu:useEffect")
     let overlay = document.getElementById("overlay")
     if (overlay) {
       overlay.addEventListener("click", CloseMenu, { signal: eventListenerAbortCtrlr.signal })
-    }
-    let menuIcon = document.querySelector(".site-header__menu-icon")
-    if (menuIcon) {
-      menuIcon.addEventListener("click", e => ToggleMenuIcon(e), { signal: eventListenerAbortCtrlr.signal })
     }
     let menuButtons = document.querySelectorAll(".nav__button")
     if (menuButtons) {
@@ -368,18 +174,44 @@ function TopnavMenu({ isMenuExpanded, setIsMenuExpanded = { SetMenu }, CloseMenu
     return () => eventListenerAbortCtrlr.abort()
   }, [])
 
-  useEffect(() => {
-    if (!isMenuExpanded) {
-      CloseMenu()
-    }
-  }, [isMenuExpanded])
-
   return (
-    <nav className="nav nav--pull-right">
-      <ul id="exTest" className="disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden">
-        {CreateMenuItems(appState.backgroundStyle)}
-      </ul>
-    </nav>
+    <>
+      <nav className="nav nav--pull-right">
+        <ul id="exTest" className={appState.menuListClassByIconState}>
+          {menuitems
+            .filter((curritem, idx, arr) => {
+              if (idx > 0) {
+                return prevTopicId != curritem.topicid ? ((prevTopicId = curritem.topicid), true) : false
+              }
+            })
+            .map(menuTopic => {
+              return (
+                <React.Fragment key={menuTopic.topicid}>
+                  <li key={menuTopic.topicid}>
+                    <button
+                      type="button"
+                      tabIndex="0"
+                      onClick={e => {
+                        ToggleMenuExpansion(e, menuTopic.topicid)
+                      }}
+                      className={appState.backgroundStyle == "dark" ? "nav__button nav__button--dark" : "nav__button nav__button--lite"}
+                      aria-expanded="false"
+                      aria-controls={idprefix + menuTopic.topic + idpostfix}
+                      aria-label={menuTopic.pages}
+                    >
+                      <span className="nav__button--icon-spacer">{menuTopic.topic}</span>
+                      <svg id={"svg-" + menuTopic.topic} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.menuDropdownActiveTopic === menuTopic.topicid ? "nav__button--icon-rotate-180" : ""}>
+                        <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835" className={appState.backgroundStyle == "dark" ? "nav__button--icon-stroke--dark" : "nav__button--icon-stroke"} />
+                      </svg>
+                    </button>
+                    {CreateMenuDropdownItems(menuTopic.topic, appState.backgroundStyle, menuTopic.topicid)}
+                  </li>
+                </React.Fragment>
+              )
+            })}
+        </ul>
+      </nav>
+    </>
   )
 }
 export default TopnavMenu

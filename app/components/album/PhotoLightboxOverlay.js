@@ -1,6 +1,23 @@
-import React from "react"
+import React, { useContext } from "react"
+import DispatchContext from "../../DispatchContext"
+import StateContext from "../../StateContext"
 
 function PhotoLightboxOverlay() {
+  const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
+  const TITLE_BTN_POINT_LEFT = "0"
+  const TITLE_BTN_POINT_RIGHT = "1"
+
+  function doToggleButtonClick(e) {
+    // console.log("PhotoLightboxOverlay doToggleButtonClick: " + e.type)
+    e.stopPropagation(), e.preventDefault()
+    if (appState.captionBoxBtn === TITLE_BTN_POINT_LEFT) {
+      appDispatch({ type: "captionBoxBtn", captionBoxBtn: TITLE_BTN_POINT_RIGHT })
+    } else {
+      appDispatch({ type: "captionBoxBtn", captionBoxBtn: TITLE_BTN_POINT_LEFT })
+    }
+  }
+
   return (
     <div className="lightbox__photo-overlay">
       <span id="overlay-close-btn" className="accessibility--hidden">
@@ -13,12 +30,20 @@ function PhotoLightboxOverlay() {
         </svg>
       </button>
       <div id="lightbox__photo-overlay__image" className="lightbox__photo-overlay__image"></div>
-      <div className="album-photos__photo-caption-box">
+      <div className={appState.captionBoxBtn == "0" ? "album-photos__photo-caption-box" : "album-photos__photo-caption-box album-photos__photo-caption-box--is-collapsed"}>
         <span id="photo-caption-box-btn" className="accessibility--hidden">
           Select this button to alternately close or open the box with the photo caption
         </span>
-        <button aria-labelledby="photo-caption-box-btn" id="photo-caption-box-button" tabIndex="0" className="album-photos__photo-caption-box__button">
-          <svg id="caption-box-left-arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <button
+          onClick={e => {
+            doToggleButtonClick(e)
+          }}
+          aria-labelledby="photo-caption-box-btn"
+          id="photo-caption-box-button"
+          tabIndex="0"
+          className="album-photos__photo-caption-box__button"
+        >
+          <svg id="caption-box-left-arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.captionBoxBtn == "1" ? "album-photos__photo-caption-box__button--icon-rotate-180" : ""}>
             <path d="M11.421 1.327 4.579 7.854M11.414 14.673 4.579 7.854" className="album-photos__photo-caption-box__button--icon-path" />
           </svg>
         </button>
