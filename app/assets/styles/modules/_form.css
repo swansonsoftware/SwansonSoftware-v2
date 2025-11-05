@@ -2,6 +2,7 @@
   &--required {
     color: red;
     font-style: italic;
+    font-weight: bold;
   }
   &--phone {
     display: none;
