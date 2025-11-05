@@ -20,9 +20,7 @@
   &__link {
     font-size: 1.8rem;
     text-decoration: none;
-    transition-property: outline;
-    transition-duration: $menuButtonOutlineTransition;
-    transition-timing-function: $cb-ease-in-out;
+    transition: outline $menuButtonOutlineTransition $cb-ease-in-out;
     padding-left: 10px;
     padding-right: 10px;
 
@@ -37,12 +35,8 @@
         text-underline-offset: 0.2em;
         text-decoration-thickness: 1px;
       }
-      &:focus {
-        outline: 3px solid $bodyDarkBGFontColor;
-        outline-offset: 2px;
-        border-radius: 9999px;
-      }
-      &:active {
+      &:focus,
+      :active {
         outline: 3px solid $bodyDarkBGFontColor;
         outline-offset: 2px;
         border-radius: 9999px;
@@ -56,12 +50,8 @@
         text-underline-offset: 0.2em;
         text-decoration-thickness: 1px;
       }
-      &:focus {
-        outline: 3px solid $bodyLiteBGFontColor;
-        outline-offset: 2px;
-        border-radius: 9999px;
-      }
-      &:active {
+      &:focus,
+      :active {
         outline: 3px solid $bodyLiteBGFontColor;
         outline-offset: 2px;
         border-radius: 9999px;
@@ -75,7 +65,16 @@
     margin: 4px 0;
     color: $bodyLiteBGFontColor;
     &--dark {
-      margin: 4px 0;
+      color: $bodyDarkBGFontColor;
+    }
+  }
+  &__subheading-3 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 4px 0;
+    padding-top: 20px;
+    color: $bodyLiteBGFontColor;
+    &--dark {
       color: $bodyDarkBGFontColor;
     }
   }
