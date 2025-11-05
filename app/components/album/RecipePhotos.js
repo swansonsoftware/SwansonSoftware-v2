@@ -1,6 +1,5 @@
 import React, { useRef } from "react"
 import PhotoBlock from "./PhotoBlock"
-import PhotoCaptionBox from "./PhotoCaptionBox"
 import PhotoOverlayEvents from "./PhotoOverlayEvents"
 import PhotoLightboxOverlay from "./PhotoLightboxOverlay"
 import OverlayOpener from "../../assets/scripts/modules/OverlayOpener"
@@ -44,7 +43,6 @@ function RecipePhotos(props) {
   return (
     <>
       <PhotoOverlayEvents GetSelectedImage={GetSelectedImage} />
-      <PhotoCaptionBox />
       <PhotoLightboxOverlay />
       <div className="wrapper--album-photos">
         {props.photos.map(image => {

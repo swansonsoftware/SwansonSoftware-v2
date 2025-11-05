@@ -3,7 +3,6 @@ import DispatchContext from "../../DispatchContext"
 import PhotoBlock from "./PhotoBlock"
 import PhotoSlideshowBlock from "./PhotoSlideshowBlock"
 import VideoBlock from "./VideoBlock"
-import PhotoCaptionBox from "./PhotoCaptionBox"
 import PhotoOverlayEvents from "./PhotoOverlayEvents"
 import PhotoLightboxOverlay from "./PhotoLightboxOverlay"
 import OverlayOpener from "../../assets/scripts/modules/OverlayOpener"
@@ -66,7 +65,6 @@ function PhotoAlbum(props) {
   return (
     <>
       <PhotoOverlayEvents GetSelectedImage={GetSelectedImage} />
-      <PhotoCaptionBox />
       <PhotoLightboxOverlay />
       {props.videos.length > 0 ? <h2 className="headline__h2">Videos</h2> : ""}
       {props.videos.length > 0 ? (
