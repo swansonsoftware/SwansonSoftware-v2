@@ -19,11 +19,11 @@ function Design() {
   return (
     <Page title="Overview of Software Design">
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-05-30T08:36:22-07:00" headline="Software Design"></GStructuredData>
+      <GStructuredData type="Article" datePublished="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
       <meta name="description" content="A survey of software design, including design strategies, methodologies, and the technical spec. Both object-oriented and structured methods are covered." />
       <div className="wrapper wrapper__article">
         <h1 className="headline__h1-cg">Software Design</h1>
-        <div className="headline__author">Gregory Swanson | Updated May 30, 2025</div>
+        <div className="headline__author">Gregory Swanson | Updated November 5, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>
@@ -112,7 +112,7 @@ function Design() {
             </ul>
           </div>
           <div className="row__colspan-7" id="designDevLifecycle">
-            <p className="dropCap">This article explores software design. The focus of design is on creating a specification that describes the protocol for elements discovered in user requirements, and that can be efficiently implemented.</p>
+            <p className="dropCap">This article explores software design. The focus of software design is on creating a specification that describes the protocol for elements discovered in user requirements, and that can be efficiently implemented.</p>
             <h2 className="headline__h2">Design in the Development Lifecycle</h2>
             <p className="dropCap">Software projects progress through several phases, from an initial phase where the project is scoped to a final phase of deployment. The names of these phases, of which there are usually four or five, depend on the software development process model in use; the terminology we will use is:</p>
             <ol>
