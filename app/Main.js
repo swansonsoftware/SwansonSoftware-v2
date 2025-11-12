@@ -24,6 +24,8 @@ const _2013SlideshowNormas = React.lazy(() => import("./components/album/_2013Sl
 const _2020s = React.lazy(() => import("./components/album/_2020s"))
 const _2020sSlideshow = React.lazy(() => import("./components/album/_2020sSlideshow"))
 const About = React.lazy(() => import("./components/About"))
+const Album = React.lazy(() => import("./components/album/Album"))
+const Blog = React.lazy(() => import("./components/blog/Blog"))
 const Blogs2025 = React.lazy(() => import("./components/blog/_2025"))
 const ContactUs = React.lazy(() => import("./components/ContactUs"))
 const Design = React.lazy(() => import("./components/principles/Design"))
@@ -37,9 +39,11 @@ const FavoritesKauaiStreamSlideshow = React.lazy(() => import("./components/albu
 const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersimons"))
 const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow"))
 const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels"))
+const Principles = React.lazy(() => import("./components/principles/Principles"))
 const ProcessModels = React.lazy(() => import("./components/principles/ProcessModels"))
 const Recipes = React.lazy(() => import("./components/album/Recipes"))
 const RecipeClamChowder = React.lazy(() => import("./components/album/RecipeClamChowder"))
+const RecipePieDough = React.lazy(() => import("./components/album/RecipePieDough"))
 const RecipeVegetableStock = React.lazy(() => import("./components/album/RecipeVegetableStock"))
 const Requirements = React.lazy(() => import("./components/principles/Requirements"))
 const Reviews = React.lazy(() => import("./components/principles/Reviews"))
@@ -49,7 +53,7 @@ const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blo
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", isMenuOpen: false, breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0" }
+  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", isMenuOpen: false, breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay" }
 
   function theReducer(state, action) {
     switch (action.type) {
@@ -64,7 +68,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "siteHeaderClass": {
@@ -78,7 +83,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "isMenuOpen": {
@@ -93,7 +99,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "updateBreadcrumbClass": {
@@ -107,7 +114,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "selectMenu": {
@@ -121,7 +129,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "menuOverlay": {
@@ -135,7 +144,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "menuDropdownActiveTopic": {
@@ -149,7 +159,8 @@ function Main() {
           menuDropdownActiveTopic: action.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "menuListClassByIconState": {
@@ -163,7 +174,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: action.class,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "mobileMenuIconState": {
@@ -177,7 +189,8 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: action.mobileMenuIconState,
-          captionBoxBtn: state.captionBoxBtn
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
         }
       }
       case "captionBoxBtn": {
@@ -191,7 +204,23 @@ function Main() {
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
-          captionBoxBtn: action.captionBoxBtn
+          captionBoxBtn: action.captionBoxBtn,
+          imageOverlay: state.imageOverlay
+        }
+      }
+      case "imageOverlay": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: action.imageOverlay
         }
       }
     }
@@ -210,6 +239,7 @@ function Main() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about-us" element={<About />} />
+                <Route path="/album" element={<Album />} />
                 <Route path="/album/1900s" element={<_1900s />} />
                 <Route path="/album/2000s" element={<_2000s />} />
                 <Route path="/album/2010s" element={<_2010s />} />
@@ -221,17 +251,19 @@ function Main() {
                 <Route path="/album/2013-slideshow-normas" element={<_2013SlideshowNormas />} />
                 <Route path="/album/2020s-slideshow" element={<_2020sSlideshow />} />
                 <Route path="/album/favorites" element={<Favorites />} />
-                <Route path="/album/favorites-kauai" element={<FavoritesKauai />} />
-                <Route path="/album/favorites-kauai-slideshow" element={<FavoritesKauaiSlideshow />} />
-                <Route path="/album/favorites-kauai-beach-villas-slideshow" element={<FavoritesKauaiBeachVillasSlideshow />} />
-                <Route path="/album/favorites-kauai-stream-slideshow" element={<FavoritesKauaiStreamSlideshow />} />
-                <Route path="/album/favorites-cats" element={<FavoritesCats />} />
-                <Route path="/album/favorites-persimons" element={<FavoritesPersimons />} />
-                <Route path="/album/favorites-gardens" element={<FavoritesGardens />} />
-                <Route path="/album/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
+                <Route path="/album/favorites/favorites-kauai" element={<FavoritesKauai />} />
+                <Route path="/album/favorites/favorites-kauai-slideshow" element={<FavoritesKauaiSlideshow />} />
+                <Route path="/album/favorites/favorites-kauai-beach-villas-slideshow" element={<FavoritesKauaiBeachVillasSlideshow />} />
+                <Route path="/album/favorites/favorites-kauai-stream-slideshow" element={<FavoritesKauaiStreamSlideshow />} />
+                <Route path="/album/favorites/favorites-cats" element={<FavoritesCats />} />
+                <Route path="/album/favorites/favorites-persimons" element={<FavoritesPersimons />} />
+                <Route path="/album/favorites/favorites-gardens" element={<FavoritesGardens />} />
+                <Route path="/album/favorites/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
                 <Route path="/album/recipes" element={<Recipes />} />
                 <Route path="/album/recipes/clam-chowder" element={<RecipeClamChowder />} />
+                <Route path="/album/recipes/pie-dough" element={<RecipePieDough />} />
                 <Route path="/album/recipes/vegetable-stock" element={<RecipeVegetableStock />} />
+                <Route path="/blog" element={<Blog body="light" />} />
                 <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
                 <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
                 <Route path="/blog/2025/01/resolution-switching-images-part2" element={<BlogResolutionSwitchingImages2 />} />
@@ -239,6 +271,7 @@ function Main() {
                 <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
                 <Route path="/contact" element={<ContactUs body="light" />} />
                 {/* <Route path="/principles/process-models" element={<ProcessModels body="light" />} /> */}
+                <Route path="/principles" element={<Principles />} />
                 <Route path="/principles/requirements" element={<Requirements />} />
                 <Route path="/principles/design" element={<Design />} />
                 <Route path="/principles/lifecycle-models" element={<LifecycleModels />} />

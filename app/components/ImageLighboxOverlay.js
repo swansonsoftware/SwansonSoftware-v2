@@ -1,9 +1,11 @@
 import React, { useContext, useEffect } from "react"
 import DispatchContext from "../DispatchContext"
+import StateContext from "../StateContext"
 import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation"
 
 function ImageLightboxOverlay() {
   const appDispatch = useContext(DispatchContext)
+  const appState = useContext(StateContext)
 
   function CloseOverlayOnEsc(e) {
     if (e.keyCode == 27) {
@@ -14,9 +16,10 @@ function ImageLightboxOverlay() {
   function CloseOverlay(e) {
     e.preventDefault()
     if (e.keyCode == 27 || e.code == "Enter" || e.type == "click") {
-      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
+      appDispatch({ type: "imageOverlay", imageOverlay: "lightbox__image-overlay" })
       let overlayTabNav = new OverlayTabNavigation()
       overlayTabNav.SetTabIndexUnderOverlay("0", null)
+      document.body.classList.remove("no-scroll")
     }
   }
 
@@ -37,7 +40,7 @@ function ImageLightboxOverlay() {
 
   return (
     <div className="lightbox">
-      <div className="lightbox__image-overlay">
+      <div className={appState.imageOverlay}>
         <button id="overlay-close-button" tabIndex="0" className="lightbox__image-overlay__close-btn">
           <span className="accessibility--hidden">Select this to close the photo.</span>
           <svg id="closeicon" className="lightbox__photo-overlay__close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">

@@ -23,11 +23,18 @@ function _2010sSlideshowNormas() {
     { id: 10, lazy: true, src: "../assets/images/2010s/2011-02-12-IMG_0546-b-608.webp", width: "608", height: "456", captionHeading: "2011", caption: "February 2011, we tried to help take care of the yard but were not prepared for the rapid growth of weeds", alt: "", sizes: "100vw", srcset: "../assets/images/2010s/2011-02-12-IMG_0546-b-960.webp 960w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1180.webp 1180w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1290.webp 1290w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1368.webp 1368w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1442.webp 1442w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1600.webp 1600w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1852.webp 1852w, ../assets/images/2010s/2011-02-12-IMG_0546-b-1920.webp 1920w, ../assets/images/2010s/2011-02-12-IMG_0546-b-2120.webp 2120w, ../assets/images/2010s/2011-02-12-IMG_0546-b-2379.webp 2379w, ../assets/images/2010s/2011-02-12-IMG_0546-b-2560.webp 2560w, ../assets/images/2010s/2011-02-12-IMG_0546-b-2796.webp 2796w, ../assets/images/2010s/2011-02-12-IMG_0546-b-2960.webp 2960w, ../assets/images/2010s/2011-02-12-IMG_0546-b-3240.webp 3240w, ../assets/images/2010s/2011-02-12-IMG_0546-b-3840.webp 3840w" }
   ]
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2010s", toUrl: "/album/2010s" },
+    { id: 3, toText: "2013 Slideshow - Norma's Old House", toUrl: "" }
+  ]
+
   return (
-    <Page title="2013 Old House Slideshow">
+    <Page title="2013 Norma&#39;s Old House Slideshow">
       <GTag></GTag>
-      <meta name="description" content="Swanson Software Album, 2013 Slideshow" />
-      <Breadcrumb to="/album/2010s" linktext="2010s" />
+      <meta name="description" content="Swanson Software Album, 2013 Norma&#39;s Old House Slideshow" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <SlideShow photos={photos} />
     </Page>
   )

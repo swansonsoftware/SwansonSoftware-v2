@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react"
+import React, { useContext, useEffect } from "react"
 import ReactDOM from "react-dom"
 import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
@@ -33,9 +33,9 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
   ]
 
   const topicSubtext = [
-    { topic: "Principles", subtext: "On the principles of software development" },
-    { topic: "Blog", subtext: "Rants and ruminations" },
-    { topic: "Album", subtext: "Photos, slideshows, a couple recipes" }
+    { topic: "Principles", subtext: "On the principles of software development", link: "/principles" },
+    { topic: "Blog", subtext: "Rants and ruminations", link: "/blog" },
+    { topic: "Album", subtext: "Photos, slideshows, a couple recipes", link: "/album" }
   ]
 
   function CreateMenuDropdownItems(topic, backgroundStyle, idx) {
@@ -43,6 +43,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
     var idpostfix = "-menu"
     var prevTopic = ""
     var subtext = ""
+    var link = ""
 
     topicSubtext.filter((curritem, idx) => {
       if (idx > 0) {
@@ -51,14 +52,28 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
     })
 
     topicSubtext.forEach(item => {
-      if (item.topic == topic) subtext = item.subtext
+      if (item.topic == topic) {
+        subtext = item.subtext
+        link = item.link
+      }
     })
 
     return (
       <div className={idx === appState.menuDropdownActiveTopic ? "site-header__menu-dropdown site-header__menu-dropdown--visible" : "site-header__menu-dropdown"} data-menuname={topic}>
         <div className={backgroundStyle == "dark" ? "site-header__menu-dropdown--container site-header__menu-dropdown--container--dark" : "site-header__menu-dropdown--container"}>
           <div className="col-1">
-            <h2 className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>{topic}</h2>
+            <h2 className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>
+              <Link
+                to={link}
+                tabIndex="0"
+                className={backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite"}
+                onClick={e => {
+                  setSelected(e), CloseMenu()
+                }}
+              >
+                {topic}
+              </Link>
+            </h2>
             <h3 className={backgroundStyle == "dark" ? "menu-item__subheading-3 menu-item__subheading-3--dark" : "menu-item__subheading-3"}>{subtext}</h3>
           </div>
           <div className={idx === appState.menuDropdownActiveTopic ? "col-2 col-2--grow" : "col-2"}>

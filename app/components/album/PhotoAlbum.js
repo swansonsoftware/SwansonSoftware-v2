@@ -57,7 +57,7 @@ function PhotoAlbum(props) {
     if (e.code == "Enter" || e.type == "click") {
       selectedImage.current = FindButtonElement(e.target)
 
-      let opener = new OverlayOpener(e, image)
+      let opener = new OverlayOpener(e, image, "../../")
       opener.openOverlay()
     }
   }

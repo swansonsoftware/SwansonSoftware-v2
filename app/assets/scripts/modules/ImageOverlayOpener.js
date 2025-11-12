@@ -106,14 +106,17 @@ class ImageOverlayOpener {
             <figure>
             <img  src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
               alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="100vw" />
-              <figcaption>${caption}</figcaption>
+              <figcaption style="text-align:center">${caption}</figcaption>
             </figure
               </div>
             `
           // }
         }
 
-        overlay.classList.add("lightbox__image-overlay--visible")
+        // overlay.classList.add("lightbox__image-overlay--visible")
+        // can't do this: Error: Invalid hook call. Hooks can only be called inside of the body of a function component.
+        // var appDispatch = useContext(DispatchContext)
+        // appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__image-overlay--visible" })
       }
     } else {
       console.log("openOverlay: Image element not directly under button, cannot show overlay")

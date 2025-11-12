@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -16,12 +17,19 @@ function LifecycleModels() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Principles", toUrl: "/principles" },
+    { id: 2, toText: "Software Life Cycle Models", toUrl: "" }
+  ]
+
   return (
-    <Page title="Lifecycle Models">
+    <Page title="Software Life Cycle Models">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T11:51:08-07:00" headline="Software Life Cycle Models"></GStructuredData>
       <meta name="description" content="A survey of Software Development Life Cycle models and how to choose between them based on factors such as project schedule, requirements, team quality, etc." />
       <div className="wrapper wrapper__article">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Software Life Cycle Models</h1>
         <div className="headline__author">Gregory Swanson | updated March 26, 2025</div>
         <div className="row row--gutters">

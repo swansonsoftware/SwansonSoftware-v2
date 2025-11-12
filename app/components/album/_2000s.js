@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function _2000s() {
@@ -37,11 +38,18 @@ function _2000s() {
     { id: 3, videoId: "xs0MKCNdniM", caption: "Finches at Bird Feeders", caption2: "Easter 2006, Oregon" }
   ]
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2000s", toUrl: "" }
+  ]
+
   return (
     <Page title="2000s">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2000s" />
       <div className="wrapper wrapper--album">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">2000s</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

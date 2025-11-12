@@ -43,11 +43,18 @@ function _2010sSlideshow() {
   ]
   // { id: 3, lazy: true, src: "", width: "320", height: "180", captionHeading: "", caption: "", alt: "", sizes: "100vw", srcset: "" },
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2010s", toUrl: "/album/2010s" },
+    { id: 3, toText: "2010s Slideshow", toUrl: "" }
+  ]
+
   return (
     <Page title="2010s Slideshow">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2010s Slideshow" />
-      <Breadcrumb to="/album/2010s" linktext="2010s" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <SlideShow photos={photos} />
     </Page>
   )

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function Blogs2025() {
@@ -15,10 +16,17 @@ function Blogs2025() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Blog", toUrl: "/blog" },
+    { id: 2, toText: "2025", toUrl: "/blog/2025" }
+  ]
+
   return (
     <Page title="2025 Blog">
       <GTag></GTag>
       <div className="wrapper wrapper__article">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">2025</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">

@@ -31,11 +31,18 @@ function _2020sSlideshow() {
     { id: 18, lazy: true, src: "../assets/images/2020s/2024-05-11-DSC04146b-608.webp", width: "608", height: "342", captionHeading: "2024", caption: "May 2024, San Jose Municipal Rose Garden", alt: "Bushes of white roses", sizes: "100vw", srcset: "../assets/images/2020s/2024-05-11-DSC04146b-960.webp 960w, ../assets/images/2020s/2024-05-11-DSC04146b-1180.webp 1180w, ../assets/images/2020s/2024-05-11-DSC04146b-1290.webp 1290w, ../assets/images/2020s/2024-05-11-DSC04146b-1368.webp 1368w, ../assets/images/2020s/2024-05-11-DSC04146b-1442.webp 1442w, ../assets/images/2020s/2024-05-11-DSC04146b-1600.webp 1600w, ../assets/images/2020s/2024-05-11-DSC04146b-1852.webp 1852w, ../assets/images/2020s/2024-05-11-DSC04146b-1920.webp 1920w, ../assets/images/2020s/2024-05-11-DSC04146b-2120.webp 2120w, ../assets/images/2020s/2024-05-11-DSC04146b-2379.webp 2379w, ../assets/images/2020s/2024-05-11-DSC04146b-2560.webp 2560w, ../assets/images/2020s/2024-05-11-DSC04146b-2796.webp 2796w, ../assets/images/2020s/2024-05-11-DSC04146b-2960.webp 2960w, ../assets/images/2020s/2024-05-11-DSC04146b-3240.webp 3240w, ../assets/images/2020s/2024-05-11-DSC04146b-3840.webp 3840w" }
   ]
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2020s", toUrl: "/album/2020s" },
+    { id: 3, toText: "2020s Slideshow", toUrl: "" }
+  ]
+
   return (
     <Page title="2020s Slideshow">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2020s Slideshow" />
-      <Breadcrumb to="/album/2020s" linktext="2020s" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <SlideShow photos={photos} />
     </Page>
   )

@@ -1,9 +1,10 @@
 import OverlayTabNavigation from "./OverlayTabNavigation"
 
 class OverlayOpener {
-  constructor(e, image) {
+  constructor(e, image, path) {
     this.e = e
     this.image = image
+    this.path = path
   }
 
   openOverlay() {
@@ -75,7 +76,7 @@ class OverlayOpener {
           descriptor = sizesArray[1].split("x")
           let srcsetFilename = ""
 
-          srcsetFilename = "../" + files.filter(file => file.id == sizesArray[0])[0].filename
+          srcsetFilename = this.path + files.filter(file => file.id == sizesArray[0])[0].filename
           // console.log("srcsetFilename: " + srcsetFilename)
 
           if (srcsetString.length) {

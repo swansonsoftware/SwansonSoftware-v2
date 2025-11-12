@@ -4,6 +4,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -17,12 +18,19 @@ function Reviews() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Principles", toUrl: "/principles" },
+    { id: 2, toText: "Software Reviews", toUrl: "" }
+  ]
+
   return (
     <Page title="Reviews">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T12:05:58-07:00" headline="Software Reviews"></GStructuredData>
       <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />
       <div className="wrapper wrapper__article">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Software Reviews</h1>
         <div className="headline__author">Gregory Swanson | updated March 26, 2025</div>
         <div className="row row--gutters">

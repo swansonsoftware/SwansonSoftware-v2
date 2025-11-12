@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import Breadcrumb from "./Breadcrumb"
 import GTag from "./GTag"
 
 function About() {
@@ -21,11 +22,17 @@ function About() {
     appDispatch({ type: "selectMenu", selectedMenu: "" })
   }, [])
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "About Swanson Software", toUrl: "" }
+  ]
+
   return (
     <Page title="About Us">
       <meta name="description" content="About Swanson Software" />
       <GTag></GTag>
       <div className="wrapper wrapper__article">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">About Swanson Software</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">

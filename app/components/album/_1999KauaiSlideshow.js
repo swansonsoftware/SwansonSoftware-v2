@@ -27,11 +27,18 @@ function _1999KauaiSlideshow() {
   ]
   // { id: 3, lazy: false, src: "", width: "320", height: "180", captionHeading: "Kauai, 1999", caption: "", alt: "", sizes: "100vw", srcset: "" },
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "1900s", toUrl: "/album/1900s" },
+    { id: 3, toText: "Kauai 1999 Slideshow", toUrl: "" }
+  ]
+
   return (
-    <Page title="1999 Kauai Slideshow">
+    <Page title="Kauai 1999 Slideshow">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Kauai 1999 Slideshow" />
-      <Breadcrumb to="/album/1900s" linktext="1900s" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <SlideShow photos={photos} />
     </Page>
   )

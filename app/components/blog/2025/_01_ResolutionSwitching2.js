@@ -34,15 +34,23 @@ function BlogJan2025_ResSwitching2() {
   //       return null;
   // }
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Blog", toUrl: "/blog" },
+    { id: 2, toText: "2025", toUrl: "/blog/2025" },
+    { id: 3, toText: "Choosing ...Part 1", toUrl: "/blog/2025/01/resolution-switching-images" },
+    { id: 4, toText: "Choosing Resolution Switching Breakpoints - Part 2", toUrl: "" }
+  ]
+
   return (
     <Page title="Choosing Resolution Switching Breakpoints Part 2">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-05-30T08:31:00-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images Part 2"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images Part 2"></GStructuredData>
       <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
       <div className="wrapper wrapper__article">
-        <Breadcrumb to="/blog/2025/01/resolution-switching-images" linktext="Resolution Switching Images (Part 1)" />
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints - Part 2</h1>
-        <div className="headline__author">Gregory Swanson | Updated May 30, 2025</div>
+        <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>

@@ -13,7 +13,7 @@ import GStructuredData from "../../GStructuredData"
 function BlogJan2025_ResSwitching() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
-  const selectedImage = useRef(null)
+  // const selectedImage = useRef(null)
   const location = useLocation()
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
@@ -38,17 +38,23 @@ function BlogJan2025_ResSwitching() {
   // }
 
   const images = [{ id: 1, lazy: false, src: "../../../../assets/images/blog/2025/_01_sbgs-example-thumbnail.webp", width: "320", height: "213", alt: "Developer console of browser showing a small image displayed but is 30.6 Mb in size", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "A 30 Mb image is used, even for a 320px wide mobile phone screen. This is a thoughtless waste of the user’s data plan, and it takes several seconds for the image to appear.", dataSrcset: "320=320x213;360=360x240;393=393x262;432=432x288;608=608x405;672=672x448;768=768x512;896=896x597;960=960x640" }]
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Blog", toUrl: "/blog" },
+    { id: 2, toText: "2025", toUrl: "/blog/2025" },
+    { id: 3, toText: "Choosing Resolution Switching Breakpoints", toUrl: "" }
+  ]
 
   return (
     <Page title="Choosing Resolution Switching Breakpoints">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-05-30T08:31:00-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
       <div className="wrapper wrapper__article">
-        <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>
-        <div className="headline__author">Gregory Swanson | Updated May 30, 2025</div>
+        <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>

@@ -3,6 +3,7 @@ import DispatchContext from "../../DispatchContext"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoBookBlock from "./PhotoBookBlock"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 import CanonicalLink from "../CanonicalLink"
 
@@ -17,10 +18,16 @@ function Favorites() {
   }, [])
 
   const photobooks = [
-    { id: 1, href: "/album/favorites-kauai", src: "../assets/images/2000s/2001-006-thumbnail.webp", srcset: "../assets/images/2000s/2001-006-thumbnail.webp 1x, ../assets/images/2000s/2001-006-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of Kauai favorites", caption: "Kauai (mostly)" },
-    { id: 2, href: "/album/favorites-cats", src: "../assets/images/2000s/2000-princess-b-009-thumbnail.webp", srcset: "../assets/images/2000s/2000-princess-b-009-thumbnail.webp 1x, ../assets/images/2000s/2000-princess-b-009-672.webp 2x", sizes: "100vw", width: "320", height: "180", alt: "Photo album of cat favorites", caption: "Cats" },
-    { id: 3, href: "/album/favorites-persimons", src: "../assets/images/2010s/2016-11-05-DSC01113-b-thumbnail.webp", srcset: "../assets/images/2010s/2016-11-05-DSC01113-b-thumbnail.webp 1x, ../assets/images/2010s/2016-11-05-DSC01113-b-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of persimons favorites", caption: "Persimons and Fruit Trees" },
-    { id: 4, href: "/album/favorites-gardens", src: "../assets/images/2000s/2004-15A-b-thumbnail.webp", srcset: "../assets/images/2000s/2004-15A-b-thumbnail.webp 1x, ../assets/images/2000s/2004-15A-b-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of garden favorites", caption: "Gardens" }
+    { id: 1, href: "/album/favorites/favorites-kauai", src: "../assets/images/2000s/2001-006-thumbnail.webp", srcset: "../assets/images/2000s/2001-006-thumbnail.webp 1x, ../assets/images/2000s/2001-006-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of Kauai favorites", caption: "Kauai (mostly)" },
+    { id: 2, href: "/album/favorites/favorites-cats", src: "../assets/images/2000s/2000-princess-b-009-thumbnail.webp", srcset: "../assets/images/2000s/2000-princess-b-009-thumbnail.webp 1x, ../assets/images/2000s/2000-princess-b-009-672.webp 2x", sizes: "100vw", width: "320", height: "180", alt: "Photo album of cat favorites", caption: "Cats" },
+    { id: 3, href: "/album/favorites/favorites-persimons", src: "../assets/images/2010s/2016-11-05-DSC01113-b-thumbnail.webp", srcset: "../assets/images/2010s/2016-11-05-DSC01113-b-thumbnail.webp 1x, ../assets/images/2010s/2016-11-05-DSC01113-b-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of persimons favorites", caption: "Persimons and Fruit Trees" },
+    { id: 4, href: "/album/favorites/favorites-gardens", src: "../assets/images/2000s/2004-15A-b-thumbnail.webp", srcset: "../assets/images/2000s/2004-15A-b-thumbnail.webp 1x, ../assets/images/2000s/2004-15A-b-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of garden favorites", caption: "Gardens" }
+  ]
+
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "Favorites", toUrl: "" }
   ]
 
   return (
@@ -29,6 +36,7 @@ function Favorites() {
       <CanonicalLink href="https://swansonsoftware.com/album/favorites"></CanonicalLink>
       <meta name="description" content="Swanson Software Album, Favorites" />
       <div className="wrapper wrapper--album">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">Favorites</h1>
         <div className="wrapper--album-photos">
           {photobooks.map(image => {

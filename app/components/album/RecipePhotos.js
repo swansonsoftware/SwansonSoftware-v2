@@ -4,6 +4,8 @@ import PhotoOverlayEvents from "./PhotoOverlayEvents"
 import PhotoLightboxOverlay from "./PhotoLightboxOverlay"
 import OverlayOpener from "../../assets/scripts/modules/OverlayOpener"
 
+// NOT USED
+
 function RecipePhotos(props) {
   const selectedImage = useRef(null)
 

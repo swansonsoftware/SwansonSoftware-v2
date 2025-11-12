@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import Page from "../Page"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function _2020s() {
@@ -30,11 +31,18 @@ function _2020s() {
   const slideshows = [{ id: 1, url: "/album/2020s-slideshow", caption: "2020s Slideshow" }]
   const videos = []
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2020s", toUrl: "" }
+  ]
+
   return (
     <Page title="2020s">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2020s" />
       <div className="wrapper wrapper--album">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">2020s</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

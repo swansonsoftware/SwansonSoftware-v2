@@ -20,24 +20,38 @@ function Breadcrumb(props) {
   }
 
   return (
-    <span className="wrapper wrapper--album-slideshow-breadcrumb">
+    <nav aria-label="breadcrumb" className="wrapper wrapper--album-slideshow-breadcrumb">
       <div className="wrapper--album wrapper--album-slideshow-backlink wrapper--album--pull-left">
         <span id="breadcrumb" className="site-header__breadcrumb site-header__breadcrumb--transparent">
-          <Link
-            id="breadcrumb-link"
-            onFocus={e => {
-              handleFocus()
-            }}
-            onClick={e => {
-              unhideMenu()
-            }}
-            to={props.to}
-          >
-            &laquo; Back to {props.linktext}
-          </Link>
+          {props.breadcrumbs.map((link, index) => {
+            const isLast = index === props.breadcrumbs.length - 1
+            return (
+              <span key={index}>
+                {isLast ? (
+                  link.toText
+                ) : (
+                  <>
+                    <Link
+                      id={link.id}
+                      onFocus={e => {
+                        handleFocus()
+                      }}
+                      onClick={e => {
+                        unhideMenu()
+                      }}
+                      to={link.toUrl}
+                    >
+                      {link.toText}
+                    </Link>
+                    <span style={{ margin: "0 8px" }}>{">"}</span>
+                  </>
+                )}
+              </span>
+            )
+          })}
         </span>
       </div>
-    </span>
+    </nav>
   )
 }
 

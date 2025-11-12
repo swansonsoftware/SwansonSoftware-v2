@@ -1,7 +1,9 @@
 .album-recipe {
   padding-top: 10px;
+  font-size: 1.3rem;
 
   &__author {
+    font-size: 1.3rem;
     font-style: italic;
     margin-top: 5px;
     margin-bottom: 30px;
@@ -12,15 +14,12 @@
   }
 
   &__listItem {
-    padding-top: 4px;
+    padding-top: 10px;
+    font-size: 1.5rem;
   }
 
   &__ingredient {
     font-weight: 500;
-
-    a {
-      font-size: 1.4rem;
-    }
   }
 
   &__ingredientAmount {

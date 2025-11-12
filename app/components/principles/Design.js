@@ -3,6 +3,7 @@ import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
+import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -16,12 +17,19 @@ function Design() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
   }, [])
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Principles", toUrl: "/principles" },
+    { id: 2, toText: "Software Design", toUrl: "" }
+  ]
+
   return (
     <Page title="Overview of Software Design">
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
+      <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
       <meta name="description" content="A survey of software design, including design strategies, methodologies, and the technical spec. Both object-oriented and structured methods are covered." />
       <div className="wrapper wrapper__article">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Software Design</h1>
         <div className="headline__author">Gregory Swanson | Updated November 5, 2025</div>
         <div className="row row--gutters">

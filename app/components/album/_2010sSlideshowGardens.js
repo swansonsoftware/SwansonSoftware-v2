@@ -36,11 +36,18 @@ function _2010sSlideshowGardens() {
     { id: 23, lazy: true, src: "../assets/images/2010s/2019-05-27-DSC02993-b-608.webp", width: "608", height: "342", captionHeading: "May 2019", caption: "May 2019, San Jose Heritage Rose Garden. California state flower", alt: "Knee-level view of orange poppys", sizes: "100vw", srcset: "../assets/images/2010s/2019-05-27-DSC02993-b-960.webp 960w, ../assets/images/2010s/2019-05-27-DSC02993-b-1180.webp 1180w, ../assets/images/2010s/2019-05-27-DSC02993-b-1290.webp 1290w, ../assets/images/2010s/2019-05-27-DSC02993-b-1368.webp 1368w, ../assets/images/2010s/2019-05-27-DSC02993-b-1442.webp 1442w, ../assets/images/2010s/2019-05-27-DSC02993-b-1600.webp 1600w, ../assets/images/2010s/2019-05-27-DSC02993-b-1852.webp 1852w, ../assets/images/2010s/2019-05-27-DSC02993-b-1920.webp 1920w, ../assets/images/2010s/2019-05-27-DSC02993-b-2120.webp 2120w, ../assets/images/2010s/2019-05-27-DSC02993-b-2379.webp 2379w, ../assets/images/2010s/2019-05-27-DSC02993-b-2560.webp 2560w, ../assets/images/2010s/2019-05-27-DSC02993-b-2796.webp 2796w, ../assets/images/2010s/2019-05-27-DSC02993-b-2960.webp 2960w, ../assets/images/2010s/2019-05-27-DSC02993-b-3240.webp 3240w, ../assets/images/2010s/2019-05-27-DSC02993-b-3840.webp 3840w" }
   ]
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2010s", toUrl: "/album/2010s" },
+    { id: 3, toText: "2010s Slideshow - Gardens", toUrl: "" }
+  ]
+
   return (
-    <Page title="2010s Gardens Slideshow">
+    <Page title="2010s Slideshow - Gardens">
       <GTag></GTag>
-      <meta name="description" content="Swanson Software Album, 2010s Gardens Slideshow" />
-      <Breadcrumb to="/album/2010s" linktext="2010s" />
+      <meta name="description" content="Swanson Software Album, 2010s Slideshow - Gardens" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <SlideShow photos={photos} />
     </Page>
   )

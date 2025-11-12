@@ -23,11 +23,18 @@ function _2010sSlideshowWashington() {
     { id: 10, lazy: true, src: "../assets/images/2010s/2012_1015-456.webp", width: "456", height: "608", captionHeading: "2012", caption: "2012, U. S. Botanic Garden. The critically endangered Hibiscus clayi, a.k.a. Red Kauai Rosemallow. Found in the Nounou Mountains in eastern Kauai, perhaps nowhere else", alt: "Red Hibiscus flower", sizes: "(max-height: 320px) 240px,(max-height: 360px) 270px,(max-height: 393px) 295px,(max-height: 432px) 324px,(max-height: 608px) 456px,(max-height: 672px) 504px,(max-height: 768px) 576px,(max-height: 896px) 672px,(max-height: 960px) 720px,(max-height: 1180px) 885px,(max-height: 1290px) 968px,(max-height: 1368px) 1026px,(max-height: 1442px) 1082px,1200px", srcset: "../assets/images/2010s/2012_1015-240.webp 240w, ../assets/images/2010s/2012_1015-270.webp 270w, ../assets/images/2010s/2012_1015-295.webp 295w, ../assets/images/2010s/2012_1015-324.webp 324w, ../assets/images/2010s/2012_1015-456.webp 456w, ../assets/images/2010s/2012_1015-504.webp 504w, ../assets/images/2010s/2012_1015-576.webp 576w, ../assets/images/2010s/2012_1015-672.webp 672w, ../assets/images/2010s/2012_1015-720.webp 720w, ../assets/images/2010s/2012_1015-885.webp 885w, ../assets/images/2010s/2012_1015-968.webp 968w, ../assets/images/2010s/2012_1015-1026.webp 1026w, ../assets/images/2010s/2012_1015-1082.webp 1082w, ../assets/images/2010s/2012_1015-1200.webp 1200w" }
   ]
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Album", toUrl: "/album" },
+    { id: 2, toText: "2010s", toUrl: "/album/2010s" },
+    { id: 3, toText: "2012 Washington D. C. Slideshow", toUrl: "" }
+  ]
+
   return (
     <Page title="2012 Washington D. C. Slideshow">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2012 Washington D.C. Slideshow" />
-      <Breadcrumb to="/album/2010s" linktext="2010s" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <SlideShow photos={photos} />
     </Page>
   )

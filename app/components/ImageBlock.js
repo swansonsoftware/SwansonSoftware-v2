@@ -10,12 +10,13 @@ function ImageBlock(props) {
     if (e.code == "Enter" || e.type == "click") {
       let opener = new ImageOverlayOpener(e, image)
       opener.openOverlay()
+      appDispatch({ type: "imageOverlay", imageOverlay: "lightbox__image-overlay lightbox__image-overlay--visible" })
     }
   }
 
   function closeMenuOverlay() {
-    appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
-    appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "-1" })
+    // appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
+    // appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "-1" })
   }
 
   const imgborder = {

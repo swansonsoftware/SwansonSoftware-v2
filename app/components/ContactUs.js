@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import Breadcrumb from "./Breadcrumb"
 import GTag from "./GTag"
 
 function ContactUs() {
@@ -93,11 +94,17 @@ function ContactUs() {
     }
   }
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Contact Swanson Software", toUrl: "" }
+  ]
+
   return (
     <Page title="Contact Us">
       <meta name="description" content="Contact Us" />
       <GTag></GTag>
       <div className="wrapper wrapper__article">
+        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">Contact Swanson Software</h1>
         <p>Please use the form below to contact SwansonSoftware. SwansonSoftware does not store or share any information you send, and you will not get unsolicited email or marketing material from SwansonSoftware.</p>
 
