@@ -21,8 +21,7 @@
     font-size: 1.8rem;
     text-decoration: none;
     transition: outline $menuButtonOutlineTransition $cb-ease-in-out;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px;
 
     &__active {
       text-decoration: underline;

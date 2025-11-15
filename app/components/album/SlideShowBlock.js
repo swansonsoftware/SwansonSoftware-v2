@@ -5,7 +5,7 @@ function SlideShowBlock(props) {
 
   return (
     <li className="slideshow__slides__slide">
-      <div className="slideshow__slides__slide--spinner"></div>
+      <div className="lightbox__photo-overlay--spinner lightbox__photo-overlay--spinner--slide"></div>
       <img className="slide-image" data-captionheading={image.captionHeading} data-caption={image.caption} loading={image.lazy ? "lazy" : "eager"} src={image.src} width={image.width} height={image.height} alt={image.alt} srcSet={image.srcset} sizes={image.sizes}></img>
     </li>
   )

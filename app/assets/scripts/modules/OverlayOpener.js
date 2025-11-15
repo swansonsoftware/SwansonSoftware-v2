@@ -93,18 +93,18 @@ class OverlayOpener {
         var filename = imgElem.src.substring(imgElem.src.lastIndexOf("../assets/"))
 
         if (orientation != "portrait") {
-          // When displaying landscape images at 100% we don't need sizes, it defaults to 100vw
+          // landscape images - we default SIZES to 100vw
           overlayImageDiv.innerHTML = `
-        <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;'></div>
+        <div class='lightbox__photo-overlay--spinner'></div>
         <div class='lightbox__photo-overlay__selectedImg'>
         <img  src="${filename}" style="max-height:${window.innerHeight}px"
           alt="${this.image.alt}" srcset="${srcsetString}" sizes="100vw" />
           </div>
         `
         } else {
-          // When displaying portrait images at 100% we need sizes
+          // portrait images - we provide SIZES value
           overlayImageDiv.innerHTML = `
-        <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;'></div>
+        <div class='lightbox__photo-overlay--spinner'></div>
         <div class='lightbox__photo-overlay__selectedImg'>
         <img  src="${filename}" style="max-height:${window.innerHeight}px"
           alt="${this.image.alt}" srcset="${srcsetString}" sizes="${sizes.toString()}" />

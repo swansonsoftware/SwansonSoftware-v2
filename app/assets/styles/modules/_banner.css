@@ -52,16 +52,7 @@
       font-size: 2rem;
     }
     @mixin atMin2000Wide {
-      /*max-width: 70rem;*/
       font-size: 3rem;
     }
-  }
-
-  /* is this used? */
-  &__sub-text {
-    position: relative;
-    padding-left: 3.125rem;
-    font-weight: 300;
-    font-size: 1rem;
   }
 }

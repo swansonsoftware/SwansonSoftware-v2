@@ -1,9 +1,4 @@
 .slideshow {
-  background-color: #000;
-  float: left;
-  width: 100%;
-  height: 100%;
-
   &__slides {
     list-style-type: none;
     position: relative;
@@ -17,7 +12,7 @@
     &__slide {
       background: #000;
       display: flex;
-      justify-content: center; /* portrait images */
+      justify-content: center; /* portrait */
       opacity: 0;
       position: absolute;
       transition: opacity $slideTransition $cb-ease-in;
@@ -50,119 +45,6 @@
         width: 100%;
         justify-content: center;
       }
-
-      &--spinner {
-        position: absolute;
-        z-index: $zIndex--1-BelowAll;
-        top: 50%;
-        margin: auto;
-        border-radius: 50%;
-        width: 36px;
-        height: 36px;
-        border: 0.25rem solid #fff;
-        border-top-color: #686868;
-        -webkit-animation: spin 1s infinite linear;
-        animation: spin 1s infinite linear;
-      }
-      @-moz-keyframes spin {
-        from {
-          -moz-transform: rotate(0deg);
-        }
-        to {
-          -moz-transform: rotate(359deg);
-        }
-      }
-      @-webkit-keyframes spin {
-        from {
-          -webkit-transform: rotate(0deg);
-        }
-        to {
-          -webkit-transform: rotate(359deg);
-        }
-      }
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(359deg);
-        }
-      }
-    }
-  }
-
-  &__slide-caption-box {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 200px;
-    transform: translateY(-50%);
-    padding: 5px 20px 5px 3px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    font-family: "Tangerine", sans-serif;
-    text-align: center;
-    font-size: 2em;
-    font-weight: 700;
-    background: $albumPhotoCaptionBackgroundColor;
-    opacity: 1;
-    transition: all $photoCaptionTransition $cb-ease-in;
-    z-index: $zIndex-1-FirstLevel;
-
-    &--is-collapsed {
-      left: -185px;
-    }
-
-    &--is-hidden {
-      left: -200px;
-      transition: all 0.01s $cb-ease-in;
-    }
-
-    &__button {
-      position: fixed;
-      top: 0%;
-      right: 0%;
-      height: 100%;
-      width: 15px;
-      padding: 0;
-      border: 0;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      background-color: $albumPhotoCaptionBackgroundColor;
-      text-decoration: none;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      z-index: $zIndex-1-FirstLevel;
-
-      &:hover {
-        cursor: pointer;
-        background: $albumPhotoCaptionBackgroundHoverColor;
-      }
-
-      &:focus {
-        background: $albumPhotoCaptionBackgroundHoverColor;
-      }
-
-      &--icon-path {
-        stroke: $bodyLiteBGFontColor;
-        stroke-linecap: round;
-        &--dark {
-          stroke: $bodyDarkBGFontColor;
-          stroke-linecap: round;
-        }
-      }
-      &--icon-rotate-180 {
-        transform: translateX(0) translateY(0) rotate(180deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
-      }
-      svg {
-        height: 16px;
-        width: 16px;
-        stroke-width: 3px;
-        transition-duration: $menuVisibilityTransition;
-        transition-property: all;
-        transition-timing-function: $cb-ease-in-out;
-      }
     }
   }
 
@@ -182,7 +64,6 @@
   &__vcr-container {
     position: absolute;
     transition: opacity $menuButtonOutlineTransition $cb-ease-out;
-    /*top: calc(100% - 60px); 1/16*/
     top: 55%;
     left: 50%;
     transform: translateX(-50%);

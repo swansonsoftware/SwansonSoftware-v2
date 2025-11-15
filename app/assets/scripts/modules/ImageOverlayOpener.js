@@ -88,35 +88,19 @@ class ImageOverlayOpener {
 
           var filename = imgElem.src.substring(imgElem.src.lastIndexOf("../assets/"))
 
-          // if (sizes.length > 0) {
-          //   overlayImageDiv.innerHTML = `
-          // <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;top:0;right:0;bottom:0;left:0;'></div>
-          // <div class='lightbox__photo-overlay__selectedImg'>
-          // <figure>
-          // <img  src="${filename}" style="max-width:${maxWidth * 0.95}px;width:inherit;border:2px solid black;"
-          //   alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="${sizes.toString()}" />
-          //   <figcaption>${caption}</figcaption>
-          // </figure
-          //   </div>
-          // `
-          // } else {
           overlayImageDiv.innerHTML = `
-            <div class='lightbox__photo-overlay--spinner' style='position:absolute;z-index:-1;top:0;right:0;bottom:0;left:0;'></div>
+            <div class='lightbox__photo-overlay--spinner lightbox__photo-overlay--spinner--image'></div>
             <div class='lightbox__photo-overlay__selectedImg'>
             <figure>
-            <img  src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
+            <img src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
               alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="100vw" />
               <figcaption style="text-align:center">${caption}</figcaption>
             </figure
               </div>
             `
-          // }
         }
 
         // overlay.classList.add("lightbox__image-overlay--visible")
-        // can't do this: Error: Invalid hook call. Hooks can only be called inside of the body of a function component.
-        // var appDispatch = useContext(DispatchContext)
-        // appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__image-overlay--visible" })
       }
     } else {
       console.log("openOverlay: Image element not directly under button, cannot show overlay")

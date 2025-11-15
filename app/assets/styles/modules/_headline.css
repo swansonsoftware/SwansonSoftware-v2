@@ -14,19 +14,14 @@
     }
   }
   &__h1-cg {
-    font-family: "Cormorant Garamond";
-    font-size: 3.4rem;
-    font-weight: 300;
-    font-style: normal;
+    font: normal 300 3.4rem/1.15 "Cormorant Garamond";
     @mixin atMin1200Wide {
       font-size: 4.5rem;
     }
   }
 
   &__h2 {
-    font-family: "Cormorant Garamond";
-    font-size: 2.5rem;
-    font-weight: 400;
+    font: 400 2.5rem/1.15 "Cormorant Garamond";
     padding: 10px 0;
     margin: 0;
 
@@ -43,8 +38,7 @@
     }
   }
   &__h2-contents {
-    font-size: 1.75rem;
-    font-weight: 400;
+    font: 400 1.75rem/1.15 $globalFontFamily;
     padding: 10px 0;
     margin: 0;
 
@@ -54,9 +48,7 @@
   }
 
   &__h3 {
-    font-family: "Cormorant Garamond";
-    font-size: 1.75rem;
-    font-weight: 400;
+    font: 400 1.75rem/1.15 "Cormorant Garamond";
     padding: 10px 0;
     margin: 0;
     &--bold {
@@ -71,18 +63,9 @@
     }
   }
 
-  &__h3-cg {
-    font-family: "Cormorant Garamond";
-    font-size: 2.5rem;
-    font-weight: 300;
-    font-style: normal;
-  }
-
   &__h3-album-slideshow {
-    font-size: 1.4rem;
-    line-height: 1.45;
+    font: normal 1.4rem/1.45 $globalFontFamily;
     margin-top: 15px;
-    font-weight: normal;
 
     @mixin atMin1200Wide {
       font-size: 1.5rem;
@@ -105,9 +88,7 @@
   }
 
   &__h4 {
-    font-family: "Cormorant Garamond";
-    font-size: 1.5rem;
-    font-weight: 400;
+    font: 400 1.5rem/1.15 "Cormorant Garamond";
     padding: 10px 0;
     margin: 0;
 

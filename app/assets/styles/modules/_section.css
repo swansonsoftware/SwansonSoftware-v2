@@ -35,7 +35,6 @@
 
   &--h4 {
     margin-bottom: 0px;
-    /*font-size: 1.17rem;*/
     font-size: 1.5rem;
     font-weight: 400;
 
@@ -52,8 +51,6 @@
   }
 
   p {
-    /*font family NexusSans?*/
-    /*font-size: 1.2rem;*/
     font-size: 1.3rem;
     line-height: 1.5;
     margin-top: 5px;
@@ -63,7 +60,6 @@
   }
 
   li {
-    /*font-size: 1.1rem;*/
     font-size: 1.2rem;
     line-height: 1.5;
     padding-bottom: 10px;

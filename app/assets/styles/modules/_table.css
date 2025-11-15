@@ -1,5 +1,5 @@
 .table {
-  width: 90%; /* was 100% 2/26/2025 */
+  width: 90%;
 
   &--no-border {
     border-collapse: collapse;

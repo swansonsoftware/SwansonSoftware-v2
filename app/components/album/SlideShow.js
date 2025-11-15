@@ -299,9 +299,9 @@ function SlideShow(props) {
       vcrContainer.classList.add("slideshow__vcr-container--is-hidden")
       vcrContainer.classList.remove("slideshow__vcr-container--is-visible")
     }
-    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
+    const slideCaptionBox = document.querySelector(".album-photos__photo-caption-box")
     if (slideCaptionBox) {
-      slideCaptionBox.classList.add("slideshow__slide-caption-box--is-hidden")
+      slideCaptionBox.classList.add("album-photos__photo-caption-box--is-hidden")
     }
   }
 
@@ -311,9 +311,9 @@ function SlideShow(props) {
       vcrContainer.classList.add("slideshow__vcr-container--is-visible")
       vcrContainer.classList.remove("slideshow__vcr-container--is-hidden")
     }
-    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
+    const slideCaptionBox = document.querySelector(".album-photos__photo-caption-box")
     if (slideCaptionBox) {
-      slideCaptionBox.classList.remove("slideshow__slide-caption-box--is-hidden")
+      slideCaptionBox.classList.remove("album-photos__photo-caption-box--is-hidden")
     }
   }
 
@@ -384,17 +384,17 @@ function SlideShow(props) {
   }
 
   function HandleSlideCaption(captionText) {
-    const slideCaptionBox = document.querySelector(".slideshow__slide-caption-box")
+    const slideCaptionBox = document.querySelector(".album-photos__photo-caption-box")
     const slideCaption = document.querySelector(".slideshow__slide-caption")
 
     if (slideCaption) {
       if (captionText.length == 0) {
-        slideCaptionBox.classList.add("slideshow__slide-caption-box--is-hidden")
+        slideCaptionBox.classList.add("album-photos__photo-caption-box--is-hidden")
         slideCaption.innerText = ""
         slideCaption.classList.remove("slideshow__slide-caption--is-visible")
       } else {
         if (isFullScreen.current == false) {
-          slideCaptionBox.classList.remove("slideshow__slide-caption-box--is-hidden")
+          slideCaptionBox.classList.remove("album-photos__photo-caption-box--is-hidden")
         }
         slideCaption.innerText = captionText
         slideCaption.classList.add("slideshow__slide-caption--is-visible")
