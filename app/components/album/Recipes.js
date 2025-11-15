@@ -39,7 +39,7 @@ function Recipes() {
             </h2>
           </div>
           <div className="row__colspan-8">
-            <p>I use this vegetable stock for risotto and for clam chowder. It makes a good beverage too. I'm sure I will find other recipes that it will work in.</p>
+            <p>I use this vegetable stock for risotto and for clam chowder. It makes a good beverage too.</p>
           </div>
         </div>
         <div className="row row__margin-bottom-0 row--gutters">

@@ -46,9 +46,9 @@ function PieDough() {
 
         <div className="row row--gutters" style={{ margin: "0" }}>
           <div className="row__colspan-12">
-            <p className="album-recipe__intro">This is an all-butter, hand-made dough where the flour and butter are mixed together using a pastry cutter.</p>
-            <p>Most modern pie dough recipes call for a food processor to mix the dough. The advantage you get with a food processor is that the dough stays cold, whereas working it with your hands warms the dough, which causes some melting of the butter.</p>
-            <p>To avoid warming the dough, I use a pastry cutter to cut the butter into the flour mixture and never touch the dough with my hands. Using a heavy ceramic or glass mixing bowl helps, as it will stay cold for a while after coming out of the refrigerator.</p>
+            <p className="album-recipe__intro">This is an all-butter, hand-made dough where the flour and butter are mixed using a pastry cutter.</p>
+            <p>Most modern pie dough recipes call for a food processor to mix the dough. One advantage you get with a food processor is that the dough stays cold, but what if you don't have a food processor?</p>
+            <p>Working pie dough with your hands warms the dough, and at some point, the butter begins to melt. You could stop and refrigerate the dough, but to avoid warming the dough, I use a pastry cutter to cut the butter into the flour mixture and never touch the dough with my hands. Using a heavy ceramic or glass mixing bowl helps, as it will stay cold for a while after coming out of the refrigerator and that helps keep the dough cold.</p>
             <p> It is also important that the room where you are making the dough is not too warm. Below 73 degrees F is good. From 73 to 77 degrees F, you need to stop halfway through each step and refrigerate the dough for about 30 minutes. Avoid making pie dough above 77 degrees.</p>
             <h2 className="headline__h2 headline__h2--recipe" style={{ paddingBottom: "0" }}>
               Tips on Pie Dough
