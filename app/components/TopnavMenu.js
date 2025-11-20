@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
@@ -66,9 +66,9 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
               <Link
                 to={link}
                 tabIndex="0"
-                className={backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite"}
+                className={getMenuItemClass(backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite", topic)}
                 onClick={e => {
-                  setSelected(e), CloseMenu()
+                  CloseMenu()
                 }}
               >
                 {topic}
@@ -98,7 +98,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
             tabIndex="0"
             className={getMenuItemClass(theBackgroundStyle, item.name)}
             onClick={e => {
-              setSelected(e), CloseMenu()
+              CloseMenu()
             }}
           >
             {item.name}
@@ -113,12 +113,8 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
     return theMenuItemClass
   }
 
-  function setSelected(e) {
-    appDispatch({ type: "selectMenu", selectedMenu: e.target.innerText })
-  }
-
   function ToggleMenuExpansion(e, idx) {
-    // console.log("ToggleMenuExpansion idx: " + idx + ", e: " + e)
+    // console.log("ToggleMenuExpansion idx: " + idx + ", menuActiveCategory: " + appState.menuActiveCategory)
     if (idx === appState.menuDropdownActiveTopic) {
       appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
       appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
@@ -189,6 +185,24 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
     return () => eventListenerAbortCtrlr.abort()
   }, [])
 
+  useEffect(() => {
+    // add underline to menu category button
+    var navBtns = document.querySelectorAll(".nav__button")
+    var baseClass = appState.backgroundStyle == "dark" ? "nav__button nav__button--dark" : "nav__button nav__button--lite"
+    navBtns.forEach(el => {
+      el.id == appState.menuActiveCategory ? (el.className = baseClass + " nav__button--selected") : (el.className = baseClass)
+    })
+  }, [appState.menuActiveCategory])
+
+  useEffect(() => {
+    // switch between lite and dark theme
+    var navBtns = document.querySelectorAll(".nav__button")
+    var baseClass = appState.backgroundStyle == "dark" ? "nav__button nav__button--dark" : "nav__button nav__button--lite"
+    navBtns.forEach(el => {
+      el.id == appState.menuActiveCategory ? (el.className = baseClass + " nav__button--selected") : (el.className = baseClass)
+    })
+  }, [appState.backgroundStyle])
+
   return (
     <>
       <nav className="nav nav--pull-right">
@@ -204,6 +218,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
                 <React.Fragment key={menuTopic.topicid}>
                   <li key={menuTopic.topicid}>
                     <button
+                      id={menuTopic.topicid}
                       type="button"
                       tabIndex="0"
                       onClick={e => {
