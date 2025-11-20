@@ -22,34 +22,36 @@ function Breadcrumb(props) {
   return (
     <nav aria-label="breadcrumb" className="wrapper wrapper--album-slideshow-breadcrumb">
       <div className="wrapper--album wrapper--album-slideshow-backlink wrapper--album--pull-left">
-        <span id="breadcrumb" className="site-header__breadcrumb site-header__breadcrumb--transparent">
+        <ol id="breadcrumb" className="site-header__breadcrumb site-header__breadcrumb--transparent">
           {props.breadcrumbs.map((link, index) => {
             const isLast = index === props.breadcrumbs.length - 1
-            return (
-              <span key={index}>
-                {isLast ? (
-                  link.toText
-                ) : (
-                  <>
-                    <Link
-                      id={link.id}
-                      onFocus={e => {
-                        handleFocus()
-                      }}
-                      onClick={e => {
-                        unhideMenu()
-                      }}
-                      to={link.toUrl}
-                    >
-                      {link.toText}
-                    </Link>
-                    <span style={{ margin: "0 8px" }}>{">"}</span>
-                  </>
-                )}
-              </span>
+            return isLast ? (
+              <li key={index}>
+                <b>{link.toText}</b>
+              </li>
+            ) : (
+              <>
+                <li key={index}>
+                  <Link
+                    id={link.id}
+                    onFocus={e => {
+                      handleFocus()
+                    }}
+                    onClick={e => {
+                      unhideMenu()
+                    }}
+                    to={link.toUrl}
+                  >
+                    {link.toText}
+                  </Link>
+                  <span aria-hidden="true" style={{ margin: "0 8px" }}>
+                    {">"}
+                  </span>
+                </li>
+              </>
             )
           })}
-        </span>
+        </ol>
       </div>
     </nav>
   )
