@@ -14,6 +14,8 @@ function Blog() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Blog" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
   }, [])
 
   const breadcrumbs = [

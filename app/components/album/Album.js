@@ -15,6 +15,8 @@ function Album() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Album" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
   }, [])
 
   const breadcrumbs = [

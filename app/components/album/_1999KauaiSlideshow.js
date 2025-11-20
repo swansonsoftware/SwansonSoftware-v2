@@ -1,14 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Page from "../Page"
+import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import SlideShow from "./SlideShow"
 import Breadcrumb from "../BreadcrumbSlideshow"
 import GTag from "../GTag"
 
 function _1999KauaiSlideshow() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+
+  useEffect(() => {
+    appDispatch({ type: "selectMenu", selectedMenu: "1900s" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+  }, [])
 
   const photos = [
     { id: 1, lazy: false, src: "../assets/images/1900s/1999-kauai-a013-b-360.webp", width: "360", height: "202", captionHeading: "Kauai, 1999", caption: "Hanalei Scenic Overlook", alt: "Hanalei valley farm fields from the Scenic Overlook", sizes: "100vw", srcset: "../assets/images/1900s/1999-kauai-a013-b-320.webp 320w, ../assets/images/1900s/1999-kauai-a013-b-360.webp 360w, ../assets/images/1900s/1999-kauai-a013-b-393.webp 393w, ../assets/images/1900s/1999-kauai-a013-b-432.webp 432w, ../assets/images/1900s/1999-kauai-a013-b-608.webp 608w, ../assets/images/1900s/1999-kauai-a013-b-672.webp 672w, ../assets/images/1900s/1999-kauai-a013-b-768.webp 768w, ../assets/images/1900s/1999-kauai-a013-b-896.webp 896w, ../assets/images/1900s/1999-kauai-a013-b-960.webp 960w, ../assets/images/1900s/1999-kauai-a013-b-1180.webp 1180w, ../assets/images/1900s/1999-kauai-a013-b-1290.webp 1290w, ../assets/images/1900s/1999-kauai-a013-b-1368.webp 1368w, ../assets/images/1900s/1999-kauai-a013-b-1442.webp 1442w, ../assets/images/1900s/1999-kauai-a013-b-1600.webp 1600w, ../assets/images/1900s/1999-kauai-a013-b-1852.webp 1852w, ../assets/images/1900s/1999-kauai-a013-b-1920.webp 1920w, ../assets/images/1900s/1999-kauai-a013-b-2120.webp 2120w, ../assets/images/1900s/1999-kauai-a013-b-2379.webp 2379w, ../assets/images/1900s/1999-kauai-a013-b-2560.webp 2560w, ../assets/images/1900s/1999-kauai-a013-b-2796.webp 2796w, ../assets/images/1900s/1999-kauai-a013-b-2960.webp 2960w, ../assets/images/1900s/1999-kauai-a013-b-3240.webp 3240w, ../assets/images/1900s/1999-kauai-a013-b-3840.webp 3840w" },

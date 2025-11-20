@@ -15,6 +15,8 @@ function ProcessModels() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Process Models" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
   }, [])
 
   const breadcrumbs = [

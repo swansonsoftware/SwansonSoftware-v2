@@ -1,14 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Page from "../Page"
+import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
 import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function FavoritesGardens() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+
+  useEffect(() => {
+    appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+  }, [])
 
   const photos = [
     { id: 1, lazy: false, src: "../../assets/images/1900s/1999-limahuli-valley1-b008-thumbnail.webp", width: "320", height: "180", alt: "Tropical valley with terraced taro ponds constructed of basalt", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160", captionHeading: "Limahuli Valley, Kauai", caption: "1999, Limahuli is one of five National Tropical Botanical Gardens" },

@@ -16,6 +16,8 @@ function Reviews() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Software Reviews" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
   }, [])
 
   const breadcrumbs = [

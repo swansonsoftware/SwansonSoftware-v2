@@ -1,14 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Page from "../Page"
+import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
 import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function _1900s() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+
+  useEffect(() => {
+    appDispatch({ type: "selectMenu", selectedMenu: "1900s" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+  }, [])
 
   const photos = [
     { id: 1, src: "../assets/images/1900s/1989-Gaytonia-thumbnail.webp", srcset: "../assets/images/1900s/1989-Gaytonia-thumbnail.webp 1x, ../assets/images/1900s/1989-Gaytonia-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Gaytonia apartment castle.", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x213;360=360x240;393=393x262;432=432x288;608=608x405;672=672x448;768=768x512;896=896x597;960=960x640;1180=1180x787;1290=1290x860;1368=1368x912;1442=1442x961;1600=1600x1067;1852=1852x1235;1920=1920x1280;2120=2120x1413;2379=2379x1586;2560=2560x1707;2796=2796x1864;2960=2960x1973;3240=3240x2160;3840=3840x2560", captionHeading: "Apartment Castle", caption: "Long Beach, CA., 1989. I lived there!" },

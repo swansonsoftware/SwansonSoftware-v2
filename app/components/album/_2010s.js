@@ -1,14 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Page from "../Page"
+import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
 import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function _2010s() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+
+  useEffect(() => {
+    appDispatch({ type: "selectMenu", selectedMenu: "2010s" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+  }, [])
 
   const photos = [
     { id: 1, lazy: false, src: "../assets/images/2010s/2010-8-30-0490-b-thumbnail.webp", srcset: "../assets/images/2010s/2010-8-30-0490-b-thumbnail.webp 1x, ../assets/images/2010s/2010-8-30-0490-b-672.webp 2x", sizes: "100vw", width: "320", height: "240", alt: "Looking up stream, from the middle of the stream", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x240;360=360x270;393=393x295;432=432x324;608=608x456;672=672x504;768=768x576;896=896x672;960=960x720;1180=1180x885;1290=1290x968;1368=1368x1026;1442=1442x1082;1600=1600x1200;1852=1852x1389;1920=1920x1440;2120=2120x1590;2379=2379x1784;2560=2560x1920;2796=2796x2097;2960=2960x2220;3240=3240x2430;3840=3840x2880", captionHeading: "Kauai, August 2010", caption: "Stream next to Kauai Beach Villas" },

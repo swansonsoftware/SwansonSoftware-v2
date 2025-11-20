@@ -14,6 +14,8 @@ function Principles() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Principles" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
   }, [])
 
   const breadcrumbs = [

@@ -15,6 +15,8 @@ function Favorites() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
   }, [])
 
   const photobooks = [

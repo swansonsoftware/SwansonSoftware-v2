@@ -1,14 +1,21 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import Page from "../Page"
+import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import PhotoAlbum from "./PhotoAlbum"
 import Breadcrumb from "../Breadcrumb"
 import GTag from "../GTag"
 
 function FavoritesPersimons() {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+
+  useEffect(() => {
+    appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+  }, [])
 
   const photos = [
     { id: 1, lazy: false, src: "../../assets/images/2010s/2010-11-14_0531-thumbnail.webp", width: "320", height: "240", alt: "A basket of shiny ripe persimons", dataOrientation: "", dataPortraitsizes: "", dataSrcset: "320=320x240;360=360x270;393=393x295;432=432x324;608=608x456;672=672x504;768=768x576;896=896x672;960=960x720;1180=1180x885;1290=1290x968;1368=1368x1026;1442=1442x1082;1600=1600x1200;1852=1852x1389;1920=1920x1440;2120=2120x1590;2379=2379x1784;2560=2560x1920;2796=2796x2097;2960=2960x2220;3240=3240x2430;3840=3840x2880", captionHeading: "Company Kitchen", caption: "November 2010. Persimons from our neighbor's trees - similar to fuyu but their shape is not as square" },

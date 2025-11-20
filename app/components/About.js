@@ -20,6 +20,7 @@ function About() {
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
   }, [])
 
   const breadcrumbs = [
