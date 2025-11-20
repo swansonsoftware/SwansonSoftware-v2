@@ -53,7 +53,7 @@ const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blo
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", isMenuOpen: false, breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay" }
+  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", isMenuOpen: false, breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay" }
 
   function theReducer(state, action) {
     switch (action.type) {
@@ -65,6 +65,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -80,6 +81,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -96,6 +98,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -111,6 +114,7 @@ function Main() {
           breadcrumbClass: action.class,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -126,6 +130,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: action.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -141,6 +146,23 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: action.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay
+        }
+      }
+      case "menuActiveCategory": {
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          isMenuOpen: state.isMenuOpen,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuActiveCategory: action.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -156,6 +178,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: action.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -171,6 +194,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: action.class,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -186,6 +210,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: action.mobileMenuIconState,
@@ -201,6 +226,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
@@ -216,6 +242,7 @@ function Main() {
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
           menuDropdownActiveTopic: state.menuDropdownActiveTopic,
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
