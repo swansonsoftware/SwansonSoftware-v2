@@ -28,11 +28,10 @@ function Album() {
     <Page title="Album">
       <GTag></GTag>
       <CanonicalLink href="https://swansonsoftware.com/album"></CanonicalLink>
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Album</h1>
-        <h2 className="headline__h2">Photos, Slideshows, a Couple Recipes</h2>
-        <p></p>
+        <h2 className="headline__h2">Photos, Videos, Slideshows, a Couple Recipes</h2>
 
         <div className="row row__margin-bottom-0 row--gutters">
           <div className="row__colspan-4">
@@ -41,7 +40,7 @@ function Album() {
             </h2>
           </div>
           <div className="row__colspan-8">
-            <p>The list is short, it includes only the recipes that I developed over many years.</p>
+            <p>A short list of recipes, developed through many attempts.</p>
           </div>
         </div>
 
@@ -52,7 +51,13 @@ function Album() {
             </h2>
           </div>
           <div className="row__colspan-8">
-            <p>All the photos throughout this album are favorites of the many photos I have taken, and the photos in Favorites are the best of those.</p>
+            <p>Favorite photos from this album, maybe not always the best photos, but my favorites.</p>
+          </div>
+        </div>
+
+        <div className="row row__margin-bottom-0 row--gutters">
+          <div className="row__colspan-12">
+            <h2 className="headline__h2">Through the Years</h2>
           </div>
         </div>
 
@@ -62,9 +67,7 @@ function Album() {
               <Link to="../album/1900s">1900s</Link>
             </h2>
           </div>
-          <div className="row__colspan-8">
-            <p>The photos on this page are from long ago, taken with film cameras.</p>
-          </div>
+          <div className="row__colspan-8"></div>
         </div>
 
         <div className="row row__margin-bottom-0 row--gutters">
@@ -73,9 +76,7 @@ function Album() {
               <Link to="../album/2000s">2000s</Link>
             </h2>
           </div>
-          <div className="row__colspan-8">
-            <p>The earliest photos from the 2000s were the last I took with film, the rest were taken with a digital camera.</p>
-          </div>
+          <div className="row__colspan-8"></div>
         </div>
 
         <div className="row row__margin-bottom-0 row--gutters">
@@ -84,9 +85,7 @@ function Album() {
               <Link to="../album/2010s">2010s</Link>
             </h2>
           </div>
-          <div className="row__colspan-8">
-            <p>Photos from the 2010s.</p>
-          </div>
+          <div className="row__colspan-8"></div>
         </div>
 
         <div className="row row__margin-bottom-0 row--gutters">
@@ -95,9 +94,7 @@ function Album() {
               <Link to="../album/2020s">2020s</Link>
             </h2>
           </div>
-          <div className="row__colspan-8">
-            <p>Photos from the 2020s.</p>
-          </div>
+          <div className="row__colspan-8"></div>
         </div>
       </div>
     </Page>

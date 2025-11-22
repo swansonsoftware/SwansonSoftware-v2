@@ -29,10 +29,10 @@ function Recipes() {
     <Page title="Recipes">
       <GTag></GTag>
       <CanonicalLink href="https://swansonsoftware.com/album/recipes"></CanonicalLink>
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">Recipes</h1>
-        <p>A short list of recipes, short because they really are my recipes. But the ideas for them came from here and there.</p>
+        <p>A short list of recipes, short because they really are my recipes, at least some of the ideas for them are mine. There was no single inventor of vegetable stock, clam chowder, or pie crust: they developed over hundreds or even thousands of years.</p>
 
         <div className="row row__margin-bottom-0 row--gutters">
           <div className="row__colspan-4">
@@ -61,7 +61,13 @@ function Recipes() {
             </h2>
           </div>
           <div className="row__colspan-8">
-            <p>Recipes for making all-butter pie dough by hand tell you to get your hands in the dough. But that warms the dough, and dough needs to be kept cold, or the baked crust will be tough.</p>
+            <p>This pie dough recipe was refined through many attempts following the recipes from:</p>
+            <ul>
+              <li className="list">The Perfect Pie: Your Ultimate Guide to Classic and Modern Pies, Tarts, Galettes, and More (Perfect Baking Cookbooks) by America's Test Kitchen (2019)</li>
+              <li className="list">Pie Academy: Master the Perfect Crust and 255 Amazing Fillings, with Fruits, Nuts, Creams, Custards, Ice Cream, and More; Expert Techniques for Making Fabulous Pies from Scratch by Ken Haedrich (2020)</li>
+              <li className="list">The Book On Pie: Everything You Need to Know to Bake Perfect Pies by Erin Jeanne McDowell (2020)</li>
+              <li className="list">Mastering the Art of French Cooking (Volumes 1 and 2) by Julia Child, Louisette Bertholle, Simone Beck, and Sidonie Coryn (2001, 40th anniversary edition of the 1961 original)</li>
+            </ul>
           </div>
         </div>
       </div>
