@@ -14,6 +14,8 @@ function Home() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
+    appDispatch({ type: "selectMenu", selectedMenu: "" })
+    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
   }, [])
 
   return (
