@@ -34,9 +34,8 @@ function PieDough() {
       <ImageLightboxOverlay />
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Pie Dough Recipe" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
-
         <h1 className="headline__h1">Pie Dough</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated November 6, 2025</div>

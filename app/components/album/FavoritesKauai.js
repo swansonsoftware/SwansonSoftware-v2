@@ -62,8 +62,8 @@ function FavoritesKauai() {
     <Page title="Kauai Favorites">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Kauai Favorites" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper--album">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">Kauai Favorites</h1>
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />
       </div>

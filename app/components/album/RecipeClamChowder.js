@@ -34,9 +34,8 @@ function ClamChowder() {
       <ImageLightboxOverlay />
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Clam Chowder Recipe" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
-
         <h1 className="headline__h1">Clam Chowder</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated April 21, 2024</div>

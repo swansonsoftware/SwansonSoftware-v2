@@ -1,16 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
+import StateContext from "../StateContext"
 import { Link } from "react-router-dom"
 
 function Breadcrumb(props) {
+  const appState = useContext(StateContext)
+
   function handleFocus() {
     let breadcrumb = document.querySelector(".site-header__breadcrumb")
-    //unhide breadcrumb
     if (breadcrumb) {
+      breadcrumb.classList.remove("site-header__breadcrumb__fixed")
       breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
     }
-  }
-
-  function unhideMenu() {
     let siteHeader = document.querySelector(".site-header")
     if (siteHeader) {
       if (siteHeader.classList.contains("site-header--collapse")) {
@@ -20,9 +20,9 @@ function Breadcrumb(props) {
   }
 
   return (
-    <nav aria-label="breadcrumb" className="wrapper wrapper--album-slideshow-breadcrumb">
-      <div className="wrapper--album wrapper--album-slideshow-backlink wrapper--album--pull-left">
-        <ol id="breadcrumb" className="site-header__breadcrumb site-header__breadcrumb--transparent">
+    <nav id="breadcrumb" aria-label="breadcrumb" className={appState.breadcrumbClass}>
+      <div className="wrapper--site-header">
+        <ol>
           {props.breadcrumbs.map((link, index) => {
             const isLast = index === props.breadcrumbs.length - 1
             return isLast ? (
@@ -36,9 +36,6 @@ function Breadcrumb(props) {
                     id={link.id}
                     onFocus={e => {
                       handleFocus()
-                    }}
-                    onClick={e => {
-                      unhideMenu()
                     }}
                     to={link.toUrl}
                   >

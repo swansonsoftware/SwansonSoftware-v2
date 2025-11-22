@@ -48,8 +48,8 @@ function _2020s() {
     <Page title="2020s">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2020s" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper--album">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">2020s</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

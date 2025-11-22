@@ -37,8 +37,8 @@ function Favorites() {
       <GTag></GTag>
       <CanonicalLink href="https://swansonsoftware.com/album/favorites"></CanonicalLink>
       <meta name="description" content="Swanson Software Album, Favorites" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper--album">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">Favorites</h1>
         <div className="wrapper--album-photos">
           {photobooks.map(image => {

@@ -30,8 +30,8 @@ function Requirements() {
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Requirements"></GStructuredData>
       <meta name="description" content="Software requirements" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Software Requirements</h1>
 
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>

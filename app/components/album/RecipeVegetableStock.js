@@ -39,9 +39,8 @@ function VegetableStock() {
       <ImageLightboxOverlay />
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Vegetable Stock Recipe" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
-
         <h1 className="headline__h1">Vegetable Stock</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated November 10, 2025</div>

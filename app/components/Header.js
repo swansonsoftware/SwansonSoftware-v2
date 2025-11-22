@@ -71,6 +71,11 @@ function Header() {
         }
       }
     }
+    let breadcrumb = document.getElementById("breadcrumb")
+    if (breadcrumb) {
+      breadcrumbStyle += " site-header__breadcrumb--transparent"
+    }
+
     // console.log("updateBreadcrumbStyle 3 breadcrumbStyle: " + breadcrumbStyle)
     appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
   }

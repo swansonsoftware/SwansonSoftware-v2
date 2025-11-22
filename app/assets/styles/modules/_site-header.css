@@ -25,9 +25,9 @@
 
   &__breadcrumb {
     position: fixed;
+    margin: 0;
     transform: translateY(0);
     will-change: transform;
-    width: 100%;
     background-color: $bodyLiteBGColor;
     padding: 10px 0;
     z-index: $zIndex-1-FirstLevel;
@@ -45,6 +45,20 @@
     &--is-hidden {
       opacity: 0;
       z-index: -1;
+    }
+    ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      display: inline;
+    }
+    @mixin atMax1200Wide {
+      width: 100%;
+      padding: 10px 18px;
     }
   }
 
@@ -133,12 +147,13 @@
     }
   }
   @mixin atMinWidthToHideMenuIcon {
-    padding: 13px 0;
+    padding: 12px 0;
   }
 
   &__logo {
     padding-top: 17px;
     border: 0;
+    /*border: 1px solid yellow;*/
     width: 220px;
     position: relative;
     z-index: $zIndex-1-FirstLevel;

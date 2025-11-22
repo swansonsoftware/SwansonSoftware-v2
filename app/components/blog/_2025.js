@@ -27,8 +27,8 @@ function Blogs2025() {
   return (
     <Page title="2025 Blog">
       <GTag></GTag>
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">2025</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">

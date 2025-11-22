@@ -53,8 +53,8 @@ function BlogJan2025_ResSwitching() {
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">

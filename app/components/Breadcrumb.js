@@ -7,27 +7,29 @@ function Breadcrumb(props) {
 
   return (
     <nav aria-label="breadcrumb" className={appState.breadcrumbClass}>
-      <ol>
-        {props.breadcrumbs.map((link, index) => {
-          const isLast = index === props.breadcrumbs.length - 1
-          return isLast ? (
-            <li key={index}>
-              <b>{link.toText}</b>
-            </li>
-          ) : (
-            <>
+      <div className="wrapper--site-header">
+        <ol>
+          {props.breadcrumbs.map((link, index) => {
+            const isLast = index === props.breadcrumbs.length - 1
+            return isLast ? (
               <li key={index}>
-                <Link id={link.id} to={link.toUrl}>
-                  {link.toText}
-                </Link>
-                <span aria-hidden="true" style={{ margin: "0 8px" }}>
-                  {">"}
-                </span>
+                <b>{link.toText}</b>
               </li>
-            </>
-          )
-        })}
-      </ol>
+            ) : (
+              <>
+                <li key={index}>
+                  <Link id={link.id} to={link.toUrl}>
+                    {link.toText}
+                  </Link>
+                  <span aria-hidden="true" style={{ margin: "0 8px" }}>
+                    {">"}
+                  </span>
+                </li>
+              </>
+            )
+          })}
+        </ol>
+      </div>
     </nav>
   )
 }

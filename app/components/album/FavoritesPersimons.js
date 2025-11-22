@@ -42,8 +42,8 @@ function FavoritesPersimons() {
     <Page title="Persimon Favorites">
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Persimon Favorites" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper--album">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">Persimon Favorites</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

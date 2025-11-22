@@ -26,11 +26,11 @@ function Principles() {
   return (
     <Page title="Principles">
       <GTag></GTag>
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Principles</h1>
         <h2 className="headline__h2">On the Principles of Software Development</h2>
-        <p>I have worked in software development for several decades and there are some things I would like to say.</p>
+        <p>There are some things that others in software development have said and that should be remembered.</p>
 
         <div className="row row__margin-bottom-0 row--gutters">
           <div className="row__colspan-4">

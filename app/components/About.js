@@ -30,10 +30,10 @@ function About() {
 
   return (
     <Page title="About Us">
-      <meta name="description" content="About Swanson Software" />
       <GTag></GTag>
+      <meta name="description" content="About Swanson Software" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1">About Swanson Software</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">

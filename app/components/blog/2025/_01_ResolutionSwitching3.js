@@ -40,8 +40,8 @@ function BlogJan2025_ResSwitching3() {
     { id: 0, toText: "Home", toUrl: "/" },
     { id: 1, toText: "Blog", toUrl: "/blog" },
     { id: 2, toText: "2025", toUrl: "/blog/2025" },
-    { id: 3, toText: "Choosing ...Part 1", toUrl: "/blog/2025/01/resolution-switching-images" },
-    { id: 4, toText: "Choosing ...Part 2", toUrl: "/blog/2025/01/resolution-switching-images-part2" },
+    { id: 3, toText: "...Part 1", toUrl: "/blog/2025/01/resolution-switching-images" },
+    { id: 4, toText: "...Part 2", toUrl: "/blog/2025/01/resolution-switching-images-part2" },
     { id: 5, toText: "Choosing Resolution Switching Breakpoints - Part 3", toUrl: "" }
   ]
 
@@ -50,8 +50,8 @@ function BlogJan2025_ResSwitching3() {
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images Part 3"></GStructuredData>
       <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb breadcrumbs={breadcrumbs} />
         <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints - Part 3</h1>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">

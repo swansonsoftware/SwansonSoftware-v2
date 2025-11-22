@@ -18,13 +18,20 @@ function BlogJan2025_TimeVsQuality() {
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
   }, [])
 
+  const breadcrumbs = [
+    { id: 0, toText: "Home", toUrl: "/" },
+    { id: 1, toText: "Blog", toUrl: "/blog" },
+    { id: 2, toText: "2025", toUrl: "/blog/2025" },
+    { id: 3, toText: "Time vs. Quality", toUrl: "" }
+  ]
+
   return (
     <Page title="Time vs. Quality">
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <meta name="description" content="Time vs. quality in software development" />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article">
-        <Breadcrumb to="/blog/2025" linktext="Blog List 2025" />
         <h1 className="headline__h1-cg">Time vs. Quality</h1>
         <div className="row row--gutters">
           <div className="row__col-span-4 row__margin-bottom-0">
