@@ -38,9 +38,15 @@
     }
     &--lite {
       color: $bodyLiteBGFontColor;
+      text-decoration-color: $bodyLiteBGFontColor;
       &:focus {
         outline: 4px solid $bodyLiteBGFontColor;
       }
+    }
+    &--selected {
+      text-decoration: underline;
+      text-underline-offset: 0.1em;
+      text-decoration-thickness: 1px;
     }
     &--icon-spacer {
       margin-right: 4px;
@@ -166,10 +172,10 @@
     &__button {
       font: 500 1.45rem/1.25 $globalFontFamily;
       &--dark {
-        text-decoration-color: $bodyLiteBGFontColor;
+        text-decoration-color: $bodyDarkBGFontColor;
       }
       &--lite {
-        text-decoration-color: $bodyDarkBGFontColor;
+        text-decoration-color: $bodyLiteBGFontColor;
       }
     }
   }
