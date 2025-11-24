@@ -6,6 +6,12 @@
     justify-content: space-between;
     width: 100%;
   }
+  &--home-page {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 18px;
+  }
 
   &--banner {
     height: 100%;
@@ -74,7 +80,7 @@
     cursor: pointer;
     padding: 0px 0px 20px 0px;
     border: 0;
-    width: 100%; /* 2/22/25 */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,15 +121,6 @@
       top: 0;
     }
   }
-  &--album-slideshow-backlink {
-    padding-bottom: 0;
-    top: 0;
-    background-color: $HeaderFooterDarkBackgroundTransparent;
-  }
-  &--album-slideshow-breadcrumb {
-    width: 100%;
-    background-color: $HeaderFooterDarkBackgroundTransparent;
-  }
 
   @mixin atMax799Wide {
     &--site-footer {
@@ -150,14 +147,10 @@
     &--album {
       width: 100%;
     }
-    &--album-slideshow-backlink {
-      padding-bottom: 0;
-      top: 0;
-      background-color: $HeaderFooterDarkBackgroundTransparent;
-    }
   }
   @mixin atMin1200Wide {
-    &--site-header {
+    &--site-header,
+    &--home-page {
       width: 1000px;
     }
     &--album {
@@ -170,26 +163,18 @@
     &--album-photos {
       grid-template-columns: 1fr 1fr 1fr;
     }
-    &--album-slideshow-backlink {
-      padding-bottom: 0;
-      top: 0;
-      background-color: $HeaderFooterDarkBackgroundTransparent;
-    }
   }
 
   @mixin atMin1500Wide {
-    &--site-header {
+    &--site-header,
+    &--home-page {
       width: 1500px;
-    }
-    &--album-slideshow-backlink {
-      padding-bottom: 0;
-      top: 0;
-      background-color: $HeaderFooterDarkBackgroundTransparent;
     }
   }
 
   @mixin atMin1900Wide {
-    &--site-header {
+    &--site-header,
+    &--home-page {
       width: 1700px;
     }
     &--album {
@@ -201,11 +186,6 @@
     }
     &--album-photos {
       grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-    &--album-slideshow-backlink {
-      padding-bottom: 0;
-      top: 0;
-      background-color: $HeaderFooterDarkBackgroundTransparent;
     }
   }
 
