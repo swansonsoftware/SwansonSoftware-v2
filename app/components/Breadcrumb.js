@@ -5,6 +5,20 @@ import { Link } from "react-router-dom"
 function Breadcrumb(props) {
   const appState = useContext(StateContext)
 
+  function handleFocus() {
+    let breadcrumb = document.querySelector(".site-header__breadcrumb")
+    if (breadcrumb) {
+      breadcrumb.classList.remove("site-header__breadcrumb__fixed")
+      breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
+    }
+    let siteHeader = document.querySelector(".site-header")
+    if (siteHeader) {
+      if (siteHeader.classList.contains("site-header--collapse")) {
+        siteHeader.classList.remove("site-header--collapse")
+      }
+    }
+  }
+
   return (
     <nav aria-label="breadcrumb" className={appState.breadcrumbClass}>
       <div className="wrapper--site-header">
@@ -18,7 +32,13 @@ function Breadcrumb(props) {
             ) : (
               <>
                 <li key={index}>
-                  <Link id={link.id} to={link.toUrl}>
+                  <Link
+                    id={link.id}
+                    onFocus={e => {
+                      handleFocus()
+                    }}
+                    to={link.toUrl}
+                  >
                     {link.toText}
                   </Link>
                   <span aria-hidden="true" style={{ margin: "0 8px" }}>
