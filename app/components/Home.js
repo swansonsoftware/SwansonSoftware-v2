@@ -24,15 +24,25 @@ function Home() {
       <GStructuredData type="WebSite" name="SwansonSoftware"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com"></CanonicalLink>
       <meta name="description" content="SwansonSoftware is on a mission to disseminate the principles and practices of software construction that lead to quality software and successful projects." />
-      <div className="wrapper wrapper--banner">
-        <picture className="banner__image">
-          <source srcSet="../assets/images/0a-hero.webp" media="(min-width: 1380px)" width="1920" height="950"></source>
-          <source srcSet="../assets/images/0a-hero--medium.webp" media="(min-width: 640px)" width="1380" height="950"></source>
-          <img src="../assets/images/0a-hero--small.webp" width="640" height="660" alt="Kauai Beach moonrise"></img>
-        </picture>
-        <div className="banner__darkBackground banner__text-content">
-          <h1 className="banner__title">Welcome to Swanson Software</h1>
-          <p className="banner__subtitle">Disseminating knowledge in the craft of software construction</p>
+      <div className="wrapper--home-page">
+        <div className="row row--gutters">
+          <div className="row__colspan-4">
+            <p>Software development has been called craft. It's true, much like culinary technique, software development takes skill and judgment, which are refined and improved over time.</p>
+          </div>
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-4"></div>
+
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-4">
+            <p>Historically, artisans who worked with wood, clay, or metal would go through an apprenticeship to learn the craft. In software, we have mentorship, code reviews, and open-source collaboration.</p>
+          </div>
+
+          <div className="row__colspan-4">
+            <p>What about software engineering? While craft emphasizes creativity and intuition, engineering emphasizes mathematical solutions, predictability, and measurability. Software development blends both.</p>
+          </div>
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-4"></div>
         </div>
       </div>
     </Page>

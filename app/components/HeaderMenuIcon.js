@@ -39,7 +39,7 @@ function HeaderMenuIcon(props) {
         appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
         appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
         if (menuButtons) {
-          //prevent tabbinhg to hidden menu buttons
+          //prevent tabbing to hidden menu buttons
           menuButtons.forEach(button => {
             button.tabIndex = -1
           })
