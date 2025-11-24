@@ -1,8 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
+import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 import { Link } from "react-router-dom"
 
 function Breadcrumb(props) {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   function handleFocus() {
@@ -18,6 +20,14 @@ function Breadcrumb(props) {
       }
     }
   }
+
+  useEffect(() => {
+    let breadcrumbStyle = appState.breadcrumbClass
+    if (!breadcrumbStyle.includes("site-header__breadcrumb--transparent")) {
+      breadcrumbStyle += " site-header__breadcrumb--transparent"
+      appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+    }
+  }, [])
 
   return (
     <nav id="breadcrumb" aria-label="breadcrumb" className={appState.breadcrumbClass}>
