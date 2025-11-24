@@ -116,13 +116,15 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
   function ToggleMenuExpansion(e, idx) {
     // console.log("ToggleMenuExpansion idx: " + idx + ", menuActiveCategory: " + appState.menuActiveCategory)
     if (idx === appState.menuDropdownActiveTopic) {
+      //collapse
       appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
-      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
       let menuIconExpanded = document.querySelector(".site-header__menu-icon--expanded")
       if (!menuIconExpanded) {
+        appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
         updateBreadcrumbStyle("", "", SHOW_BREADCRUMB)
       }
     } else {
+      //expand
       appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: idx })
       appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay lightbox__menu-overlay--visible" })
       updateBreadcrumbStyle("", "", HIDE_BREADCRUMB)
