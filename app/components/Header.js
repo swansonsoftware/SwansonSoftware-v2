@@ -19,7 +19,6 @@ function Header() {
   const menuIconStyle = useRef(appState.backgroundStyle == "dark" ? "site-header__menu-icon--dark" : "")
 
   function CloseMenu() {
-    // console.log("CloseMenu")
     appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
     appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden" })
     appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
@@ -33,12 +32,10 @@ function Header() {
   }
 
   function updateBreadcrumbStyle(scrollup, fixed, hidden) {
-    // console.log("updateBreadcrumbStyle(scrollup:" + scrollup + ", fixed:" + fixed + ", hidden:" + hidden)
-
     var breadcrumbStyle = currBreadcrumbStyle.current
     let breadcrumbLink = document.querySelector("#breadcrumb-link")
 
-    //10/28/25 scrollup is no longer needed, should remove
+    //10/28/25 scrollup not needed
 
     if (fixed != null) {
       if (fixed === true) {
@@ -76,7 +73,6 @@ function Header() {
       breadcrumbStyle += " site-header__breadcrumb--transparent"
     }
 
-    // console.log("updateBreadcrumbStyle 3 breadcrumbStyle: " + breadcrumbStyle)
     appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
   }
 
@@ -107,7 +103,6 @@ function Header() {
   let prevScrollpos = window.scrollY
 
   function SetHeaderVisibility() {
-    // console.log("SetHeaderVisibility")
     var currentScrollPos = window.scrollY
     const antiBounceBuffer = 10 //reduces bounce when scrolling to top on touch screens
 
@@ -138,17 +133,13 @@ function Header() {
   }, [])
 
   useEffect(() => {
-    // console.log("useeffect: currBreadcrumbStyle: " + currBreadcrumbStyle.current)
-
     if (appState.backgroundStyle == "dark") {
-      // console.log("setting header dark")
       setSiteHeaderClass("site-header site-header--expand site-header--dark")
       siteHeaderClassExpanded.current = "site-header site-header--expand site-header--dark"
       siteHeaderClassCollapsed.current = "site-header site-header--collapse site-header--dark"
       currBreadcrumbStyle.current = "site-header__breadcrumb site-header__breadcrumb--dark-bg"
       menuIconStyle.current = "site-header__menu-icon--dark"
     } else {
-      // console.log("setting header light")
       setSiteHeaderClass("site-header site-header--expand")
       siteHeaderClassExpanded.current = "site-header site-header--expand"
       siteHeaderClassCollapsed.current = "site-header site-header--collapse"
