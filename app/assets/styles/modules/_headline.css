@@ -14,14 +14,14 @@
     }
   }
   &__h1-cg {
-    font: normal 300 3.4rem/1.15 "Cormorant Garamond";
+    font: normal 300 3.4rem/1.15 $headersFont;
     @mixin atMin1200Wide {
       font-size: 4.5rem;
     }
   }
 
   &__h2 {
-    font: 400 2.5rem/1.15 "Cormorant Garamond";
+    font: 400 2.5rem/1.15 $headersFont;
     padding: 10px 0;
     margin: 0;
 
@@ -48,7 +48,7 @@
   }
 
   &__h3 {
-    font: 400 1.75rem/1.15 "Cormorant Garamond";
+    font: 400 1.75rem/1.15 $headersFont;
     padding: 10px 0;
     margin: 0;
     &--bold {
@@ -73,8 +73,7 @@
   }
 
   &__h3-album-thumbnail {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font: 500 1.5rem/1.15 $headersFont;
     padding-top: 25px;
     padding-bottom: 10px;
     margin: 0;
@@ -88,7 +87,7 @@
   }
 
   &__h4 {
-    font: 400 1.5rem/1.15 "Cormorant Garamond";
+    font: 400 1.5rem/1.15 $headersFont;
     padding: 10px 0;
     margin: 0;
 

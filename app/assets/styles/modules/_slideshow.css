@@ -70,12 +70,12 @@
     width: 350px;
     height: 65px;
     border-radius: 40px;
-    background: rgba(0, 0, 0, 0.5);
+    background: $vcrButtonContainerBackground;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border: 1px solid yellow;
+    border: 1px solid $vcrContainerOutlineColor;
 
     &--fullscreen {
       bottom: 0;
@@ -108,15 +108,15 @@
     &--svg {
       height: 48px;
       width: 48px;
-      fill: #ff0000;
+      fill: $vcrButtonOutlineColor;
       stroke-width: 1px;
       overflow: visible;
       &--path {
-        stroke: #ff0000;
+        stroke: $vcrButtonOutlineColor;
         stroke-linecap: round;
       }
       &--polygon {
-        stroke: #ff0000;
+        stroke: $vcrButtonOutlineColor;
         stroke-width: 2px;
         stroke-linecap: round;
         stroke-linejoin: round;
@@ -131,12 +131,12 @@
     &--svg-dbl-stroke {
       height: 48px;
       width: 48px;
-      fill: #ff0000;
+      fill: $vcrButtonOutlineColor;
       stroke-width: 2.5px;
       stroke-linecap: round;
       overflow: visible;
       &--path {
-        stroke: #ff0000;
+        stroke: $vcrButtonOutlineColor;
       }
       &:hover {
         stroke-width: 3.5px;
@@ -149,7 +149,7 @@
       border: 0;
       cursor: pointer;
       &:focus {
-        outline: 3px solid yellow;
+        outline: 3px solid $vcrContainerOutlineColor;
       }
     }
   }
