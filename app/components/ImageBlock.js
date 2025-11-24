@@ -15,6 +15,7 @@ function ImageBlock(props) {
   }
 
   function closeMenuOverlay() {
+    // When and why would I want this?
     // appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
     // appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "-1" })
   }
