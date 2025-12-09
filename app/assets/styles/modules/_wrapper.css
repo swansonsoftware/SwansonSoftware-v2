@@ -11,6 +11,17 @@
     justify-content: space-between;
     width: 100%;
     padding: 0 18px;
+    z-index: $zIndex-3-ThirdLevel;
+    text-shadow: 3px 3px 2px black;
+    background-image: radial-gradient(ellipse at bottom, #080a0d 5%, transparent 60%), linear-gradient(136deg, transparent, #e8e8e8 290%), linear-gradient(115deg, #080a0d, transparent 40%), linear-gradient(180deg, transparent 0, #080a0d 70%), radial-gradient(ellipse at bottom, #080a0d 40%, transparent 80%), radial-gradient(ellipse at 5% 340%, transparent 80%, #f5f5f5 0);
+    &__image {
+      margin-top: 0;
+      margin-bottom: 48px;
+      @mixin atMinWidthToHideMenuIcon {
+        margin-top: 48px;
+        margin-bottom: 0;
+      }
+    }
   }
 
   &--banner {
