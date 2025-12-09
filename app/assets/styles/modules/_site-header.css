@@ -1,6 +1,6 @@
 .site-header {
   background-color: $HeaderFooterLiteBackground;
-  z-index: $zIndex-1-FirstLevel;
+  z-index: $zIndex-4-FourthLevel;
   position: fixed;
   width: 100%;
   display: flex;

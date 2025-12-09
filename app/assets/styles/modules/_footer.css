@@ -6,6 +6,7 @@
   left: 0;
   right: 0;
   padding: 15px 0 5px 0;
+  z-index: $zIndex-4-FourthLevel;
 
   a {
     color: $bodyLiteBGFontColor;

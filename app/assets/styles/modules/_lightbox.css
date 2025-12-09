@@ -45,7 +45,7 @@
       left: 16px;
       right: 16px;
       overflow-y: auto;
-      z-index: $zIndex-2-SecondLevel;
+      z-index: $zIndex-5-FifthLevel;
     }
 
     &__selectedImg {
@@ -127,7 +127,7 @@
       opacity: 1;
       left: 0;
       transform: scale(1);
-      z-index: $zIndex-1-FirstLevel;
+      z-index: $zIndex-5-FifthLevel;
       @mixin atMin200Wide {
         right: 0;
       }
