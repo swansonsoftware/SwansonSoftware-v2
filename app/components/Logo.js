@@ -22,7 +22,7 @@ function Logo({ CloseMenu = { CloseMenu } }) {
       <Link to="/" id="header-logo-link" tabIndex="0" onClick={updateMenu}>
         <img src={appState.backgroundStyle == "dark" ? logoDark : logoLite} width="220" height="53" className="logo" alt="Swanson Software logo" title="Swanson Software home" />
       </Link>
-      <img src={appState.backgroundStyle == "dark" ? taglineDark : taglineLite} className="tagline" alt="Swanson Software tagline" title="Swanson Software tagline" />
+      <img src={appState.backgroundStyle == "dark" ? taglineDark : taglineLite} className="tagline" alt="About Software Construction" title="Tagline" />
     </div>
   )
 }
