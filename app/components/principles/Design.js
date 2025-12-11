@@ -17,6 +17,7 @@ function Design() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "Software Design" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const breadcrumbs = [

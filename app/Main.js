@@ -1,4 +1,4 @@
-import React, { useReducer, Suspense } from "react"
+import React, { useReducer, Suspense, useContext } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 import "./assets/styles/styles.css"
@@ -53,7 +53,7 @@ const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blo
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", isMenuOpen: false, breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay" }
+  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay" }
 
   function theReducer(state, action) {
     switch (action.type) {
@@ -61,7 +61,7 @@ function Main() {
         return {
           backgroundStyle: action.color,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -77,7 +77,7 @@ function Main() {
         return {
           backgroundStyle: state.color,
           siteHeaderClass: action.class,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -89,12 +89,12 @@ function Main() {
           imageOverlay: state.imageOverlay
         }
       }
-      case "isMenuOpen": {
+      case "homePageClass": {
         //not used
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: action.isMenuOpen,
+          homePageClass: action.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -110,7 +110,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: action.class,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -126,7 +126,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: action.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -142,7 +142,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: action.menuOverlay,
@@ -158,7 +158,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -174,7 +174,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -190,7 +190,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -206,7 +206,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -222,7 +222,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -238,7 +238,7 @@ function Main() {
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
-          isMenuOpen: state.isMenuOpen,
+          homePageClass: state.homePageClass,
           breadcrumbClass: state.breadcrumbClass,
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
@@ -261,7 +261,7 @@ function Main() {
         <BrowserRouter>
           <SkipToContent />
           <Header />
-          <main className="page" id="maincontent">
+          <main className={state.homePageClass} id="maincontent">
             <Suspense fallback={<LoadingDotsIcon />}>
               <Routes>
                 <Route path="/" element={<Home />} />

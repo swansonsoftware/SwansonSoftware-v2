@@ -17,6 +17,7 @@ function Album() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "Album" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const breadcrumbs = [

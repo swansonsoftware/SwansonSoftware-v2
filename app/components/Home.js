@@ -19,6 +19,7 @@ function Home() {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
     appDispatch({ type: "selectMenu", selectedMenu: "" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
+    appDispatch({ type: "homePageClass", homePageClass: "page page__home" })
   }, [])
 
   return (
@@ -30,13 +31,15 @@ function Home() {
 
       <div className="wrapper--home-page">
         <div className="row row--gutters">
+          <div className="row__colspan-2"></div>
           <div className="row__colspan-8">
+            <h1 className="headline__h1-cg">Software Craftsmanship</h1>
             <p>Craft artisans choose their materials carefully to achieve specific results, such as ease of tooling or working with the material, durability of the product, and beauty. Likewise, software developers choose their materials based on the results they wish to achieve, such as robustness and security, interoperability, performance, and ease of coding.</p>
             <p>To software developers, a programming language is the medium, and frameworks, algorithms, APIs and libraries, and data are the materials. The wrong framework is one that will be obsolete soon, shortening the lifespan of your application. The wrong API or library has limitations, and you want to avoid locking your application into those limitations. The wrong algorithm will have a security vulnerability that will require extra work to fix, and a new release of the product.</p>
             <p>Choosing the right materials is crucial for an application’s success. Unlike traditional crafts where the tools and materials change little throughout an artisan’s career, the tools for software development and the materials used to create software change constantly, and it is crucial to a developer’s career success that they learn about the changes important to them.</p>
             <p>Swanson Software shares knowledge about software construction principles and practices, as well as the tools and materials involved.</p>
           </div>
-          <div className="row__colspan-4"></div>
+          <div className="row__colspan-2"></div>
         </div>
       </div>
     </Page>

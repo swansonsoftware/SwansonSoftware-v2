@@ -18,6 +18,7 @@ function ContactUs() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const eventListenerAbortCtrlr = new AbortController()

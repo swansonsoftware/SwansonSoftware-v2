@@ -16,6 +16,7 @@ function Blogs2025() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const breadcrumbs = [

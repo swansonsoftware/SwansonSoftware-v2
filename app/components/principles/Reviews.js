@@ -18,6 +18,7 @@ function Reviews() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "Software Reviews" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const breadcrumbs = [

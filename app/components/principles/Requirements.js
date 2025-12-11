@@ -17,6 +17,7 @@ function Requirements() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "Software Requirements" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const breadcrumbs = [

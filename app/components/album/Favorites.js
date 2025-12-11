@@ -17,6 +17,7 @@ function Favorites() {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
     appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const photobooks = [

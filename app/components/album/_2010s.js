@@ -15,6 +15,7 @@ function _2010s() {
   useEffect(() => {
     appDispatch({ type: "selectMenu", selectedMenu: "2010s" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
   }, [])
 
   const photos = [

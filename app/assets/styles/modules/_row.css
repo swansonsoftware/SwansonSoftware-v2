@@ -8,35 +8,30 @@
     &--gutters {
       column-gap: 5.3%;
     }
-
     &--gutters-small {
       column-gap: 3.6%;
     }
-
     &__margin-bottom-0 {
       margin-bottom: 0;
     }
-
     &__colspan-1 {
       grid-column: span 1;
     }
-
+    &__colspan-2 {
+      grid-column: span 2;
+    }
     &__colspan-4 {
       grid-column: span 4;
     }
-
     &__colspan-7 {
       grid-column: span 7;
     }
-
     &__colspan-8 {
       grid-column: span 8;
     }
-
     &__colspan-10 {
       grid-column: span 10;
     }
-
     &__colspan-12 {
       grid-column: span 12;
       padding-top: 20px;
