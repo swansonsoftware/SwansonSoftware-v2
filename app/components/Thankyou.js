@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import Breadcrumb from "./Breadcrumb"
 import GTag from "./GTag"
 
 function Thankyou() {
