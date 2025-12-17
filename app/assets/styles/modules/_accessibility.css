@@ -24,7 +24,7 @@
     align-items: center;
     -webkit-transition: top 1s $cb-ease-out;
     transition: top 1s $cb-ease-out;
-    z-index: $zIndex-2-SecondLevel;
+    z-index: $zIndex-5-FifthLevel;
 
     &:focus {
       top: 10px;
