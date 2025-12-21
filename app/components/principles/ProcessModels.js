@@ -18,6 +18,10 @@ function ProcessModels() {
     appDispatch({ type: "selectMenu", selectedMenu: "Process Models" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -32,7 +36,7 @@ function ProcessModels() {
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Development Process Models"></GStructuredData>
       <meta name="description" content="Software development process models" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Development Process Models</h1>
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>
         <div className="row row--gutters">

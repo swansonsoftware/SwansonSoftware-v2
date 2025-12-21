@@ -1,16 +1,31 @@
 import React, { useContext } from "react"
+import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 import { Link } from "react-router-dom"
 
 function Breadcrumb(props) {
+  const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
   function handleFocus() {
-    let breadcrumb = document.querySelector(".site-header__breadcrumb")
-    if (breadcrumb) {
-      breadcrumb.classList.remove("site-header__breadcrumb__fixed")
-      breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")
+    let breadcrumbStyle = appState.breadcrumbClass
+    let mustDispatch = false
+    if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
+      breadcrumbStyle = filtered.join(" ")
+      mustDispatch = true
     }
+    if (breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb--is-hidden")
+      breadcrumbStyle = filtered.join(" ")
+      mustDispatch = true
+    }
+    if (mustDispatch) {
+      appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+    }
+
     let siteHeader = document.querySelector(".site-header")
     if (siteHeader) {
       if (siteHeader.classList.contains("site-header--collapse")) {
@@ -22,7 +37,7 @@ function Breadcrumb(props) {
   return (
     <nav aria-label="breadcrumb" className={appState.breadcrumbClass}>
       <div className="wrapper--site-header">
-        <ol>
+        <ol id="breadcrumbs">
           {props.breadcrumbs.map((link, index) => {
             const isLast = index === props.breadcrumbs.length - 1
             return isLast ? (

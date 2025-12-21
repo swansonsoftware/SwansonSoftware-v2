@@ -18,6 +18,10 @@ function Requirements() {
     appDispatch({ type: "selectMenu", selectedMenu: "Software Requirements" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -32,7 +36,7 @@ function Requirements() {
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Requirements"></GStructuredData>
       <meta name="description" content="Software requirements" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Requirements</h1>
 
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>

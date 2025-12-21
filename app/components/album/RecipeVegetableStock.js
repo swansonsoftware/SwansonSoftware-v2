@@ -18,6 +18,10 @@ function VegetableStock() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "Recipes" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const images = [
@@ -40,7 +44,7 @@ function VegetableStock() {
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Vegetable Stock Recipe" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1">Vegetable Stock</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated November 10, 2025</div>

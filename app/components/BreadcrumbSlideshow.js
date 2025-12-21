@@ -8,7 +8,28 @@ function Breadcrumb(props) {
   const appState = useContext(StateContext)
 
   function handleFocus() {
-    let breadcrumb = document.querySelector(".site-header__breadcrumb")
+    let breadcrumbStyle = appState.breadcrumbClass
+    let mustDispatch = false
+    if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
+      breadcrumbStyle = filtered.join(" ")
+      mustDispatch = true
+    }
+    if (breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb--is-hidden")
+      breadcrumbStyle = filtered.join(" ")
+      mustDispatch = true
+    }
+    if (!breadcrumbStyle.includes("site-header__breadcrumb--transparent")) {
+      breadcrumbStyle += " site-header__breadcrumb--transparent"
+      mustDispatch = true
+    }
+    if (mustDispatch) {
+      appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+    }
+    let breadcrumb = document.getElementById("breadcrumb")
     if (breadcrumb) {
       breadcrumb.classList.remove("site-header__breadcrumb__fixed")
       breadcrumb.classList.remove("site-header__breadcrumb--is-hidden")

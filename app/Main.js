@@ -261,7 +261,7 @@ function Main() {
         <BrowserRouter>
           <SkipToContent />
           <Header />
-          <main className={state.homePageClass} id="maincontent">
+          <main className={state.homePageClass}>
             <Suspense fallback={<LoadingDotsIcon />}>
               <Routes>
                 <Route path="/" element={<Home />} />

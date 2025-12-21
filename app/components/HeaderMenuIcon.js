@@ -18,6 +18,8 @@ function HeaderMenuIcon(props) {
     if (e.code == "Enter" || e.type == "click") {
       let menuIconCollapsed = document.querySelector(".site-header__menu-icon--collapsed")
       let menuButtons = document.querySelectorAll(".nav__button")
+      let breadcrumbStyle = appState.breadcrumbClass
+
       if (menuIconCollapsed) {
         appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-visible" + (appState.backgroundStyle == "dark" ? " nav__menu-content--icon-visible--dark" : "") })
         menuIconState.current = "site-header__menu-icon--expanded"
@@ -28,7 +30,10 @@ function HeaderMenuIcon(props) {
             button.tabIndex = 0
           })
         }
-        props.updateBreadcrumbStyle("", "", HIDE_BREADCRUMB)
+        if (!breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+          breadcrumbStyle += " site-header__breadcrumb--is-hidden"
+          appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+        }
         // if (slideshowCaptionBox) {
         //   slideshowCaptionBox.style.zIndex = "0"
         // }
@@ -44,12 +49,16 @@ function HeaderMenuIcon(props) {
             button.tabIndex = -1
           })
         }
-        props.updateBreadcrumbStyle("", "", SHOW_BREADCRUMB)
+        if (breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+          let classlist = breadcrumbStyle.split(" ")
+          let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb--is-hidden")
+          breadcrumbStyle = filtered.join(" ")
+          appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+        }
         // if (slideshowCaptionBox) {
         //   slideshowCaptionBox.style.zIndex = "1"
         // }
       }
-      // console.log("HeaderMenuIcon: ToggleMenuIcon - appDispatch mobileMenuIconState: " + menuIconBaseClass + ", " + menuBgColor + ", " + menuIconState.current)
       appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: menuIconBaseClass + " " + menuBgColor + " " + menuIconState.current })
     }
   }

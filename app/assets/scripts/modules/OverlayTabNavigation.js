@@ -35,6 +35,15 @@ class OverlayTabNavigation {
     if (headerLogoLink) {
       headerLogoLink.tabIndex = tabindex
     }
+    let breadcrumbs = document.getElementById("breadcrumbs")
+    if (breadcrumbs) {
+      console.log("got breadcrumbs count: " + breadcrumbs.childNodes.length)
+      for (var i = 0; i < breadcrumbs.childNodes.length; i++) {
+        if (breadcrumbs.childNodes[i].childNodes.length == 2) {
+          breadcrumbs.childNodes[i].childNodes[0].tabIndex = tabindex
+        }
+      }
+    }
 
     // console.log("setting focus to " + selectedImage)
     if (selectedImage) {

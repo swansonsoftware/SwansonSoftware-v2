@@ -17,6 +17,10 @@ function Blog() {
     appDispatch({ type: "selectMenu", selectedMenu: "Blog" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -28,7 +32,7 @@ function Blog() {
     <Page title="Blog">
       <GTag></GTag>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Blog</h1>
         <h2 className="headline__h2">Rants and Ruminations</h2>
         <p>I worked in software development for several decades and there are some things I would like to say.</p>

@@ -18,6 +18,10 @@ function Design() {
     appDispatch({ type: "selectMenu", selectedMenu: "Software Design" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -32,7 +36,7 @@ function Design() {
       <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
       <meta name="description" content="A survey of software design, including design strategies, methodologies, and the technical spec. Both object-oriented and structured methods are covered." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Design</h1>
         <div className="headline__author">Gregory Swanson | Updated November 5, 2025</div>
         <div className="row row--gutters">

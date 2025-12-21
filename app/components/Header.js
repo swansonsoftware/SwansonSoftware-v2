@@ -12,7 +12,6 @@ function Header() {
   const [siteHeaderClass, setSiteHeaderClass] = useState("site-header site-header--expand")
   const siteHeaderClassExpanded = useRef("site-header site-header--expand")
   const siteHeaderClassCollapsed = useRef("site-header site-header--collapse")
-  const breadcrumbFixed = useRef(false)
   const breadcrumbHidden = useRef(false)
   const currBreadcrumbStyle = useRef("site-header__breadcrumb")
   const menuIconState = useRef("site-header__menu-icon--collapsed")
@@ -22,7 +21,9 @@ function Header() {
     appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
     appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden" })
     appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
-    updateBreadcrumbStyle(false, false, false)
+    let breadcrumbStyle = ""
+    appState.backgroundStyle == "dark" ? (breadcrumbStyle = "site-header__breadcrumb site-header__breadcrumb--dark-bg") : (breadcrumbStyle = "site-header__breadcrumb")
+    appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
     ShowHamburgerMenuIcon()
   }
 
@@ -31,49 +32,15 @@ function Header() {
     appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
   }
 
-  function updateBreadcrumbStyle(scrollup, fixed, hidden) {
-    var breadcrumbStyle = currBreadcrumbStyle.current
-    let breadcrumbLink = document.querySelector("#breadcrumb-link")
-
-    //10/28/25 scrollup not needed
-
-    if (fixed != null) {
-      if (fixed === true) {
-        breadcrumbFixed.current = true
-        breadcrumbStyle += " site-header__breadcrumb__fixed"
-      } else if (fixed === false) {
-        breadcrumbFixed.current = false
-      } else {
-        if (breadcrumbFixed.current == true) {
-          breadcrumbStyle += " site-header__breadcrumb__fixed"
-        }
-      }
-    }
-
-    if (hidden != null) {
-      if (hidden === true) {
-        breadcrumbHidden.current = true
-        breadcrumbStyle += " site-header__breadcrumb--is-hidden"
-        if (breadcrumbLink) {
-          breadcrumbLink.tabIndex = "-1"
-        }
-      } else if (hidden === false) {
-        breadcrumbHidden.current = false
-        if (breadcrumbLink) {
-          breadcrumbLink.tabIndex = "0"
-        }
-      } else {
-        if (breadcrumbHidden.current == true) {
-          breadcrumbStyle += " site-header__breadcrumb--is-hidden"
-        }
-      }
-    }
+  function updateBreadcrumbStyle(fixed, hidden) {
     let breadcrumb = document.getElementById("breadcrumb")
     if (breadcrumb) {
-      breadcrumbStyle += " site-header__breadcrumb--transparent"
+      let breadcrumbStyle = currBreadcrumbStyle.current
+      if (!breadcrumbStyle.includes("site-header__breadcrumb--transparent")) {
+        breadcrumbStyle += " site-header__breadcrumb--transparent"
+        appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+      }
     }
-
-    appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
   }
 
   function updateSiteHeaderClass(expanded) {
@@ -89,20 +56,26 @@ function Header() {
   function Throttle() {
     let millisecondsSincLastCall = 0
     let currentMs = new Date().getMilliseconds()
+    let breadcrumbStyle = appState.breadcrumbClass
     if (currentMs - millisecondsSincLastCall >= scrollIntervalMS) {
       millisecondsSincLastCall = currentMs
-      SetHeaderVisibility()
+      SetHeaderVisibility(breadcrumbStyle)
     } else {
       if (window.scrollY < 50) {
         setSiteHeaderClass(siteHeaderClassExpanded.current)
-        updateBreadcrumbStyle(false, false, "")
+        if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+          let classlist = breadcrumbStyle.split(" ")
+          let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
+          breadcrumbStyle = filtered.join(" ")
+          appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+        }
       }
     }
   }
 
   let prevScrollpos = window.scrollY
 
-  function SetHeaderVisibility() {
+  function SetHeaderVisibility(breadcrumbStyle) {
     var currentScrollPos = window.scrollY
     const antiBounceBuffer = 10 //reduces bounce when scrolling to top on touch screens
 
@@ -110,14 +83,28 @@ function Header() {
       //scrolling up
       setSiteHeaderClass(siteHeaderClassExpanded.current)
       if (breadcrumbHidden.current != true) {
-        updateBreadcrumbStyle(false, false, "")
+        if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+          let classlist = breadcrumbStyle.split(" ")
+          let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
+          breadcrumbStyle = filtered.join(" ")
+        }
+        if (currBreadcrumbStyle.current.includes("site-header__breadcrumb--dark-bg") && !breadcrumbStyle.includes("site-header__breadcrumb--dark-bg")) {
+          breadcrumbStyle += " site-header__breadcrumb--dark-bg"
+        }
+        appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
       }
     } else {
       //scrolling down
       if (prevScrollpos + 5 < currentScrollPos && currentScrollPos > antiBounceBuffer) {
         setSiteHeaderClass(siteHeaderClassCollapsed.current)
         if (breadcrumbHidden.current != true) {
-          updateBreadcrumbStyle(false, true, "")
+          if (!breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+            breadcrumbStyle += " site-header__breadcrumb__fixed"
+          }
+          if (currBreadcrumbStyle.current.includes("site-header__breadcrumb--dark-bg") && !breadcrumbStyle.includes("site-header__breadcrumb--dark-bg")) {
+            breadcrumbStyle += " site-header__breadcrumb--dark-bg"
+          }
+          appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
         }
         appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
         appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
@@ -146,7 +133,7 @@ function Header() {
       currBreadcrumbStyle.current = "site-header__breadcrumb"
       menuIconStyle.current = ""
     }
-    updateBreadcrumbStyle("", "", "")
+    appDispatch({ type: "updateBreadcrumbClass", class: currBreadcrumbStyle.current })
     appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
   }, [appState.backgroundStyle])
 

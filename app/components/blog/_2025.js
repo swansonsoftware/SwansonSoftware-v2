@@ -17,6 +17,10 @@ function Blogs2025() {
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -29,7 +33,7 @@ function Blogs2025() {
     <Page title="2025 Blog">
       <GTag></GTag>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">2025</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">

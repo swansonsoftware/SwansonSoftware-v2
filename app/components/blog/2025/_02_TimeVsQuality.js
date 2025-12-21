@@ -16,6 +16,10 @@ function BlogJan2025_TimeVsQuality() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -31,7 +35,7 @@ function BlogJan2025_TimeVsQuality() {
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
       <meta name="description" content="Time vs. quality in software development" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Time vs. Quality</h1>
         <div className="row row--gutters">
           <div className="row__col-span-4 row__margin-bottom-0">

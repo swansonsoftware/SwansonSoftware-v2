@@ -19,6 +19,10 @@ function Reviews() {
     appDispatch({ type: "selectMenu", selectedMenu: "Software Reviews" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -33,7 +37,7 @@ function Reviews() {
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T12:05:58-07:00" headline="Software Reviews"></GStructuredData>
       <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Reviews</h1>
         <div className="headline__author">Gregory Swanson | updated March 26, 2025</div>
         <div className="row row--gutters">

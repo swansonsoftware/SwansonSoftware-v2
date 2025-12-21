@@ -220,10 +220,19 @@ function SlideShow(props) {
 
   function SetHeaderTransparency(transparent) {
     let siteHeader = document.querySelector(".site-header")
+    let breadcrumb = document.getElementById("breadcrumb")
     if (transparent) {
       if (siteHeader && siteHeader.classList.contains("site-header--dark")) {
         siteHeader.classList.add("site-header--slideshow")
         siteHeader.classList.remove("site-header--dark")
+      }
+      if (breadcrumb) {
+        let breadcrumbStyle = breadcrumb.classList.toString()
+        // console.log("SlideShow breadcrumb class list: " + breadcrumbStyle)
+        if (!breadcrumbStyle.includes("site-header__breadcrumb--transparent")) {
+          breadcrumbStyle += " site-header__breadcrumb--transparent"
+          appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+        }
       }
     } else {
       if (siteHeader && siteHeader.classList.contains("site-header--slideshow")) {

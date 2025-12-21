@@ -16,6 +16,10 @@ function _2000s() {
     appDispatch({ type: "selectMenu", selectedMenu: "2000s" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const photos = [
@@ -57,7 +61,7 @@ function _2000s() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2000s" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album">
+      <div className="wrapper wrapper--album" id="maincontent">
         <h1 className="headline__h1">2000s</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

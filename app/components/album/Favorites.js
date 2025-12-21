@@ -18,6 +18,10 @@ function Favorites() {
     appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const photobooks = [
@@ -39,7 +43,7 @@ function Favorites() {
       <CanonicalLink href="https://swansonsoftware.com/album/favorites"></CanonicalLink>
       <meta name="description" content="Swanson Software Album, Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album">
+      <div className="wrapper wrapper--album" id="maincontent">
         <h1 className="headline__h1">Favorites</h1>
         <div className="wrapper--album-photos">
           {photobooks.map(image => {

@@ -20,6 +20,10 @@ function Home() {
     appDispatch({ type: "selectMenu", selectedMenu: "" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
     appDispatch({ type: "homePageClass", homePageClass: "page page__home" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   return (
@@ -29,7 +33,7 @@ function Home() {
       <CanonicalLink href="https://swansonsoftware.com"></CanonicalLink>
       <meta name="description" content="SwansonSoftware is on a mission to disseminate the principles and practices of software construction that lead to quality software and successful projects." />
 
-      <div className="wrapper--home-page">
+      <div className="wrapper--home-page" id="maincontent">
         <div className="row row--gutters">
           <div className="row__colspan-2"></div>
           <div className="row__colspan-8">

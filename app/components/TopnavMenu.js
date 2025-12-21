@@ -8,10 +8,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
-  const ISFIXED = true
   const EXPANDED = true
-  const HIDE_BREADCRUMB = true
-  const SHOW_BREADCRUMB = false
 
   var prevTopicId = -1
   var idprefix = "ul-id-"
@@ -116,20 +113,29 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
   }
 
   function ToggleMenuExpansion(e, idx) {
-    // console.log("ToggleMenuExpansion idx: " + idx + ", menuActiveCategory: " + appState.menuActiveCategory)
+    let breadcrumbStyle = appState.breadcrumbClass
+
     if (idx === appState.menuDropdownActiveTopic) {
       //collapse
       appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
       let menuIconExpanded = document.querySelector(".site-header__menu-icon--expanded")
       if (!menuIconExpanded) {
         appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
-        updateBreadcrumbStyle("", "", SHOW_BREADCRUMB)
+        if (breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+          let classlist = breadcrumbStyle.split(" ")
+          let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb--is-hidden")
+          breadcrumbStyle = filtered.join(" ")
+          appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+        }
       }
     } else {
       //expand
       appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: idx })
       appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay lightbox__menu-overlay--visible" })
-      updateBreadcrumbStyle("", "", HIDE_BREADCRUMB)
+      if (!breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+        breadcrumbStyle += " site-header__breadcrumb--is-hidden"
+        appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+      }
       var classList = appState.menuListClassByIconState
       if (!classList.includes("nav__menu-content--allow-scroll")) {
         classList += " nav__menu-content--allow-scroll"
@@ -138,14 +144,47 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
     }
   }
 
+  function handleFocus() {
+    // Show the header
+    let siteHeader = document.querySelector(".site-header")
+    if (siteHeader) {
+      if (siteHeader.classList.contains("site-header--collapse")) {
+        siteHeader.classList.remove("site-header--collapse")
+      }
+    }
+    // Show the breadcrumb
+    let breadcrumbStyle = appState.breadcrumbClass
+    let mustDispatch = false
+    if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
+      breadcrumbStyle = filtered.join(" ")
+      mustDispatch = true
+    }
+    if (breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb--is-hidden")
+      breadcrumbStyle = filtered.join(" ")
+      mustDispatch = true
+    }
+    let breadcrumb = document.getElementById("breadcrumb")
+    if (breadcrumb && !breadcrumbStyle.includes("site-header__breadcrumb--transparent")) {
+      breadcrumbStyle += " site-header__breadcrumb--transparent"
+      mustDispatch = true
+    }
+    if (mustDispatch) {
+      appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+    }
+  }
+
   function menuKeyPressHandler(e) {
     if (e.code == "Escape") {
       CloseMenu()
-    } else if (e.code == "ArrowDown" || e.code == "ArrowUp" || e.code == "ArrowRight" || e.code == "ArrowLeft") {
+    } else if (e.code == "ArrowRight" || e.code == "ArrowLeft") {
       let direction = 0
-      if (e.code == "ArrowDown" || e.code == "ArrowRight") {
+      if (e.code == "ArrowRight") {
         direction = 1
-      } else if (e.code == "ArrowUp" || e.code == "ArrowLeft") {
+      } else if (e.code == "ArrowLeft") {
         direction = -1
       }
 
@@ -168,13 +207,18 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
   function showHeader() {
     // Same as when scrolling up
     updateSiteHeaderClass(EXPANDED)
-    updateBreadcrumbStyle("", !ISFIXED, "")
+    let breadcrumbStyle = appState.breadcrumbClass
+    if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
+      let classlist = breadcrumbStyle.split(" ")
+      let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
+      breadcrumbStyle = filtered.join(" ")
+      appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+    }
   }
 
   const eventListenerAbortCtrlr = new AbortController()
 
   useEffect(() => {
-    // console.log("TopnavMenu:useEffect")
     let overlay = document.getElementById("overlay")
     if (overlay) {
       overlay.addEventListener("click", CloseMenu, { signal: eventListenerAbortCtrlr.signal })
@@ -227,6 +271,9 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
                       tabIndex="0"
                       onClick={e => {
                         ToggleMenuExpansion(e, menuTopic.topicid)
+                      }}
+                      onFocus={e => {
+                        handleFocus()
                       }}
                       className={appState.backgroundStyle == "dark" ? "nav__button nav__button--dark" : "nav__button nav__button--lite"}
                       aria-expanded="false"

@@ -22,6 +22,10 @@ function About() {
     appDispatch({ type: "selectMenu", selectedMenu: "" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -34,7 +38,7 @@ function About() {
       <GTag></GTag>
       <meta name="description" content="About Swanson Software" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1">About Swanson Software</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">

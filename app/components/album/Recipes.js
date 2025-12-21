@@ -18,6 +18,10 @@ function Recipes() {
     appDispatch({ type: "selectMenu", selectedMenu: "Recipes" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const breadcrumbs = [
@@ -31,7 +35,7 @@ function Recipes() {
       <GTag></GTag>
       <CanonicalLink href="https://swansonsoftware.com/album/recipes"></CanonicalLink>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article">
+      <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1">Recipes</h1>
         <p>A short list of recipes, short because they really are my recipes, at least some of the ideas for them are mine. There was no single inventor of vegetable stock, clam chowder, or pie crust: they developed over hundreds or even thousands of years.</p>
 

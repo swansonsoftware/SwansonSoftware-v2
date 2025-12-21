@@ -15,6 +15,10 @@ function FavoritesPersimons() {
   useEffect(() => {
     appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const photos = [
@@ -43,7 +47,7 @@ function FavoritesPersimons() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Persimon Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album">
+      <div className="wrapper wrapper--album" id="maincontent">
         <h1 className="headline__h1">Persimon Favorites</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

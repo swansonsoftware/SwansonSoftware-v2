@@ -10,11 +10,16 @@ function FavoritesKauai() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
-  // appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
+  appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
   useEffect(() => {
+    appDispatch({ type: "backgroundStyleChange", color: "dark" })
     appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
+    }
   }, [])
 
   const photos = [
@@ -63,7 +68,7 @@ function FavoritesKauai() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Kauai Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album">
+      <div className="wrapper wrapper--album" id="maincontent">
         <h1 className="headline__h1">Kauai Favorites</h1>
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />
       </div>
