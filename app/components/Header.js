@@ -21,9 +21,7 @@ function Header() {
     appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
     appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden" })
     appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
-    let breadcrumbStyle = ""
-    appState.backgroundStyle == "dark" ? (breadcrumbStyle = "site-header__breadcrumb site-header__breadcrumb--dark-bg") : (breadcrumbStyle = "site-header__breadcrumb")
-    appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+    appDispatch({ type: "updateBreadcrumbClass", class: currBreadcrumbStyle.current })
     ShowHamburgerMenuIcon()
   }
 
