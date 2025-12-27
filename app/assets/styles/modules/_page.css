@@ -8,7 +8,7 @@
 
   p {
     font-size: 1.4rem;
-    line-height: 1.45;
+    line-height: 1.6;
     margin-top: 15px;
   }
   span.note {
@@ -46,7 +46,7 @@
   }
   p.dropCap::first-letter {
     float: left;
-    font: 500 4.9rem/0.8 $headersFont;
+    font: 500 5.5rem/0.73 $headersFont;
     padding-right: 4px;
   }
   p.dropCapNote::first-letter {

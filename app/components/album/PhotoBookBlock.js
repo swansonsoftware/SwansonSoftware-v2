@@ -20,7 +20,7 @@ function PhotoBookBlock(props) {
     >
       <div className="wrapper--album-photo-polaroid wrapper--album-photo-polaroid__book">
         <img src={props.src} width={props.width} height={props.height} alt={props.alt} srcSet={props.srcset ? props.srcset : undefined} sizes={props.sizes ? props.sizes : undefined}></img>
-        <h3 className="headline__h3-album-thumbnail headline__h3-album-thumbnail--center">{props.caption}</h3>
+        <h2 className="headline__h3-album-thumbnail headline__h3-album-thumbnail--center">{props.caption}</h2>
       </div>
     </button>
   )

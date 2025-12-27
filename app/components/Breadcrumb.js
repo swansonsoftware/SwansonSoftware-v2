@@ -35,13 +35,13 @@ function Breadcrumb(props) {
   }
 
   return (
-    <nav aria-label="breadcrumb" className={appState.breadcrumbClass}>
+    <nav aria-label="Breadcrumb" className={appState.breadcrumbClass}>
       <div className="wrapper--site-header">
         <ol id="breadcrumbs">
           {props.breadcrumbs.map((link, index) => {
             const isLast = index === props.breadcrumbs.length - 1
             return isLast ? (
-              <li key={index}>
+              <li key={index} aria-current="page">
                 <b>{link.toText}</b>
               </li>
             ) : (

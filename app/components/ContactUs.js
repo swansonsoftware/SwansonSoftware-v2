@@ -113,11 +113,12 @@ function ContactUs() {
       <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1">Contact Swanson Software</h1>
         <p>Please use the form below to contact SwansonSoftware. SwansonSoftware does not store or share any information you send, and you will not get unsolicited email or marketing material from SwansonSoftware.</p>
+        <p>* Indicates required.</p>
 
         <form id="contactus" className="form">
           <div>
             <label htmlFor="name">
-              Name: <span className="form--required">(required)</span>
+              <span className="form--required">*</span> Name:
             </label>
           </div>
           <div>
@@ -126,7 +127,7 @@ function ContactUs() {
 
           <div className="form--field-separation">
             <label htmlFor="email">
-              Email: <span className="form--required">(required)</span>
+              <span className="form--required">*</span> Email:
             </label>
           </div>
           <div>
@@ -135,7 +136,7 @@ function ContactUs() {
 
           <div className="form--field-separation">
             <label htmlFor="subject">
-              Subject: <span className="form--required">(required)</span>
+              <span className="form--required">*</span> Subject:
             </label>
           </div>
           <div>
@@ -144,7 +145,7 @@ function ContactUs() {
 
           <div className="form--field-separation">
             <label htmlFor="message">
-              Message: <span className="form--required">(required)</span>
+              <span className="form--required">*</span> Message:
             </label>
           </div>
           <div>
@@ -153,7 +154,7 @@ function ContactUs() {
 
           <div>
             <label htmlFor="phone" aria-hidden="true" className="form--phone">
-              Phone: <span className="form--required">(required)</span>
+              <span className="form--required">*</span> Phone:
               <input type="text" name="phone" id="phone" className="form--phone" tabIndex="-1" autoComplete="off" maxLength="50"></input>
             </label>
           </div>
@@ -165,7 +166,7 @@ function ContactUs() {
         </form>
 
         <div className="form--section">
-          <h3 className="headline__h3">Find us on social media</h3>
+          <h2 className="headline__h3">Find us on social media</h2>
 
           <Link className="social" to="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ" rel="noopener noreferrer" target="_blank" title="Swanson YouTube Channel">
             <span className="accessibility--hidden">Go to Gregory Swanson YouTube Channel.</span>

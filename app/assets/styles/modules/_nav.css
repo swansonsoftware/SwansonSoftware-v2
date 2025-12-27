@@ -53,11 +53,11 @@
       margin-right: 4px;
     }
     &--icon-stroke {
-      stroke: $bodyLiteBGFontColor;
+      stroke: currentColor;
       stroke-width: 2.5px;
       stroke-linecap: round;
       &--dark {
-        stroke: $bodyDarkBGFontColor;
+        stroke: currentColor;
         stroke-width: 2.5px;
         stroke-linecap: round;
       }
@@ -168,6 +168,29 @@
       }
       &--lite {
         text-decoration-color: $bodyLiteBGFontColor;
+      }
+    }
+  }
+  &__scrollToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid currentColor;
+    border-radius: 0.5rem;
+    background: $HeaderFooterDarkBackground;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    z-index: $zIndex-5-FifthLevel;
+    &:hover,
+    &:focus {
+      outline: 3px solid $bodyLiteBGFontColor;
+    }
+    &--dark {
+      &:hover,
+      &:focus {
+        outline: 3px solid $bodyDarkBGFontColor;
       }
     }
   }

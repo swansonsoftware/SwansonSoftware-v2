@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound"
 const LoadingDotsIcon = React.lazy(() => import("./components/DotsLoading"))
 import Home from "./components/Home"
 import SkipToContent from "./components/SkipToContent"
+import ScrollToTop from "./components/ScrollToTop"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 const Thankyou = React.lazy(() => import("./components/Thankyou"))
@@ -309,6 +310,7 @@ function Main() {
             </Suspense>
           </main>
           <Footer />
+          <ScrollToTop />
         </BrowserRouter>
       </DispatchContext.Provider>
     </StateContext.Provider>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 
-function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updateBreadcrumbStyle }, updateSiteHeaderClass = { updateSiteHeaderClass } }) {
+function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updateSiteHeaderClass } }) {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
@@ -66,6 +66,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
                 to={link}
                 tabIndex="0"
                 className={getMenuItemClass(backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite", topic)}
+                aria-current={appState.selectedMenu == topic ? "page" : undefined}
                 onClick={e => {
                   CloseMenu()
                 }}
@@ -96,6 +97,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
             to={item.link}
             tabIndex="0"
             className={getMenuItemClass(theBackgroundStyle, item.name)}
+            aria-current={appState.selectedMenu == item.name ? "page" : undefined}
             onClick={e => {
               CloseMenu()
             }}
@@ -114,6 +116,15 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
 
   function ToggleMenuExpansion(e, idx) {
     let breadcrumbStyle = appState.breadcrumbClass
+    // set all aria-expanded to false
+    var i = 0
+    topicSubtext.forEach(item => {
+      var expandedMenuItem = document.getElementById(i)
+      if (expandedMenuItem) {
+        expandedMenuItem.attributes["aria-expanded"].value = "false"
+      }
+      i++
+    })
 
     if (idx === appState.menuDropdownActiveTopic) {
       //collapse
@@ -140,6 +151,10 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
       if (!classList.includes("nav__menu-content--allow-scroll")) {
         classList += " nav__menu-content--allow-scroll"
         appDispatch({ type: "menuListClassByIconState", class: classList })
+      }
+      var expandedMenuItem = document.getElementById(idx)
+      if (expandedMenuItem) {
+        expandedMenuItem.attributes["aria-expanded"].value = "true"
       }
     }
   }
@@ -180,27 +195,29 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
   function menuKeyPressHandler(e) {
     if (e.code == "Escape") {
       CloseMenu()
-    } else if (e.code == "ArrowRight" || e.code == "ArrowLeft") {
-      let direction = 0
-      if (e.code == "ArrowRight") {
-        direction = 1
-      } else if (e.code == "ArrowLeft") {
-        direction = -1
+    } else {
+      if (e.code == "ArrowRight" || e.code == "ArrowLeft") {
+        let direction = 0
+        if (e.code == "ArrowRight") {
+          direction = 1
+        } else if (e.code == "ArrowLeft") {
+          direction = -1
+        }
+
+        const currentElement = document.activeElement
+        const focusableElements = Array.from(document.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')).filter(el => !el.hasAttribute("disabled"))
+
+        const currentIndex = focusableElements.indexOf(currentElement)
+
+        let nextIndex = currentIndex + direction
+
+        if (nextIndex >= focusableElements.length) {
+          nextIndex = 0
+        } else if (nextIndex < 0) {
+          nextIndex = focusableElements.length - 1
+        }
+        focusableElements[nextIndex].focus()
       }
-
-      const currentElement = document.activeElement
-      const focusableElements = Array.from(document.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')).filter(el => !el.hasAttribute("disabled"))
-
-      const currentIndex = focusableElements.indexOf(currentElement)
-
-      let nextIndex = currentIndex + direction
-
-      if (nextIndex >= focusableElements.length) {
-        nextIndex = 0
-      } else if (nextIndex < 0) {
-        nextIndex = focusableElements.length - 1
-      }
-      focusableElements[nextIndex].focus()
     }
   }
 
@@ -253,7 +270,15 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateBreadcrumbStyle = { updat
 
   return (
     <>
-      <nav className="nav nav--pull-right">
+      <nav
+        aria-label="Swanson Software"
+        className="nav nav--pull-right"
+        onBlur={e => {
+          if (!e.currentTarget.contains(e.relatedTarget)) {
+            CloseMenu()
+          }
+        }}
+      >
         <ul id="exTest" className={appState.menuListClassByIconState}>
           {menuitems
             .filter((curritem, idx, arr) => {

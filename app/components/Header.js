@@ -30,17 +30,6 @@ function Header() {
     appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
   }
 
-  function updateBreadcrumbStyle(fixed, hidden) {
-    let breadcrumb = document.getElementById("breadcrumb")
-    if (breadcrumb) {
-      let breadcrumbStyle = currBreadcrumbStyle.current
-      if (!breadcrumbStyle.includes("site-header__breadcrumb--transparent")) {
-        breadcrumbStyle += " site-header__breadcrumb--transparent"
-        appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
-      }
-    }
-  }
-
   function updateSiteHeaderClass(expanded) {
     if (expanded) {
       setSiteHeaderClass(siteHeaderClassExpanded.current)
@@ -49,14 +38,12 @@ function Header() {
     }
   }
 
-  let scrollIntervalMS = 300
+  let scrollIntervalMS = 400
 
   function Throttle() {
-    let millisecondsSincLastCall = 0
     let currentMs = new Date().getMilliseconds()
     let breadcrumbStyle = appState.breadcrumbClass
-    if (currentMs - millisecondsSincLastCall >= scrollIntervalMS) {
-      millisecondsSincLastCall = currentMs
+    if (currentMs >= scrollIntervalMS) {
       SetHeaderVisibility(breadcrumbStyle)
     } else {
       if (window.scrollY < 50) {
@@ -138,11 +125,11 @@ function Header() {
   return (
     <>
       <div className={appState.menuOverlay} id="overlay"></div>
-      <header className={siteHeaderClass}>
+      <header role="banner" className={siteHeaderClass}>
         <div className="wrapper--site-header">
           <Logo CloseMenu={CloseMenu} />
-          <HeaderMenuIcon updateBreadcrumbStyle={updateBreadcrumbStyle} />
-          <TopnavMenu CloseMenu={CloseMenu} updateBreadcrumbStyle={updateBreadcrumbStyle} updateSiteHeaderClass={updateSiteHeaderClass} />
+          <HeaderMenuIcon />
+          <TopnavMenu CloseMenu={CloseMenu} updateSiteHeaderClass={updateSiteHeaderClass} />
         </div>
       </header>
     </>

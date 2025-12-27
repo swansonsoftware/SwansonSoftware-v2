@@ -48,7 +48,7 @@
   }
 
   &__h3 {
-    font: 400 1.75rem/1.15 $headersFont;
+    font: 600 2.1rem/1.15 $headersFont;
     padding: 10px 0;
     margin: 0;
     &--bold {
