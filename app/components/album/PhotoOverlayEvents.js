@@ -18,6 +18,15 @@ function PhotoOverlayEvents(props) {
       }
       let overlayTabNav = new OverlayTabNavigation()
       overlayTabNav.SetTabIndexUnderOverlay("0", props.GetSelectedImage())
+
+      let closeBtn = document.getElementById("overlay-close-button")
+      if (closeBtn) {
+        closeBtn.setAttribute("tabindex", "-1")
+      }
+      let captionBoxBtn = document.getElementById("photo-caption-box-button")
+      if (captionBoxBtn) {
+        captionBoxBtn.setAttribute("tabindex", "-1")
+      }
     }
   }
 

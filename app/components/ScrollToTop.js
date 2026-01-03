@@ -48,6 +48,7 @@ function ScrollToTop() {
       <div ref={sentinelRef} style={{ height: "1px" }} />
 
       <button
+        id="scroll-to-top-button"
         onClick={scrollToTop}
         aria-label="Scroll back to top"
         tabIndex={visible ? 0 : -1}

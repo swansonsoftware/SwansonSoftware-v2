@@ -9,7 +9,6 @@ function PhotoLightboxOverlay() {
   const TITLE_BTN_POINT_RIGHT = "1"
 
   function doToggleButtonClick(e) {
-    // console.log("PhotoLightboxOverlay doToggleButtonClick: " + e.type)
     e.stopPropagation(), e.preventDefault()
     if (appState.captionBoxBtn === TITLE_BTN_POINT_LEFT) {
       appDispatch({ type: "captionBoxBtn", captionBoxBtn: TITLE_BTN_POINT_RIGHT })
@@ -23,7 +22,7 @@ function PhotoLightboxOverlay() {
       <span id="overlay-close-btn" className="accessibility--hidden">
         Select this to close the photo
       </span>
-      <button aria-labelledby="overlay-close-btn" id="overlay-close-button" tabIndex="0" className="lightbox__photo-overlay__close-btn">
+      <button aria-labelledby="overlay-close-btn" id="overlay-close-button" tabIndex="-1" className="lightbox__photo-overlay__close-btn">
         <svg id="closeicon" className="lightbox__photo-overlay__close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
           <path className="lightbox__photo-overlay__close-svg--path" d="M13 25.75C5.97 25.75.25 20.03.25 13S5.97.25 13 .25 25.75 5.97 25.75 13 20.03 25.75 13 25.75z" />
           <path className="lightbox__photo-overlay__close-svg--path" d="m8.59 17.41 8.92-8.92M17.459 17.459l-8.92-8.92" />
@@ -40,7 +39,7 @@ function PhotoLightboxOverlay() {
           }}
           aria-labelledby="photo-caption-box-btn"
           id="photo-caption-box-button"
-          tabIndex="0"
+          tabIndex="-1"
           className="album-photos__photo-caption-box__button"
         >
           <svg id="caption-box-left-arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.captionBoxBtn == "1" ? "album-photos__photo-caption-box__button--icon-rotate-180" : ""}>

@@ -28,12 +28,7 @@
     padding: 10px 0;
   }
 
-  &__about-us-link {
-    display: block;
-    padding: 10px 0 10px 5px;
-  }
-
-  &__contact-us-link {
+  &__link {
     display: block;
     padding: 10px 0 10px 5px;
   }
@@ -44,16 +39,10 @@
       &__copyright::after {
         content: "";
       }
-      &__about-us-link::before {
+      &__link::before {
         content: "";
       }
-      &__about-us-link {
-        padding: 10px 0;
-      }
-      &__contact-us-link::before {
-        content: "";
-      }
-      &__contact-us-link {
+      &__link {
         padding: 10px 0;
       }
     }
@@ -65,8 +54,11 @@
     &__copyright::after {
       content: " | ";
     }
-    &__about-us-link::after {
+    &__link::after {
       content: " | ";
+    }
+    &__link:last-child::after {
+      content: "";
     }
   }
 }

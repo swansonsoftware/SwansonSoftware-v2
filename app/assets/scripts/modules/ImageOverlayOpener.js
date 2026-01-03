@@ -12,6 +12,16 @@ class ImageOverlayOpener {
     let overlayTabNav = new OverlayTabNavigation()
     overlayTabNav.SetTabIndexUnderOverlay("-1", null)
 
+    let imageOverlay = document.querySelector(".lightbox__image-overlay")
+    if (imageOverlay) {
+      imageOverlay.setAttribute("tabindex", "0")
+    }
+
+    let closeBtn = document.getElementById("overlay-close-button")
+    if (closeBtn) {
+      closeBtn.setAttribute("tabindex", "0")
+    }
+
     var imgElem
 
     switch (this.e.target.nodeName) {
@@ -28,7 +38,9 @@ class ImageOverlayOpener {
 
     if (imgElem) {
       var overlayImageDiv = document.querySelector("#lightbox__image-overlay__image")
-      let overlay = document.querySelector(".lightbox__image-overlay")
+      if (imageOverlay) {
+        imageOverlay.focus()
+      }
 
       let caption = ""
 
@@ -91,7 +103,7 @@ class ImageOverlayOpener {
           overlayImageDiv.innerHTML = `
             <div class='lightbox__photo-overlay--spinner lightbox__photo-overlay--spinner--image'></div>
             <div class='lightbox__photo-overlay__selectedImg'>
-            <figure>
+            <figure id="image-${this.image.id}">
             <img src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
               alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="100vw" />
               <figcaption style="text-align:center">${caption}</figcaption>

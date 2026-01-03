@@ -1,6 +1,7 @@
-import React, { useContext } from "react"
+import React, { useContext, useRef } from "react"
 import DispatchContext from "../DispatchContext"
 import ImageOverlayOpener from "../assets/scripts/modules/ImageOverlayOpener"
+import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation"
 
 function ImageBlock(props) {
   const appDispatch = useContext(DispatchContext)
@@ -14,7 +15,7 @@ function ImageBlock(props) {
     }
   }
 
-  function closeMenuOverlay() {
+  function closeMenuOverlay(e) {
     // When and why would I want this?
     // appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
     // appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "-1" })
@@ -27,8 +28,9 @@ function ImageBlock(props) {
   return (
     <div>
       <button
+        id={"imageBlock" + props.image.id}
         type="button"
-        name={image.captionHeading}
+        name={image.captionHeading ? image.captionHeading : "none"}
         tabIndex="0"
         className="wrapper--image"
         onClick={e => {

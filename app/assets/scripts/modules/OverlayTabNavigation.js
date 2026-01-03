@@ -23,6 +23,15 @@ class OverlayTabNavigation {
     if (skiptocontent) {
       skiptocontent.tabIndex = tabindex
     }
+    let scrollToTop = document.getElementById("scroll-to-top-button")
+    if (scrollToTop) {
+      scrollToTop.tabIndex = tabindex
+      if (tabindex == -1) {
+        scrollToTop.style.zIndex = "0"
+      } else {
+        scrollToTop.style.zIndex = "5"
+      }
+    }
     let aboutUsLink = document.getElementById("about-us-link")
     if (aboutUsLink) {
       aboutUsLink.tabIndex = tabindex
@@ -31,13 +40,16 @@ class OverlayTabNavigation {
     if (contactUsLink) {
       contactUsLink.tabIndex = tabindex
     }
+    let privacyLink = document.getElementById("privacy-link")
+    if (privacyLink) {
+      privacyLink.tabIndex = tabindex
+    }
     let headerLogoLink = document.getElementById("header-logo-link")
     if (headerLogoLink) {
       headerLogoLink.tabIndex = tabindex
     }
     let breadcrumbs = document.getElementById("breadcrumbs")
     if (breadcrumbs) {
-      // console.log("got breadcrumbs count: " + breadcrumbs.childNodes.length)
       for (var i = 0; i < breadcrumbs.childNodes.length; i++) {
         if (breadcrumbs.childNodes[i].childNodes.length == 2) {
           breadcrumbs.childNodes[i].childNodes[0].tabIndex = tabindex
@@ -45,7 +57,6 @@ class OverlayTabNavigation {
       }
     }
 
-    // console.log("setting focus to " + selectedImage)
     if (selectedImage) {
       selectedImage.focus()
     }

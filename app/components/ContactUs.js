@@ -47,7 +47,6 @@ function ContactUs() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // console.log("handleSubmit")
     let contactFrm = document.getElementById("contactus")
 
     if (contactFrm) {
@@ -64,9 +63,6 @@ function ContactUs() {
           subject: subject.value,
           message: message.value
         }
-
-        // console.log("jsonstring: " + jsonstring)
-        // console.log("JSON strinify: " + JSON.stringify(jsonstring))
 
         submit(jsonstring)
       } else {
@@ -88,7 +84,6 @@ function ContactUs() {
         },
         body: JSON.stringify(jsonstring)
       })
-      // console.log("response status: " + response.status)
 
       if (!response.ok) {
         console.error("Response error: " + response.status)

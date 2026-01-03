@@ -179,7 +179,6 @@ function SlideShow(props) {
     if (touch.current == 0) {
       touch.current = 1
       clearInterval(vcrButtonsIntervalRef.current)
-      // console.log("runOnTouchEnd - call touchHideNav")
       vcrButtonsIntervalRef.current = setInterval(() => {
         touchHideNav()
       }, hideDelayMS)
@@ -520,7 +519,6 @@ function SlideShow(props) {
   }
 
   function swapVcrFullscreenBtn(btnId) {
-    // console.log("swapVcrFullscreenBtn " + btnId)
     const svgFullscreen = document.getElementById("showFullscreen")
     const svgFullscreenExit = document.getElementById("exitFullscreen")
     if (svgFullscreen && svgFullscreenExit) {

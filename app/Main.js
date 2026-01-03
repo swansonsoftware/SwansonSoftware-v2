@@ -41,6 +41,7 @@ const FavoritesPersimons = React.lazy(() => import("./components/album/Favorites
 const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow"))
 const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels"))
 const Principles = React.lazy(() => import("./components/principles/Principles"))
+const PrivacyPolicy = React.lazy(() => import("./components/PrivacyPolicy"))
 const ProcessModels = React.lazy(() => import("./components/principles/ProcessModels"))
 const Recipes = React.lazy(() => import("./components/album/Recipes"))
 const RecipeClamChowder = React.lazy(() => import("./components/album/RecipeClamChowder"))
@@ -304,6 +305,7 @@ function Main() {
                 <Route path="/principles/design" element={<Design />} />
                 <Route path="/principles/lifecycle-models" element={<LifecycleModels />} />
                 <Route path="/principles/reviews" element={<Reviews />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/thankyou" element={<Thankyou />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

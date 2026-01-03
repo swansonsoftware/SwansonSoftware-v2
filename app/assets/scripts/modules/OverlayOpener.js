@@ -13,6 +13,15 @@ class OverlayOpener {
     let overlayTabNav = new OverlayTabNavigation()
     overlayTabNav.SetTabIndexUnderOverlay("-1", null)
 
+    let closeBtn = document.getElementById("overlay-close-button")
+    if (closeBtn) {
+      closeBtn.setAttribute("tabindex", "0")
+    }
+    let captionBoxBtn = document.getElementById("photo-caption-box-button")
+    if (captionBoxBtn) {
+      captionBoxBtn.setAttribute("tabindex", "0")
+    }
+
     var elObj
 
     switch (this.e.target.nodeName) {
@@ -77,7 +86,6 @@ class OverlayOpener {
           let srcsetFilename = ""
 
           srcsetFilename = this.path + files.filter(file => file.id == sizesArray[0])[0].filename
-          // console.log("srcsetFilename: " + srcsetFilename)
 
           if (srcsetString.length) {
             srcsetString += ", " + srcsetFilename + " " + descriptor[0] + "w"
@@ -114,6 +122,10 @@ class OverlayOpener {
       }
 
       overlay.classList.add("lightbox__photo-overlay--visible")
+    }
+    const app = document.getElementById("app")
+    if (app) {
+      app.focus()
     }
   }
 

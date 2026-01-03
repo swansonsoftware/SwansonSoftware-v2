@@ -17,9 +17,32 @@ function ImageLightboxOverlay() {
     e.preventDefault()
     if (e.keyCode == 27 || e.code == "Enter" || e.type == "click") {
       appDispatch({ type: "imageOverlay", imageOverlay: "lightbox__image-overlay" })
-      let overlayTabNav = new OverlayTabNavigation()
-      overlayTabNav.SetTabIndexUnderOverlay("0", null)
       document.body.classList.remove("no-scroll")
+
+      let div = document.querySelector(".lightbox__photo-overlay__selectedImg")
+      let btn = null
+      if (div) {
+        if (div.hasChildNodes) {
+          let figure = div.childNodes[0].nextSibling
+          if (figure.id.includes("image-")) {
+            let btnId = figure.id.slice(6)
+            btn = document.getElementById("imageBlock" + btnId)
+          }
+        }
+      }
+
+      let overlayTabNav = new OverlayTabNavigation()
+      overlayTabNav.SetTabIndexUnderOverlay("0", btn)
+
+      let imageOverlay = document.querySelector(".lightbox__image-overlay")
+      if (imageOverlay) {
+        imageOverlay.setAttribute("tabindex", "-1")
+      }
+
+      let closeBtn = document.getElementById("overlay-close-button")
+      if (closeBtn) {
+        closeBtn.setAttribute("tabindex", "-1")
+      }
     }
   }
 
@@ -40,7 +63,7 @@ function ImageLightboxOverlay() {
 
   return (
     <div className="lightbox">
-      <div className={appState.imageOverlay}>
+      <div className={appState.imageOverlay} tabIndex={"-1"}>
         <button id="overlay-close-button" tabIndex="0" className="lightbox__image-overlay__close-btn">
           <span className="accessibility--hidden">Select this to close the photo.</span>
           <svg id="closeicon" className="lightbox__photo-overlay__close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
