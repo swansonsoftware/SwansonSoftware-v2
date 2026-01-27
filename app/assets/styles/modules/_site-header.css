@@ -157,9 +157,6 @@
     width: 220px;
     position: relative;
     z-index: $zIndex-1-FirstLevel;
-    svg {
-      stroke: currentColor;
-    }
   }
 
   &__menu-icon {

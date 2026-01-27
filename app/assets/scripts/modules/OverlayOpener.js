@@ -125,7 +125,9 @@ class OverlayOpener {
     }
     const app = document.getElementById("app")
     if (app) {
-      app.focus()
+      //causes the page to scroll to top on iPhone when overlay close button is tapped.
+      //Why was this needed? It was added at the same time as above setattribute tabindex above, to improve tab navigation. Does not seem to be needed.
+      // app.focus()
     }
   }
 
