@@ -23,7 +23,7 @@
   "homepage": "https://github.com/swansonsoftware/SwansonSoftware#readme",
   "dependencies": {
     "@babel/preset-react": "^7.25.9",
-    "css-minimizer-webpack-plugin": "^4.0.0",
+    "css-minimizer-webpack-plugin": "^8.0.0",
     "express": "^5.1.0",
     "html-webpack-harddisk-plugin": "^2.0.0",
     "lodash": "^4.17.21",
