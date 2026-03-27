@@ -16,6 +16,7 @@ function Header() {
   const currBreadcrumbStyle = useRef("site-header__breadcrumb")
   const menuIconState = useRef("site-header__menu-icon--collapsed")
   const menuIconStyle = useRef(appState.backgroundStyle == "dark" ? "site-header__menu-icon--dark" : "")
+  const [ariaLabel, setAriaLabel] = useState("Open menu")
 
   function CloseMenu() {
     appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
@@ -28,6 +29,38 @@ function Header() {
   function ShowHamburgerMenuIcon() {
     menuIconState.current = "site-header__menu-icon--collapsed"
     appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
+  }
+  function ShowCloseMenuIcon() {
+    menuIconState.current = "site-header__menu-icon--expanded"
+    appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: "site-header__menu-icon " + menuIconStyle.current + " " + menuIconState.current })
+  }
+
+  function ToggleMenuIcon() {
+    let menuIconCollapsed = document.querySelector(".site-header__menu-icon--collapsed")
+    let breadcrumbStyle = appState.breadcrumbClass
+
+    if (menuIconCollapsed) {
+      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay lightbox__menu-overlay--visible" })
+      appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-visible" + (appState.backgroundStyle == "dark" ? " nav__menu-content--icon-visible--dark" : "") })
+      if (!breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+        breadcrumbStyle += " site-header__breadcrumb--is-hidden"
+        appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+      }
+      ShowCloseMenuIcon()
+      setAriaLabel("Close menu")
+    } else {
+      appDispatch({ type: "menuOverlay", menuOverlay: "lightbox__menu-overlay" })
+      appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden" })
+      appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
+      if (breadcrumbStyle.includes("site-header__breadcrumb--is-hidden")) {
+        let classlist = breadcrumbStyle.split(" ")
+        let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb--is-hidden")
+        breadcrumbStyle = filtered.join(" ")
+        appDispatch({ type: "updateBreadcrumbClass", class: breadcrumbStyle })
+      }
+      ShowHamburgerMenuIcon()
+      setAriaLabel("Open menu")
+    }
   }
 
   function updateSiteHeaderClass(expanded) {
@@ -128,7 +161,7 @@ function Header() {
       <header role="banner" className={siteHeaderClass}>
         <div className="wrapper--site-header">
           <Logo CloseMenu={CloseMenu} />
-          <HeaderMenuIcon />
+          <HeaderMenuIcon ToggleMenuIcon={ToggleMenuIcon} />
           <TopnavMenu CloseMenu={CloseMenu} updateSiteHeaderClass={updateSiteHeaderClass} />
         </div>
       </header>

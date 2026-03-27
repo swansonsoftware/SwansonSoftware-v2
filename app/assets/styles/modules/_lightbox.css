@@ -36,7 +36,9 @@
     justify-content: center;
     background-color: $lightboxImageOverlayBackgroundColor;
     z-index: $zIndex--1-BelowAll;
-    transition: opacity $menuVisibilityTransition, transform $transitionDuration $cb-ease-in-out;
+    transition:
+      opacity $menuVisibilityTransition,
+      transform $transitionDuration $cb-ease-in-out;
 
     &--visible {
       opacity: 1;
@@ -120,7 +122,9 @@
     right: 0;
     background-color: $lightboxPhotoOverlayBackgroundColor;
     z-index: $zIndex--1-BelowAll;
-    transition: opacity $menuVisibilityTransition, transform $transitionDuration $cb-ease-in-out;
+    transition:
+      opacity $menuVisibilityTransition,
+      transform $transitionDuration $cb-ease-in-out;
 
     &--visible {
       right: 30px;

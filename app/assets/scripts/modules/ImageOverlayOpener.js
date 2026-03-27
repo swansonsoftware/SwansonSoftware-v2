@@ -28,7 +28,7 @@ class ImageOverlayOpener {
       case "IMG":
         imgElem = this.e.target
         break
-      case "BUTTON": //need to get the first child, the DIV
+      case "BUTTON": //get the first child, the DIV
         imgElem = this.e.target.children[0]
         break
       default:
@@ -47,68 +47,85 @@ class ImageOverlayOpener {
       if (imgElem) {
         caption = this.image.caption
 
-        let files = this.parseFileName(imgElem.src)
-        let srcset = imgElem.dataset["srcset"]
-        let orientation = imgElem.dataset["orientation"]
-        let portraitsizes = imgElem.dataset["portraitsizes"]
-        let srcsetString = ""
-        var descriptor
-        var sizes = []
+        var fileExt = imgElem.src.substring(imgElem.src.lastIndexOf(".") + 1)
 
-        if (srcset) {
-          let srcsetArray = srcset.split(";")
-          const iterator = srcsetArray.keys()
+        if (fileExt != "svg") {
+          let files = this.parseFileName(imgElem.src)
+          let srcset = imgElem.dataset["srcset"]
+          let portraitsizes = imgElem.dataset["portraitsizes"]
+          let orientation = imgElem.dataset["orientation"]
+          let srcsetString = ""
+          var descriptor
+          var sizes = []
 
-          if (portraitsizes) {
-            let portraitsizesArray = portraitsizes.split(";")
-            for (var i = 0; i < portraitsizesArray.length; i++) {
-              descriptor = portraitsizesArray[i].split("=")
-              sizes.push("(max-height: " + descriptor[0] + "px) " + descriptor[1] + "px")
+          if (srcset) {
+            let srcsetArray = srcset.split(";")
+            const iterator = srcsetArray.keys()
+
+            if (portraitsizes) {
+              let portraitsizesArray = portraitsizes.split(";")
+              for (var i = 0; i < portraitsizesArray.length; i++) {
+                descriptor = portraitsizesArray[i].split("=")
+                sizes.push("(max-height: " + descriptor[0] + "px) " + descriptor[1] + "px")
+              }
             }
+
+            let firstImage = true
+            let imgWidth = 1
+            let imgHeight = 1
+            let maxWidth = 1
+
+            for (const key of iterator) {
+              let sizesArray = srcsetArray[key].split("=")
+
+              descriptor = sizesArray[1].split("x")
+              let srcsetFilename = ""
+              if (firstImage) {
+                imgWidth = descriptor[0]
+                imgHeight = descriptor[1]
+                firstImage = false
+              }
+
+              maxWidth = descriptor[0]
+
+              srcsetFilename = "../../../" + files.filter(file => file.id == sizesArray[0])[0].filename
+
+              if (srcsetString.length) {
+                srcsetString += ", " + srcsetFilename + " " + descriptor[0] + "w"
+              } else {
+                srcsetString = srcsetFilename + " " + descriptor[0] + "w"
+              }
+
+              if (orientation != "portrait") {
+                sizes.push("(max-width: " + descriptor[0] + "px) " + descriptor[0] + "px")
+              }
+            }
+
+            var filename = imgElem.src.substring(imgElem.src.lastIndexOf("../assets/"))
+
+            overlayImageDiv.innerHTML = `
+            <div class='lightbox__photo-overlay--spinner lightbox__photo-overlay--spinner--image'></div>
+            <div class='lightbox__photo-overlay__selectedImg'>
+              <figure id="image-${this.image.id}">
+                <img src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
+                alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="100vw" />
+                <figcaption style="text-align:center">${caption}</figcaption>
+              </figure>
+            </div>
+            `
           }
-
-          let firstImage = true
-          let imgWidth = 1
-          let imgHeight = 1
-          let maxWidth = 1
-
-          for (const key of iterator) {
-            let sizesArray = srcsetArray[key].split("=")
-
-            descriptor = sizesArray[1].split("x")
-            let srcsetFilename = ""
-            if (firstImage) {
-              imgWidth = descriptor[0]
-              imgHeight = descriptor[1]
-              firstImage = false
-            }
-
-            maxWidth = descriptor[0]
-
-            srcsetFilename = "../../../" + files.filter(file => file.id == sizesArray[0])[0].filename
-
-            if (srcsetString.length) {
-              srcsetString += ", " + srcsetFilename + " " + descriptor[0] + "w"
-            } else {
-              srcsetString = srcsetFilename + " " + descriptor[0] + "w"
-            }
-
-            if (orientation != "portrait") {
-              sizes.push("(max-width: " + descriptor[0] + "px) " + descriptor[0] + "px")
-            }
-          }
-
+        } else {
           var filename = imgElem.src.substring(imgElem.src.lastIndexOf("../assets/"))
 
           overlayImageDiv.innerHTML = `
             <div class='lightbox__photo-overlay--spinner lightbox__photo-overlay--spinner--image'></div>
             <div class='lightbox__photo-overlay__selectedImg'>
-            <figure id="image-${this.image.id}">
-            <img src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
-              alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="100vw" />
-              <figcaption style="text-align:center">${caption}</figcaption>
-            </figure
-              </div>
+              <figure id="image-${this.image.id}" style="background-color:white;">
+                <img src="${filename}" 
+                alt="${this.image.alt}" width="${this.image.width}" height="${this.image.height}" />
+                <figcaption style="text-align:center">${caption}</figcaption>
+              </figure>
+            </div>
             `
         }
 

@@ -39,10 +39,19 @@
     color: rgb(212, 212, 212);
     background-color: rgb(27, 39, 79);
   }
+  div.legend {
+    margin: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0px 10px;
+  }
+  li.legend {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
   p.sidebar {
     font-size: 1.2rem;
     line-height: 1.5;
-    margin-top: 15px;
   }
   p.dropCap::first-letter {
     float: left;

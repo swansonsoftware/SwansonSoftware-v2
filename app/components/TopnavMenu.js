@@ -19,7 +19,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
   // { topic: "Materials", name: "blah", link: "/blog/2025", pages: "Blog pages", topicid: 1, id: 20 },
   const menuitems = [
     { topic: "Principles", name: "Software Design", link: "/principles/design", pages: "Software Development Principles pages", topicid: 0, id: 2 },
-    { topic: "Principles", name: "Life Cycle Models", link: "/principles/lifecycle-models", pages: "Software Development Principles pages", topicid: 0, id: 3 },
+    { topic: "Principles", name: "Software Life Cycle Models", link: "/principles/lifecycle-models", pages: "Software Development Principles pages", topicid: 0, id: 3 },
     { topic: "Principles", name: "Software Reviews", link: "/principles/reviews", pages: "Software Development Principles pages", topicid: 0, id: 4 },
     { topic: "Blog", name: "2025", link: "/blog/2025", pages: "Blog pages", topicid: 1, id: 5 },
     { topic: "Album", name: "Recipes", link: "/album/recipes", pages: "Album pages", topicid: 2, id: 6 },

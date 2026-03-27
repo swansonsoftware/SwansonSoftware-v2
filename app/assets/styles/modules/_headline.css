@@ -22,7 +22,7 @@
 
   &__h2 {
     font: 400 2.5rem/1.15 $headersFont;
-    padding: 10px 0;
+    padding: 10px 0 3px 0;
     margin: 0;
 
     &--recipe {
@@ -39,7 +39,7 @@
   }
   &__h2-contents {
     font: 400 1.75rem/1.15 $globalFontFamily;
-    padding: 10px 0;
+    padding: 10px 0 3px 0;
     margin: 0;
 
     @mixin atMin1200Wide {
@@ -49,7 +49,7 @@
 
   &__h3 {
     font: 600 2.1rem/1.15 $headersFont;
-    padding: 10px 0;
+    padding: 10px 0 2px 0;
     margin: 0;
     &--bold {
       font-weight: 700;
@@ -87,8 +87,8 @@
   }
 
   &__h4 {
-    font: 400 1.5rem/1.15 $headersFont;
-    padding: 10px 0;
+    font: 600 1.9rem/1.15 $headersFont;
+    padding: 10px 0 2px 0;
     margin: 0;
 
     @mixin atMin1200Wide {
