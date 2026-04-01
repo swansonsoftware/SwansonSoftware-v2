@@ -1,6 +1,7 @@
 dist/
 node_modules/
 vendor/
+app/assets/images/principles/*.svg
 bundled.js
 *.asp
 *.env

@@ -48,7 +48,7 @@ function Principles() {
         <div className="row row__margin-bottom-0 row--gutters">
           <div className="row__colspan-12">
             <h2 className="headline__h2-contents">
-              <Link to="/principles/lifecycle-models">Software Life Cycle Models</Link>
+              <Link to="/principles/lifecycle">Software Life Cycle</Link>
             </h2>
           </div>
         </div>

@@ -303,7 +303,7 @@ function Main() {
                 <Route path="/principles" element={<Principles />} />
                 <Route path="/principles/requirements" element={<Requirements />} />
                 <Route path="/principles/design" element={<Design />} />
-                <Route path="/principles/lifecycle-models" element={<LifecycleModels />} />
+                <Route path="/principles/lifecycle" element={<LifecycleModels />} />
                 <Route path="/principles/reviews" element={<Reviews />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/thankyou" element={<Thankyou />} />
