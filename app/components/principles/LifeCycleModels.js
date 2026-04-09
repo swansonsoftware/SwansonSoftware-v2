@@ -43,11 +43,11 @@ function LifecycleModels() {
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
     { id: 1, toText: "Principles", toUrl: "/principles" },
-    { id: 2, toText: "Software Life Cycle Models", toUrl: "" }
+    { id: 2, toText: "Software Life Cycle", toUrl: "" }
   ]
 
   return (
-    <Page title="Software Life Cycle Models">
+    <Page title="Software Life Cycle">
       <ImageLightboxOverlay />
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2026-04-08T12:40:28-07:00" headline="Software Life Cycle"></GStructuredData>
