@@ -1,6 +1,5 @@
 .footnote {
   text-decoration: none;
-  font-family: "Proza Libre", sans-serif;
 
   &__ref {
     font-size: 1.2rem;

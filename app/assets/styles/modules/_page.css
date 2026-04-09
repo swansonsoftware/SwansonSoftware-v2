@@ -24,11 +24,19 @@
   }
   div.note {
     padding: 0px 10px;
+    margin-bottom: 10px;
     border: 2px solid black;
     border-left-width: 4px;
     border-radius: 10px;
     background-color: $HeaderFooterLiteBackground;
     font: italic 1.4rem/1.45 $globalFontFamily;
+    &:first-child {
+      margin-top: 2.6em;
+    }
+    &--dark {
+      color: $bodyDarkBGFontColor;
+      background-color: $HeaderFooterDarkBackgroundTransparent;
+    }
   }
   p.note {
     margin: 30px 15px;

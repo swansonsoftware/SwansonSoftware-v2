@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
 import Page from "./Page"
@@ -33,17 +34,21 @@ function Home() {
       <CanonicalLink href="https://swansonsoftware.com"></CanonicalLink>
       <meta name="description" content="SwansonSoftware is on a mission to disseminate the principles and practices of software construction that lead to quality software and successful projects." />
 
-      <div className="wrapper--home-page" id="maincontent">
+      <div className="wrapper wrapper--home-page" id="maincontent">
         <div className="row row--gutters">
-          <div className="row__colspan-2"></div>
-          <div className="row__colspan-8">
+          <div className="row__colspan-7">
             <h1 className="headline__h1-cg">Software Craftsmanship</h1>
-            <p className="dropCap">Craft artisans choose their materials carefully to achieve specific results, such as ease of tooling or working with the material, durability of the product, and beauty. Likewise, software developers choose their materials based on the results they wish to achieve, such as robustness and security, interoperability, performance, and ease of coding.</p>
-            <p className="dropCap">To software developers, a programming language is the medium, and frameworks, algorithms, APIs and libraries, and data are the materials. The wrong framework is one that will be obsolete soon, shortening the lifespan of your application. The wrong API or library has limitations, and you want to avoid locking your application into those limitations. The wrong algorithm will have a security vulnerability that will require extra work to fix, and a new release of the product.</p>
-            <p className="dropCap">Choosing the right materials is crucial for an application’s success. Unlike traditional crafts where the tools and materials change little throughout an artisan’s career, the tools for software development and the materials used to create software change constantly, and it is crucial to a developer’s career success that they learn about the changes important to them.</p>
-            <p className="dropCap">Swanson Software shares knowledge about software construction principles and practices, as well as the tools and materials involved.</p>
+            <p className="dropCap">In many ways, software development is a craft, and the materials of the craft are frameworks, algorithms, APIs and libraries, and data. Choosing the right materials is crucial for an application’s success. Unlike traditional crafts where the tools and materials change little throughout an artisan’s career, the tools for software development and the materials used to create software change constantly, and it is crucial to a developer’s career success that they learn about the changes important to them.</p>
+            <p className="dropCap">Swanson Software was created to disseminate knowledge about software craftsmanship. The philosophy at swansonsoftware.com is that any statements of facts that do not originate here must be cited. This philosophy values the quality of sources as well.</p>
           </div>
-          <div className="row__colspan-2"></div>
+          <div className="row__colspan-5">
+            <div className="note note--dark">
+              <h2 className="headline__h3-cg-home">New Software Life Cycle Paper</h2>
+              <p>
+                A new paper, <Link to="/principles/lifecycle">Software Life Cycle</Link>, replaces the old paper Software Life Cycle Models. This new paper answers the question “What is software life cycle?” and presents the historical origins and development of software life cycle models.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </Page>

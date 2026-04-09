@@ -37,7 +37,8 @@ function LifecycleModels() {
     { id: 8, lazy: false, src: "../../../../assets/images/principles/lifecycle-tailored-spiral-w-waterfall.svg", width: "1280", height: "780", alt: "Boxes showing a horizontal flow, starting with objectives, then alternatives and constraints, then risk analysis and prototype, then stair-stepped boxes through the waterfall process of requirements, design, detailed design, code, unit test, and exiting to acceptance test. The output from acceptance test can fail back to detailed design, or succeed and continue to plan next phases which points back to objectives.", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 8. Spiral model using a waterfall model.", dataSrcset: "" },
     { id: 9, lazy: false, src: "../../../../assets/images/principles/lifecycle-quick-kernel.svg", width: "1280", height: "780", alt: "Three horizontally aligned boxes labeled detailed design, implement, and unit test, with arrows showing flow from left to right to each box. Input at left is high level design, output at right is program, and between each box is a loop back labeled problems to the previous box.", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 9. Quick Kernel Kq. Watts, 1989.", dataSrcset: "" },
     { id: 10, lazy: false, src: "../../../../assets/images/principles/lifecycle-implementation-cell.svg", width: "1280", height: "780", alt: "Four horizontally aligned boxes labeled detailed design, implement, and unit test, with arrows showing flow from left to right to each box. Boxes are labeled detailed design, design inspection, code, code inspection. Each box has a loop back labeled problems / approval to the previous box.", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 10. Implementation Cell C1. Adapted from Watts, 1989. Cell 003 in this case is code (so it seems to contain the unit test as well); 003 represents what is being implemented, it could be writing test cases or other tasks. The inspection operator takes the name of the task.", dataSrcset: "" },
-    { id: 11, lazy: false, src: "../../../../assets/images/principles/lifecycle-basic-unit-cell.svg", width: "640", height: "426", alt: "Unused", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 11.", dataSrcset: "" }
+    { id: 11, lazy: false, src: "../../../../assets/images/principles/lifecycle-tailored-a-level-1.svg", width: "1280", height: "780", alt: "Three horizontally aligned boxes labeled plan installer, build installer, and test installer, with arrows showing inputs and outputs.", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 11. Partial decomposition of installer build.", dataSrcset: "" },
+    { id: 12, lazy: false, src: "../../../../assets/images/principles/lifecycle-tailored-a-level-2.svg", width: "1280", height: "780", alt: "Three horizontally aligned boxes labeled Generate New DLLs List, Update Custom Actions, and Update Application Version, with arrows showing inputs and outputs.", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 12. Further decomposition of installer build plan.", dataSrcset: "" }
   ]
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
@@ -49,12 +50,12 @@ function LifecycleModels() {
     <Page title="Software Life Cycle Models">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T11:51:08-07:00" headline="Software Life Cycle"></GStructuredData>
-      <meta name="description" content="The Software Life Cycle, or software process, a.k.a. software development process, its history, how it is used, a survey of software life cycles, and how to create a tailored model specific to an organization." />
+      <GStructuredData type="Article" datePublished="2026-04-08T12:40:28-07:00" headline="Software Life Cycle"></GStructuredData>
+      <meta name="description" content="The Software Life Cycle, or software process, sometimes called software development process, what it is, its history, how it is used, a survey of software life cycles, and how to create a tailored life cycle model specific to an organization." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Life Cycle</h1>
-        <div className="headline__author">Gregory Swanson | updated April, 2026</div>
+        <div className="headline__author">Gregory Swanson | updated April 8, 2026</div>
         <div className="row row--gutters">
           <div className="row__colspan-5">
             <h2 className="headline__h2-contents">Contents</h2>
@@ -307,7 +308,7 @@ function LifecycleModels() {
               <HashLink to="#footnote23" className="footnote">
                 <sup>[23]</sup>
               </HashLink>{" "}
-              It is certain that some software developers of the day “thought waterfalling of a huge project was rather stupid”
+              It is certain that some software developers of the day “thought waterfalling of a huge project was rather stupid, or at least ignorant of the realities...”
               <HashLink to="#footnote24" className="footnote">
                 <sup>[24]</sup>
               </HashLink>
@@ -527,7 +528,7 @@ function LifecycleModels() {
               </HashLink>
             </p>
             <p id="note58">
-              If we have learned anything about software development, we have learned that a new software solution may solve a problem, but in solving one problem it often creates new problems, perhaps because the original problem was not fully understood, or perhaps because the solution changes the way the work is done. The solution needs to be experienced, then adjusted to achieve the solution that works.
+              If we have learned anything about software development, we have learned that a new software solution may solve a problem, but in solving one problem it often creates new problems, perhaps because the original problem was not fully understood, or perhaps because the solution changes the way the work is done. The solution needs to be experienced, then adjusted to achieve the solution that works best.
               <HashLink to="#footnote58" className="footnote">
                 <sup>[58]</sup>
               </HashLink>{" "}
@@ -1012,6 +1013,12 @@ function LifecycleModels() {
               </li>
             </ul>
             <p className="note dropCapNote">If the worldly-level and atomic-level models seem greatly detailed, they are. Watts [1989] employs them to achieve a defined software process, which is required to reach the “defined” level of the Capability Maturity Model (CMM). Watts [1989] book describes the CMM (now superseded by Capability Maturity Model Integration (CMMI)). Training is usually needed to use CMM and CMMI.</p>
+            <p id="note116">
+              With these additional levels of detail comes additional complexities to consider. At the U-level, models are descriptive. At the W- and A-levels, models can be prescriptive as well, they can indicate state, and they can represent different views including state view, organizational view, and control view.
+              <HashLink to="#footnote116" className="footnote">
+                <sup>[116]</sup>
+              </HashLink>
+            </p>
           </div>
           <div className="row__colspan-1"></div>
 
@@ -1024,7 +1031,12 @@ function LifecycleModels() {
             <p>Watts uses the unit cell as the fundamental building block for all process models. A basic unit cell is shown in Figure 6.</p>
             <ImageBlock key={images[5].id} image={images[5]}></ImageBlock>
             <div className="legend">
-              <p className="sidebar">Specifications</p>
+              <p className="sidebar" id="note117">
+                Specifications
+                <HashLink to="#footnote117" className="footnote">
+                  <sup>[117]</sup>
+                </HashLink>
+              </p>
               <ul>
                 <li className="legend">Entry: The conditions to be met before task initiation</li>
                 <li className="legend">Exit: The results to be produced and how embodied</li>
@@ -1052,7 +1064,12 @@ function LifecycleModels() {
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
             <p>W-level models are better suited for defining the software process, but they are heavier, more expensive, and not always needed or appropriate. The need for a defined software process grows as the size of the development team grows, and as the criticality of the software grows, and as the expense of a failure grows.</p>
-            <p>In W-level models a cell can represent a specific task, or a group of tasks which is called a process step (see Figure [9], Quick Kernel). Many activities can be standardized across projects and those can be represented with standardized process cells, varying the interconnections between the cells to meet specific project needs (Watts, 1989, p. 258).</p>
+            <p id="note118">
+              In W-level models a cell can represent a specific task, or a group of tasks which is called a process step (see Figure [9], Quick Kernel). Many activities can be standardized across projects and those can be represented with standardized process cells, varying the interconnections between the cells to meet specific project needs.
+              <HashLink to="#footnote118" className="footnote">
+                <sup>[118]</sup>
+              </HashLink>
+            </p>
             <p>An example of a standardized process cell is the implementation cell. The implementation cell can represent a process of detailed design, coding, and unit testing. Another process cell is required for the implementation cell: a generic inspection operator that can be used with any process. It is used twice in the implementation cell, once for design inspection and again for code inspection (see Figure 10.)</p>
             <p className="note dropCapNote">Inputs and outputs for each process cell is defined in a table, using ETX (Entry-Task-Exit) criteria.</p>
             <ImageBlock key={images[8].id} image={images[8]}></ImageBlock>
@@ -1065,7 +1082,23 @@ function LifecycleModels() {
             <h4 className="headline__h4">A-level Models</h4>
           </div>
           <div className="row__colspan-1"></div>
-          <div className="row__colspan-10">to do</div>
+          <div className="row__colspan-10">
+            <p id="note119">
+              When defining an A-level process, “the detail used in task definition should be appropriate to the knowledge and skill of the professionals.”
+              <HashLink to="#footnote119" className="footnote">
+                <sup>[119]</sup>
+              </HashLink>{" "}
+              Figure 11 illustrates a partial decomposition of the process for building an MSI installer. Unit cells represent the steps of the process, with inputs and outputs. Assuming a Wix (Windows Installer XML) environment for building an MSI, process steps include planning, building, and testing.
+            </p>
+            <ImageBlock key={images[10].id} image={images[10]}></ImageBlock>
+            <p>The process could be decomposed further depending on the experience level of the people or project needs. A further decomposition for cell 001 in Figure 11 might be as follows:</p>
+            <ul>
+              <li className="list">The build history and schedule are examined to determine the new DLLs that will be included (001)</li>
+              <li className="list">Updates, if any, to custom actions are made (002)</li>
+              <li className="list">Update the installed application version (003)</li>
+            </ul>
+            <ImageBlock key={images[11].id} image={images[11]}></ImageBlock>
+          </div>
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12" id="choosemodel">
@@ -2039,7 +2072,7 @@ function LifecycleModels() {
                   <HashLink to="#note116" className="footnote--cite">
                     ^
                   </HashLink>
-                  aa
+                  Watts, 1989, p. 254, 280.
                 </span>
               </li>
               <li id="footnote117">
@@ -2047,7 +2080,23 @@ function LifecycleModels() {
                   <HashLink to="#note117" className="footnote--cite">
                     ^
                   </HashLink>
-                  aa
+                  Watts, 1989, p. 257.
+                </span>
+              </li>
+              <li id="footnote118">
+                <span className="footnote__ref">
+                  <HashLink to="#note118" className="footnote--cite">
+                    ^
+                  </HashLink>
+                  Watts, 1989, p. 258.
+                </span>
+              </li>
+              <li id="footnote119">
+                <span className="footnote__ref">
+                  <HashLink to="#note119" className="footnote--cite">
+                    ^
+                  </HashLink>
+                  Watts, 1989, p. 276.
                 </span>
               </li>
             </ol>
