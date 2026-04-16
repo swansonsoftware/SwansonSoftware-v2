@@ -1,5 +1,5 @@
 import React, { useReducer, Suspense, useContext } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 import "./assets/styles/styles.css"
 import StateContext from "./StateContext"
@@ -290,6 +290,7 @@ function Main() {
                 <Route path="/album/favorites/favorites-persimons-slideshow" element={<FavoritesPersimonsSlideshow />} />
                 <Route path="/album/recipes" element={<Recipes />} />
                 <Route path="/album/recipes/clam-chowder" element={<RecipeClamChowder />} />
+                <Route path="/album/clam-chowder" element={<Navigate to="/album/recipes/clam-chowder" replace />} />
                 <Route path="/album/recipes/pie-dough" element={<RecipePieDough />} />
                 <Route path="/album/recipes/vegetable-stock" element={<RecipeVegetableStock />} />
                 <Route path="/blog" element={<Blog body="light" />} />
@@ -304,6 +305,7 @@ function Main() {
                 <Route path="/principles/requirements" element={<Requirements />} />
                 <Route path="/principles/design" element={<Design />} />
                 <Route path="/principles/lifecycle" element={<LifecycleModels />} />
+                <Route path="/principles/lifecycle-models" element={<Navigate to="/principles/lifecycle" replace />} />
                 <Route path="/principles/reviews" element={<Reviews />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/thankyou" element={<Thankyou />} />

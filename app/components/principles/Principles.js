@@ -38,25 +38,33 @@ function Principles() {
         <p>There are some things that others in software development have said and that should be remembered.</p>
 
         <div className="row row__margin-bottom-0 row--gutters">
-          <div className="row__colspan-4">
+          <div className="row__colspan-5">
             <h2 className="headline__h2-contents">
               <Link to="/principles/design">Software Design</Link>
             </h2>
           </div>
-          <div className="row__colspan-8"></div>
+          <div className="row__colspan-7">
+            <p>A definition of software design, a discussion of software design concepts and methods, and an explanation of the output of software design: the technical specification.</p>
+          </div>
         </div>
         <div className="row row__margin-bottom-0 row--gutters">
-          <div className="row__colspan-12">
+          <div className="row__colspan-5">
             <h2 className="headline__h2-contents">
               <Link to="/principles/lifecycle">Software Life Cycle</Link>
             </h2>
           </div>
+          <div className="row__colspan-7">
+            <p>A definition of the software life cycle, its origin, and its role as metamodel for creating life cycle models. Categories of life cycle models are described, and a few life cycle models are described.</p>
+          </div>
         </div>
         <div className="row row__margin-bottom-0 row--gutters">
-          <div className="row__colspan-12">
+          <div className="row__colspan-5">
             <h2 className="headline__h2-contents">
               <Link to="/principles/reviews">Software Reviews</Link>
             </h2>
+          </div>
+          <div className="row__colspan-7">
+            <p>The benefits you get from software reviews, review types, and the review process.</p>
           </div>
         </div>
       </div>

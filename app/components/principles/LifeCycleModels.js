@@ -6,6 +6,7 @@ import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
 import ImageBlock from "../ImageBlock"
 import ImageLightboxOverlay from "../ImageLighboxOverlay"
+import Note from "../Note"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -17,7 +18,7 @@ function LifecycleModels() {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Software Life Cycle Models" })
+    appDispatch({ type: "selectMenu", selectedMenu: "Software Life Cycle" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
     const app = document.getElementById("app")
@@ -46,12 +47,134 @@ function LifecycleModels() {
     { id: 2, toText: "Software Life Cycle", toUrl: "" }
   ]
 
+  const notes = [
+    { id: 0, listId: "footnote1", noteId: "#note1", text1: "ISO/IEC/IEEE 12207:2017(en) ", text1IsLink: false, text1Link: "", text2: "Systems and software engineering — Software life cycle processes", text2IsLink: true, text2Link: "https://www.iso.org/obp/ui/en/#iso:std:iso-iec-ieee:12207:ed-1:v1:en", text3: ".", text3IsLink: false, text3Link: "" },
+    { id: 1, listId: "footnote2", noteId: "#note1", text1: "Kossiakoff, A., Sweet, W. N., Seymour, S. J., and Biemer, S. M., Systems Engineering, 2nd Ed. John Wiley & Sons, 2011. In Part I FOUNDATIONS OF SYSTEMS ENGINEERING.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 2, listId: "footnote3", noteId: "#note3", text1: "ISO/IEC/IEEE 12207:2017(en) Systems and software engineering — Software life cycle processes. Introduction. As of February 2026, the current revision is ", text1IsLink: false, text1Link: "", text2: "IEEE/ISO/IEC 12207-2026 Systems and software engineering — Software life cycle processes", text2IsLink: true, text2Link: "https://standards.ieee.org/ieee/12207/11416", text3: ".", text3IsLink: false, text3Link: "" },
+    { id: 3, listId: "footnote4", noteId: "#note4", text1: "McConnell, Steve, 1996, Rapid Development: Taming Wild Software Schedules: Microsoft Press, p. 154.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 4, listId: "footnote5", noteId: "#note5", text1: "ISO/IEC/IEEE 15288:2023(en) ", text1IsLink: false, text1Link: "", text2: "Systems and software engineering — System life cycle processes", text2IsLink: true, text2Link: "https://www.iso.org/obp/ui/en/#iso:std:iso-iec-ieee:15288:ed-2:v1:en", text3: ".", text3IsLink: false, text3Link: "" },
+    { id: 5, listId: "footnote6", noteId: "#note6", text1: "Kossiakoff et. al., 2011, chapter 1.7.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 6, listId: "footnote7", noteId: "#note7", text1: "NATO Software Engineering Conference 1968", text1IsLink: true, text1Link: "http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF", text2: "; p. 15, and Figure 6, p. 66.", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 7, listId: "footnote8", noteId: "#note8", text1: "Larman, Craig (2004). Agile and Iterative Development: A Manager's Guide. Addison-Wesley. In chapter 1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 8, listId: "footnote9", noteId: "#note8", text1: "DeGrace, P., and Stahl, L. H., 1990, Wicked Problems, Righteous Solutions : a Catalogue of Modern Software Engineering Paradigms. Yourdon Press; p. 69; Boehm, Barry W., 1988, A Spiral Model of Software Development and Enhancement. Computer, May: pp. 61-72 (", text1IsLink: false, text1Link: "", text2: "https://www.cse.msu.edu/~cse435/Homework/HW3/boehm.pdf", text2IsLink: true, text2Link: "https://www.cse.msu.edu/~cse435/Homework/HW3/boehm.pdf", text3: "), p. 63; Larman, Craig & Basili, Victor R. “Iterative and Incremental Development: A Brief History.” Computer, IEEE, June 2003: pp. 47-56, p. 47, 48, and 52.", text3IsLink: false, text3Link: "" },
+    { id: 9, listId: "footnote10", noteId: "#note11", text1: "NATO Software Engineering Conference 1968, p. 120.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 10, listId: "footnote11", noteId: "#note11", text1: "Ibid., p. 122.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 11, listId: "footnote12", noteId: "#note12", text1: "Ibid., p. 13.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 12, listId: "footnote13", noteId: "#note12", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 13, listId: "footnote14", noteId: "#note14", text1: "Ibid., p. 126.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 14, listId: "footnote15", noteId: "#note14", text1: "“There is no theory which enables us to calculate limits on the size, performance, or complexity of software. There is, in many instances, no way even to specify in a logically tight way what the software product is supposed to do or how it is supposed to do it.” Ibid., p. 69.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 15, listId: "footnote16", noteId: "#note14", text1: "Larman & Basili, 2003", text1IsLink: true, text1Link: "https://www.cs.hmc.edu/courses/2004/fall/cs121/papers/larman.pdf", text2: ", p. 47 and 48.", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 16, listId: "footnote17", noteId: "#note14", text1: "NATO Software Engineering Conference 1968; “Design and implementation proceeded in a number of stages...each stage included more facilities than the last” p. 19; “The use of feedback from a partly designed system” p. 53.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 17, listId: "footnote18", noteId: "#note18", text1: "Ibid., p. 32.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 18, listId: "footnote19", noteId: "#note19", text1: "Royce, W. W., 1970, ", text1IsLink: false, text1Link: "", text2: "Managing the Development of Large Software Systems. Proceedings of IEEE WESCON", text2IsLink: true, text2Link: "https://web.archive.org/web/20190307012048/http://www-scf.usc.edu/~csci201/lectures/Lecture11/royce1970.pdf", text3: ".", text3IsLink: false, text3Link: "" },
+    { id: 19, listId: "footnote20", noteId: "#note19", text1: "For example, Bell, Thomas E.; T. A., Thayer (1976). Software requirements: Are they really a problem? (PDF). Proceedings of the 2nd international conference on Software engineering. IEEE Computer Society Press; Boehm, 1988, p. 63; DeGrace and Stahl, 1990, p. 27; ", text1IsLink: false, text1Link: "", text2: "Humphrey, Watts S., 1989, Managing the Software Process : Addison-Wesley", text2IsLink: true, text2Link: "https://archive.org/details/managingsoftware0000hump", text3: ", p. 249; Kossiakoff et. al., 2011, chapter 11.", text3IsLink: false, text3Link: "" },
+    { id: 20, listId: "footnote21", noteId: "#note19", text1: "Boehm, 1988, p. 63.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 21, listId: "footnote22", noteId: "#note22", text1: "DeGrace and Stahl, 1990, p. 67.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 22, listId: "footnote23", noteId: "#note22", text1: "Ibid., p. 69; Boehm, 1988, p. 63; Larman and Basili, 2003, p. 52.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 23, listId: "footnote24", noteId: "#note22", text1: "Larman and Basili, 2003, p. 48; Larman, 2004, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 24, listId: "footnote25", noteId: "#note22", text1: "Boehm, 1988, p. 63; DeGrace and Stahl, 1990, p. 77, and pp. 97-118.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 25, listId: "footnote26", noteId: "#note22", text1: "Larman and Basili, 2003, p. 48; Larman, 2004, in chapter 6, “Few actually read Royce's original waterfall paper [Royce70]. Its iterative flavor was lost, and it devolved from the nuanced evolutionary description he gave, to a simple single-step lifecycle. This is seen in the many third-party diagrams supposedly depicting “Royce's waterfall,” that do not correctly correspond to the original iterative picture Royce gave.”", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 26, listId: "footnote27", noteId: "#note27", text1: "Larman, 2004, chapter 3, “Agile Hype?”", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 27, listId: "footnote28", noteId: "#note27", text1: "Larman and Basili, 2003, p. 51; Boehm’s Spiral model (Boehm, 1988); Gilb’s Evolutionary Delivery model (", text1IsLink: false, text1Link: "", text2: "Gilb, Tom, 1988, Principles of Software Engineering Management. Addison-Wesley", text2IsLink: true, text2Link: "https://archive.org/details/principlesofsoft0000gilb/mode/2up", text3: ").", text3IsLink: false, text3Link: "" },
+    { id: 28, listId: "footnote29", noteId: "#note27", text1: "Larman, 2004, chapter 6, under “Why Did Waterfall Promotion Continue?”", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 29, listId: "footnote30", noteId: "#note30", text1: "Ibid., chapter 1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 30, listId: "footnote31", noteId: "#note31", text1: "Larman and Basili, 2003, p. 53.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 31, listId: "footnote32", noteId: "#note31", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 32, listId: "footnote33", noteId: "#note33", text1: "I.e., “Most software is not a predictable or mass manufacturing problem. Software development is new product development. Plus, many projects use new and buggy technologies that exacerbate the degree of novelty and unpredictability. Note also it is a new product for the inexperienced even if it has been done before,” and therefore, “…predictable manufacturing is the wrong paradigm for software....” Larman, 2004, chapter 1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 33, listId: "footnote34", noteId: "#note33", text1: "Larman, 2004, chapter 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 34, listId: "footnote35", noteId: "#note35", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 35, listId: "footnote36", noteId: "#note36", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 36, listId: "footnote37", noteId: "#note36", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 37, listId: "footnote38", noteId: "#note36", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 38, listId: "footnote39", noteId: "#note36", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 39, listId: "footnote40", noteId: "#note36", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 40, listId: "footnote41", noteId: "#note36", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 41, listId: "footnote42", noteId: "#note42", text1: "Watts, 1989, p. 248.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 42, listId: "footnote43", noteId: "#note42", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 43, listId: "footnote44", noteId: "#note44", text1: "Ibid., p. 254.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 44, listId: "footnote45", noteId: "#note44", text1: "Ibid., p. 249.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 45, listId: "footnote46", noteId: "#note44", text1: "Boehm, 1988, p. 61.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 46, listId: "footnote47", noteId: "#note47", text1: "Watts, 1989, p. 284.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 47, listId: "footnote48", noteId: "#note48", text1: "Kossiakoff et. al., 2011, chapter 11.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 48, listId: "footnote49", noteId: "#note49", text1: "Ibid., chapter 11.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 49, listId: "footnote50", noteId: "#note50", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 50, listId: "footnote51", noteId: "#note51", text1: "McConnell, 1996, p. 154.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 51, listId: "footnote52", noteId: "#note51", text1: "Boehm, 1988, p. 64 “…the spiral model can accommodate most previous models as special cases and further provides guidance as to which combination of previous models best fits a given software situation.”", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 52, listId: "footnote53", noteId: "#note51", text1: "Ibid., p. 65.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 53, listId: "footnote54", noteId: "#note54", text1: "Kossiakoff et. al., 2011, chapter 4.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 54, listId: "footnote55", noteId: "#note54", text1: "DeGrace and Stahl, 1990, p. 33.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 55, listId: "footnote56", noteId: "#note54", text1: "Ibid., p. 38.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 56, listId: "footnote57", noteId: "#note57", text1: "Royce, 1970, p. 328. Royce states “if the effort is sufficiently small and if the final product is to be operated by those who built it”, an analysis step followed by a coding step are all that is needed.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 57, listId: "footnote58", noteId: "#note58", text1: "Ibid., p. 334; DeGrace and Stahl, 1990, p. 69; Boehm, 1988, p. 63.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 58, listId: "footnote59", noteId: "#note59", text1: "Kossiakoff et. al., 2011, chapter 11.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 59, listId: "footnote60", noteId: "#note60", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 60, listId: "footnote61", noteId: "#note60", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 61, listId: "footnote62", noteId: "#note62", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 62, listId: "footnote63", noteId: "#note63", text1: "Boehm, 1988, p. 62.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 63, listId: "footnote64", noteId: "#note64", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 64, listId: "footnote65", noteId: "#note64", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 65, listId: "footnote66", noteId: "#note64", text1: "Ibid., p. 63.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 66, listId: "footnote67", noteId: "#note67", text1: "DeGrace and Stahl, 1990, p. 59.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 67, listId: "footnote68", noteId: "#note67", text1: "Boehm, 1988, p. 63.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 68, listId: "footnote69", noteId: "#note67", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 69, listId: "footnote70", noteId: "#note67", text1: "McConnell, 1996, p. 137.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 70, listId: "footnote71", noteId: "#note67", text1: "Boehm, 1988, p. 63.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 71, listId: "footnote72", noteId: "#note72", text1: "DeGrace and Stahl, 1990, p. 70.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 72, listId: "footnote73", noteId: "#note72", text1: "Ibid., p. 61.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 73, listId: "footnote74", noteId: "#note74", text1: "Ibid., p. 70.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 74, listId: "footnote75", noteId: "#note75", text1: "Royce, 1970, p. 328.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 75, listId: "footnote76", noteId: "#note76", text1: "Ibid., p. 329.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 76, listId: "footnote77", noteId: "#note77", text1: "DeGrace and Stahl, 1990, p. 28, figure 3-1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 77, listId: "footnote78", noteId: "#note77", text1: "Royce, 1970, p. 328.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 78, listId: "footnote79", noteId: "#note77", text1: "Ibid., p. 330, figure 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 79, listId: "footnote80", noteId: "#note77", text1: "Budgen, D., 2003, Software Design (2nd ed.), Addison-Wesley, p. 47.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 80, listId: "footnote81", noteId: "#note77", text1: "Larman & Basili, 2003, p. 48.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 81, listId: "footnote82", noteId: "#note82", text1: "Budgen, 2003, p. 143.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 82, listId: "footnote83", noteId: "#note82", text1: "Boehm, 1988, p. 63.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 83, listId: "footnote84", noteId: "#note82", text1: "DeGrace and Stahl, 1990, p. 68; McConnell, 1996, p. 137.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 84, listId: "footnote85", noteId: "#note82", text1: "DeGrace and Stahl, 1990, p. 67.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 85, listId: "footnote86", noteId: "#note86", text1: "Ibid., p. 154.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 86, listId: "footnote87", noteId: "#note86", text1: "McConnell, 1996, p. 144.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 87, listId: "footnote88", noteId: "#note88", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 88, listId: "footnote89", noteId: "#note89", text1: "Ibid., p. 141.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 89, listId: "footnote90", noteId: "#note90", text1: "Ibid., p. 142; DeGrace and Stahl, 1990, p. 116.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 90, listId: "footnote91", noteId: "#note91", text1: "Boehm, 1988, p. 65.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 91, listId: "footnote92", noteId: "#note91", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 92, listId: "footnote93", noteId: "#note93", text1: "McConnell, 1996, p. 148.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 93, listId: "footnote94", noteId: "#note94", text1: "Royce, 1970, p. 334.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 94, listId: "footnote95", noteId: "#note95", text1: "McConnell, 1996, p. 550.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 95, listId: "footnote96", noteId: "#note96", text1: "Ibid., p. 552.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 96, listId: "footnote97", noteId: "#note96", text1: "Ibid., p. 550.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 97, listId: "footnote98", noteId: "#note98", text1: "Ibid., p. 555.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 98, listId: "footnote99", noteId: "#note99", text1: "Ibid., p. 147.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 99, listId: "footnote100", noteId: "#note100", text1: "Ibid., p. 441.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 100, listId: "footnote101", noteId: "#note101", text1: "Ibid., p. 436.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 101, listId: "footnote102", noteId: "#note101", text1: "Ibid., p. 437.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 102, listId: "footnote103", noteId: "#note101", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 103, listId: "footnote104", noteId: "#note101", text1: "Ibid., p. 438.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 104, listId: "footnote105", noteId: "#note101", text1: "Ibid., p. 439.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 105, listId: "footnote106", noteId: "#note106", text1: "Ibid., p. 425.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 106, listId: "footnote107", noteId: "#note107", text1: "Ibid., p. 426.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 107, listId: "footnote108", noteId: "#note108", text1: "Watts, 1989, p. 283.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 108, listId: "footnote109", noteId: "#note109", text1: "Ibid., p. 253.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 109, listId: "footnote110", noteId: "#note109", text1: "Ibid., p. 249.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 110, listId: "footnote111", noteId: "#note109", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 111, listId: "footnote112", noteId: "#note109", text1: "Ibid., p. 253.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 112, listId: "footnote113", noteId: "#note109", text1: "Ibid., p. 249.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 113, listId: "footnote114", noteId: "#note109", text1: "Ibid., p. 253.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 114, listId: "footnote115", noteId: "#note109", text1: "Ibid., p. 252.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 115, listId: "footnote116", noteId: "#note116", text1: "Ibid., p. 254, 280.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 116, listId: "footnote117", noteId: "#note117", text1: "Ibid., p. 257.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 117, listId: "footnote118", noteId: "#note118", text1: "Ibid., p. 258.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 118, listId: "footnote119", noteId: "#note119", text1: "Ibid., p. 276.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" }
+  ]
+
   return (
     <Page title="Software Life Cycle">
       <ImageLightboxOverlay />
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2026-04-08T12:40:28-07:00" headline="Software Life Cycle"></GStructuredData>
-      <meta name="description" content="The Software Life Cycle, or software process, sometimes called software development process, what it is, its history, how it is used, a survey of software life cycles, and how to create a tailored life cycle model specific to an organization." />
+      <meta name="description" content="This article describes the software life cycle, discusses the different terminology used, including software lifecycle and software development life cycle, and the acronym SDLC. It answers the questions “what is software life cycle” and “what is software development life cycle model” and it describes the categories of life cycle models, and how the types of software life cycle models fit the categories. Some examples of life cycle models are included." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Life Cycle</h1>
@@ -547,7 +670,7 @@ function LifecycleModels() {
                   <sup>[60]</sup>
                 </HashLink>
               </li>
-              <li className="list">Incremental; best used when requirements are stable and partial functionality is needed and can be used before a complete system is delivered.</li>
+              <li className="list">Incremental; best used when requirements are stable and partial functionality is needed and can be used before a complete system is delivered. An example is the staged delivery model.</li>
               <li className="list">Evolutionary; like incremental but used when the requirements are not well understood. Uses prototypes to aid in determining how the final product should work. Examples include the spiral model and prototyping models.</li>
               <li className="list">
                 Agile; while the linear, incremental, and evolutionary models vary the sequence and repetition of development stages based on their unique strategies, agile models combine the stages, resulting in a lessening of the delineations between them.
@@ -564,6 +687,9 @@ function LifecycleModels() {
                 </HashLink>
               </p>
               <p>Some software life cycle models include features of one or more of the above categories and therefore do not fit neatly in any one category. An example is the Unified Process.</p>
+              <p>
+                Watts [1989] uses a different scheme to categorize life cycle models based on the level of detail they show, using the categories of “U” for universal, “W” for worldly, and “A” for atomic. This is described below under <HashLink to="#tailoredmodel">Tailored Process Model</HashLink>.
+              </p>
             </div>
             <p>Following are a few notable examples of the many software development life cycle models.</p>
           </div>
@@ -1121,985 +1247,7 @@ function LifecycleModels() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <ol>
-              <li id="footnote1">
-                <span className="footnote__ref">
-                  <HashLink to="#note1" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  ISO/IEC/IEEE 12207:2017(en){" "}
-                  <HashLink className="wrapper__article__outbound-link" to="https://www.iso.org/obp/ui/en/#iso:std:iso-iec-ieee:12207:ed-1:v1:en">
-                    Systems and software engineering — Software life cycle processes
-                  </HashLink>
-                </span>
-              </li>
-              <li id="footnote2">
-                <span className="footnote__ref">
-                  <HashLink to="#note1" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Kossiakoff, A., Sweet, W. N., Seymour, S. J., and Biemer, S. M., Systems Engineering, 2nd Ed. John Wiley & Sons, 2011. In Part I FOUNDATIONS OF SYSTEMS ENGINEERING
-                </span>
-              </li>
-              <li id="footnote3">
-                <span className="footnote__ref">
-                  <HashLink to="#note3" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  ISO/IEC/IEEE 12207:2017(en) Systems and software engineering — Software life cycle processes. Introduction. As of February 2026, the current revision is{" "}
-                  <HashLink className="wrapper__article__outbound-link" to="https://standards.ieee.org/ieee/12207/11416">
-                    IEEE/ISO/IEC 12207-2026 Systems and software engineering — Software life cycle processes.
-                  </HashLink>
-                </span>
-              </li>
-              <li id="footnote4">
-                <span className="footnote__ref">
-                  <HashLink to="#note4" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, Steve, 1996, Rapid Development: Taming Wild Software Schedules: Microsoft Press, p. 154.
-                </span>
-              </li>
-              <li id="footnote5">
-                <span className="footnote__ref">
-                  <HashLink to="#note5" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  ISO/IEC/IEEE 15288:2023(en){" "}
-                  <HashLink className="wrapper__article__outbound-link" to="https://www.iso.org/obp/ui/en/#iso:std:iso-iec-ieee:15288:ed-2:v1:en">
-                    Systems and software engineering — System life cycle processes.
-                  </HashLink>
-                </span>
-              </li>
-              <li id="footnote6">
-                <span className="footnote__ref">
-                  <HashLink to="#note6" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Kossiakoff et. al., 2011, chapter 1.7.
-                </span>
-              </li>
-              <li id="footnote7">
-                <span className="footnote__ref">
-                  <HashLink to="#note7" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  <HashLink className="wrapper__article__outbound-link" to="http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF">
-                    NATO Software Engineering Conference 1968
-                  </HashLink>{" "}
-                  ; p. 15, and Figure 6, p. 66.
-                </span>
-              </li>
-              <li id="footnote8">
-                <span className="footnote__ref">
-                  <HashLink to="#note8" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, Craig (2004). Agile and Iterative Development: A Manager's Guide. Addison-Wesley. In chapter 1.
-                </span>
-              </li>
-              <li id="footnote9">
-                <span className="footnote__ref">
-                  <HashLink to="#note8" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace, P., and Stahl, L. H., 1990, Wicked Problems, Righteous Solutions : a Catalogue of Modern Software Engineering Paradigms. Yourdon Press; p. 69; Boehm, Barry W., 1988, A Spiral Model of Software Development and Enhancement. Computer, May: pp. 61-72, p. 63; Larman, Craig & Basili, Victor R. “Iterative and Incremental Development: A Brief History.” Computer, IEEE, June 2003, p. 47, 48, and 52.
-                </span>
-              </li>
-              <li id="footnote10">
-                <span className="footnote__ref">
-                  <HashLink to="#note11" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  NATO Software Engineering Conference 1968, p. 120.
-                </span>
-              </li>
-              <li id="footnote11">
-                <span className="footnote__ref">
-                  <HashLink to="#note11" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  NATO Software Engineering Conference 1968, p. 122.
-                </span>
-              </li>
-              <li id="footnote12">
-                <span className="footnote__ref">
-                  <HashLink to="#note12" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  NATO Software Engineering Conference 1968, p. 13.
-                </span>
-              </li>
-              <li id="footnote13">
-                <span className="footnote__ref">
-                  <HashLink to="#note12" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote14">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  NATO Software Engineering Conference 1968, p. 126.
-                </span>
-              </li>
-              <li id="footnote15">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  “There is no theory which enables us to calculate limits on the size, performance, or complexity of software. There is, in many instances, no way even to specify in a logically tight way what the software product is supposed to do or how it is supposed to do it.” NATO Software Engineering Conference 1968, p. 69.
-                </span>
-              </li>
-              <li id="footnote16">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  <HashLink className="wrapper__article__outbound-link" to="https://www.cs.hmc.edu/courses/2004/fall/cs121/papers/larman.pdf">
-                    Larman & Basili, 2003
-                  </HashLink>
-                  , p. 47 and 48.
-                </span>
-              </li>
-              <li id="footnote17">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  NATO Software Engineering Conference 1968; “Design and implementation proceeded in a number of stages...each stage included more facilities than the last” p. 19; “The use of feedback from a partly designed system” p. 53.
-                </span>
-              </li>
-              <li id="footnote18">
-                <span className="footnote__ref">
-                  <HashLink to="#note18" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  NATO Software Engineering Conference 1968, p. 32.
-                </span>
-              </li>
-              <li id="footnote19">
-                <span className="footnote__ref">
-                  <HashLink to="#note19" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, W. W., 1970.
-                  <HashLink className="wrapper__article__outbound-link" to="https://web.archive.org/web/20190307012048/http://www-scf.usc.edu/~csci201/lectures/Lecture11/royce1970.pdf">
-                    Managing the Development of Large Software Systems. Proceedings of IEEE WESCON
-                  </HashLink>
-                </span>
-              </li>
-              <li id="footnote20">
-                <span className="footnote__ref">
-                  <HashLink to="#note19" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  For example, Bell, Thomas E.; T. A., Thayer (1976). Software requirements: Are they really a problem? (PDF). Proceedings of the 2nd international conference on Software engineering. IEEE Computer Society Press; Boehm, 1988, p. 63; DeGrace and Stahl, 1990, p. 27;{" "}
-                  <HashLink className="wrapper__article__outbound-link" to="https://archive.org/details/managingsoftware0000hump">
-                    Humphrey, Watts S., 1989, Managing the Software Process : Addison-Wesley
-                  </HashLink>
-                  , p. 249; Kossiakoff et. al., 2011, chapter 11.
-                </span>
-              </li>
-              <li id="footnote21">
-                <span className="footnote__ref">
-                  <HashLink to="#note19" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 63.
-                </span>
-              </li>
-              <li id="footnote22">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 67.
-                </span>
-              </li>
-              <li id="footnote23">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 69; Boehm, 1988, p. 63; Larman and Basili, 2003, p. 52.
-                </span>
-              </li>
-              <li id="footnote24">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman and Basili, 2003, p. 48; Larman, 2004, chapter 6.
-                </span>
-              </li>
-              <li id="footnote25">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 63; DeGrace and Stahl, 1990, p. 77, and pp. 97-118.
-                </span>
-              </li>
-              <li id="footnote26">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman and Basili, 2003, p. 48; Larman, 2004, in chapter 6, “Few actually read Royce's original waterfall paper [Royce70]. Its iterative flavor was lost, and it devolved from the nuanced evolutionary description he gave, to a simple single-step lifecycle. This is seen in the many third-party diagrams supposedly depicting “Royce's waterfall,” that do not correctly correspond to the original iterative picture Royce gave.”
-                </span>
-              </li>
-              <li id="footnote27">
-                <span className="footnote__ref">
-                  <HashLink to="#note27" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 3, “Agile Hype?”
-                </span>
-              </li>
-              <li id="footnote28">
-                <span className="footnote__ref">
-                  <HashLink to="#note27" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman and Basili, 2003, p. 51; Boehm’s Spiral model (Boehm, 1988); Gilb’s Evolutionary Delivery model{" "}
-                  <HashLink className="wrapper__article__outbound-link" to="https://archive.org/details/principlesofsoft0000gilb/mode/2up">
-                    Gilb, Tom, 1988, Principles of Software Engineering Management. Addison-Wesley
-                  </HashLink>
-                </span>
-              </li>
-              <li id="footnote29">
-                <span className="footnote__ref">
-                  <HashLink to="#note27" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 6, under “Why Did Waterfall Promotion Continue?”
-                </span>
-              </li>
-              <li id="footnote30">
-                <span className="footnote__ref">
-                  <HashLink to="#note30" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 1.
-                </span>
-              </li>
-              <li id="footnote31">
-                <span className="footnote__ref">
-                  <HashLink to="#note31" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman and Basili, 2003, p. 53.
-                </span>
-              </li>
-              <li id="footnote32">
-                <span className="footnote__ref">
-                  <HashLink to="#note31" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote33">
-                <span className="footnote__ref">
-                  <HashLink to="#note33" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  I.e., “Most software is not a predictable or mass manufacturing problem. Software development is new product development. Plus, many projects use new and buggy technologies that exacerbate the degree of novelty and unpredictability. Note also it is a new product for the inexperienced even if it has been done before,” and therefore, “…predictable manufacturing is the wrong paradigm for software….” (Larman, 2004, chapter 1)
-                </span>
-              </li>
-              <li id="footnote34">
-                <span className="footnote__ref">
-                  <HashLink to="#note33" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 3.
-                </span>
-              </li>
-              <li id="footnote35">
-                <span className="footnote__ref">
-                  <HashLink to="#note35" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 2.
-                </span>
-              </li>
-              <li id="footnote36">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 3.
-                </span>
-              </li>
-              <li id="footnote37">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman, 2004, chapter 2.
-                </span>
-              </li>
-              <li id="footnote38">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote39">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote40">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote41">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote42">
-                <span className="footnote__ref">
-                  <HashLink to="#note42" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 248.
-                </span>
-              </li>
-              <li id="footnote43">
-                <span className="footnote__ref">
-                  <HashLink to="#note42" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote44">
-                <span className="footnote__ref">
-                  <HashLink to="#note44" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 254.
-                </span>
-              </li>
-              <li id="footnote45">
-                <span className="footnote__ref">
-                  <HashLink to="#note44" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 249.
-                </span>
-              </li>
-              <li id="footnote46">
-                <span className="footnote__ref">
-                  <HashLink to="#note44" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 61.
-                </span>
-              </li>
-              <li id="footnote47">
-                <span className="footnote__ref">
-                  <HashLink to="#note47" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 284.
-                </span>
-              </li>
-              <li id="footnote48">
-                <span className="footnote__ref">
-                  <HashLink to="#note48" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Kossiakoff et. al., 2011, chapter 11.3.
-                </span>
-              </li>
-              <li id="footnote49">
-                <span className="footnote__ref">
-                  <HashLink to="#note49" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Kossiakoff et. al., 2011, chapter 11.3.
-                </span>
-              </li>
-              <li id="footnote50">
-                <span className="footnote__ref">
-                  <HashLink to="#note50" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote51">
-                <span className="footnote__ref">
-                  <HashLink to="#note51" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 154.
-                </span>
-              </li>
-              <li id="footnote52">
-                <span className="footnote__ref">
-                  <HashLink to="#note51" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 64 “…the spiral model can accommodate most previous models as special cases and further provides guidance as to which combination of previous models best fits a given software situation.”
-                </span>
-              </li>
-              <li id="footnote53">
-                <span className="footnote__ref">
-                  <HashLink to="#note51" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 65.
-                </span>
-              </li>
-              <li id="footnote54">
-                <span className="footnote__ref">
-                  <HashLink to="#note54" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Kossiakoff et. al., 2011, chapter 4.3.
-                </span>
-              </li>
-              <li id="footnote55">
-                <span className="footnote__ref">
-                  <HashLink to="#note54" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 33.
-                </span>
-              </li>
-              <li id="footnote56">
-                <span className="footnote__ref">
-                  <HashLink to="#note54" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 38.
-                </span>
-              </li>
-              <li id="footnote57">
-                <span className="footnote__ref">
-                  <HashLink to="#note57" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 328. Royce states “if the effort is sufficiently small and if the final product is to be operated by those who built it”, an analysis step followed by a coding step are all that is needed.
-                </span>
-              </li>
-              <li id="footnote58">
-                <span className="footnote__ref">
-                  <HashLink to="#note58" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 334; DeGrace and Stahl, 1990, p. 69; Boehm, 1988, p. 63.
-                </span>
-              </li>
-              <li id="footnote59">
-                <span className="footnote__ref">
-                  <HashLink to="#note59" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Kossiakoff et. al., 2011, chapter 11.3.
-                </span>
-              </li>
-              <li id="footnote60">
-                <span className="footnote__ref">
-                  <HashLink to="#note60" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote61">
-                <span className="footnote__ref">
-                  <HashLink to="#note60" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote62">
-                <span className="footnote__ref">
-                  <HashLink to="#note62" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote63">
-                <span className="footnote__ref">
-                  <HashLink to="#note63" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 62.
-                </span>
-              </li>
-              <li id="footnote64">
-                <span className="footnote__ref">
-                  <HashLink to="#note64" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote65">
-                <span className="footnote__ref">
-                  <HashLink to="#note64" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote66">
-                <span className="footnote__ref">
-                  <HashLink to="#note64" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 63.
-                </span>
-              </li>
-              <li id="footnote67">
-                <span className="footnote__ref">
-                  <HashLink to="#note67" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 59.
-                </span>
-              </li>
-              <li id="footnote68">
-                <span className="footnote__ref">
-                  <HashLink to="#note67" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 63.
-                </span>
-              </li>
-              <li id="footnote69">
-                <span className="footnote__ref">
-                  <HashLink to="#note67" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote70">
-                <span className="footnote__ref">
-                  <HashLink to="#note67" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 137.
-                </span>
-              </li>
-              <li id="footnote71">
-                <span className="footnote__ref">
-                  <HashLink to="#note67" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 63.
-                </span>
-              </li>
-              <li id="footnote72">
-                <span className="footnote__ref">
-                  <HashLink to="#note72" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 70.
-                </span>
-              </li>
-              <li id="footnote73">
-                <span className="footnote__ref">
-                  <HashLink to="#note72" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 61.
-                </span>
-              </li>
-              <li id="footnote74">
-                <span className="footnote__ref">
-                  <HashLink to="#note74" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 70.
-                </span>
-              </li>
-              <li id="footnote75">
-                <span className="footnote__ref">
-                  <HashLink to="#note75" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 328.
-                </span>
-              </li>
-              <li id="footnote76">
-                <span className="footnote__ref">
-                  <HashLink to="#note76" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 329.
-                </span>
-              </li>
-              <li id="footnote77">
-                <span className="footnote__ref">
-                  <HashLink to="#note77" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 28, figure 3-1.
-                </span>
-              </li>
-              <li id="footnote78">
-                <span className="footnote__ref">
-                  <HashLink to="#note77" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 328.
-                </span>
-              </li>
-              <li id="footnote79">
-                <span className="footnote__ref">
-                  <HashLink to="#note77" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 330, figure 3.
-                </span>
-              </li>
-              <li id="footnote80">
-                <span className="footnote__ref">
-                  <HashLink to="#note77" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, D., 2003, Software Design (2nd ed.). Addison-Wesley, p. 47.
-                </span>
-              </li>
-              <li id="footnote81">
-                <span className="footnote__ref">
-                  <HashLink to="#note77" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Larman & Basili, 2003, p. 48.
-                </span>
-              </li>
-              <li id="footnote82">
-                <span className="footnote__ref">
-                  <HashLink to="#note82" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 143.
-                </span>
-              </li>
-              <li id="footnote83">
-                <span className="footnote__ref">
-                  <HashLink to="#note82" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 63.
-                </span>
-              </li>
-              <li id="footnote84">
-                <span className="footnote__ref">
-                  <HashLink to="#note82" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 68; McConnell, 1996, p. 137.
-                </span>
-              </li>
-              <li id="footnote85">
-                <span className="footnote__ref">
-                  <HashLink to="#note82" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 67.
-                </span>
-              </li>
-              <li id="footnote86">
-                <span className="footnote__ref">
-                  <HashLink to="#note86" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 154.
-                </span>
-              </li>
-              <li id="footnote87">
-                <span className="footnote__ref">
-                  <HashLink to="#note86" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 144.
-                </span>
-              </li>
-              <li id="footnote88">
-                <span className="footnote__ref">
-                  <HashLink to="#note88" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote89">
-                <span className="footnote__ref">
-                  <HashLink to="#note89" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 141.
-                </span>
-              </li>
-              <li id="footnote90">
-                <span className="footnote__ref">
-                  <HashLink to="#note90" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  DeGrace and Stahl, 1990, p. 116; McConnell, 1996, p. 142.
-                </span>
-              </li>
-              <li id="footnote91">
-                <span className="footnote__ref">
-                  <HashLink to="#note91" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Boehm, 1988, p. 65.
-                </span>
-              </li>
-              <li id="footnote92">
-                <span className="footnote__ref">
-                  <HashLink to="#note91" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote93">
-                <span className="footnote__ref">
-                  <HashLink to="#note93" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 148.
-                </span>
-              </li>
-              <li id="footnote94">
-                <span className="footnote__ref">
-                  <HashLink to="#note94" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Royce, 1970, p. 334.
-                </span>
-              </li>
-              <li id="footnote95">
-                <span className="footnote__ref">
-                  <HashLink to="#note95" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 550.
-                </span>
-              </li>
-              <li id="footnote96">
-                <span className="footnote__ref">
-                  <HashLink to="#note96" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 552.
-                </span>
-              </li>
-              <li id="footnote97">
-                <span className="footnote__ref">
-                  <HashLink to="#note96" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 550.
-                </span>
-              </li>
-              <li id="footnote98">
-                <span className="footnote__ref">
-                  <HashLink to="#note98" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 555.
-                </span>
-              </li>
-              <li id="footnote99">
-                <span className="footnote__ref">
-                  <HashLink to="#note99" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 147.
-                </span>
-              </li>
-              <li id="footnote100">
-                <span className="footnote__ref">
-                  <HashLink to="#note100" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 441.
-                </span>
-              </li>
-              <li id="footnote101">
-                <span className="footnote__ref">
-                  <HashLink to="#note101" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 436.
-                </span>
-              </li>
-              <li id="footnote102">
-                <span className="footnote__ref">
-                  <HashLink to="#note101" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 437.
-                </span>
-              </li>
-              <li id="footnote103">
-                <span className="footnote__ref">
-                  <HashLink to="#note101" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote104">
-                <span className="footnote__ref">
-                  <HashLink to="#note101" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 438.
-                </span>
-              </li>
-              <li id="footnote105">
-                <span className="footnote__ref">
-                  <HashLink to="#note101" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 439.
-                </span>
-              </li>
-              <li id="footnote106">
-                <span className="footnote__ref">
-                  <HashLink to="#note106" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 425.
-                </span>
-              </li>
-              <li id="footnote107">
-                <span className="footnote__ref">
-                  <HashLink to="#note107" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1996, p. 426.
-                </span>
-              </li>
-              <li id="footnote108">
-                <span className="footnote__ref">
-                  <HashLink to="#note108" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 283.
-                </span>
-              </li>
-              <li id="footnote109">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 253.
-                </span>
-              </li>
-              <li id="footnote110">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 249.
-                </span>
-              </li>
-              <li id="footnote111">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote112">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 253.
-                </span>
-              </li>
-              <li id="footnote113">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 249.
-                </span>
-              </li>
-              <li id="footnote114">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 253.
-                </span>
-              </li>
-              <li id="footnote115">
-                <span className="footnote__ref">
-                  <HashLink to="#note109" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 252.
-                </span>
-              </li>
-              <li id="footnote116">
-                <span className="footnote__ref">
-                  <HashLink to="#note116" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 254, 280.
-                </span>
-              </li>
-              <li id="footnote117">
-                <span className="footnote__ref">
-                  <HashLink to="#note117" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 257.
-                </span>
-              </li>
-              <li id="footnote118">
-                <span className="footnote__ref">
-                  <HashLink to="#note118" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 258.
-                </span>
-              </li>
-              <li id="footnote119">
-                <span className="footnote__ref">
-                  <HashLink to="#note119" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989, p. 276.
-                </span>
-              </li>
-            </ol>
+            <Note notes={notes} />
           </div>
           <div className="row__colspan-1"></div>
         </div>

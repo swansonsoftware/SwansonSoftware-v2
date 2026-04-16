@@ -5,6 +5,7 @@ import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
+import Note from "../Note"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -29,6 +30,41 @@ function Reviews() {
     { id: 0, toText: "Home", toUrl: "/" },
     { id: 1, toText: "Principles", toUrl: "/principles" },
     { id: 2, toText: "Software Reviews", toUrl: "" }
+  ]
+
+  const notes = [
+    { id: 0, listId: "footnote1", noteId: "#note1", text1: "Humphrey, Watts S., 1989, Managing the Software Process : Addison-Wesley", text1IsLink: true, text1Link: "https://archive.org/details/managingsoftware0000hump", text2: ", p. 173; and McConnell, Steve, 1993, Code Complete: A Practical Handbook of Software Construction: Microsoft Press.", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 1, listId: "footnote2", noteId: "#note2", text1: "Watts, 1989.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 2, listId: "footnote3", noteId: "#note3", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 3, listId: "footnote4", noteId: "#note4", text1: "McConnell, 1993, p. 577.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 4, listId: "footnote5", noteId: "#note4", text1: "Ibid, p. 576.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 5, listId: "footnote6", noteId: "#note6", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 6, listId: "footnote7", noteId: "#note7", text1: "Wong, Y. K., 2006, Modern Software Review: Techniques And Technologies: IRM Press.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 7, listId: "footnote8", noteId: "#note8", text1: "Wong, 2006, p. 17.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 8, listId: "footnote9", noteId: "#note9", text1: "Parnas, D. L., and Weiss, D. M., 1985, Active Design Reviews: Principles and Practices: Proceeding of ICSE '85, Aug. 28-30, pp. 132-136. IEEE Computer Society.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 9, listId: "footnote10", noteId: "#note9", text1: "Wong, 2006, p. 20.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 10, listId: "footnote11", noteId: "#note11", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 11, listId: "footnote12", noteId: "#note12", text1: "Bisant, D. B., and Lyle, J. R., 1989, A Two Person Inspection Method to Improve Programming Productivity: IEEE Transactions on Software Engineering, 15 (10), 1294-1304.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 12, listId: "footnote13", noteId: "#note12", text1: "Wong, 2006, p. 21.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 13, listId: "footnote14", noteId: "#note14", text1: "Martin, J., and Tsai, W. T., 1992, N-fold Inspection: A Requirements Analysis Technique: Communications of ACM, 33(2), 225-232.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 14, listId: "footnote15", noteId: "#note14", text1: "Wong, 2006, p. 21.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 15, listId: "footnote16", noteId: "#note16", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 16, listId: "footnote17", noteId: "#note17", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 17, listId: "footnote18", noteId: "#note18", text1: "Knight, J. C., and Myers, A. E., 1993, An Improved Inspection Technique: Communications of ACM, 36(11), 50-69.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 18, listId: "footnote19", noteId: "#note18", text1: "Wong, 2006, p. 22.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 19, listId: "footnote20", noteId: "#note20", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 20, listId: "footnote21", noteId: "#note21", text1: "Wong, 2006, p. 24.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 21, listId: "footnote22", noteId: "#note22", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 22, listId: "footnote23", noteId: "#note22", text1: "Yourdon, Edward, 1989, Structured Walkthroughs, fourth edition: Yourdon Press/Prentice Hall.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 23, listId: "footnote24", noteId: "#note24", text1: "This was pointed out in Watts 1989, Yourdon 1989, and McConnell 1993.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 24, listId: "footnote25", noteId: "#note25", text1: "Wong, 2006, p. 25.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 25, listId: "footnote26", noteId: "#note26", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 26, listId: "footnote27", noteId: "#note27", text1: "Ibid, p. 26.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 27, listId: "footnote28", noteId: "#note28", text1: "Adapted from Wong, 2006.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 28, listId: "footnote29", noteId: "#note29", text1: "Wong, 2006.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 29, listId: "footnote30", noteId: "#note30", text1: "Freedman, D. P., and Weinberg, G. M., 1990, Handbook of Walkthroughs, Inspections, and Technical Reviews: Evaluating Programs, Projects, and Products, 3rd Edition: Dorset House.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 30, listId: "footnote31", noteId: "#note31", text1: "Adapted from Freedman and Weinberg, p. 183.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 31, listId: "footnote32", noteId: "#note32", text1: "Adapted from Freedman and Weinberg, p. 324.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" }
   ]
 
   return (
@@ -663,264 +699,7 @@ function Reviews() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <ol>
-              <li id="footnote1">
-                <span className="footnote__ref">
-                  <HashLink to="#note1" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Humphrey, Watts S., 1989, Managing the Software Process: Addison-Wesley, 494 pages. ISBN: 0-201-18095-2 p. 173; and McConnell, Steve, 1993, Code Complete: A Practical Handbook of Software Construction: Microsoft Press, 880 pages. ISBN: 1-55615-484-4
-                </span>
-              </li>
-              <li id="footnote2">
-                <span className="footnote__ref">
-                  <HashLink to="#note2" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989
-                </span>
-              </li>
-              <li id="footnote3">
-                <span className="footnote__ref">
-                  <HashLink to="#note3" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Watts, 1989
-                </span>
-              </li>
-              <li id="footnote4">
-                <span className="footnote__ref">
-                  <HashLink to="#note4" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, Steve, 1993, Code Complete: A Practical Handbook of Software Construction: Microsoft Press, 880 pages. ISBN: 1-55615-484-4. P. 577.
-                </span>
-              </li>
-              <li id="footnote5">
-                <span className="footnote__ref">
-                  <HashLink to="#note4" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid, p. 576.
-                </span>
-              </li>
-              <li id="footnote6">
-                <span className="footnote__ref">
-                  <HashLink to="#note6" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  McConnell, 1993.
-                </span>
-              </li>
-              <li id="footnote7">
-                <span className="footnote__ref">
-                  <HashLink to="#note7" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, Y. K., 2006, Modern Software Review: Techniques And Technologies: IRM Press, 324 pages. ISBN: 159904014X.
-                </span>
-              </li>
-              <li id="footnote8">
-                <span className="footnote__ref">
-                  <HashLink to="#note8" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 17.
-                </span>
-              </li>
-              <li id="footnote9">
-                <span className="footnote__ref">
-                  <HashLink to="#note9" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Parnas, D. L., and Weiss, D. M., 1985, Active Design Reviews: Principles and Practices: Proceeding of ICSE '85, Aug. 28-30, pp. 132-136. IEEE Computer Society.
-                </span>
-              </li>
-              <li id="footnote10">
-                <span className="footnote__ref">
-                  <HashLink to="#note9" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 20.
-                </span>
-              </li>
-              <li id="footnote11">
-                <span className="footnote__ref">
-                  <HashLink to="#note11" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote12">
-                <span className="footnote__ref">
-                  <HashLink to="#note12" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Bisant, D. B., and Lyle, J. R., 1989, A Two Person Inspection Method to Improve Programming Productivity: IEEE Transactions on Software Engineering, 15 (10), 1294-1304.
-                </span>
-              </li>
-              <li id="footnote13">
-                <span className="footnote__ref">
-                  <HashLink to="#note12" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 21.
-                </span>
-              </li>
-              <li id="footnote14">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Martin, J., and Tsai, W. T., 1992, N-fold Inspection: A Requirements Analysis Technique: Communications of ACM, 33(2), 225-232.
-                </span>
-              </li>
-              <li id="footnote15">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 21.
-                </span>
-              </li>
-              <li id="footnote16">
-                <span className="footnote__ref">
-                  <HashLink to="#note16" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote17">
-                <span className="footnote__ref">
-                  <HashLink to="#note17" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote18">
-                <span className="footnote__ref">
-                  <HashLink to="#note18" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Knight, J. C., and Myers, A. E., 1993, An Improved Inspection Technique: Communications of ACM, 36(11), 50-69.
-                </span>
-              </li>
-              <li id="footnote19">
-                <span className="footnote__ref">
-                  <HashLink to="#note18" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 22.
-                </span>
-              </li>
-              <li id="footnote20">
-                <span className="footnote__ref">
-                  <HashLink to="#note20" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote21">
-                <span className="footnote__ref">
-                  <HashLink to="#note21" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 24.
-                </span>
-              </li>
-              <li id="footnote22">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote23">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon, Edward, 1989, Structured Walkthroughs, fourth edition: Yourdon Press/Prentice Hall, 193 pages. ISBN: 0-13-855289-4
-                </span>
-              </li>
-              <li id="footnote24">
-                <span className="footnote__ref">
-                  <HashLink to="#note24" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  This was pointed out in Watts 1989, Yourdon 1989, and McConnell 1993
-                </span>
-              </li>
-              <li id="footnote25">
-                <span className="footnote__ref">
-                  <HashLink to="#note25" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, p. 25.
-                </span>
-              </li>
-              <li id="footnote26">
-                <span className="footnote__ref">
-                  <HashLink to="#note26" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote27">
-                <span className="footnote__ref">
-                  <HashLink to="#note27" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid, p. 26.
-                </span>
-              </li>
-              <li id="footnote28">
-                <span className="footnote__ref">
-                  <HashLink to="#note28" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Adapted from Wong, 2006
-                </span>
-              </li>
-              <li id="footnote29">
-                <span className="footnote__ref">
-                  <HashLink to="#note29" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Wong, 2006.
-                </span>
-              </li>
-              <li id="footnote30">
-                <span className="footnote__ref">
-                  <HashLink to="#note30" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Freedman, D. p., and Weinberg, G. M., 1990, Handbook of Walkthroughs, Inspections, and Technical Reviews: Evaluating Programs, Projects, and Products, 3rd Edition: Dorset House ISBN: 0-932633-19-6.
-                </span>
-              </li>
-              <li id="footnote31">
-                <span className="footnote__ref">
-                  <HashLink to="#note31" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Adapted from Freedman and Weinberg, p. 183.
-                </span>
-              </li>
-              <li id="footnote32">
-                <span className="footnote__ref">
-                  <HashLink to="#note32" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Adapted from Freedman and Weinberg, p. 324.
-                </span>
-              </li>
-            </ol>
+            <Note notes={notes} />
           </div>
           <div className="row__colspan-1"></div>
         </div>

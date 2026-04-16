@@ -4,6 +4,7 @@ import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
+import Note from "../Note"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -30,11 +31,91 @@ function Design() {
     { id: 2, toText: "Software Design", toUrl: "" }
   ]
 
+  const notes = [
+    { id: 1, listId: "footnote1", noteId: "#note1", text1: "Object-oriented Analysis and Design with Applications, 3rd ed., Grady Booch, Robert A. Maksimchuk, Michael W. Engle, Bobbi J. Young, Jim Conallen, Kelli A. Houston, 2007, section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 2, listId: "footnote2", noteId: "#note2", text1: "Ibid., section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 3, listId: "footnote3", noteId: "#note3", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 4, listId: "footnote4", noteId: "#note4", text1: "Ibid., section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 5, listId: "footnote5", noteId: "#note5", text1: "Zhu, Hong, 2005, Software Design Methodology: From Principles to Architectural Styles, p. 4.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 6, listId: "footnote6", noteId: "#note6", text1: "Ibid., p. 55.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 7, listId: "footnote7", noteId: "#note7", text1: "What Is Software Design? by Jack W. Reeves", text1IsLink: true, text1Link: "https://www.developerdotstar.com/mag/articles/reeves_design.html", text2: ", C++ Journal, 1992. Zhu, 2005, p7.", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 8, listId: "footnote8", noteId: "#note8", text1: "Booch et. al., 2007, section 1.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 9, listId: "footnote9", noteId: "#note9", text1: "Boehm states that it is unnecessary to write elaborate specifications for applications in areas supported by fourth-generation languages. (", text1IsLink: false, text1Link: "", text2: "Boehm, Barry W., 1988, A Spiral Model of Software Development and Enhancement. Computer, May: p. 61-72)", text2IsLink: true, text2Link: "https://www.cse.msu.edu/~cse435/Homework/HW3/boehm.pdf", text3: "); p. 63.", text3IsLink: false, text3Link: "" },
+    { id: 10, listId: "footnote10", noteId: "#note10", text1: "Booch et. al., 2007, section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 11, listId: "footnote11", noteId: "#note11", text1: "Ibid., section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 12, listId: "footnote12", noteId: "#note12", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 13, listId: "footnote13", noteId: "#note13", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 14, listId: "footnote14", noteId: "#note14", text1: "Ibid., section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 15, listId: "footnote15", noteId: "#note15", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 16, listId: "footnote16", noteId: "#note16", text1: "Zhu, 2005, p. 55.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 17, listId: "footnote17", noteId: "#note17", text1: "Booch et. al., 2007, section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 18, listId: "footnote18", noteId: "#note18", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 19, listId: "footnote19", noteId: "#note19", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 20, listId: "footnote20", noteId: "#note20", text1: "Ibid., section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 21, listId: "footnote21", noteId: "#note21", text1: "Zhu, 2005, p. 40, presenting the eight requirements of good designs from Parnas, D. L. and Weiss, D. M., Active design reviews: principles and practices, Journal of Systems and Software, Vol. 7, p259, 1987.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 22, listId: "footnote22", noteId: "#note22", text1: "Budgen, David, 2003, Software Design (2nd ed.), Addison-Wesley, p. 23.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 23, listId: "footnote23", noteId: "#note23", text1: "Yourdon, Edward and Constantine, Larry L., 1979, Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design, p. 73; Budgen, 2003, p. 82, using Parnass and Weiss’ (1987) eight requirements for a good design, item 2: Simple: The design should be ‘as simple as possible, but no simpler’.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 24, listId: "footnote24", noteId: "#note24", text1: "Zhu, 2005, p. 40.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 25, listId: "footnote25", noteId: "#note25", text1: "Budgen, 2003, p. 75.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 26, listId: "footnote26", noteId: "#note26", text1: "Zhu, 2005, p. 53.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 27, listId: "footnote27", noteId: "#note27", text1: "Booch et. al., 2007, section 1.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 28, listId: "footnote28", noteId: "#note28", text1: "Ibid., section 1.5.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 29, listId: "footnote29", noteId: "#note29", text1: "Zhu, 2005, p. 60.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 30, listId: "footnote30", noteId: "#note30", text1: "Booch et. al., 2007, Chapter 1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 31, listId: "footnote31", noteId: "#note31", text1: "Ibid., section 1.5.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 32, listId: "footnote32", noteId: "#note32", text1: "Ibid., section 6.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 33, listId: "footnote33", noteId: "#note33", text1: "Zhu, 2005, p. 61", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 34, listId: "footnote34", noteId: "#note34", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 35, listId: "footnote35", noteId: "#note35", text1: "Budgen, 2003, p. 234; Yourdon and Constantine, 1979, p. 378.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 36, listId: "footnote36", noteId: "#note36", text1: "Ibid., p. 77.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 37, listId: "footnote37", noteId: "#note37", text1: "Yourdon and Constantine, 1979, p. 135.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 38, listId: "footnote38", noteId: "#note38", text1: "Budgen, 2003, p. 78.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 39, listId: "footnote39", noteId: "#note39", text1: "Though work continues in an effort to change this - see for example: Bieman, J. M. and Kang, B-K, 1998, Measuring Design-level Cohesion: IEEE Transactions on Software Engineering, v. 24, no. 2, pp. 111-124, or Kramer, S., and Kaindl, H., 2004, Coupling and Cohesion Metrics for Knowledge-Based Systems Using Frames and Rules: ACM Transactions on Software Engineering and Methodology v. 13 no. 3, pp. 332-358.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 40, listId: "footnote40", noteId: "#note40", text1: "Budgen, 2003, p. 77.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 41, listId: "footnote41", noteId: "#note41", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 42, listId: "footnote42", noteId: "#note42", text1: "Yourdon and Constantine, 1979, p. 85.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 43, listId: "footnote43", noteId: "#note43", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 44, listId: "footnote44", noteId: "#note44", text1: "Ibid., p. 86.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 45, listId: "footnote45", noteId: "#note45", text1: "Ibid., p. 73.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 46, listId: "footnote46", noteId: "#note46", text1: "Ibid., p. 106.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 47, listId: "footnote47", noteId: "#note47", text1: "Budgen 2003, p. 78.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 48, listId: "footnote48", noteId: "#note48", text1: "Yourdon and Constantine, 1979, p. 106.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 49, listId: "footnote49", noteId: "#note49", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 50, listId: "footnote50", noteId: "#note50", text1: "Budgen, 2003, p. 78.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 51, listId: "footnote51", noteId: "#note51", text1: "Yourdon and Constantine, 1979, p. 121.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 52, listId: "footnote52", noteId: "#note52", text1: "Budgen, 2003, p. 23.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 53, listId: "footnote53", noteId: "#note53", text1: "Butler, R. W., 2001, ", text1IsLink: false, text1Link: "", text2: "What is Formal Methods?", text2IsLink: true, text2Link: "https://shemesh.larc.nasa.gov/fm/fm-what.html", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 54, listId: "footnote54", noteId: "#note54", text1: "Yourdon and Constantine, 1979, p. 45.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 55, listId: "footnote55", noteId: "#note55", text1: "Ibid., p. 57.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 56, listId: "footnote56", noteId: "#note56", text1: "Booch et. al., 2007, section 5.1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 57, listId: "footnote57", noteId: "#note57", text1: "Zhu, 2005, p. 62.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 58, listId: "footnote58", noteId: "#note58", text1: "Booch et. al., 2007, chapter 1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 59, listId: "footnote59", noteId: "#note59", text1: "Zhu, 2005, p. 66.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 60, listId: "footnote60", noteId: "#note60", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 61, listId: "footnote61", noteId: "#note61", text1: "Budgen, 2003, p. 23.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 62, listId: "footnote62", noteId: "#note62", text1: "Zhu, 2005, p. 66.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 63, listId: "footnote63", noteId: "#note63", text1: "Ibid., p. 35.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 64, listId: "footnote64", noteId: "#note64", text1: "Yourdon and Constantine, 1979, p. 15.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 65, listId: "footnote65", noteId: "#note65", text1: "Ibid., p. 26.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 66, listId: "footnote66", noteId: "#note66", text1: "Ibid., p. 59.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 67, listId: "footnote67", noteId: "#note67", text1: "Booch et. al, 2007, chapter 1.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 68, listId: "footnote68", noteId: "#note68", text1: "Ibid., section 2.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 69, listId: "footnote69", noteId: "#note69", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 70, listId: "footnote70", noteId: "#note70", text1: "Ibid., section 2.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 71, listId: "footnote71", noteId: "#note71", text1: "Ibid., chapter 4 summary.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 72, listId: "footnote72", noteId: "#note72", text1: "Ibid., section 2.3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 73, listId: "footnote73", noteId: "#note73", text1: "Zhu, 2005, p. 55.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 74, listId: "footnote74", noteId: "#note74", text1: "Ibid., p. 7.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 75, listId: "footnote75", noteId: "#note75", text1: "Gill Tyson, 2002, Planning Smarter: Creating Blueprint-Quality Software Specifications. Prentice Hall.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 76, listId: "footnote76", noteId: "#note76", text1: "Booch et. al., 2007, section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 77, listId: "footnote77", noteId: "#note77", text1: "Ibid., section 6.2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" }
+  ]
+
   return (
     <Page title="Overview of Software Design">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
-      <meta name="description" content="A survey of software design, including design strategies, methodologies, and the technical spec. Both object-oriented and structured methods are covered." />
+      <meta name="description" content="In this article you will find a discussion of software design concepts and an answer to the question what is software design, as well as a software design definition. Software design methods are discussed, as are software design strategies." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Design</h1>
@@ -204,6 +285,9 @@ function Design() {
                 <sup>[8]</sup>
               </HashLink>{" "}
               throwaway solutions not meant to be reused, repaired, or extended when requirements change. Such systems require little if any design beyond the source code.
+              <HashLink to="#footnote9" className="footnote" id="note9">
+                <sup>[9]</sup>
+              </HashLink>
             </p>
           </div>
           <div className="row__colspan-1"></div>
@@ -216,33 +300,33 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note9">
+            <p className="dropCap" id="note10">
               Analysis is a design activity in which user requirements are examined, with a focus on behavior: what the system does, not how it does it. The purpose of analysis is “to provide a model of the system’s behavior.”
-              <HashLink to="#footnote9" className="footnote">
-                <sup>[9]</sup>
-              </HashLink>{" "}
-              UML diagrams are a good way to represent an analysis model because of the variety of views available with UML (requirements view, logical view, implementation view, process view, etc.), as well as the ability of UML to express dynamic behavior (activity diagrams, state machine diagrams, sequence diagrams, etc.).
-            </p>
-            <p id="note10">
-              In the Scoping and Elaboration phases of development, the focus of analysis is on establishing the architectural framework and producing a description of the architecture, thus your focus in these phases is on analyzing requirements that concern the architecture.
               <HashLink to="#footnote10" className="footnote">
                 <sup>[10]</sup>
               </HashLink>{" "}
-              An architecture description should include a variety of perspectives, or views, each focused on describing the architectural elements of interest to a specific group of stakeholders.{" "}
-              <HashLink to="#footnote11" className="footnote" id="note11">
+              UML diagrams are a good way to represent an analysis model because of the variety of views available with UML (requirements view, logical view, implementation view, process view, etc.), as well as the ability of UML to express dynamic behavior (activity diagrams, state machine diagrams, sequence diagrams, etc.).
+            </p>
+            <p id="note11">
+              In the Scoping and Elaboration phases of development, the focus of analysis is on establishing the architectural framework and producing a description of the architecture, thus your focus in these phases is on analyzing requirements that concern the architecture.
+              <HashLink to="#footnote11" className="footnote">
                 <sup>[11]</sup>
               </HashLink>{" "}
-            </p>
-            <p id="note12">
-              During analysis, elements (classes, components, etc.) are identified and described. Element collaborations are defined, and responsibilities are distributed among the elements. Responsibilities might be described using freeform text: a single phrase or sentence. Analysis elements will often evolve as more is learned about the problem domain.{" "}
-              <HashLink to="#footnote12" className="footnote">
+              An architecture description should include a variety of perspectives, or views, each focused on describing the architectural elements of interest to a specific group of stakeholders.{" "}
+              <HashLink to="#footnote12" className="footnote" id="note12">
                 <sup>[12]</sup>
               </HashLink>{" "}
             </p>
             <p id="note13">
-              Once you have a reasonably accurate and consistent representation of the system requirements with your analysis model, you should not linger on analysis but move on to design.{" "}
+              During analysis, elements (classes, components, etc.) are identified and described. Element collaborations are defined, and responsibilities are distributed among the elements. Responsibilities might be described using freeform text: a single phrase or sentence. Analysis elements will often evolve as more is learned about the problem domain.{" "}
               <HashLink to="#footnote13" className="footnote">
                 <sup>[13]</sup>
+              </HashLink>{" "}
+            </p>
+            <p id="note14">
+              Once you have a reasonably accurate and consistent representation of the system requirements with your analysis model, you should not linger on analysis but move on to design.{" "}
+              <HashLink to="#footnote14" className="footnote">
+                <sup>[14]</sup>
               </HashLink>{" "}
             </p>
           </div>
@@ -256,36 +340,36 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note14">
+            <p className="dropCap" id="note15">
               While the focus of analysis is on what the system does, the focus of design is on how the system does it: creating elements (classes, components, etc.) that provide the behavior required by the analysis elements. The goal of design is to produce a specification that can be efficiently implemented.{" "}
-              <HashLink to="#footnote14" className="footnote">
-                <sup>[14]</sup>
+              <HashLink to="#footnote15" className="footnote">
+                <sup>[15]</sup>
               </HashLink>
               <sup>,</sup>{" "}
-              <HashLink to="#footnote15" className="footnote" id="note15">
-                <sup>[15]</sup>
-              </HashLink>{" "}
-            </p>
-            <p id="note16">
-              While the stakeholders for architectural documentation (the analysis/design model) are numerous, including personnel in support, operations, build and deployment, project managers, as well as developers and testers, the stakeholders who might need software specifications are few: developers and testers.{" "}
-              <HashLink to="#footnote16" className="footnote">
+              <HashLink to="#footnote16" className="footnote" id="note16">
                 <sup>[16]</sup>
               </HashLink>{" "}
             </p>
             <p id="note17">
-              A design specification for an element provides the protocol for the element: an interface of named operations. In earlier iterations of design, you may name the operations but ignore full signatures. In later iterations of design, you refine the protocol of the operations, and during detailed design the complete signature of operations are documented in pseudocode or even executable code of the implementation language that will be used.{" "}
+              While the stakeholders for architectural documentation (the analysis/design model) are numerous, including personnel in support, operations, build and deployment, project managers, as well as developers and testers, the stakeholders who might need software specifications are few: developers and testers.{" "}
               <HashLink to="#footnote17" className="footnote">
                 <sup>[17]</sup>
               </HashLink>{" "}
-              Element collaborations and dynamic behavior should be included in the specification. UML diagrams are very effective for communicating which elements collaborate and how they collaborate.{" "}
-              <HashLink to="#footnote18" className="footnote" id="note18">
+            </p>
+            <p id="note18">
+              A design specification for an element provides the protocol for the element: an interface of named operations. In earlier iterations of design, you may name the operations but ignore full signatures. In later iterations of design, you refine the protocol of the operations, and during detailed design the complete signature of operations are documented in pseudocode or even executable code of the implementation language that will be used.{" "}
+              <HashLink to="#footnote18" className="footnote">
                 <sup>[18]</sup>
               </HashLink>{" "}
-            </p>
-            <p id="note19">
-              Once you have a specification detailed enough to implement and test you should not linger on design.
-              <HashLink to="#footnote19" className="footnote">
+              Element collaborations and dynamic behavior should be included in the specification. UML diagrams are very effective for communicating which elements collaborate and how they collaborate.{" "}
+              <HashLink to="#footnote19" className="footnote" id="note19">
                 <sup>[19]</sup>
+              </HashLink>{" "}
+            </p>
+            <p id="note20">
+              Once you have a specification detailed enough to implement and test you should not linger on design.
+              <HashLink to="#footnote20" className="footnote">
+                <sup>[20]</sup>
               </HashLink>{" "}
             </p>
           </div>
@@ -297,32 +381,32 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note20">
+            <p className="dropCap" id="note21">
               A good design is well-structured, simple, efficient, adequate, flexible, and practical.
-              <HashLink to="#footnote20" className="footnote">
-                <sup>[20]</sup>
-              </HashLink>{" "}
-              There may be several solutions to arrive at a good design for a given set of user requirements;
-              <HashLink to="#footnote21" className="footnote" id="note21">
+              <HashLink to="#footnote21" className="footnote">
                 <sup>[21]</sup>
               </HashLink>{" "}
-              the best solution, however, is the least complex solution,
+              There may be several solutions to arrive at a good design for a given set of user requirements;
               <HashLink to="#footnote22" className="footnote" id="note22">
                 <sup>[22]</sup>
               </HashLink>{" "}
-              or one that despite its complexity is “deeply understood by those responsible for its correctness”, in other words, it is “under intellectual control.”
+              the best solution, however, is the least complex solution,
               <HashLink to="#footnote23" className="footnote" id="note23">
                 <sup>[23]</sup>
               </HashLink>{" "}
-              Minimizing complexity in a design improves the quality of a design, and minimizes the greatest cost factors of software development: implementation, maintenance, and modification.
+              or one that despite its complexity is “deeply understood by those responsible for its correctness”, in other words, it is “under intellectual control.”
               <HashLink to="#footnote24" className="footnote" id="note24">
                 <sup>[24]</sup>
               </HashLink>{" "}
-            </p>
-            <p id="note25">
-              The two main tools for dealing with complexity in software design are separation of concern, which is achieved through modularity (coupling and cohesion), and abstraction, which is achieved with design models
-              <HashLink to="#footnote25" className="footnote">
+              Minimizing complexity in a design improves the quality of a design, and minimizes the greatest cost factors of software development: implementation, maintenance, and modification.
+              <HashLink to="#footnote25" className="footnote" id="note25">
                 <sup>[25]</sup>
+              </HashLink>{" "}
+            </p>
+            <p id="note26">
+              The two main tools for dealing with complexity in software design are separation of concern, which is achieved through modularity (coupling and cohesion), and abstraction, which is achieved with design models
+              <HashLink to="#footnote26" className="footnote">
+                <sup>[26]</sup>
               </HashLink>{" "}
               (graphical or mathematical). We begin to understand a system’s modularity as we decompose it.
             </p>
@@ -337,34 +421,34 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note26">
+            <p className="dropCap" id="note27">
               In distinguishing “industrial-strength software” systems, Booch et. al. said that “the complexity of such systems exceeds the human intellectual capacity”,
-              <HashLink to="#footnote26" className="footnote">
-                <sup>[26]</sup>
-              </HashLink>{" "}
-              and that the technique of decomposition is essential to manage it.
-              <HashLink to="#footnote27" className="footnote" id="note27">
+              <HashLink to="#footnote27" className="footnote">
                 <sup>[27]</sup>
               </HashLink>{" "}
-              In software design, decomposition, also called top-down decomposition, is a procedure whereby a complex system is decomposed into smaller parts: beginning with the design problem, you decompose it into sub-problems which you can solve or, if still too complex, you decompose further until solvable.
+              and that the technique of decomposition is essential to manage it.
               <HashLink to="#footnote28" className="footnote" id="note28">
                 <sup>[28]</sup>
               </HashLink>{" "}
-            </p>
-            <p id="note29">
-              In structured design, decomposition means decomposing major steps of a process into functions or modules. In object-oriented design, decomposition means decomposing the system into objects which derive from the vocabulary of the problem domain. Both designs solve the same problem in different ways;
-              <HashLink to="#footnote29" className="footnote">
+              In software design, decomposition, also called top-down decomposition, is a procedure whereby a complex system is decomposed into smaller parts: beginning with the design problem, you decompose it into sub-problems which you can solve or, if still too complex, you decompose further until solvable.
+              <HashLink to="#footnote29" className="footnote" id="note29">
                 <sup>[29]</sup>
               </HashLink>{" "}
-              however, object-oriented systems have distinct advantages: they are resilient to change and better able to evolve over time, they reduce risk associated with complex software systems because they can evolve incrementally from smaller systems, and they address complexity with better support for separation of concerns.
-              <HashLink to="#footnote30" className="footnote" id="note30">
+            </p>
+            <p id="note30">
+              In structured design, decomposition means decomposing major steps of a process into functions or modules. In object-oriented design, decomposition means decomposing the system into objects which derive from the vocabulary of the problem domain. Both designs solve the same problem in different ways;
+              <HashLink to="#footnote30" className="footnote">
                 <sup>[30]</sup>
               </HashLink>{" "}
-            </p>
-            <p id="note31">
-              Decomposition activities include:
-              <HashLink to="#footnote31" className="footnote">
+              however, object-oriented systems have distinct advantages: they are resilient to change and better able to evolve over time, they reduce risk associated with complex software systems because they can evolve incrementally from smaller systems, and they address complexity with better support for separation of concerns.
+              <HashLink to="#footnote31" className="footnote" id="note31">
                 <sup>[31]</sup>
+              </HashLink>{" "}
+            </p>
+            <p id="note32">
+              Decomposition activities include:
+              <HashLink to="#footnote32" className="footnote">
+                <sup>[32]</sup>
               </HashLink>
             </p>
             <ul>
@@ -384,20 +468,20 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note32">
+            <p className="dropCap" id="note33">
               Composition, also called bottom-up composition, is a reverse process of decomposition. In a compositional strategy, the entities of the problem are identified, classified and grouped. The relationships between groups are identified, forming components of a solution model. Further classification and grouping of components continues until the model is complete.
-              <HashLink to="#footnote32" className="footnote">
-                <sup>[32]</sup>
+              <HashLink to="#footnote33" className="footnote">
+                <sup>[33]</sup>
               </HashLink>{" "}
               Zhu states that object-oriented design uses the composition strategy.
-              <HashLink to="#footnote33" className="footnote" id="note33">
-                <sup>[33]</sup>
+              <HashLink to="#footnote34" className="footnote" id="note34">
+                <sup>[34]</sup>
               </HashLink>
             </p>
-            <p className="note dropCapNote" id="note34">
+            <p className="note dropCapNote" id="note35">
               Decomposition is a “top-down” strategy in which we begin with the big picture and elaborate the details. Composition is a “bottom-up” strategy in which we elaborate the details before considering the big picture. Stepwise refinement is a strategy where decomposition and/or composition are repeated.{" "}
-              <HashLink to="#footnote34" className="footnote">
-                <sup>[34]</sup>
+              <HashLink to="#footnote35" className="footnote">
+                <sup>[35]</sup>
               </HashLink>
             </p>
           </div>
@@ -416,48 +500,48 @@ function Design() {
               <li className="list">are complete (i.e. can be used in another application without modification)</li>
               <li className="list">relate to the problem solution</li>
             </ul>
-            <p id="note35">
+            <p id="note36">
               Modularity, which is a measure of maintainability, testability, and possibly usability and reliability,
-              <HashLink to="#footnote35" className="footnote">
-                <sup>[35]</sup>
+              <HashLink to="#footnote36" className="footnote">
+                <sup>[36]</sup>
               </HashLink>{" "}
               is quantified in terms of coupling and cohesion. There is no standardized empirical measure of coupling, and the degree of coupling and cohesion cannot be objectively assessed.
-              <HashLink to="#footnote36" className="footnote" id="note36">
-                <sup>[36]</sup>
-                <sup>,</sup>
-              </HashLink>{" "}
               <HashLink to="#footnote37" className="footnote" id="note37">
                 <sup>[37]</sup>
                 <sup>,</sup>
               </HashLink>{" "}
               <HashLink to="#footnote38" className="footnote" id="note38">
                 <sup>[38]</sup>
+                <sup>,</sup>
+              </HashLink>{" "}
+              <HashLink to="#footnote39" className="footnote" id="note39">
+                <sup>[39]</sup>
               </HashLink>
             </p>
-            <p className="note dropCapNote" id="note39">
+            <p className="note dropCapNote" id="note40">
               The terms coupling and cohesion were defined in the early 1970s to describe interconnectedness among subprogram units, but the concepts are valid for newer modular forms such as packages and classes.
-              <HashLink to="#footnote39" className="footnote">
-                <sup>[39]</sup>
+              <HashLink to="#footnote40" className="footnote">
+                <sup>[40]</sup>
               </HashLink>{" "}
             </p>
 
             <h4 className="headline__h4">Coupling</h4>
-            <p className="dropCap" id="note40">
+            <p className="dropCap" id="note41">
               Coupling is a measure of the type and strength of connections between modules.
-              <HashLink to="#footnote40" className="footnote">
-                <sup>[40]</sup>
+              <HashLink to="#footnote41" className="footnote">
+                <sup>[41]</sup>
                 <sup>,</sup>
               </HashLink>{" "}
-              <HashLink to="#footnote41" className="footnote" id="note41">
-                <sup>[41]</sup>
-              </HashLink>{" "}
-              As coupling decreases, overall complexity decreases. A programmer who is coding, debugging or modifying one of two (or more) highly coupled modules will encounter a higher probability that changes will be required in the other modules as well.
               <HashLink to="#footnote42" className="footnote" id="note42">
                 <sup>[42]</sup>
               </HashLink>{" "}
-              Coupling is a relative measure indicated by four factors.
+              As coupling decreases, overall complexity decreases. A programmer who is coding, debugging or modifying one of two (or more) highly coupled modules will encounter a higher probability that changes will be required in the other modules as well.
               <HashLink to="#footnote43" className="footnote" id="note43">
                 <sup>[43]</sup>
+              </HashLink>{" "}
+              Coupling is a relative measure indicated by four factors.
+              <HashLink to="#footnote44" className="footnote" id="note44">
+                <sup>[44]</sup>
               </HashLink>{" "}
               In decreasing magnitude of effect on coupling:
             </p>
@@ -474,38 +558,38 @@ function Design() {
               <li className="list">The type of information flows along the connection</li>
               <li className="list">Binding time of the connection</li>
             </ul>
-            <p className="note dropCapNote" id="note44">
+            <p className="note dropCapNote" id="note45">
               Yourdon and Constantine describe factors of complexity, what they call "complexity in human terms": 1) size of a module; 2) number of decision-making statements; 3) span of data elements (e.g. between uses of a variable); 4) span of control flow (e.g. between an entry point and exit point).
-              <HashLink to="#footnote44" className="footnote">
-                <sup>[44]</sup>
+              <HashLink to="#footnote45" className="footnote">
+                <sup>[45]</sup>
               </HashLink>
             </p>
 
             <h4 className="headline__h4">Cohesion</h4>
-            <p className="dropCap" id="note45">
+            <p className="dropCap" id="note46">
               Cohesion is the degree of functional relatedness of the components of a module.
-              <HashLink to="#footnote45" className="footnote">
-                <sup>[45]</sup>
+              <HashLink to="#footnote46" className="footnote">
+                <sup>[46]</sup>
                 <sup>,</sup>
               </HashLink>
-              <HashLink to="#footnote46" className="footnote" id="note46">
-                <sup>[46]</sup>
-              </HashLink>{" "}
-              Cohesion is directly related to a module's relation to the problem solution.
               <HashLink to="#footnote47" className="footnote" id="note47">
                 <sup>[47]</sup>
               </HashLink>{" "}
-              As cohesion increases, overall complexity decreases. Furthermore, as cohesion increases among the modules of a system, overall coupling decreases.
+              Cohesion is directly related to a module's relation to the problem solution.
               <HashLink to="#footnote48" className="footnote" id="note48">
                 <sup>[48]</sup>
               </HashLink>{" "}
-              Knowledge of the presence of coupling is more useful to the designer than the extent of any form.
+              As cohesion increases, overall complexity decreases. Furthermore, as cohesion increases among the modules of a system, overall coupling decreases.
               <HashLink to="#footnote49" className="footnote" id="note49">
                 <sup>[49]</sup>
-                <sup>,</sup>
               </HashLink>{" "}
+              Knowledge of the presence of coupling is more useful to the designer than the extent of any form.
               <HashLink to="#footnote50" className="footnote" id="note50">
                 <sup>[50]</sup>
+                <sup>,</sup>
+              </HashLink>{" "}
+              <HashLink to="#footnote51" className="footnote" id="note51">
+                <sup>[51]</sup>
               </HashLink>{" "}
             </p>
           </div>
@@ -519,10 +603,10 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note51">
+            <p className="dropCap" id="note52">
               Design models have a fundamental role in software design
-              <HashLink to="#footnote51" className="footnote">
-                <sup>[51]</sup>
+              <HashLink to="#footnote52" className="footnote">
+                <sup>[52]</sup>
               </HashLink>{" "}
               (paraphrased):
             </p>
@@ -537,8 +621,8 @@ function Design() {
               <li className="list">Graphical (systematic methods); each systematic method includes a set of graphical symbols for representing and archiving design data</li>
               <li className="list">
                 Mathematical (formal methods); formal methods are mathematical; these are rarely used "because of the enormous complexity of real systems",
-                <HashLink to="#footnote52" className="footnote" id="note52">
-                  <sup>[52]</sup>
+                <HashLink to="#footnote53" className="footnote" id="note53">
+                  <sup>[53]</sup>
                 </HashLink>{" "}
                 and are not discussed
               </li>
@@ -548,14 +632,14 @@ function Design() {
             <ul>
               <li className="list">
                 They are intended to show structural and architectural information only
-                <HashLink to="#footnote53" className="footnote" id="note53">
-                  <sup>[53]</sup>
+                <HashLink to="#footnote54" className="footnote" id="note54">
+                  <sup>[54]</sup>
                 </HashLink>
               </li>
               <li className="list">
                 They are time-independent models of the hierarchical relationships of modules in a system
-                <HashLink to="#footnote54" className="footnote" id="note54">
-                  <sup>[54]</sup>
+                <HashLink to="#footnote55" className="footnote" id="note55">
+                  <sup>[55]</sup>
                 </HashLink>{" "}
                 and therefore cannot portray timing of operations
               </li>
@@ -563,10 +647,10 @@ function Design() {
               <li className="list">They do not have semantics for showing behavior or interactions</li>
               <li className="list">They have a small set of symbols for use with all views of the system</li>
             </ul>
-            <p id="note55">
+            <p id="note56">
               Development of the Unified Modeling Language (UML) began as a melding of several object-oriented methodologies and was adopted by the Object Management Group (OMG) as a standard in 1997.
-              <HashLink to="#footnote55" className="footnote">
-                <sup>[55]</sup>
+              <HashLink to="#footnote56" className="footnote">
+                <sup>[56]</sup>
               </HashLink>{" "}
               UML includes diagrams to represent system structure, behavior, and interactions. UML diagrams can portray static as well as dynamic behavior.
             </p>
@@ -582,10 +666,10 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note56">
+            <p className="dropCap" id="note57">
               Some design problems have recurred often, and their solution recognized and documented in a design pattern. Design reuse occurs when a design pattern can be used to solve a new design problem.
-              <HashLink to="#footnote56" className="footnote">
-                <sup>[56]</sup>
+              <HashLink to="#footnote57" className="footnote">
+                <sup>[57]</sup>
               </HashLink>{" "}
             </p>
           </div>
@@ -597,36 +681,36 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note57">
+            <p className="dropCap" id="note58">
               Historically, computer capabilities have increased rapidly, allowing the evolution of programming languages with more capabilities. More powerful programming languages allowed construction of software of greater complexity, and design methods evolved to help developers cope with increasing complexity. The most influential of the early design methods was structured design;
-              <HashLink to="#footnote57" className="footnote">
-                <sup>[57]</sup>
-              </HashLink>{" "}
-              other influential methods include Jackson Structured Programming (JSP) and Jackson System Development (JSD).
-              <HashLink to="#footnote58" className="footnote" id="note58">
+              <HashLink to="#footnote58" className="footnote">
                 <sup>[58]</sup>
               </HashLink>{" "}
-            </p>
-            <p id="note59">
-              As computer capabilities increased, hardware costs decreased, and computers proliferated. Software systems grew larger, and object-oriented methods began to replace structured methods. Object-oriented design is better suited than structured design particularly for larger software systems, is better at managing the complexity of these systems, and improves the reliability of software. Evolution of design methods is ongoing; more recently, a design method for software architectural design has emerged.
-              <HashLink to="#footnote59" className="footnote">
+              other influential methods include Jackson Structured Programming (JSP) and Jackson System Development (JSD).
+              <HashLink to="#footnote59" className="footnote" id="note59">
                 <sup>[59]</sup>
               </HashLink>{" "}
             </p>
             <p id="note60">
-              As mentioned earlier, design methods can be categorized as follows:
+              As computer capabilities increased, hardware costs decreased, and computers proliferated. Software systems grew larger, and object-oriented methods began to replace structured methods. Object-oriented design is better suited than structured design particularly for larger software systems, is better at managing the complexity of these systems, and improves the reliability of software. Evolution of design methods is ongoing; more recently, a design method for software architectural design has emerged.
               <HashLink to="#footnote60" className="footnote">
                 <sup>[60]</sup>
+              </HashLink>{" "}
+            </p>
+            <p id="note61">
+              As mentioned earlier, design methods can be categorized as follows:
+              <HashLink to="#footnote61" className="footnote">
+                <sup>[61]</sup>
               </HashLink>{" "}
             </p>
             <ol>
               <li className="list">Systematic methods (structured design, Jackson system development, object-oriented design, etc.)</li>
               <li className="list">Formal methods (mathematical)</li>
             </ol>
-            <p id="note61">
+            <p id="note62">
               Design methods have a common structure that includes three elements:
-              <HashLink to="#footnote61" className="footnote">
-                <sup>[61]</sup>
+              <HashLink to="#footnote62" className="footnote">
+                <sup>[62]</sup>
               </HashLink>
             </p>
             <ol>
@@ -635,10 +719,10 @@ function Design() {
               <li className="list">Heuristics (guidelines developed from experience with specific problem domains)</li>
             </ol>
             <p>It is best to use a design method that complements the programming environment. Many languages in common use today have features required for object-oriented programming; indeed, some languages that did not have object-oriented features have adopted them.</p>
-            <p className="note dropCapNote" id="note62">
+            <p className="note dropCapNote" id="note63">
               The choice of programming language is important as it “determines whether algorithms and data structures can be naturally and easily coded”, which impacts the probability of correct implementation by the developer.
-              <HashLink to="#footnote62" className="footnote">
-                <sup>[62]</sup>
+              <HashLink to="#footnote63" className="footnote">
+                <sup>[63]</sup>
               </HashLink>
             </p>
           </div>
@@ -650,24 +734,24 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note63">
+            <p className="dropCap" id="note64">
               Yourdon and Constantine describe structured design as "a collection of guidelines for distinguishing between good designs and bad designs, and a collection of techniques, strategies, and heuristics that generally leads to good designs...",
-              <HashLink to="#footnote63" className="footnote">
-                <sup>[63]</sup>
-              </HashLink>{" "}
-              and said that structured design is focused on how to properly partition the application, and how to properly organize the pieces of the system.
-              <HashLink to="#footnote64" className="footnote" id="note64">
+              <HashLink to="#footnote64" className="footnote">
                 <sup>[64]</sup>
               </HashLink>{" "}
-              Proper partitioning and organization is achieved by keeping program modules and functions loosely coupled and highly cohesive. Furthermore, “the cost of coding, debugging, maintenance, and modification are minimized when the problem is subdivided into the smallest functional units that can be treated independently.”
+              and said that structured design is focused on how to properly partition the application, and how to properly organize the pieces of the system.
               <HashLink to="#footnote65" className="footnote" id="note65">
                 <sup>[65]</sup>
+              </HashLink>{" "}
+              Proper partitioning and organization is achieved by keeping program modules and functions loosely coupled and highly cohesive. Furthermore, “the cost of coding, debugging, maintenance, and modification are minimized when the problem is subdivided into the smallest functional units that can be treated independently.”
+              <HashLink to="#footnote66" className="footnote" id="note66">
+                <sup>[66]</sup>
               </HashLink>
             </p>
-            <p id="note66">
+            <p id="note67">
               Today we know that there are many shortcomings to structured design:
-              <HashLink to="#footnote66" className="footnote">
-                <sup>[66]</sup>
+              <HashLink to="#footnote67" className="footnote">
+                <sup>[67]</sup>
               </HashLink>{" "}
             </p>
 
@@ -685,20 +769,20 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note67">
+            <p className="dropCap" id="note68">
               Object-oriented design evolved as a better strategy for managing the complexity of large software systems and proliferated as programming languages became available with or added support for objects, classes, and abstract data types. Object-oriented design is “a method of design encompassing the process of object-oriented decomposition and a notation for depicting both logical and physical as well as static and dynamic models of the system under design.”
-              <HashLink to="#footnote67" className="footnote">
-                <sup>[67]</sup>
-              </HashLink>{" "}
-            </p>
-            <p id="note68">
-              Object-oriented design uses the products of object-oriented analysis, which is: “…a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.”
               <HashLink to="#footnote68" className="footnote">
                 <sup>[68]</sup>
               </HashLink>{" "}
-              The conceptual framework of object-oriented design is the object model
-              <HashLink to="#footnote69" className="footnote" id="note69">
+            </p>
+            <p id="note69">
+              Object-oriented design uses the products of object-oriented analysis, which is: “…a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.”
+              <HashLink to="#footnote69" className="footnote">
                 <sup>[69]</sup>
+              </HashLink>{" "}
+              The conceptual framework of object-oriented design is the object model
+              <HashLink to="#footnote70" className="footnote" id="note70">
+                <sup>[70]</sup>
               </HashLink>{" "}
               which must include four main elements:
             </p>
@@ -714,16 +798,16 @@ function Design() {
               <li className="list">Concurrency</li>
               <li className="list">Persistence</li>
             </ol>
-            <p id="note70">
-              Identifying the classes and objects for the problem domain requires both discovery and invention.
-              <HashLink to="#footnote70" className="footnote">
-                <sup>[70]</sup>
-              </HashLink>{" "}
-            </p>
             <p id="note71">
-              While there are other programming styles besides object-oriented, in which programs are organized on a conceptual model other than the object model, no single programming style is best for all kinds of applications; however, “this paradigm often serves as the architectural framework in which we employ other paradigms” and “is best suited to the broadest set of applications.”
+              Identifying the classes and objects for the problem domain requires both discovery and invention.
               <HashLink to="#footnote71" className="footnote">
                 <sup>[71]</sup>
+              </HashLink>{" "}
+            </p>
+            <p id="note72">
+              While there are other programming styles besides object-oriented, in which programs are organized on a conceptual model other than the object model, no single programming style is best for all kinds of applications; however, “this paradigm often serves as the architectural framework in which we employ other paradigms” and “is best suited to the broadest set of applications.”
+              <HashLink to="#footnote72" className="footnote">
+                <sup>[72]</sup>
               </HashLink>{" "}
             </p>
             <p>Designing software with objects and determining how they fit in a hierarchy requires some knowledge of object technology: definitions of the terms, understanding of an object-oriented language, perhaps a knowledge of the object model. These are beyond the scope of this article, and the reader is referred to the references to learn more.</p>
@@ -736,14 +820,14 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note72">
+            <p className="dropCap" id="note73">
               The primary output of software design is the design specification,
-              <HashLink to="#footnote72" className="footnote">
-                <sup>[72]</sup>
+              <HashLink to="#footnote73" className="footnote">
+                <sup>[73]</sup>
               </HashLink>{" "}
               a.k.a. technical specification, often abbreviated technical spec. In general, design elements that should go into a technical spec include:
-              <HashLink to="#footnote73" className="footnote" id="note73">
-                <sup>[73]</sup>
+              <HashLink to="#footnote74" className="footnote" id="note74">
+                <sup>[74]</sup>
               </HashLink>{" "}
             </p>
             <ul>
@@ -755,10 +839,10 @@ function Design() {
               <li className="list">A description of usage</li>
             </ul>
             <p className="note dropCapNote">A technical spec is not the same as a functional specification (functional spec). Functional specs describe the functionality: what the system should do, how users interact with the system, without technical details. Technical specs describe the system architecture: the technologies used, database structure, modules, interactions between components, frameworks used, interactions via APIs, etc.</p>
-            <p id="note74">
+            <p id="note75">
               In <i>Planning Smarter: Creating Blueprint-Quality Software Specifications</i>, Tyson suggests that a technical spec should be a software blueprint with the following elements:
-              <HashLink to="#footnote74" className="footnote">
-                <sup>[74]</sup>
+              <HashLink to="#footnote75" className="footnote">
+                <sup>[75]</sup>
               </HashLink>{" "}
             </p>
             <ul>
@@ -769,14 +853,14 @@ function Design() {
               <li className="list">Logic to clearly define the rules for data translations</li>
               <li className="list">Narratives to describe relevant background</li>
             </ul>
-            <p id="note75">
+            <p id="note76">
               Design decisions and rational should be documented “only if it will be read in the future.”
-              <HashLink to="#footnote75" className="footnote">
-                <sup>[75]</sup>
+              <HashLink to="#footnote76" className="footnote">
+                <sup>[76]</sup>
               </HashLink>{" "}
               Consider who may need the documentation (Booch suggests “integrators, database administrators, project managers, operational support teams, technical help desk staff… or people who will join the team in the future”).
-              <HashLink to="#footnote76" className="footnote" id="note76">
-                <sup>[76]</sup>
+              <HashLink to="#footnote77" className="footnote" id="note77">
+                <sup>[77]</sup>
               </HashLink>{" "}
             </p>
 
@@ -795,623 +879,7 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <ol>
-              <li id="footnote1">
-                <span className="footnote__ref">
-                  <HashLink to="#note1" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Object-oriented Analysis and Design with Applications, 3rd ed., Grady Booch, Robert A. Maksimchuk, Michael W. Engle, Bobbi J. Young, Jim Conallen, Kelli A. Houston, 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote2">
-                <span className="footnote__ref">
-                  <HashLink to="#note2" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote3">
-                <span className="footnote__ref">
-                  <HashLink to="#note3" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote4">
-                <span className="footnote__ref">
-                  <HashLink to="#note4" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote5">
-                <span className="footnote__ref">
-                  <HashLink to="#note5" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, Hong, 2005, Software Design Methodology: From Principles to Architectural Styles, p. 4.
-                </span>
-              </li>
-              <li id="footnote6">
-                <span className="footnote__ref">
-                  <HashLink to="#note6" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 55
-                </span>
-              </li>
-              <li id="footnote7">
-                <span className="footnote__ref">
-                  <HashLink to="#note7" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  <HashLink className="wrapper__article__outbound-link" to="https://www.developerdotstar.com/mag/articles/reeves_design.html">
-                    What Is Software Design? by Jack W. Reeves
-                  </HashLink>
-                  , C++ Journal, 1992. Zhu, 2005, p7.
-                </span>
-              </li>
-
-              <li id="footnote8">
-                <span className="footnote__ref">
-                  <HashLink to="#note8" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 1.2.
-                </span>
-              </li>
-              <li id="footnote9">
-                <span className="footnote__ref">
-                  <HashLink to="#note9" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote10">
-                <span className="footnote__ref">
-                  <HashLink to="#note10" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote11">
-                <span className="footnote__ref">
-                  <HashLink to="#note11" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote12">
-                <span className="footnote__ref">
-                  <HashLink to="#note12" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote13">
-                <span className="footnote__ref">
-                  <HashLink to="#note13" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote14">
-                <span className="footnote__ref">
-                  <HashLink to="#note14" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote15">
-                <span className="footnote__ref">
-                  <HashLink to="#note15" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, p. 55
-                </span>
-              </li>
-              <li id="footnote16">
-                <span className="footnote__ref">
-                  <HashLink to="#note16" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote17">
-                <span className="footnote__ref">
-                  <HashLink to="#note17" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote18">
-                <span className="footnote__ref">
-                  <HashLink to="#note18" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote19">
-                <span className="footnote__ref">
-                  <HashLink to="#note19" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote20">
-                <span className="footnote__ref">
-                  <HashLink to="#note20" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 40, presenting the eight requirements of good designs from Parnas, D. L. and Weiss, D. M., Active design reviews: principles and practices, Journal of Systems and Software, Vol. 7, p259, 1987.
-                </span>
-              </li>
-              <li id="footnote21">
-                <span className="footnote__ref">
-                  <HashLink to="#note21" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, David, 2003, Software Design (2nd ed.), p. 23.
-                </span>
-              </li>
-              <li id="footnote22">
-                <span className="footnote__ref">
-                  <HashLink to="#note22" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon, Edward and Constantine, Larry L., 1979, Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design, p. 73; Budgen, 2003, p. 82, using Parnass and Weiss’ (1987) eight requirements for a good design, item 2: Simple: The design should be ‘as simple as possible, but no simpler’.
-                </span>
-              </li>
-              <li id="footnote23">
-                <span className="footnote__ref">
-                  <HashLink to="#note23" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 40.
-                </span>
-              </li>
-              <li id="footnote24">
-                <span className="footnote__ref">
-                  <HashLink to="#note24" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 75.
-                </span>
-              </li>
-              <li id="footnote25">
-                <span className="footnote__ref">
-                  <HashLink to="#note25" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 53.
-                </span>
-              </li>
-              <li id="footnote26">
-                <span className="footnote__ref">
-                  <HashLink to="#note26" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 1.2.
-                </span>
-              </li>
-              <li id="footnote27">
-                <span className="footnote__ref">
-                  <HashLink to="#note27" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid., section 1.5
-                </span>
-              </li>
-              <li id="footnote28">
-                <span className="footnote__ref">
-                  <HashLink to="#note28" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 60.
-                </span>
-              </li>
-              <li id="footnote29">
-                <span className="footnote__ref">
-                  <HashLink to="#note29" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, Chapter 1.
-                </span>
-              </li>
-              <li id="footnote30">
-                <span className="footnote__ref">
-                  <HashLink to="#note30" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 1.5.
-                </span>
-              </li>
-              <li id="footnote31">
-                <span className="footnote__ref">
-                  <HashLink to="#note31" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, section 6.3.
-                </span>
-              </li>
-              <li id="footnote32">
-                <span className="footnote__ref">
-                  <HashLink to="#note32" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 61
-                </span>
-              </li>
-              <li id="footnote33">
-                <span className="footnote__ref">
-                  <HashLink to="#note33" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote34">
-                <span className="footnote__ref">
-                  <HashLink to="#note34" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, David, 2003, p. 234; Yourdon and Constantine, 1979, p. 378
-                </span>
-              </li>
-              <li id="footnote35">
-                <span className="footnote__ref">
-                  <HashLink to="#note35" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 77.
-                </span>
-              </li>
-              <li id="footnote36">
-                <span className="footnote__ref">
-                  <HashLink to="#note36" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 135.
-                </span>
-              </li>
-              <li id="footnote37">
-                <span className="footnote__ref">
-                  <HashLink to="#note37" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 78.
-                </span>
-              </li>
-              <li id="footnote38">
-                <span className="footnote__ref">
-                  <HashLink to="#note38" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Though work continues in an effort to change this - see for example: Bieman, J. M. and Kang, B-K, 1998, Measuring Design-level Cohesion: IEEE Transactions on Software Engineering, v. 24, no. 2, pp. 111-124, or Kramer, S., and Kaindl, H., 2004, Coupling and Cohesion Metrics for Knowledge-Based Systems Using Frames and Rules: ACM Transactions on Software Engineering and Methodology v. 13 no. 3, pp. 332-358.
-                </span>
-              </li>
-              <li id="footnote39">
-                <span className="footnote__ref">
-                  <HashLink to="#note39" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 77
-                </span>
-              </li>
-              <li id="footnote40">
-                <span className="footnote__ref">
-                  <HashLink to="#note40" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 77
-                </span>
-              </li>
-              <li id="footnote41">
-                <span className="footnote__ref">
-                  <HashLink to="#note41" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 85.
-                </span>
-              </li>
-              <li id="footnote42">
-                <span className="footnote__ref">
-                  <HashLink to="#note42" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 85.
-                </span>
-              </li>
-              <li id="footnote43">
-                <span className="footnote__ref">
-                  <HashLink to="#note43" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 86.
-                </span>
-              </li>
-              <li id="footnote44">
-                <span className="footnote__ref">
-                  <HashLink to="#note44" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 73.
-                </span>
-              </li>
-              <li id="footnote45">
-                <span className="footnote__ref">
-                  <HashLink to="#note45" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine 1979, p. 106
-                </span>
-              </li>
-              <li id="footnote46">
-                <span className="footnote__ref">
-                  <HashLink to="#note46" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen 2003, p. 78.
-                </span>
-              </li>
-              <li id="footnote47">
-                <span className="footnote__ref">
-                  <HashLink to="#note47" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine 1979, p. 106.
-                </span>
-              </li>
-              <li id="footnote48">
-                <span className="footnote__ref">
-                  <HashLink to="#note48" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine 1979, p. 106
-                </span>
-              </li>
-              <li id="footnote49">
-                <span className="footnote__ref">
-                  <HashLink to="#note49" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 78.
-                </span>
-              </li>
-              <li id="footnote50">
-                <span className="footnote__ref">
-                  <HashLink to="#note50" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 121
-                </span>
-              </li>
-              <li id="footnote51">
-                <span className="footnote__ref">
-                  <HashLink to="#note51" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, David, 2003, p. 23.
-                </span>
-              </li>
-              <li id="footnote52">
-                <span className="footnote__ref">
-                  <HashLink to="#note52" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Butler, R. W., 2001
-                  <HashLink className="wrapper__article__outbound-link" to="https://shemesh.larc.nasa.gov/fm/fm-what.html">
-                    What is Formal Methods?
-                  </HashLink>
-                </span>
-              </li>
-              <li id="footnote53">
-                <span className="footnote__ref">
-                  <HashLink to="#note53" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 45
-                </span>
-              </li>
-              <li id="footnote54">
-                <span className="footnote__ref">
-                  <HashLink to="#note54" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 57
-                </span>
-              </li>
-              <li id="footnote55">
-                <span className="footnote__ref">
-                  <HashLink to="#note55" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., section 5.1.
-                </span>
-              </li>
-              <li id="footnote56">
-                <span className="footnote__ref">
-                  <HashLink to="#note56" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 62.
-                </span>
-              </li>
-              <li id="footnote57">
-                <span className="footnote__ref">
-                  <HashLink to="#note57" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al., 2007, chapter 1.
-                </span>
-              </li>
-              <li id="footnote58">
-                <span className="footnote__ref">
-                  <HashLink to="#note58" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 66
-                </span>
-              </li>
-              <li id="footnote59">
-                <span className="footnote__ref">
-                  <HashLink to="#note59" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Ibid.
-                </span>
-              </li>
-              <li id="footnote60">
-                <span className="footnote__ref">
-                  <HashLink to="#note60" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Budgen, 2003, p. 23
-                </span>
-              </li>
-              <li id="footnote61">
-                <span className="footnote__ref">
-                  <HashLink to="#note61" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 66
-                </span>
-              </li>
-              <li id="footnote62">
-                <span className="footnote__ref">
-                  <HashLink to="#note62" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 35
-                </span>
-              </li>
-              <li id="footnote63">
-                <span className="footnote__ref">
-                  <HashLink to="#note63" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 15.
-                </span>
-              </li>
-              <li id="footnote64">
-                <span className="footnote__ref">
-                  <HashLink to="#note64" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 26
-                </span>
-              </li>
-              <li id="footnote65">
-                <span className="footnote__ref">
-                  <HashLink to="#note65" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Yourdon and Constantine, 1979, p. 59
-                </span>
-              </li>
-              <li id="footnote66">
-                <span className="footnote__ref">
-                  <HashLink to="#note66" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, chapter 1.
-                </span>
-              </li>
-              <li id="footnote67">
-                <span className="footnote__ref">
-                  <HashLink to="#note67" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 2.2
-                </span>
-              </li>
-              <li id="footnote68">
-                <span className="footnote__ref">
-                  <HashLink to="#note68" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 2.2
-                </span>
-              </li>
-              <li id="footnote69">
-                <span className="footnote__ref">
-                  <HashLink to="#note69" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 2.3
-                </span>
-              </li>
-              <li id="footnote70">
-                <span className="footnote__ref">
-                  <HashLink to="#note70" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, chapter 4 summary
-                </span>
-              </li>
-              <li id="footnote71">
-                <span className="footnote__ref">
-                  <HashLink to="#note71" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 2.3
-                </span>
-              </li>
-              <li id="footnote72">
-                <span className="footnote__ref">
-                  <HashLink to="#note72" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 55
-                </span>
-              </li>
-              <li id="footnote73">
-                <span className="footnote__ref">
-                  <HashLink to="#note73" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Zhu, 2005, p. 7.
-                </span>
-              </li>
-              <li id="footnote74">
-                <span className="footnote__ref">
-                  <HashLink to="#note74" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Gill Tyson, 2002, Planning Smarter: Creating Blueprint-Quality Software Specifications. Prentice Hall.
-                </span>
-              </li>
-              <li id="footnote75">
-                <span className="footnote__ref">
-                  <HashLink to="#note75" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 6.2.
-                </span>
-              </li>
-              <li id="footnote76">
-                <span className="footnote__ref">
-                  <HashLink to="#note76" className="footnote--cite">
-                    ^
-                  </HashLink>
-                  Booch et. al, 2007, section 6.2.
-                </span>
-              </li>
-            </ol>
+            <Note notes={notes} />
           </div>
           <div className="row__colspan-1"></div>
         </div>
