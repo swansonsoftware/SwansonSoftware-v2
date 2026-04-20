@@ -20,6 +20,7 @@ function Reviews() {
     appDispatch({ type: "selectMenu", selectedMenu: "Software Reviews" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

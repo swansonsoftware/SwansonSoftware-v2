@@ -21,6 +21,7 @@ function Home() {
     appDispatch({ type: "selectMenu", selectedMenu: "" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
     appDispatch({ type: "homePageClass", homePageClass: "page page__home" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()
@@ -43,7 +44,7 @@ function Home() {
           </div>
           <div className="row__colspan-5">
             <div className="note note--dark">
-              <h2 className="headline__h3-cg-home">New Software Life Cycle Paper</h2>
+              <h2 className="headline__h3-cg-home">April 8, 2025</h2>
               <p>
                 A new paper, <Link to="/principles/lifecycle">Software Life Cycle</Link>, replaces the old paper Software Life Cycle Models. This new paper answers the question “What is software life cycle?” and presents the historical origins and development of software life cycle models.
               </p>

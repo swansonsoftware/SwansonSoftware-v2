@@ -37,6 +37,19 @@ function ScrollToTop() {
     }
   }, [appState.backgroundStyle])
 
+  useEffect(() => {
+    const btn = document.getElementById("scroll-to-top-button")
+    if (appState.scrollTop) {
+      if (btn) {
+        btn.style.right = "2rem"
+      }
+    } else {
+      if (btn) {
+        btn.style.right = "-100px"
+      }
+    }
+  }, [appState.scrollTop])
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

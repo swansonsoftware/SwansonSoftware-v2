@@ -17,6 +17,7 @@ function Principles() {
     appDispatch({ type: "selectMenu", selectedMenu: "Principles" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

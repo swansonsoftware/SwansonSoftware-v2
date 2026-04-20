@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
@@ -19,9 +20,10 @@ function Design() {
     appDispatch({ type: "selectMenu", selectedMenu: "Software Design" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
-      app.focus()
+      // app.focus()
     }
   }, [])
 
@@ -125,83 +127,83 @@ function Design() {
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
-                <HashLink to="#designDevLifecycle" className="list--toc--a">
+                <HashLink smooth to="#designDevLifecycle" href="#designDevLifecycle" className="list--toc--a">
                   Design in the Development Lifecycle
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#whatIsSoftwareDesign" className="list--toc--a">
+                <HashLink smooth to="#whatIsSoftwareDesign" href="#whatIsSoftwareDesign" className="list--toc--a">
                   What is Software Design?
                 </HashLink>
                 <ul className="list-ul">
                   <li className="list list--toc">
-                    <HashLink to="#analysis" className="list--toc--a">
+                    <HashLink smooth to="#analysis" href="#analysis" className="list--toc--a">
                       Analysis
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#design" className="list--toc--a">
+                    <HashLink smooth to="#design" href="#design" className="list--toc--a">
                       Design
                     </HashLink>
                   </li>
                 </ul>
               </li>
               <li className="list list--toc">
-                <HashLink to="#creatingGoodDesigns" className="list--toc--a">
+                <HashLink smooth to="#creatingGoodDesigns" href="#creatingGoodDesigns" className="list--toc--a">
                   Creating Good Designs
                 </HashLink>
                 <ul className="list-ul">
                   <li className="list list--toc">
-                    <HashLink to="#decomposition" className="list--toc--a">
+                    <HashLink smooth to="#decomposition" href="#decomposition" className="list--toc--a">
                       Decomposition
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#composition" className="list--toc--a">
+                    <HashLink smooth to="#composition" href="#composition" className="list--toc--a">
                       Composition
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#modularity" className="list--toc--a">
+                    <HashLink smooth to="#modularity" href="#modularity" className="list--toc--a">
                       Separation of Concern: Modularity
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#theDesignModel" className="list--toc--a">
+                    <HashLink smooth to="#theDesignModel" href="#theDesignModel" className="list--toc--a">
                       Abstraction: The Design Model
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#designPatterns" className="list--toc--a">
+                    <HashLink smooth to="#designPatterns" href="#designPatterns" className="list--toc--a">
                       Design Patterns
                     </HashLink>
                   </li>
                 </ul>
               </li>
               <li className="list list--toc">
-                <HashLink to="#designMethods" className="list--toc--a">
+                <HashLink smooth to="#designMethods" href="#designMethods" className="list--toc--a">
                   Design Methods
                 </HashLink>
                 <ul className="list-ul">
                   <li className="list list--toc">
-                    <HashLink to="#structuredDesign" className="list--toc--a">
+                    <HashLink smooth to="#structuredDesign" href="#structuredDesign" className="list--toc--a">
                       Structured Design
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#objectOrientedDesign" className="list--toc--a">
+                    <HashLink smooth to="#objectOrientedDesign" href="#objectOrientedDesign" className="list--toc--a">
                       Object-oriented Design
                     </HashLink>
                   </li>
                 </ul>
               </li>
               <li className="list list--toc">
-                <HashLink to="#designArtifacts" className="list--toc--a">
+                <HashLink smooth to="#designArtifacts" href="#designArtifacts" className="list--toc--a">
                   Design Artifacts
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#notes" className="list--toc--a">
+                <HashLink smooth to="#notes" href="#notes" className="list--toc--a">
                   Notes
                 </HashLink>
               </li>

@@ -22,6 +22,7 @@ function BlogJan2025_ResSwitching() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

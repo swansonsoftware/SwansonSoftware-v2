@@ -576,6 +576,7 @@ function SlideShow(props) {
 
   useEffect(() => {
     appDispatch({ type: "backgroundStyleChange", color: "dark" })
+    appDispatch({ type: "scrollTop", scrollTop: false })
   }, [])
 
   useEffect(() => {
@@ -623,7 +624,7 @@ function SlideShow(props) {
     swapVcrFullscreenBtn(EXITFULLSCREEN)
     play()
     return () => {
-      CancelTimers(), document.body.classList.remove("no-scroll")
+      ;(CancelTimers(), document.body.classList.remove("no-scroll"))
     }
   }, [])
 

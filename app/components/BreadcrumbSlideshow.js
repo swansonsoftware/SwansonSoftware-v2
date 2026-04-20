@@ -61,7 +61,7 @@ function Breadcrumb(props) {
                 <b>{link.toText}</b>
               </li>
             ) : (
-              <>
+              <React.Fragment key={index}>
                 <li key={index}>
                   <Link
                     id={link.id}
@@ -76,7 +76,7 @@ function Breadcrumb(props) {
                     {">"}
                   </span>
                 </li>
-              </>
+              </React.Fragment>
             )
           })}
         </ol>

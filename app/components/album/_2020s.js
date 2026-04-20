@@ -16,6 +16,7 @@ function _2020s() {
     appDispatch({ type: "selectMenu", selectedMenu: "2020s" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

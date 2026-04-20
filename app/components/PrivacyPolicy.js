@@ -18,6 +18,7 @@ function PrivacyPolicy() {
     appDispatch({ type: "selectMenu", selectedMenu: "" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

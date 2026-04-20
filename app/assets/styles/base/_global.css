@@ -37,8 +37,10 @@ body.dark {
   color: $bodyDarkBGFontColor;
   a {
     color: $bodyDarkBGFontColor;
-    &:hover {
-      color: $hoverColorDarkBG;
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: $hoverColorDarkBG;
+      }
     }
   }
 }

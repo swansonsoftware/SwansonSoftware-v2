@@ -18,6 +18,7 @@ function Album() {
     appDispatch({ type: "selectMenu", selectedMenu: "Album" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

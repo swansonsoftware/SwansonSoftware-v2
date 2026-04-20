@@ -17,6 +17,7 @@ function Blogs2025() {
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

@@ -18,6 +18,7 @@ function PieDough() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "Recipes" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

@@ -8,11 +8,14 @@
 
   &--toc {
     list-style: none;
-    padding-bottom: 5px;
+    padding-bottom: 0; /*5px*/
     &--a {
+      cursor: pointer;
       text-decoration: none;
-      &:hover {
-        text-decoration: underline;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          text-decoration: underline;
+        }
       }
       &:focus {
         text-decoration: underline;

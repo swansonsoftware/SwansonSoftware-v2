@@ -18,6 +18,7 @@ function ProcessModels() {
     appDispatch({ type: "selectMenu", selectedMenu: "Process Models" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
     appDispatch({ type: "homePageClass", homePageClass: "page" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

@@ -15,6 +15,7 @@ function FavoritesCats() {
   useEffect(() => {
     appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
+    appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
       app.focus()

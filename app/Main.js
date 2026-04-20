@@ -1,4 +1,4 @@
-import React, { useReducer, Suspense, useContext } from "react"
+import React, { useReducer, Suspense, useContext, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 import "./assets/styles/styles.css"
@@ -55,7 +55,7 @@ const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blo
 const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay" }
+  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true }
 
   function theReducer(state, action) {
     switch (action.type) {
@@ -72,7 +72,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "siteHeaderClass": {
@@ -88,7 +89,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "homePageClass": {
@@ -105,7 +107,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "updateBreadcrumbClass": {
@@ -121,7 +124,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "selectMenu": {
@@ -137,7 +141,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "menuOverlay": {
@@ -153,7 +158,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "menuActiveCategory": {
@@ -169,7 +175,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "menuDropdownActiveTopic": {
@@ -185,7 +192,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "menuListClassByIconState": {
@@ -201,7 +209,8 @@ function Main() {
           menuListClassByIconState: action.class,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "mobileMenuIconState": {
@@ -217,7 +226,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: action.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "captionBoxBtn": {
@@ -233,7 +243,8 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: action.captionBoxBtn,
-          imageOverlay: state.imageOverlay
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop
         }
       }
       case "imageOverlay": {
@@ -249,13 +260,113 @@ function Main() {
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
-          imageOverlay: action.imageOverlay
+          imageOverlay: action.imageOverlay,
+          scrollTop: state.scrollTop
+        }
+      }
+      case "scrollTop": {
+        //Show or hide the scroll to top button on page (hide on slideshow)
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          homePageClass: state.homePageClass,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay,
+          scrollTop: action.scrollTop
         }
       }
     }
   }
 
   const [state, dispatch] = useReducer(theReducer, initialState)
+
+  useEffect(() => {
+    removeHoverIosSafari()
+  }, [])
+
+  function isIosSafari() {
+    var ua = (window.navigator && navigator.userAgent) || ""
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i)
+    var webkit = !!ua.match(/WebKit/i)
+    var iOSSafari = iOS && webkit && !ua.match(/CriOS/i)
+    return iOSSafari
+  }
+  function removeHoverIosSafari() {
+    if (!isIosSafari()) return
+    // Tags of interest: Only process certain interactive elements
+    function shouldPrevent(target) {
+      var tagName = target.tagName.toLowerCase()
+      var datasetBind = target.dataset.bind
+      var preventFilter = (datasetBind && datasetBind.indexOf("click") > -1) || tagName == "a" || tagName == "button"
+      return preventFilter
+    }
+    var eventSelector = {
+      touchend: function (_, target) {
+        // Reset any flags on touchend
+        target.dataset._clicked_ = ""
+        target.dataset._mousemove_ = "0"
+        target.dataset._timeOutId_ = ""
+      },
+      mouseover: function (e) {
+        e.preventDefault() // Prevent default hover behavior
+      },
+      mousemove: function (e, target) {
+        e.preventDefault() // Prevent default hover behavior
+        var _mousemoves = +(target.dataset._mousemove_ || "0")
+        _mousemoves = _mousemoves + 1
+        console.log("mousemoves: " + _mousemoves)
+        target.dataset._mousemove_ = _mousemoves
+        // Trigger click event after enough movement
+        if (_mousemoves > 1 && !target.dataset._timeOutId_) {
+          var id = setTimeout(function () {
+            console.log("double mousemove click fired")
+            target.click() // Simulate a click after mouse move
+          }, 80) // Adjust delay to fine-tune the click event timing
+          target.dataset._timeOutId_ = id
+        }
+      },
+      click: function (e, target) {
+        // Prevent double click
+        if (target.dataset._clicked_) {
+          // This check prevents interference with valid tracking
+          // and programmatic click events.
+          if (e.isTrusted) {
+            console.log("prevented doubleclick")
+            e.preventDefault()
+          }
+          return
+        }
+        // Prevent timeout click
+        if (target.dataset._timeOutId_) {
+          console.log("cleared timeout")
+          clearTimeout(+target.dataset._timeOutId_)
+        }
+        // Mark element as clicked
+        target.dataset._clicked_ = "true"
+      }
+    }
+    function preventHover(e) {
+      var target = e.target
+      // Skip elements that don't have click handlers or necessary attributes
+      if (!(target && target.click && target.tagName && target.dataset)) return
+      if (!shouldPrevent(target)) return
+      var type = e.type
+      console.log(type, target)
+      eventSelector[type] && eventSelector[type](e, target)
+    }
+    // Add event listeners for touch and mouse events
+    document.addEventListener("touchend", preventHover, true)
+    document.addEventListener("mouseover", preventHover, true)
+    document.addEventListener("mousemove", preventHover, true)
+    document.addEventListener("click", preventHover, true)
+  }
 
   return (
     <StateContext.Provider value={state}>
