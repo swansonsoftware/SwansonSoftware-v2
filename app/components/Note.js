@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 
 function Notes(props) {
@@ -22,9 +23,9 @@ function Notes(props) {
                 .filter(child => child.text) // only render existing ones
                 .map((child, i) =>
                   child.isLink ? (
-                    <HashLink key={`${note.listId}-${i}`} className="wrapper__article__outbound-link" to={child.link}>
+                    <Link key={`${note.listId}-${i}`} className="wrapper__article__outbound" rel="noopener noreferrer" to={child.link}>
                       {child.text}
-                    </HashLink>
+                    </Link>
                   ) : (
                     <React.Fragment key={`${note.listId}-${i}`}>{child.text}</React.Fragment>
                   )

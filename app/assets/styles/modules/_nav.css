@@ -71,6 +71,11 @@
       z-index: $zIndex-1-FirstLevel;
       transition: all $menuVisibilityTransition $cb-ease-in-out;
     }
+    &--svg-scrolltop {
+      height: 32px;
+      width: 32px;
+      display: block;
+    }
 
     &:hover {
       text-decoration: underline;

@@ -93,9 +93,9 @@ function PrivacyPolicy() {
             <p>SwansonSoftware.com uses Google Analytics to understand how visitors interact with the Site. Google may collect, store, and process information as described in Google’s Privacy Policy.</p>
             <p>
               You can learn more about how Google uses data here:<br></br>
-              <HashLink className="wrapper__article__outbound-link" to="https://policies.google.com/technologies/partner-sites">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://policies.google.com/technologies/partner-sites">
                 How Google uses information from sites or apps that use our services – Privacy & Terms – Google
-              </HashLink>
+              </Link>
             </p>
           </div>
 
@@ -105,9 +105,9 @@ function PrivacyPolicy() {
           <div className="row__colspan-8">
             <p>
               You may opt out of Google Analytics by using the browser add on provided by Google:<br></br>
-              <HashLink className="wrapper__article__outbound-link" to="https://tools.google.com/dlpage/gaoptout/">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://tools.google.com/dlpage/gaoptout/">
                 Google Analytics Opt-out Browser Add-on Download Page
-              </HashLink>
+              </Link>
             </p>
           </div>
 

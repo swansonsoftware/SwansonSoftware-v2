@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
@@ -122,9 +123,9 @@ function BlogJan2025_ResSwitching() {
           <div className="row__colspan-4">
             <p>
               Jason Grigsby describes this technique in his post{" "}
-              <HashLink className="wrapper__article__outbound-link" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
                 Responsive Images 101, Part 9: Image Breakpoints – Cloud Four.
-              </HashLink>
+              </Link>
             </p>
           </div>
           <div className="row__colspan-8" id="ideasPerfBudget">
@@ -136,16 +137,16 @@ function BlogJan2025_ResSwitching() {
             <ul>
               <li className="list">
                 To generate image copies at 20k intervals, you must resize the image, save it in a compressed format, then check the size and if it’s not 20k smaller (or larger depending on how you’re doing this) then you start over. Unless there is a tool that lets you specify the size to compress to (
-                <HashLink className="wrapper__article__outbound-link" to="https://squoosh.app/">
+                <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://squoosh.app/">
                   Squoosh
-                </HashLink>{" "}
+                </Link>{" "}
                 shows a preview of the compressed image and its approximate size but does not support automating via script), you can’t know the compressed size of an image until you compress it, and each image compresses to a different degree based on the complexity of the image, which causes a lot of work, and we want to avoid unnecessary work
               </li>
               <li className="list">
                 Tools like Cloudinary.com’s{" "}
-                <HashLink className="wrapper__article__outbound-link" to="https://www.responsivebreakpoints.com/">
+                <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://www.responsivebreakpoints.com/">
                   Responsive Image Breakpoints Generator by Cloudinary
-                </HashLink>{" "}
+                </Link>{" "}
                 can work if all you need is a small range of sizes. But when the range is large this tool won’t help. Trials with a 5.8 Mb high resolution image generated a package of files where the images for larger screen sizes were much too large (from 500k to over 1Mb) and trials on a compressed copy of the same image produced images for smaller screen sizes that were too grainy
               </li>
               <li className="list">
@@ -160,9 +161,9 @@ function BlogJan2025_ResSwitching() {
           <div className="row__colspan-4">
             <p>
               I learned about this from imagekit.io’s post{" "}
-              <HashLink className="wrapper__article__outbound-link" to="https://imagekit.io/responsive-images/">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://imagekit.io/responsive-images/">
                 Responsive Images - A Reference Guide from A to Z
-              </HashLink>
+              </Link>
             </p>
           </div>
           <div className="row__colspan-8" id="ideasMediaCondition">

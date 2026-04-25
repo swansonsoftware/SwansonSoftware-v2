@@ -69,7 +69,7 @@ function Reviews() {
   ]
 
   return (
-    <Page title="Reviews">
+    <Page title="Software Reviews and Inspections">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T12:05:58-07:00" headline="Software Reviews"></GStructuredData>
       <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />

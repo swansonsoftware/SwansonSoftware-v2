@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import { Link } from "react-router-dom"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
@@ -163,9 +164,9 @@ function BlogJan2025_ResSwitching3() {
           <div className="row__colspan-4">
             <p>
               I believe this is related to the dynamic x descriptors that Eric Portis mentioned in his blog{" "}
-              <HashLink className="wrapper__article__outbound-link" to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
                 w descriptors and sizes: Under the hood.
-              </HashLink>{" "}
+              </Link>{" "}
             </p>
           </div>
           <div className="row__colspan-8">
@@ -240,24 +241,27 @@ function BlogJan2025_ResSwitching3() {
             <p>I used a lot of online resources when researching for this post and I would like to thank:</p>
             <p>
               Chris Coyier:{" "}
-              <HashLink className="wrapper__article__outbound-link" to="https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" title="Chris Coyier's guide to responsive images." to="https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html">
                 HTML Responsive Images Guide | CSS-Tricks
-              </HashLink>{" "}
+              </Link>
             </p>
             <p>
               Jason Grigsby:{" "}
-              <HashLink className="wrapper__article__outbound-link" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" title="Jason Grigsby's Responsive Images 101." to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints">
                 Responsive Images 101, Part 1: Definitions – Cloud Four
-              </HashLink>{" "}
+              </Link>
             </p>
             <p>
               Eric Portis{" "}
-              <HashLink className="wrapper__article__outbound-link" to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" title="Eric Portis' blog on w descriptors." to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
                 w descriptors and sizes: Under the hood
-              </HashLink>
+              </Link>
             </p>
             <p>
-              <HashLink to="https://imagekit.io/responsive-images/">ImageKit.io: Responsive Images - A Reference Guide from A to Z | ImageKit.io</HashLink>
+              <Link className="wrapper__article__outbound" rel="noopener noreferrer" title="ImageKit.io's article on Responsive Images." to="https://imagekit.io/responsive-images">
+                ImageKit.io: Responsive Images - A Reference Guide from A to Z | ImageKit.io
+              </Link>
+              <br></br>
             </p>
           </div>
         </div>

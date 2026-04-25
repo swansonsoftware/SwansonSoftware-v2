@@ -94,7 +94,7 @@ function Main() {
         }
       }
       case "homePageClass": {
-        //not used
+        // set page-specific styles; home page background image
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
@@ -129,6 +129,7 @@ function Main() {
         }
       }
       case "selectMenu": {
+        // selected sub menu is underlined
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,
@@ -163,6 +164,7 @@ function Main() {
         }
       }
       case "menuActiveCategory": {
+        // selected top-level menu is underlined
         return {
           backgroundStyle: state.backgroundStyle,
           siteHeaderClass: state.siteHeaderClass,

@@ -1,7 +1,9 @@
 .menu-item {
   display: inline-grid;
+  padding-left: 0;
 
   li {
+    padding-left: 10px;
     padding-bottom: 5px;
     text-align: left;
     &:first-child {
@@ -21,7 +23,6 @@
     font-size: 1.8rem;
     text-decoration: none;
     transition: outline $menuButtonOutlineTransition $cb-ease-in-out;
-    padding: 0 10px;
 
     &__active {
       text-decoration: underline;
@@ -33,12 +34,17 @@
         text-decoration: underline;
         text-underline-offset: 0.2em;
         text-decoration-thickness: 1px;
+        color: $bodyDarkBGFontColor;
+        -webkit-text-fill-color: $bodyDarkBGFontColor;
       }
       &:focus,
-      :active {
+      &:active {
         outline: 3px solid $bodyDarkBGFontColor;
         outline-offset: 2px;
         border-radius: 9999px;
+        color: $bodyDarkBGFontColor !important;
+        -webkit-text-fill-color: $bodyDarkBGFontColor !important;
+        -webkit-text-stroke: 0.01px $bodyDarkBGFontColor !important;
       }
     }
 
@@ -48,12 +54,17 @@
         text-decoration: underline;
         text-underline-offset: 0.2em;
         text-decoration-thickness: 1px;
+        color: $bodyLiteBGFontColor;
+        -webkit-text-fill-color: $bodyLiteBGFontColor;
       }
       &:focus,
-      :active {
+      &:active {
         outline: 3px solid $bodyLiteBGFontColor;
         outline-offset: 2px;
         border-radius: 9999px;
+        color: $bodyLiteBGFontColor !important;
+        -webkit-text-fill-color: $bodyLiteBGFontColor !important;
+        -webkit-text-stroke: 0.01px $bodyLiteBGFontColor !important;
       }
     }
   }
@@ -68,6 +79,7 @@
     }
   }
   &__subheading-3 {
+    display: block;
     font-size: 1.2rem;
     font-weight: 400;
     margin: 4px 0;

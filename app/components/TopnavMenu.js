@@ -61,7 +61,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
       <div className={idx === appState.menuDropdownActiveTopic ? "site-header__menu-dropdown site-header__menu-dropdown--visible" : "site-header__menu-dropdown"} data-menuname={topic}>
         <div className={backgroundStyle == "dark" ? "site-header__menu-dropdown--container site-header__menu-dropdown--container--dark" : "site-header__menu-dropdown--container"}>
           <div className="col-1">
-            <h2 className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>
+            <span className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>
               <Link
                 to={link}
                 tabIndex="0"
@@ -73,8 +73,8 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
               >
                 {topic}
               </Link>
-            </h2>
-            <h3 className={backgroundStyle == "dark" ? "menu-item__subheading-3 menu-item__subheading-3--dark" : "menu-item__subheading-3"}>{subtext}</h3>
+            </span>
+            <span className={backgroundStyle == "dark" ? "menu-item__subheading-3 menu-item__subheading-3--dark" : "menu-item__subheading-3"}>{subtext}</span>
           </div>
           <div className={idx === appState.menuDropdownActiveTopic ? "col-2 col-2--grow" : "col-2"}>
             <ul id={idprefix + topic + idpostfix} className="menu-item">
