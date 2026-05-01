@@ -45,21 +45,22 @@ function BlogJan2025_ResSwitching2() {
     { id: 0, toText: "Home", toUrl: "/" },
     { id: 1, toText: "Blog", toUrl: "/blog" },
     { id: 2, toText: "2025", toUrl: "/blog/2025" },
-    { id: 3, toText: "...Part 1", toUrl: "/blog/2025/01/resolution-switching-images" },
-    { id: 4, toText: "Choosing Resolution Switching Breakpoints - Part 2", toUrl: "" }
+    { id: 3, toText: "...Part 1", toUrl: "/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" },
+    { id: 4, toText: "Part 2: Finding the Breakpoints", toUrl: "" }
   ]
 
   return (
-    <Page title="Choosing Resolution Switching Breakpoints Part 2">
+    <Page title="Part 2: Finding the Breakpoints">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images Part 2"></GStructuredData>
-      <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="A table of breakpoints for resolution switching images based on an analysis of device sizes"></GStructuredData>
+      <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
-        <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints - Part 2</h1>
+        <h1 className="headline__h1-cg">Part 2: Finding the Breakpoints</h1>
+        <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-4">
+          <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
@@ -85,15 +86,24 @@ function BlogJan2025_ResSwitching2() {
                 </ul>
               </li>
               <li className="list list--toc">
-                <HashLink to="/blog/2025/01/resolution-switching-images-part3" className="list--toc--a">
-                  Next: Part 3
+                <HashLink to="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" className="list--toc--a">
+                  Part 1: Ideas for Choosing Breakpoints
+                </HashLink>
+              </li>
+              <li className="list list--toc">Part 2: Finding the Breakpoints</li>
+              <li className="list list--toc">
+                <HashLink to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" className="list--toc--a">
+                  Part 3: Portrait Orientation, DPR and Sizes, Image Compression
                 </HashLink>
               </li>
             </ul>
           </div>
-          <div className="row__colspan-8" id="findingBrkpts">
+          <div className="row__colspan-6" id="findingBrkpts">
             <h3 className="headline__h3">Finding Breakpoints Through Analysis of Device Screen Sizes</h3>
             <p className="dropCap">Any discussion about choosing breakpoints for resolution switching is difficult because assumptions need to be made that impact the choice of breakpoints. There may be no single correct way to choose breakpoints that covers all situations. </p>
+          </div>
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-8">
             <h3 className="headline__h3 headline__h3--xtra-pad">Two Cases</h3>
             <p>I will cover two cases:</p>
             <ol>
@@ -1393,7 +1403,7 @@ function BlogJan2025_ResSwitching2() {
           <div className="row_colspan-2"></div>
           <div className="row__colspan-10">
             <h3 className="headline__h3">
-              <HashLink to="/blog/2025/01/resolution-switching-images-part3" className="list--toc--a">
+              <HashLink to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" className="list--toc--a">
                 Next: Part 3
               </HashLink>
             </h3>

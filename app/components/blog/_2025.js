@@ -45,7 +45,13 @@ function Blogs2025() {
             <h3 className="headline__h3">Choosing Resolution Switching Breakpoints</h3>
             <p className="dropCap">The question of how many breakpoints are needed and how to choose them comes up a lot when creating a responsive design that includes resolution switching of images. This three-part post describes a technique based on an analysis of device sizes as one way to answer the question and summarizes a few other ideas for choosing breakpoints.</p>
             <p>
-              <Link to="/blog/2025/01/resolution-switching-images">Choosing Resolution Switching Breakpoints...</Link>
+              <Link to="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints">Part 1: Ideas for Choosing Breakpoints</Link>
+            </p>
+            <p>
+              <Link to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints">Part 2: Finding the Breakpoints</Link>
+            </p>
+            <p>
+              <Link to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</Link>
             </p>
           </div>
 

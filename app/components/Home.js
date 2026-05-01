@@ -44,7 +44,13 @@ function Home() {
           </div>
           <div className="row__colspan-5">
             <div className="note note--dark">
-              <h2 className="headline__h3-cg-home">April 8, 2025</h2>
+              <h2 className="headline__h3-cg-home">May 1, 2026</h2>
+              <p>
+                Part 1 of <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part1-conventions">Elements of a Standard for Website Design</Link>. The first in a multi-part post in which I present a vision for a standard on website design.
+              </p>
+            </div>
+            <div className="note note--dark">
+              <h2 className="headline__h3-cg-home">April 8, 2026</h2>
               <p>
                 A new paper, <Link to="/principles/lifecycle">Software Life Cycle</Link>, replaces the old paper Software Life Cycle Models. This new paper answers the question “What is software life cycle?” and presents the historical origins and development of software life cycle models.
               </p>

@@ -50,21 +50,22 @@ function BlogJan2025_ResSwitching() {
     { id: 0, toText: "Home", toUrl: "/" },
     { id: 1, toText: "Blog", toUrl: "/blog" },
     { id: 2, toText: "2025", toUrl: "/blog/2025" },
-    { id: 3, toText: "Choosing Resolution Switching Breakpoints", toUrl: "" }
+    { id: 3, toText: "Part 1: Ideas for Choosing Breakpoints", toUrl: "" }
   ]
 
   return (
-    <Page title="Choosing Resolution Switching Breakpoints">
+    <Page title="Part I: Ideas for Choosing Breakpoints">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images"></GStructuredData>
-      <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Ideas for Choosing Breakpoints for Responsive Images"></GStructuredData>
+      <meta name="description" content="Breakpoints for responsive design and resolution switching images, breakpoints for responsive design CSS, and performance budget in responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
-        <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints</h1>
+        <h1 className="headline__h1-cg">Part I: Ideas for Choosing Breakpoints</h1>
+        <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-4">
+          <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
@@ -84,16 +85,24 @@ function BlogJan2025_ResSwitching() {
                   </li>
                 </ul>
               </li>
+              <li className="list list--toc">Part 1: Ideas for Choosing Breakpoints</li>
               <li className="list list--toc">
-                <HashLink to="/blog/2025/01/resolution-switching-images-part2" className="list--toc--a">
-                  Next: Part 2
+                <HashLink to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" className="list--toc--a">
+                  Part 2: Finding the Breakpoints
+                </HashLink>
+              </li>
+              <li className="list list--toc">
+                <HashLink to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" className="list--toc--a">
+                  Part 3: Portrait Orientation, DPR and Sizes, Image Compression
                 </HashLink>
               </li>
             </ul>
           </div>
-          <div className="row__colspan-8">
-            <h3 className="headline__h3">Part 1 of 3</h3>
+          <div className="row__colspan-6">
             <p className="dropCap">The question of how many breakpoints are needed and how to choose them comes up a lot when creating a responsive design that includes resolution switching of images. This post describes a technique based on an analysis of device sizes as one way to answer the question and summarizes a few other ideas for choosing breakpoints.</p>
+          </div>
+          <div className="row__colspan-4"></div>
+          <div className="row__colspan-8">
             <p>For the album on this website, I have photos that display as a 320px wide thumbnail for preview, and when the user selects the image, a larger size will appear that fills the screen as best as possible depending on screen dimensions and the aspect ratio of the image. The goal is to optimize the image size for desktop and laptop screens as well as for tablets and mobile phones. I will cover images in both landscape and portrait orientation.</p>
           </div>
           <div className="row__colspan-4">
@@ -209,7 +218,7 @@ function BlogJan2025_ResSwitching() {
           <div className="row_colspan-2"></div>
           <div className="row__colspan-10" id="ideasMediaCondition">
             <h3 className="headline__h3">
-              <HashLink to="/blog/2025/01/resolution-switching-images-part2" className="list--toc--a">
+              <HashLink to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" className="list--toc--a">
                 Next: Part 2
               </HashLink>
             </h3>

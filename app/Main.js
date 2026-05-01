@@ -28,6 +28,7 @@ const About = React.lazy(() => import("./components/About"))
 const Album = React.lazy(() => import("./components/album/Album"))
 const Blog = React.lazy(() => import("./components/blog/Blog"))
 const Blogs2025 = React.lazy(() => import("./components/blog/_2025"))
+const Blogs2026 = React.lazy(() => import("./components/blog/_2026"))
 const ContactUs = React.lazy(() => import("./components/ContactUs"))
 const Design = React.lazy(() => import("./components/principles/Design"))
 const Favorites = React.lazy(() => import("./components/album/Favorites"))
@@ -52,7 +53,7 @@ const Reviews = React.lazy(() => import("./components/principles/Reviews"))
 const BlogResolutionSwitchingImages = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching"))
 const BlogResolutionSwitchingImages2 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching2"))
 const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching3"))
-const BlogTimeVsQuality = React.lazy(() => import("./components/blog/2025/_02_TimeVsQuality"))
+const BlogWebsiteDesignStandard1 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard1"))
 
 function Main() {
   const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true }
@@ -408,10 +409,11 @@ function Main() {
                 <Route path="/album/recipes/vegetable-stock" element={<RecipeVegetableStock />} />
                 <Route path="/blog" element={<Blog body="light" />} />
                 <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
-                <Route path="/blog/2025/01/resolution-switching-images" element={<BlogResolutionSwitchingImages />} />
-                <Route path="/blog/2025/01/resolution-switching-images-part2" element={<BlogResolutionSwitchingImages2 />} />
-                <Route path="/blog/2025/01/resolution-switching-images-part3" element={<BlogResolutionSwitchingImages3 />} />
-                <Route path="/blog/2025/02/time-vs-quality" element={<BlogTimeVsQuality />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" element={<BlogResolutionSwitchingImages />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" element={<BlogResolutionSwitchingImages2 />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" element={<BlogResolutionSwitchingImages3 />} />
+                <Route path="/blog/2026" element={<Blogs2026 body="light" />} />
+                <Route path="/blog/2026/01/elements-of-a-standard-for-website-design-part1-conventions" element={<BlogWebsiteDesignStandard1 />} />
                 <Route path="/contact" element={<ContactUs body="light" />} />
                 {/* <Route path="/principles/process-models" element={<ProcessModels body="light" />} /> */}
                 <Route path="/principles" element={<Principles />} />

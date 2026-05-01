@@ -22,12 +22,13 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
     { topic: "Principles", name: "Software Life Cycle", link: "/principles/lifecycle", pages: "Software Development Principles pages", topicid: 0, id: 3 },
     { topic: "Principles", name: "Software Reviews", link: "/principles/reviews", pages: "Software Development Principles pages", topicid: 0, id: 4 },
     { topic: "Blog", name: "2025", link: "/blog/2025", pages: "Blog pages", topicid: 1, id: 5 },
-    { topic: "Album", name: "Recipes", link: "/album/recipes", pages: "Album pages", topicid: 2, id: 6 },
-    { topic: "Album", name: "Favorites", link: "/album/favorites", pages: "Album pages", topicid: 2, id: 7 },
-    { topic: "Album", name: "1900s", link: "/album/1900s", pages: "Album pages", topicid: 2, id: 8 },
-    { topic: "Album", name: "2000s", link: "/album/2000s", pages: "Album pages", topicid: 2, id: 9 },
-    { topic: "Album", name: "2010s", link: "/album/2010s", pages: "Album pages", topicid: 2, id: 10 },
-    { topic: "Album", name: "2020s", link: "/album/2020s", pages: "Album pages", topicid: 2, id: 11 }
+    { topic: "Blog", name: "2026", link: "/blog/2026", pages: "Blog pages", topicid: 1, id: 6 },
+    { topic: "Album", name: "Recipes", link: "/album/recipes", pages: "Album pages", topicid: 2, id: 7 },
+    { topic: "Album", name: "Favorites", link: "/album/favorites", pages: "Album pages", topicid: 2, id: 8 },
+    { topic: "Album", name: "1900s", link: "/album/1900s", pages: "Album pages", topicid: 2, id: 9 },
+    { topic: "Album", name: "2000s", link: "/album/2000s", pages: "Album pages", topicid: 2, id: 10 },
+    { topic: "Album", name: "2010s", link: "/album/2010s", pages: "Album pages", topicid: 2, id: 11 },
+    { topic: "Album", name: "2020s", link: "/album/2020s", pages: "Album pages", topicid: 2, id: 12 }
   ]
 
   // { topic: "Materials", subtext: "Materials for software construction", link: "/blog" },

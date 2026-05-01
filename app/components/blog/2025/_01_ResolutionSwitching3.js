@@ -46,22 +46,23 @@ function BlogJan2025_ResSwitching3() {
     { id: 0, toText: "Home", toUrl: "/" },
     { id: 1, toText: "Blog", toUrl: "/blog" },
     { id: 2, toText: "2025", toUrl: "/blog/2025" },
-    { id: 3, toText: "...Part 1", toUrl: "/blog/2025/01/resolution-switching-images" },
-    { id: 4, toText: "...Part 2", toUrl: "/blog/2025/01/resolution-switching-images-part2" },
-    { id: 5, toText: "Choosing Resolution Switching Breakpoints - Part 3", toUrl: "" }
+    { id: 3, toText: "...Part 1", toUrl: "/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" },
+    { id: 4, toText: "...Part 2", toUrl: "/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" },
+    { id: 5, toText: "Part 3: Portrait Orientation, DPR and Sizes, Image Compression", toUrl: "" }
   ]
 
   return (
-    <Page title="Choosing Resolution Switching Breakpoints Part 2">
+    <Page title="Part 3: Portrait Orientation, DPR and Sizes, Image Compression">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Resolution Switching Breakpoints for Responsive Images Part 3"></GStructuredData>
-      <meta name="description" content="An analysis of device sizes is used to determine the breakpoints for resolution switching of images in a responsive design" />
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="How browsers use the sizes attribute with the device DPR in choosing an image for resolution switching"></GStructuredData>
+      <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
-        <h1 className="headline__h1-cg">Choosing Resolution Switching Breakpoints - Part 3</h1>
+        <h1 className="headline__h1-cg">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</h1>
+        <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-4">
+          <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
@@ -89,9 +90,20 @@ function BlogJan2025_ResSwitching3() {
                   References
                 </HashLink>
               </li>
+              <li className="list list--toc">
+                <HashLink to="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" className="list--toc--a">
+                  Part 1: Ideas for Choosing Breakpoints
+                </HashLink>
+              </li>
+              <li className="list list--toc">
+                <HashLink to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" className="list--toc--a">
+                  Part 2: Finding the Breakpoints
+                </HashLink>
+              </li>
+              <li className="list list--toc">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</li>
             </ul>
           </div>
-          <div className="row__colspan-8" id="portraitSizes">
+          <div className="row__colspan-6" id="portraitSizes">
             <h3 className="headline__h3">Sizes for Portrait Orientation</h3>
             <p className="dropCap">
               While images in landscape orientation displayed full screen should have <code>sizes</code> set to 100vw, images that have a portrait orientation must use a max-height media query in the <code>sizes</code> attribute. The max-height media query allows you to tell the browser to use an image of a specific width when the viewport is up to a certain height.
