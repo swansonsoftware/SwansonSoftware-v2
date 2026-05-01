@@ -235,8 +235,8 @@ function Blog2026_01_WebsiteDesignStandard1() {
             </ul>
             <p>
               In addition to the above accessibility features, websites should have good Aria markup or no Aria markup.
-              <HashLink to="#footnote16" className="footnote" id="note16">
-                <sup>[16]</sup>
+              <HashLink to="#footnote17" className="footnote" id="note17">
+                <sup>[17]</sup>
               </HashLink>
             </p>
 
