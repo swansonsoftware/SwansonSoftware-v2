@@ -6,6 +6,7 @@ import Breadcrumb from "../../Breadcrumb"
 import { HashLink } from "react-router-hash-link"
 import { useLocation } from "react-router-dom"
 import GTag from "../../GTag"
+import CanonicalLink from "../../CanonicalLink"
 import GStructuredData from "../../GStructuredData"
 
 function BlogJan2025_ResSwitching2() {
@@ -53,6 +54,7 @@ function BlogJan2025_ResSwitching2() {
     <Page title="Part 2: Finding the Breakpoints">
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="A table of breakpoints for resolution switching images based on an analysis of device sizes"></GStructuredData>
+      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints"></CanonicalLink>
       <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
@@ -90,7 +92,6 @@ function BlogJan2025_ResSwitching2() {
                   Part 1: Ideas for Choosing Breakpoints
                 </HashLink>
               </li>
-              <li className="list list--toc">Part 2: Finding the Breakpoints</li>
               <li className="list list--toc">
                 <HashLink to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" className="list--toc--a">
                   Part 3: Portrait Orientation, DPR and Sizes, Image Compression
@@ -102,8 +103,9 @@ function BlogJan2025_ResSwitching2() {
             <h3 className="headline__h3">Finding Breakpoints Through Analysis of Device Screen Sizes</h3>
             <p className="dropCap">Any discussion about choosing breakpoints for resolution switching is difficult because assumptions need to be made that impact the choice of breakpoints. There may be no single correct way to choose breakpoints that covers all situations. </p>
           </div>
-          <div className="row__colspan-4"></div>
-          <div className="row__colspan-8">
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10">
             <h3 className="headline__h3 headline__h3--xtra-pad">Two Cases</h3>
             <p>I will cover two cases:</p>
             <ol>
@@ -115,9 +117,10 @@ function BlogJan2025_ResSwitching2() {
               </li>
             </ol>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-4"></div>
-          <div className="row__colspan-8">
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10">
             <p>
               To extend this technique for other situations you can use the same images in the{" "}
               <HashLink smooth to="#tblImageSizes">
@@ -416,12 +419,11 @@ function BlogJan2025_ResSwitching2() {
               </tbody>
             </table>
           </div>
-          <div className="row__colspan-12" id="screenSizeGroups"></div>
-          <div className="row__colspan-4">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10" id="screenSizeGroups">
             <h3 className="headline__h3">Screen Size Groups</h3>
-          </div>
-          <div className="row__colspan-8">
-            <h3 className="headline__h3">A Grouped List of Screen Sizes</h3>
             <p className="dropCap">From the above table we can create groups by removing duplicates and combining nearby sizes. We will consider all unique portrait and landscape orientation widths because we can expect images of both orientations, and because users can rotate the device and view an image in either orientation.</p>
             <p>Here is the grouping I came up with and it is arbitrary; you could make the grouping more granular, less granular, or specify different values for groups:</p>
 
@@ -922,11 +924,11 @@ function BlogJan2025_ResSwitching2() {
               </tbody>
             </table>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-4" id="listBrkpts">
+          <div className="row__colspan-1" id="listBrkpts"></div>
+          <div className="row__colspan-10">
             <h3 className="headline__h3">The List of Breakpoints</h3>
-          </div>
-          <div className="row__colspan-8">
             <p className="dropCap">From the above table we have 23 groups, or breakpoints. This list is long, but for many image situations only part of the list is needed:</p>
             <table className="table table--no-border table--cell-border-dark">
               <thead className="table--light-blue">
@@ -1007,10 +1009,11 @@ function BlogJan2025_ResSwitching2() {
               </tbody>
             </table>
           </div>
-          <div className="row__colspan-4" id="tblImageSizes">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1" id="tblImageSizes"></div>
+          <div className="row__colspan-10">
             <h3 className="headline__h3">Table of Image Sizes</h3>
-          </div>
-          <div className="row__colspan-8">
             <p className="dropCap">For this example and for the album on this website, the photos we have include three common photo aspect ratios: 16:9, 4:3, and 3:2. Breakpoints are based on image width and are the same for each aspect ratio. The table includes a Size Compressed column; the size indicated is what to try for when compressing the image. The compressed sizes are arbitrary, but they are reasonable, and I used them for the album on this website. </p>
             <p>Again, you would likely not use all these sizes most of the time. For images that will display full screen, just the sizes from 1180 width and up would do because most devices today have a DPR of 2 or higher, so the browser will never download the smaller sizes.</p>
             <p className="note dropCapNote">
@@ -1399,8 +1402,9 @@ function BlogJan2025_ResSwitching2() {
               </tbody>
             </table>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row_colspan-2"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
             <h3 className="headline__h3">
               <HashLink to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" className="list--toc--a">
@@ -1408,6 +1412,7 @@ function BlogJan2025_ResSwitching2() {
               </HashLink>
             </h3>
           </div>
+          <div className="row__colspan-1"></div>
         </div>
       </div>
     </Page>

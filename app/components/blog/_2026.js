@@ -47,6 +47,12 @@ function Blogs2026() {
             <p>
               <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part1-conventions">Part 1: Conventions</Link>
             </p>
+            <p>
+              Part 2: Accessibility (<i>coming soon</i>)
+            </p>
+            <p>
+              Part 3: UI Components (<i>coming soon</i>)
+            </p>
           </div>
 
           <div className="row__colspan-4"></div>

@@ -406,9 +406,13 @@ function Main() {
                 <Route path="/album/recipes/clam-chowder" element={<RecipeClamChowder />} />
                 <Route path="/album/clam-chowder" element={<Navigate to="/album/recipes/clam-chowder" replace />} />
                 <Route path="/album/recipes/pie-dough" element={<RecipePieDough />} />
+                <Route path="/album/vegetable-stock" element={<Navigate to="/album/recipes/vegetable-stock" replace />} />
                 <Route path="/album/recipes/vegetable-stock" element={<RecipeVegetableStock />} />
                 <Route path="/blog" element={<Blog body="light" />} />
                 <Route path="/blog/2025" element={<Blogs2025 body="light" />} />
+                <Route path="/blog/2025/01/resolution-switching-images" element={<Navigate to="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" replace />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part2" element={<Navigate to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" replace />} />
+                <Route path="/blog/2025/01/resolution-switching-images-part3" element={<Navigate to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" replace />} />
                 <Route path="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints" element={<BlogResolutionSwitchingImages />} />
                 <Route path="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" element={<BlogResolutionSwitchingImages2 />} />
                 <Route path="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" element={<BlogResolutionSwitchingImages3 />} />

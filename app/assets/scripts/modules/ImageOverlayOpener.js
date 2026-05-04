@@ -109,7 +109,7 @@ class ImageOverlayOpener {
               <figure id="image-${this.image.id}">
                 <img src="${filename}" style="max-height:80vh;width:inherit;border:2px solid black;"
                 alt="${this.image.alt}" width="${imgWidth}" height="${imgHeight}" srcset="${srcsetString}" sizes="100vw" />
-                <figcaption style="text-align:center">${caption}</figcaption>
+                <figcaption style="text-align:center;">${caption}</figcaption>
               </figure>
             </div>
             `
@@ -120,10 +120,10 @@ class ImageOverlayOpener {
           overlayImageDiv.innerHTML = `
             <div class='lightbox__photo-overlay--spinner lightbox__photo-overlay--spinner--image'></div>
             <div class='lightbox__photo-overlay__selectedImg'>
-              <figure id="image-${this.image.id}" style="background-color:white;">
+              <figure id="image-${this.image.id}">
                 <img src="${filename}" 
-                alt="${this.image.alt}" width="${this.image.width}" height="${this.image.height}" />
-                <figcaption style="text-align:center">${caption}</figcaption>
+                alt="${this.image.alt}" width="${this.image.width}" height="${this.image.height}" style="background-color:white;border:2px solid black;" />
+                <figcaption style="text-align:center;">${caption}</figcaption>
               </figure>
             </div>
             `

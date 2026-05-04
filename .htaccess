@@ -1,35 +1,27 @@
 <IfModule mod_rewrite.c>
-
-
-
   RewriteEngine On
-
   RewriteBase /
 
+# Use React app for 404s instead of LiteSpeed's default page
 
+ErrorDocument 404 /index.html
 
-  # Redirects www to non-www
+# Redirect www to non-www
 
-  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteCond %{HTTP*HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.\_)$ https://%1/$1 [R=301,L]
 
-  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+# If the request is for an existing file or directory, serve it normally
 
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
+# Otherwise serve index.html but return 404
 
-  # fix 404 errors with react front end
-
-  RewriteRule ^index\.html$ - [L]
-
-  RewriteCond %{REQUEST_FILENAME} !-f
-
-  RewriteCond %{REQUEST_FILENAME} !-d
-
-  RewriteCond %{REQUEST_FILENAME} !-l
-
-  RewriteRule . /index.html [L]
-
-  
-
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L,R=404]
 </IfModule>
 
 <IfModule mod_headers.c>
@@ -41,17 +33,12 @@
   </FilesMatch>
 </IfModule>
 
+# Redirects
 
-# Redirect https://swansonsoftware.com/index.html to https://swansonsoftware.com
-
-Redirect 301 /index.html https://swansonsoftware.com/
+# Redirect 301 /index.html https://swansonsoftware.com/
 
 Redirect 301 /index.php https://swansonsoftware.com/
-
 Redirect 301 /default.asp https://swansonsoftware.com/
-
 Redirect 301 /emailForm.php https://swansonsoftware.com/contact/
-
 Redirect 301 /IntroProcess.asp https://swansonsoftware.com/
-
 Redirect 301 /life-cycle-models.html https://swansonsoftware.com/principles/lifecycle

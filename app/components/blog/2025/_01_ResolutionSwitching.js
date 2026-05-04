@@ -9,6 +9,7 @@ import ImageLightboxOverlay from "../../ImageLighboxOverlay"
 import { HashLink } from "react-router-hash-link"
 import { useLocation } from "react-router-dom"
 import GTag from "../../GTag"
+import CanonicalLink from "../../CanonicalLink"
 import GStructuredData from "../../GStructuredData"
 
 function BlogJan2025_ResSwitching() {
@@ -58,6 +59,7 @@ function BlogJan2025_ResSwitching() {
       <ImageLightboxOverlay />
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Ideas for Choosing Breakpoints for Responsive Images"></GStructuredData>
+      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints"></CanonicalLink>
       <meta name="description" content="Breakpoints for responsive design and resolution switching images, breakpoints for responsive design CSS, and performance budget in responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
@@ -85,7 +87,6 @@ function BlogJan2025_ResSwitching() {
                   </li>
                 </ul>
               </li>
-              <li className="list list--toc">Part 1: Ideas for Choosing Breakpoints</li>
               <li className="list list--toc">
                 <HashLink to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" className="list--toc--a">
                   Part 2: Finding the Breakpoints
@@ -101,15 +102,24 @@ function BlogJan2025_ResSwitching() {
           <div className="row__colspan-6">
             <p className="dropCap">The question of how many breakpoints are needed and how to choose them comes up a lot when creating a responsive design that includes resolution switching of images. This post describes a technique based on an analysis of device sizes as one way to answer the question and summarizes a few other ideas for choosing breakpoints.</p>
           </div>
-          <div className="row__colspan-4"></div>
-          <div className="row__colspan-8">
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10">
             <p>For the album on this website, I have photos that display as a 320px wide thumbnail for preview, and when the user selects the image, a larger size will appear that fills the screen as best as possible depending on screen dimensions and the aspect ratio of the image. The goal is to optimize the image size for desktop and laptop screens as well as for tablets and mobile phones. I will cover images in both landscape and portrait orientation.</p>
           </div>
-          <div className="row__colspan-4">
-            <h3 className="headline__h3">Ouch! Don't do that!</h3>
-            <ImageBlock key={images[0].id} image={images[0]}></ImageBlock>
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10">
+            <p className="note">
+              <span className="headline__h3">Ouch! Don't do that!</span>
+              <ImageBlock key={images[0].id} image={images[0]}></ImageBlock>
+            </p>
           </div>
-          <div className="row__colspan-8">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10">
             <p>
               When we put an image on a webpage, if we only provide a single full-size image, say one that looks good when the page is viewed on our desktop monitor, then users who view the page on a smaller mobile device must download the large image. That wastes their bandwidth and uses up their data plan. However, if we only provide a smaller image that looks good when viewed on a smaller device it might look grainy when viewed on a desktop monitor. To solve this, we need a responsive image design where we provide copies of the image in different sizes so the browser can choose an appropriate image size for the user’s screen. We indicate the copies we have provided with the image tag’s <code>srcset</code> attribute, and we use the <code>sizes</code> attribute to provide hints to the browser about which copy we want it to use based on screen size.
             </p>
@@ -122,23 +132,26 @@ function BlogJan2025_ResSwitching() {
               <br></br>In the context of resolution switching of images, a breakpoint is a viewport width at which the image source changes to better match the display size and resolution. The image sources are specified in the image tag’s <code>srcset</code> attribute, and the breakpoints are indicated with the image tag’s <code>sizes</code> attribute.
             </p>
           </div>
-          <div className="row__colspan-4" id="ideasForChoosingBrkpts">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1" id="ideasForChoosingBrkpts"></div>
+          <div className="row__colspan-10">
             <h2 className="headline__h2">Ideas for Choosing Breakpoints</h2>
-          </div>
-          <div className="row__colspan-8">
             <p className="dropCap">We can’t provide an unlimited number of images, for example having breakpoints 1px apart; so, let’s make a rule: if wasted bandwidth means anything larger than the exact size needed, then we accept that there will be some wasted bandwidth, but we try to minimize that.</p>
             <p>While researching this post I came across other ideas for choosing break points. Consider these as they might be appropriate for your situation.</p>
           </div>
-          <div className="row__colspan-4">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10" id="ideasPerfBudget">
+            <h3 className="headline__h3">Choosing Breakpoints using a Performance Budget</h3>
             <p>
               Jason Grigsby describes this technique in his post{" "}
               <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
                 Responsive Images 101, Part 9: Image Breakpoints – Cloud Four.
               </Link>
             </p>
-          </div>
-          <div className="row__colspan-8" id="ideasPerfBudget">
-            <h3 className="headline__h3">Choosing Breakpoints using a Performance Budget</h3>
+
             <p className="dropCap">
               The idea of using a performance budget to choose breakpoints makes perfect sense: breakpoints occur at intervals, say 20k. Thus, your <code>srcset</code> attribute includes images that differ by about 20k in size.
             </p>
@@ -167,16 +180,15 @@ function BlogJan2025_ResSwitching() {
               </li>
             </ul>
           </div>
-          <div className="row__colspan-4">
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10" id="ideasMediaCondition">
+            <h3 className="headline__h3">Choosing Breakpoints based on media condition</h3>
             <p>
               I learned about this from imagekit.io’s post{" "}
               <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://imagekit.io/responsive-images/">
                 Responsive Images - A Reference Guide from A to Z
               </Link>
             </p>
-          </div>
-          <div className="row__colspan-8" id="ideasMediaCondition">
-            <h3 className="headline__h3">Choosing Breakpoints based on media condition</h3>
             <p className="dropCap">If your webpage follows a responsive column layout using media queries, breakpoints can come from the media queries. For example, a common size range today is:</p>
             <ul>
               <li className="list">Extra-small: up to 500px (mobile devices 320px to 480px)</li>
@@ -214,8 +226,9 @@ function BlogJan2025_ResSwitching() {
             </p>
             <p>This technique works best if the image is allowed to grow to fit the layout. </p>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row_colspan-2"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10" id="ideasMediaCondition">
             <h3 className="headline__h3">
               <HashLink to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" className="list--toc--a">
@@ -223,6 +236,7 @@ function BlogJan2025_ResSwitching() {
               </HashLink>
             </h3>
           </div>
+          <div className="row__colspan-1"></div>
         </div>
       </div>
     </Page>

@@ -67,7 +67,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
         <div className="headline__author">Gregory Swanson | Updated May 1, 2026</div>
 
         <div className="row row--gutters">
-          <div className="row__colspan-6">
+          <div className="row__colspan-4">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
@@ -97,18 +97,26 @@ function Blog2026_01_WebsiteDesignStandard1() {
                   Notes
                 </HashLink>
               </li>
+              <li className="list list--toc">
+                Part 2: Accessibility (<i>coming soon</i>)
+              </li>
+              <li className="list list--toc">
+                Part 3: UI Components (<i>coming soon</i>)
+              </li>
             </ul>
           </div>
-          <div className="row__colspan-6" id="whofor">
+          <div className="row__colspan-7" id="whofor">
             <p className="dropCap">In this post, I present a vision for a standard on website design. Ideas for this vision come from pioneers and experts in useability and accessibility.</p>
             <ul>
               <li className="list">Part 1: Conventions. Conventions are the elements that should be present in every website and the metaphors used in their presentation, elements that cover basic accessibility, and page validation to ensure there are no errors in the code.</li>
-              <li className="list">Part 2: Accessibility. Improving accessibility for users with access needs improves useability for everyone</li>
+              <li className="list">Part 2: Accessibility. Improving accessibility for users with access needs improves useability for everyone.</li>
               <li className="list">Part 3: UI Components. Standard UI (user interface) components for websites.</li>
             </ul>
           </div>
-          <div className="row__colspan-4"></div>
-          <div className="row__colspan-8">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1"></div>
+          <div className="row__colspan-10">
             <h3 className="headline__h3">Who This Post is For</h3>
             <ul>
               <li className="list">The novice. The novice is not a web developer and needs to make a website and wants to know what common features should be included.</li>
@@ -116,10 +124,11 @@ function Blog2026_01_WebsiteDesignStandard1() {
               <li className="list">The curious professional. The curious professional web developer has on-the-job web development experience, but when they see an article like this, they can’t resist reading it to see if there is anything they don’t already know, or to see if it misses something important.</li>
             </ul>
           </div>
-          <div className="row__colspan-4" id="conventions">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1" id="conventions"></div>
+          <div className="row__colspan-10">
             <h2 className="headline__h2">Conventions</h2>
-          </div>
-          <div className="row__colspan-8">
             <p className="dropCap">We should agree to a few conventions that every website should follow. These are features that users have come to expect, and they expect them to work in a standard way, because they have seen and used them on many websites.</p>
             <p>Every website should have:</p>
             <ul>
@@ -243,7 +252,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
             <h3 className="headline__h3" id="validatePages">
               Validate Pages
             </h3>
-            <p className="dropCap">Finally, every page of a website should be tested with the common validators before publishing the site for the first time, and thereafter pages should be tested when making changes to them, and any errors or warnings listed by the validators should be investigated and fixed if possible:</p>
+            <p className="dropCap">Finally, every page of a website should be tested with the common validators before publishing the site for the first time, and thereafter new pages and pages that are changed should be tested, and any errors or warnings listed by the validators should be investigated and fixed if possible:</p>
             <ul>
               <li className="list">
                 The W3C Markup Validation Service (
@@ -273,6 +282,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
               <p>The Department of Justice has taken the stance that the Americans with Disabilities Act (ADA) applies to websites.</p>
             </div>
           </div>
+          <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__margin-bottom-0" id="notes">
             <h3 className="headline__h3">Notes</h3>

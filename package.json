@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-env": "^7.29.3",
     "autoprefixer": "^10.5.0",
     "babel-loader": "^10.1.1",
     "clean-webpack-plugin": "^4.0.0",
@@ -47,10 +47,10 @@
     "postcss-mixins": "^12.1.2",
     "postcss-nested": "^7.0.2",
     "postcss-simple-vars": "^7.0.1",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.96.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-middleware": "^7.2.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-middleware": "^8.0.3",
     "webpack-dev-server": "^5.1.0"
   }
 }

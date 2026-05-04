@@ -7,6 +7,7 @@ import Breadcrumb from "../../Breadcrumb"
 import { HashLink } from "react-router-hash-link"
 import { useLocation } from "react-router-dom"
 import GTag from "../../GTag"
+import CanonicalLink from "../../CanonicalLink"
 import GStructuredData from "../../GStructuredData"
 
 function BlogJan2025_ResSwitching3() {
@@ -55,6 +56,7 @@ function BlogJan2025_ResSwitching3() {
     <Page title="Part 3: Portrait Orientation, DPR and Sizes, Image Compression">
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="How browsers use the sizes attribute with the device DPR in choosing an image for resolution switching"></GStructuredData>
+      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression"></CanonicalLink>
       <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
@@ -100,7 +102,6 @@ function BlogJan2025_ResSwitching3() {
                   Part 2: Finding the Breakpoints
                 </HashLink>
               </li>
-              <li className="list list--toc">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</li>
             </ul>
           </div>
           <div className="row__colspan-6" id="portraitSizes">
@@ -110,8 +111,8 @@ function BlogJan2025_ResSwitching3() {
             </p>
           </div>
 
-          <div className="row__colspan-4" id="portraitSizes"></div>
-          <div className="row__colspan-8">
+          <div className="row__colspan-1" id="portraitSizes"></div>
+          <div className="row__colspan-10">
             <p>
               The <code>sizes</code> for 3:4 (portrait) based on the above table is:
             </p>
@@ -141,10 +142,13 @@ function BlogJan2025_ResSwitching3() {
             </p>
             <p>More on this in the next topic, DPR and Sizes.</p>
           </div>
-          <div className="row__colspan-4" id="dprAndSizes">
-            <h2 className="headline__h2">DPR and Sizes</h2>
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1" id="dprAndSizes">
+            {" "}
           </div>
-          <div className="row__colspan-8">
+          <div className="row__colspan-10">
+            <h2 className="headline__h2">DPR and Sizes</h2>
             <h3 className="headline__h3 headline__h3--xtra-pad">
               Be careful when specifying <code>sizes</code>
             </h3>
@@ -172,16 +176,16 @@ function BlogJan2025_ResSwitching3() {
             </p>
             <p>Seems benign, right? Because the iPad’s screen width is 820px, the media query (max-width: 1280px) 1280px comes into play.</p>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-4">
-            <p>
+          <div className="row__colspan-1"> </div>
+          <div className="row__colspan-10">
+            <p className="note">
               I believe this is related to the dynamic x descriptors that Eric Portis mentioned in his blog{" "}
               <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://observablehq.com/@eeeps/w-descriptors-and-sizes-under-the-hood">
                 w descriptors and sizes: Under the hood.
               </Link>{" "}
             </p>
-          </div>
-          <div className="row__colspan-8">
             <p>
               Because DPR = 2, the image that the browser selects to download is 3840.webp, because 2 x 1280 = 2560, and because the <code>sizes</code> attribute indicates that everything between 1920px and 3840px should use the 3840px image. If instead you set <code>sizes</code> to 100vw then the browser will base the DPR calculation on screen width:
             </p>
@@ -219,13 +223,13 @@ function BlogJan2025_ResSwitching3() {
               <b>Note:</b> When using srcset with width descriptors the sizes attribute must be present. While the value will default to 100vw if sizes is not present with srcset, and browsers appear to work fine without it, HTML validators will show an error.
             </p>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-4" id="compressingImgs">
+          <div className="row__colspan-1" id="compressingImgs"></div>
+          <div className="row__colspan-10">
             <h2 className="headline__h2">Compressing Images</h2>
-          </div>
-          <div className="row__colspan-8">
             <p className="dropCap">
-              When saving images and perhaps converting them to a newer format such as WEBP, compression must be adjusted to get the size within the range indicated in the table above (see
+              When saving images and perhaps converting them to a newer format such as WEBP, compression must be adjusted to get the size within the range indicated in the table above (see{" "}
               <HashLink smooth to="/blog/2025/01/resolution-switching-images-part2#tblImageSizes">
                 Table of Image Sizes
               </HashLink>
@@ -237,19 +241,20 @@ function BlogJan2025_ResSwitching3() {
             </ol>
             <p>Because of these factors, it is necessary to use a sliding compression factor scale that varies both by the image's size and visual diversity. I have not found a tool that can automate this, although it might be possible with Adobe Photoshop (see the next section, Automation).</p>
           </div>
+          <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-4" id="automation">
+          <div className="row__colspan-1" id="automation"></div>
+          <div className="row__colspan-10">
             <h2 className="headline__h2">Automation</h2>
-          </div>
-          <div className="row__colspan-8">
             <h3 className="headline__h3 headline__h3--xtra-pad">Automating Image Generation</h3>
             <p className="dropCap">Creating so many images to provide optimized resolution switching is not really feasible unless you can automate the task. Some image editing applications such as Corel PaintShop and Adobe Photoshop have a recording capability, where you record while performing these operations on an image, creating a resized copy for each image size you need, then save the recording as a script that can be played back. The recording must be edited to make it generic.</p>
             <p>PaintShop's scripts are recorded (or written) in the Python language. Unfortunately, Corel's PaintShop does not let you choose a compression factor while saving in WEBP format, but Adobe's PhotoShop does.</p>
           </div>
-          <div className="row__colspan-4" id="refs">
+          <div className="row__colspan-1"></div>
+
+          <div className="row__colspan-1" id="refs"></div>
+          <div className="row__colspan-10">
             <h3 className="headline__h3">References</h3>
-          </div>
-          <div className="row__colspan-8">
             <p>I used a lot of online resources when researching for this post and I would like to thank:</p>
             <p>
               Chris Coyier:{" "}
@@ -276,6 +281,7 @@ function BlogJan2025_ResSwitching3() {
               <br></br>
             </p>
           </div>
+          <div className="row__colspan-1"></div>
         </div>
       </div>
     </Page>
