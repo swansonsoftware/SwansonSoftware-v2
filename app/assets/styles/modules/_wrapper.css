@@ -36,6 +36,10 @@
   &--site-footer {
     display: flex;
     justify-content: center;
+    background-color: $HeaderFooterLiteBackground;
+    &--dark-bg {
+      background-color: $HeaderFooterDarkBackground;
+    }
   }
 
   &--album {

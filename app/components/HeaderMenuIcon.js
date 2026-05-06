@@ -13,17 +13,19 @@ function HeaderMenuIcon(props) {
   function ToggleMenuIcon(e) {
     e.preventDefault
     if (e.code == "Enter" || e.type == "click") {
-      let menuIconCollapsed = document.querySelector(".site-header__menu-icon--collapsed")
       let menuButtons = document.querySelectorAll(".nav__button")
 
-      if (menuIconCollapsed) {
+      if (menuIconState.current == "collapsed") {
         setAriaLabel("Close menu")
+        menuIconState.current = "expanded"
         if (menuButtons) {
           menuButtons.forEach(button => {
             button.tabIndex = 0
           })
         }
       } else {
+        console.log("expanded")
+        menuIconState.current = "collapsed"
         setAriaLabel("Open menu")
         if (menuButtons) {
           //prevent tabbing to hidden menu buttons

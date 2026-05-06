@@ -208,14 +208,26 @@
   }
 
   &__menu-icon--collapsed::after {
-    font-size: 30px;
-    font-family: "Material Icons";
-    content: "\e5d2";
+    padding: 20px 20px;
+    content: "";
+    mask-image: url("../images/menu-mobile-hamburger.svg"), linear-gradient(transparent, transparent);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: 5ex 5ex;
+    background: 0 0;
+    background-color: currentColor;
+    vertical-align: middle;
   }
 
   &__menu-icon--expanded::after {
-    font-size: 30px;
-    font-family: "Material Icons";
-    content: "\e5cd";
+    padding: 20px 20px;
+    content: "";
+    mask-image: url("../images/menu-mobile-close.svg"), linear-gradient(transparent, transparent);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: 5ex 5ex;
+    background: 0 0;
+    background-color: currentColor;
+    vertical-align: middle;
   }
 }

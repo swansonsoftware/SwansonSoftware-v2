@@ -8,7 +8,7 @@ function Footer(props) {
 
   return (
     <footer className={appState.backgroundStyle == "light" ? "footer" : "footer footer--dark-bg"}>
-      <div className="wrapper--site-footer">
+      <div className={appState.backgroundStyle == "light" ? "wrapper--site-footer" : "wrapper--site-footer wrapper--site-footer--dark-bg"}>
         <span className="footer__copyright">Copyright &copy; &nbsp;{currentDate.getFullYear()}. All rights reserved.</span>
         <span className="footer__link">
           <Link to="/about-us" id="about-us-link" tabIndex={0}>
