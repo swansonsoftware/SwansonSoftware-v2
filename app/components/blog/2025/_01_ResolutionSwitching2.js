@@ -54,7 +54,7 @@ function BlogJan2025_ResSwitching2() {
     <Page title="Part 2: Finding the Breakpoints">
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="A table of breakpoints for resolution switching images based on an analysis of device sizes"></GStructuredData>
-      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints/"></CanonicalLink>
       <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">

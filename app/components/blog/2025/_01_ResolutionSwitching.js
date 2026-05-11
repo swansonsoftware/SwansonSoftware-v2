@@ -59,7 +59,7 @@ function BlogJan2025_ResSwitching() {
       <ImageLightboxOverlay />
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Ideas for Choosing Breakpoints for Responsive Images"></GStructuredData>
-      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints/"></CanonicalLink>
       <meta name="description" content="Breakpoints for responsive design and resolution switching images, breakpoints for responsive design CSS, and performance budget in responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">

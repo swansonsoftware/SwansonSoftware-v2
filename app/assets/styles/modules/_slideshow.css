@@ -114,6 +114,7 @@
       &--path {
         stroke: $vcrButtonOutlineColor;
         stroke-linecap: round;
+        stroke-width: inherit;
       }
       &--polygon {
         stroke: $vcrButtonOutlineColor;
@@ -122,9 +123,6 @@
         stroke-linejoin: round;
       }
       &:hover {
-        stroke-width: 2px;
-      }
-      &:focus-within {
         stroke-width: 2px;
       }
     }

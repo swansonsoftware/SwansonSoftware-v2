@@ -47,7 +47,24 @@ function Blog2026_01_WebsiteDesignStandard1() {
     { id: 9, listId: "footnote9", noteId: "#note9", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 19, listId: "footnote10", noteId: "#note10", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 11, listId: "footnote11", noteId: "#note11", text1: "Firth, Ashley, 2024, Practical Web Accessibility: A Comprehensive Guide to Digital Inclusion, 2nd edition. Apress. Chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 12, listId: "footnote12", noteId: "#note12", text1: "Krug, 2014, chapter 3; however, “…there will be cases where things will be clearer if you make them <i>slightly</i> inconsistent. Here’s the rule to keep in mind: CLARITY TRUMPS CONSISTENCY”", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    {
+      id: 12,
+      listId: "footnote12",
+      noteId: "#note12",
+      text1: (
+        <>
+          Krug, 2014, chapter 3; however, “…there will be cases where things will be clearer if you make them <i>slightly</i> inconsistent. Here’s the rule to keep in mind: CLARITY TRUMPS CONSISTENCY”
+        </>
+      ),
+      text1IsLink: false,
+      text1Link: "",
+      text2: "",
+      text2IsLink: false,
+      text2Link: "",
+      text3: "",
+      text3IsLink: false,
+      text3Link: ""
+    },
     { id: 13, listId: "footnote13", noteId: "#note13", text1: "Krug, 2014, chapter 12; Firth, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 14, listId: "footnote14", noteId: "#note14", text1: "Sizes specified in pixel units blocks adjustments that should occur when users change their device settings, forcing them to use zoom instead (Firth, chapter 3); “…almost every site I go to still fails my three-second accessibility test—increasing the size of type.” Krug, 2014, chapter 12.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 15, listId: "footnote15", noteId: "#note15", text1: "“...low contrast text...was found on 83.6% of the one million most popular website's home pages, making it the most commonly detected accessibility issue.” Firth, chapter 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },

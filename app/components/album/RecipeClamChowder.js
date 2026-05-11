@@ -39,7 +39,7 @@ function ClamChowder() {
     <Page title="Clam Chowder Recipe">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <CanonicalLink href="https://swansonsoftware.com/album/recipes/clam-chowder"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/album/recipes/clam-chowder/"></CanonicalLink>
       <meta name="description" content="Gregory Swanson's Clam Chowder Recipe" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">

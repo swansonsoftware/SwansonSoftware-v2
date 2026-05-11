@@ -41,7 +41,7 @@ function Favorites() {
   return (
     <Page title="Favorites">
       <GTag></GTag>
-      <CanonicalLink href="https://swansonsoftware.com/album/favorites"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/album/favorites/"></CanonicalLink>
       <meta name="description" content="Swanson Software Album, Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper--album" id="maincontent">

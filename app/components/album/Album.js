@@ -33,7 +33,7 @@ function Album() {
   return (
     <Page title="Album">
       <GTag></GTag>
-      <CanonicalLink href="https://swansonsoftware.com/album"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/album/"></CanonicalLink>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Album</h1>

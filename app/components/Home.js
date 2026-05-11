@@ -32,7 +32,7 @@ function Home() {
     <Page title="Home">
       <GTag></GTag>
       <GStructuredData type="WebSite" name="SwansonSoftware"></GStructuredData>
-      <CanonicalLink href="https://swansonsoftware.com"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/"></CanonicalLink>
       <meta name="description" content="SwansonSoftware is on a mission to disseminate the principles and practices of software construction that lead to quality software and successful projects." />
 
       <div className="wrapper wrapper--home-page" id="maincontent">

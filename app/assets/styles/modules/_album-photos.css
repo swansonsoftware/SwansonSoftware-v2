@@ -59,12 +59,9 @@
       border-radius: 0 5px 5px 0;
       z-index: $zIndex-1-FirstLevel;
 
-      &:hover {
-        cursor: pointer;
-        background: $albumPhotoCaptionBackgroundHoverColor;
-      }
-
+      &:hover,
       &:focus-visible {
+        cursor: pointer;
         background: $albumPhotoCaptionBackgroundHoverColor;
       }
 

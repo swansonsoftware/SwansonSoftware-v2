@@ -56,7 +56,7 @@ function BlogJan2025_ResSwitching3() {
     <Page title="Part 3: Portrait Orientation, DPR and Sizes, Image Compression">
       <GTag></GTag>
       <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="How browsers use the sizes attribute with the device DPR in choosing an image for resolution switching"></GStructuredData>
-      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression/"></CanonicalLink>
       <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">

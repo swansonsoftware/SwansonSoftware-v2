@@ -34,7 +34,7 @@ function Recipes() {
   return (
     <Page title="Recipes">
       <GTag></GTag>
-      <CanonicalLink href="https://swansonsoftware.com/album/recipes"></CanonicalLink>
+      <CanonicalLink href="https://swansonsoftware.com/album/recipes/"></CanonicalLink>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1">Recipes</h1>
