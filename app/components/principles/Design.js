@@ -23,7 +23,7 @@ function Design() {
     appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
-      // app.focus()
+      app.focus()
     }
   }, [])
 
@@ -119,7 +119,7 @@ function Design() {
       <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
       <meta name="description" content="In this article you will find a discussion of software design concepts and an answer to the question what is software design, as well as a software design definition. Software design methods are discussed, as are software design strategies." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Software Design</h1>
         <div className="headline__author">Gregory Swanson | Updated November 5, 2025</div>
         <div className="row row--gutters">

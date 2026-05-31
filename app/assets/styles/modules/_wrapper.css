@@ -49,6 +49,11 @@
     position: relative;
     font-size: 1rem;
     padding-bottom: 50px;
+    &:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: -3px;
+      border-radius: 15px;
+    }
 
     &--pull-left {
       margin-left: 0;
@@ -208,6 +213,14 @@
 
   &__article {
     max-width: inherit;
+    &:focus-visible {
+      outline: 3px solid #000000;
+      outline-offset: -3px;
+      /*box-shadow:
+        0 0 0 3px #ffffff,
+        0 0 10px 6px #c97532;*/
+      border-radius: 15px;
+    }
     @mixin atMin1200Wide {
       max-width: 1000px;
     }

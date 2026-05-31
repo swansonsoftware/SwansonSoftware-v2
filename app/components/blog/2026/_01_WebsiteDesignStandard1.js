@@ -78,7 +78,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
       <GStructuredData type="BlogPosting" datePublished="2026-05-01T11:19:28-07:00" headline="Elements of a Standard for Website Design"></GStructuredData>
       <meta name="description" content="Conventions for website useability and accessibility, and website design conventions." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Part 1: Conventions</h1>
         <h2 className="headline__h2">From the Elements of a Standard for Website Design series</h2>
         <div className="headline__author">Gregory Swanson | Updated May 1, 2026</div>

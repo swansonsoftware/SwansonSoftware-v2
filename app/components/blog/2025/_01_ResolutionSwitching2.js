@@ -57,7 +57,7 @@ function BlogJan2025_ResSwitching2() {
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints/"></CanonicalLink>
       <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Part 2: Finding the Breakpoints</h1>
         <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>

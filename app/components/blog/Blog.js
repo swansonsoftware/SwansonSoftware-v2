@@ -33,7 +33,7 @@ function Blog() {
     <Page title="Blog">
       <GTag></GTag>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Blog</h1>
         <h2 className="headline__h2">Rants and Ruminations</h2>
         <p>I worked in software development for several decades and there are some things I would like to say.</p>

@@ -55,7 +55,7 @@ function _2020s() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2020s" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album" id="maincontent">
+      <div className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">2020s</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

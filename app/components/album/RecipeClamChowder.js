@@ -42,7 +42,7 @@ function ClamChowder() {
       <CanonicalLink href="https://swansonsoftware.com/album/recipes/clam-chowder/"></CanonicalLink>
       <meta name="description" content="Gregory Swanson's Clam Chowder Recipe" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Clam Chowder</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated April 21, 2024</div>

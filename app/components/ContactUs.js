@@ -106,7 +106,7 @@ function ContactUs() {
       <GTag></GTag>
       <meta name="description" content="Contact Us" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Contact Swanson Software</h1>
         <p>Please use the form below to contact SwansonSoftware. SwansonSoftware does not store or share any information you send, and you will not get unsolicited email or marketing material from SwansonSoftware.</p>
         <p>* Indicates required.</p>

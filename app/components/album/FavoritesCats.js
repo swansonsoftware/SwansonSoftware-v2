@@ -62,7 +62,7 @@ function FavoritesCats() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Cat Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album" id="maincontent">
+      <div className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Cats Favorites</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

@@ -59,7 +59,7 @@ function BlogJan2025_ResSwitching3() {
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression/"></CanonicalLink>
       <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</h1>
         <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>

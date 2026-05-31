@@ -76,7 +76,7 @@ function _2010s() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, 2010s" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album" id="maincontent">
+      <div className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">2010s</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />

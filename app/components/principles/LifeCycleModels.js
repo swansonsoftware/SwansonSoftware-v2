@@ -177,7 +177,7 @@ function LifecycleModels() {
       <GStructuredData type="Article" datePublished="2026-04-08T12:40:28-07:00" headline="Software Life Cycle"></GStructuredData>
       <meta name="description" content="This article describes the software life cycle, discusses the different terminology used, including software lifecycle and software development life cycle, and the acronym SDLC. It answers the questions “what is software life cycle” and “what is software development life cycle model” and it describes the categories of life cycle models, and how the types of software life cycle models fit the categories. Some examples of life cycle models are included." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Software Life Cycle</h1>
         <div className="headline__author">Gregory Swanson | updated April 8, 2026</div>
         <div className="row row--gutters">
