@@ -28,7 +28,7 @@
   }
 
   &__h2 {
-    font: 400 2.5rem/1.15 $headersFont;
+    font: 500 2.5rem/1.15 $headersFont;
     padding: 10px 0 3px 0;
     margin: 0;
 
@@ -101,7 +101,7 @@
   }
 
   &__h4 {
-    font: 600 1.9rem/1.15 $headersFont;
+    font: 700 1.9rem/1.15 $headersFont;
     padding: 10px 0 2px 0;
     margin: 0;
 

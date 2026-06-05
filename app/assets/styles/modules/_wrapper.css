@@ -11,6 +11,11 @@
     padding: 0 18px;
     z-index: $zIndex-3-ThirdLevel;
     text-shadow: 3px 3px 2px black;
+    &:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: -3px;
+      border-radius: 15px;
+    }
     @mixin atMin1200Wide {
       display: flex;
       justify-content: space-between;

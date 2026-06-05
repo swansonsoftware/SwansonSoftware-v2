@@ -73,6 +73,11 @@ img.tagline {
   width: 215px;
   height: 20px;
 }
+pre {
+  font-size: 0.9em;
+  overflow-x: auto;
+  white-space: pre;
+}
 
 * {
   box-sizing: border-box;

@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 
@@ -9,13 +9,16 @@ function Notes(props) {
         const children = [
           { text: note.text1, isLink: note.text1IsLink, link: note.text1Link },
           { text: note.text2, isLink: note.text2IsLink, link: note.text2Link },
-          { text: note.text3, isLink: note.text3IsLink, link: note.text3Link }
+          { text: note.text3, isLink: note.text3IsLink, link: note.text3Link },
+          { text: note.text4, isLink: note.text4IsLink, link: note.text4Link },
+          { text: note.text5, isLink: note.text5IsLink, link: note.text5Link },
+          { text: note.text6, isLink: note.text6IsLink, link: note.text6Link }
         ]
 
         return (
           <li key={note.listId} id={note.listId}>
             <span className="footnote__ref">
-              <HashLink to={note.noteId} className="footnote--cite">
+              <HashLink smooth to={note.noteId} className="footnote--cite">
                 ^
               </HashLink>
 

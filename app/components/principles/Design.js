@@ -6,6 +6,7 @@ import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
 import Note from "../Note"
+import Footnote from "../Footnote"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -114,7 +115,7 @@ function Design() {
   ]
 
   return (
-    <Page title="Overview of Software Design">
+    <Page title="Software Design">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
       <meta name="description" content="In this article you will find a discussion of software design concepts and an answer to the question what is software design, as well as a software design definition. Software design methods are discussed, as are software design strategies." />
@@ -226,11 +227,11 @@ function Design() {
           <div className="row__colspan-10">
             <p>
               These phases occur in the context of a macro process, which is the overall development process.{" "}
-              <HashLink to="#footnote1" className="footnote" id="note1">
+              <HashLink smooth to="#footnote1" className="footnote" id="note1">
                 <sup>[1]</sup>
               </HashLink>{" "}
               In each phase, several micro process activities occur:
-              <HashLink to="#footnote2" className="footnote" id="note2">
+              <HashLink smooth to="#footnote2" className="footnote" id="note2">
                 <sup>[2]</sup>
               </HashLink>{" "}
             </p>
@@ -244,7 +245,7 @@ function Design() {
 
             <p id="note3">
               In an iterative development process, each phase except Scoping has two or more iterations in which each micro process activity occurs. The micro process activity may have iterations as well, moving from a high level of abstraction (enterprise level) to lower levels of abstraction (system, subsystem, component, etc.).
-              <HashLink to="#footnote3" className="footnote">
+              <HashLink smooth to="#footnote3" className="footnote">
                 <sup>[3]</sup>
               </HashLink>{" "}
               The number of micro process iterations cannot be known beforehand.
@@ -252,7 +253,7 @@ function Design() {
 
             <p id="note4">
               As mentioned above, work occurs on each micro process activity during each macro process phase, but as a project progresses through the macro process phases the micro process emphasis shifts from Requirements in early phases, through Analysis & Design, Implementation, Test, and finally Deployment in later phases.
-              <HashLink to="#footnote4" className="footnote">
+              <HashLink smooth to="#footnote4" className="footnote">
                 <sup>[4]</sup>
               </HashLink>{" "}
               While the emphasis on Analysis & Design occurs in the early phases, it is common to make refinements to the architecture and to other analysis elements in later phases.
@@ -268,26 +269,26 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note5">
               A design, whether for software or for something else, is a plan based on an understanding of what we are trying to accomplish. In software design, understanding comes from user requirements.
-              <HashLink to="#footnote5" className="footnote">
+              <HashLink smooth to="#footnote5" className="footnote">
                 <sup>[5]</sup>
               </HashLink>{" "}
               User requirements are the input to software design, and the output is the design specification,
-              <HashLink to="#footnote6" className="footnote" id="note6">
+              <HashLink smooth to="#footnote6" className="footnote" id="note6">
                 <sup>[6]</sup>
               </HashLink>{" "}
               a.k.a. technical specification.
             </p>
             <p id="note7">
               Although there is a school of thought that says the product of software design is the source code,
-              <HashLink to="#footnote7" className="footnote">
+              <HashLink smooth to="#footnote7" className="footnote">
                 <sup>[7]</sup>
               </HashLink>{" "}
               there are software systems that are not complex, systems that are “more tedious than difficult to develop”,
-              <HashLink to="#footnote8" className="footnote" id="note8">
+              <HashLink smooth to="#footnote8" className="footnote" id="note8">
                 <sup>[8]</sup>
               </HashLink>{" "}
               throwaway solutions not meant to be reused, repaired, or extended when requirements change. Such systems require little if any design beyond the source code.
-              <HashLink to="#footnote9" className="footnote" id="note9">
+              <HashLink smooth to="#footnote9" className="footnote" id="note9">
                 <sup>[9]</sup>
               </HashLink>
             </p>
@@ -304,30 +305,30 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note10">
               Analysis is a design activity in which user requirements are examined, with a focus on behavior: what the system does, not how it does it. The purpose of analysis is “to provide a model of the system’s behavior.”
-              <HashLink to="#footnote10" className="footnote">
+              <HashLink smooth to="#footnote10" className="footnote">
                 <sup>[10]</sup>
               </HashLink>{" "}
               UML diagrams are a good way to represent an analysis model because of the variety of views available with UML (requirements view, logical view, implementation view, process view, etc.), as well as the ability of UML to express dynamic behavior (activity diagrams, state machine diagrams, sequence diagrams, etc.).
             </p>
             <p id="note11">
               In the Scoping and Elaboration phases of development, the focus of analysis is on establishing the architectural framework and producing a description of the architecture, thus your focus in these phases is on analyzing requirements that concern the architecture.
-              <HashLink to="#footnote11" className="footnote">
+              <HashLink smooth to="#footnote11" className="footnote">
                 <sup>[11]</sup>
               </HashLink>{" "}
               An architecture description should include a variety of perspectives, or views, each focused on describing the architectural elements of interest to a specific group of stakeholders.{" "}
-              <HashLink to="#footnote12" className="footnote" id="note12">
+              <HashLink smooth to="#footnote12" className="footnote" id="note12">
                 <sup>[12]</sup>
               </HashLink>{" "}
             </p>
             <p id="note13">
               During analysis, elements (classes, components, etc.) are identified and described. Element collaborations are defined, and responsibilities are distributed among the elements. Responsibilities might be described using freeform text: a single phrase or sentence. Analysis elements will often evolve as more is learned about the problem domain.{" "}
-              <HashLink to="#footnote13" className="footnote">
+              <HashLink smooth to="#footnote13" className="footnote">
                 <sup>[13]</sup>
               </HashLink>{" "}
             </p>
             <p id="note14">
               Once you have a reasonably accurate and consistent representation of the system requirements with your analysis model, you should not linger on analysis but move on to design.{" "}
-              <HashLink to="#footnote14" className="footnote">
+              <HashLink smooth to="#footnote14" className="footnote">
                 <sup>[14]</sup>
               </HashLink>{" "}
             </p>
@@ -344,33 +345,33 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note15">
               While the focus of analysis is on what the system does, the focus of design is on how the system does it: creating elements (classes, components, etc.) that provide the behavior required by the analysis elements. The goal of design is to produce a specification that can be efficiently implemented.{" "}
-              <HashLink to="#footnote15" className="footnote">
+              <HashLink smooth to="#footnote15" className="footnote">
                 <sup>[15]</sup>
               </HashLink>
               <sup>,</sup>{" "}
-              <HashLink to="#footnote16" className="footnote" id="note16">
+              <HashLink smooth to="#footnote16" className="footnote" id="note16">
                 <sup>[16]</sup>
               </HashLink>{" "}
             </p>
             <p id="note17">
               While the stakeholders for architectural documentation (the analysis/design model) are numerous, including personnel in support, operations, build and deployment, project managers, as well as developers and testers, the stakeholders who might need software specifications are few: developers and testers.{" "}
-              <HashLink to="#footnote17" className="footnote">
+              <HashLink smooth to="#footnote17" className="footnote">
                 <sup>[17]</sup>
               </HashLink>{" "}
             </p>
             <p id="note18">
               A design specification for an element provides the protocol for the element: an interface of named operations. In earlier iterations of design, you may name the operations but ignore full signatures. In later iterations of design, you refine the protocol of the operations, and during detailed design the complete signature of operations are documented in pseudocode or even executable code of the implementation language that will be used.{" "}
-              <HashLink to="#footnote18" className="footnote">
+              <HashLink smooth to="#footnote18" className="footnote">
                 <sup>[18]</sup>
               </HashLink>{" "}
               Element collaborations and dynamic behavior should be included in the specification. UML diagrams are very effective for communicating which elements collaborate and how they collaborate.{" "}
-              <HashLink to="#footnote19" className="footnote" id="note19">
+              <HashLink smooth to="#footnote19" className="footnote" id="note19">
                 <sup>[19]</sup>
               </HashLink>{" "}
             </p>
             <p id="note20">
               Once you have a specification detailed enough to implement and test you should not linger on design.
-              <HashLink to="#footnote20" className="footnote">
+              <HashLink smooth to="#footnote20" className="footnote">
                 <sup>[20]</sup>
               </HashLink>{" "}
             </p>
@@ -385,29 +386,29 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note21">
               A good design is well-structured, simple, efficient, adequate, flexible, and practical.
-              <HashLink to="#footnote21" className="footnote">
+              <HashLink smooth to="#footnote21" className="footnote">
                 <sup>[21]</sup>
               </HashLink>{" "}
               There may be several solutions to arrive at a good design for a given set of user requirements;
-              <HashLink to="#footnote22" className="footnote" id="note22">
+              <HashLink smooth to="#footnote22" className="footnote" id="note22">
                 <sup>[22]</sup>
               </HashLink>{" "}
               the best solution, however, is the least complex solution,
-              <HashLink to="#footnote23" className="footnote" id="note23">
+              <HashLink smooth to="#footnote23" className="footnote" id="note23">
                 <sup>[23]</sup>
               </HashLink>{" "}
               or one that despite its complexity is “deeply understood by those responsible for its correctness”, in other words, it is “under intellectual control.”
-              <HashLink to="#footnote24" className="footnote" id="note24">
+              <HashLink smooth to="#footnote24" className="footnote" id="note24">
                 <sup>[24]</sup>
               </HashLink>{" "}
               Minimizing complexity in a design improves the quality of a design, and minimizes the greatest cost factors of software development: implementation, maintenance, and modification.
-              <HashLink to="#footnote25" className="footnote" id="note25">
+              <HashLink smooth to="#footnote25" className="footnote" id="note25">
                 <sup>[25]</sup>
               </HashLink>{" "}
             </p>
             <p id="note26">
               The two main tools for dealing with complexity in software design are separation of concern, which is achieved through modularity (coupling and cohesion), and abstraction, which is achieved with design models
-              <HashLink to="#footnote26" className="footnote">
+              <HashLink smooth to="#footnote26" className="footnote">
                 <sup>[26]</sup>
               </HashLink>{" "}
               (graphical or mathematical). We begin to understand a system’s modularity as we decompose it.
@@ -425,31 +426,31 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note27">
               In distinguishing “industrial-strength software” systems, Booch et. al. said that “the complexity of such systems exceeds the human intellectual capacity”,
-              <HashLink to="#footnote27" className="footnote">
+              <HashLink smooth to="#footnote27" className="footnote">
                 <sup>[27]</sup>
               </HashLink>{" "}
               and that the technique of decomposition is essential to manage it.
-              <HashLink to="#footnote28" className="footnote" id="note28">
+              <HashLink smooth to="#footnote28" className="footnote" id="note28">
                 <sup>[28]</sup>
               </HashLink>{" "}
               In software design, decomposition, also called top-down decomposition, is a procedure whereby a complex system is decomposed into smaller parts: beginning with the design problem, you decompose it into sub-problems which you can solve or, if still too complex, you decompose further until solvable.
-              <HashLink to="#footnote29" className="footnote" id="note29">
+              <HashLink smooth to="#footnote29" className="footnote" id="note29">
                 <sup>[29]</sup>
               </HashLink>{" "}
             </p>
             <p id="note30">
               In structured design, decomposition means decomposing major steps of a process into functions or modules. In object-oriented design, decomposition means decomposing the system into objects which derive from the vocabulary of the problem domain. Both designs solve the same problem in different ways;
-              <HashLink to="#footnote30" className="footnote">
+              <HashLink smooth to="#footnote30" className="footnote">
                 <sup>[30]</sup>
               </HashLink>{" "}
               however, object-oriented systems have distinct advantages: they are resilient to change and better able to evolve over time, they reduce risk associated with complex software systems because they can evolve incrementally from smaller systems, and they address complexity with better support for separation of concerns.
-              <HashLink to="#footnote31" className="footnote" id="note31">
+              <HashLink smooth to="#footnote31" className="footnote" id="note31">
                 <sup>[31]</sup>
               </HashLink>{" "}
             </p>
             <p id="note32">
               Decomposition activities include:
-              <HashLink to="#footnote32" className="footnote">
+              <HashLink smooth to="#footnote32" className="footnote">
                 <sup>[32]</sup>
               </HashLink>
             </p>
@@ -472,17 +473,17 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note33">
               Composition, also called bottom-up composition, is a reverse process of decomposition. In a compositional strategy, the entities of the problem are identified, classified and grouped. The relationships between groups are identified, forming components of a solution model. Further classification and grouping of components continues until the model is complete.
-              <HashLink to="#footnote33" className="footnote">
+              <HashLink smooth to="#footnote33" className="footnote">
                 <sup>[33]</sup>
               </HashLink>{" "}
               Zhu states that object-oriented design uses the composition strategy.
-              <HashLink to="#footnote34" className="footnote" id="note34">
+              <HashLink smooth to="#footnote34" className="footnote" id="note34">
                 <sup>[34]</sup>
               </HashLink>
             </p>
             <p className="note dropCapNote" id="note35">
               Decomposition is a “top-down” strategy in which we begin with the big picture and elaborate the details. Composition is a “bottom-up” strategy in which we elaborate the details before considering the big picture. Stepwise refinement is a strategy where decomposition and/or composition are repeated.{" "}
-              <HashLink to="#footnote35" className="footnote">
+              <HashLink smooth to="#footnote35" className="footnote">
                 <sup>[35]</sup>
               </HashLink>
             </p>
@@ -504,25 +505,25 @@ function Design() {
             </ul>
             <p id="note36">
               Modularity, which is a measure of maintainability, testability, and possibly usability and reliability,
-              <HashLink to="#footnote36" className="footnote">
+              <HashLink smooth to="#footnote36" className="footnote">
                 <sup>[36]</sup>
               </HashLink>{" "}
               is quantified in terms of coupling and cohesion. There is no standardized empirical measure of coupling, and the degree of coupling and cohesion cannot be objectively assessed.
-              <HashLink to="#footnote37" className="footnote" id="note37">
+              <HashLink smooth to="#footnote37" className="footnote" id="note37">
                 <sup>[37]</sup>
                 <sup>,</sup>
               </HashLink>{" "}
-              <HashLink to="#footnote38" className="footnote" id="note38">
+              <HashLink smooth to="#footnote38" className="footnote" id="note38">
                 <sup>[38]</sup>
                 <sup>,</sup>
               </HashLink>{" "}
-              <HashLink to="#footnote39" className="footnote" id="note39">
+              <HashLink smooth to="#footnote39" className="footnote" id="note39">
                 <sup>[39]</sup>
               </HashLink>
             </p>
             <p className="note dropCapNote" id="note40">
               The terms coupling and cohesion were defined in the early 1970s to describe interconnectedness among subprogram units, but the concepts are valid for newer modular forms such as packages and classes.
-              <HashLink to="#footnote40" className="footnote">
+              <HashLink smooth to="#footnote40" className="footnote">
                 <sup>[40]</sup>
               </HashLink>{" "}
             </p>
@@ -530,19 +531,19 @@ function Design() {
             <h4 className="headline__h4">Coupling</h4>
             <p className="dropCap" id="note41">
               Coupling is a measure of the type and strength of connections between modules.
-              <HashLink to="#footnote41" className="footnote">
+              <HashLink smooth to="#footnote41" className="footnote">
                 <sup>[41]</sup>
                 <sup>,</sup>
               </HashLink>{" "}
-              <HashLink to="#footnote42" className="footnote" id="note42">
+              <HashLink smooth to="#footnote42" className="footnote" id="note42">
                 <sup>[42]</sup>
               </HashLink>{" "}
               As coupling decreases, overall complexity decreases. A programmer who is coding, debugging or modifying one of two (or more) highly coupled modules will encounter a higher probability that changes will be required in the other modules as well.
-              <HashLink to="#footnote43" className="footnote" id="note43">
+              <HashLink smooth to="#footnote43" className="footnote" id="note43">
                 <sup>[43]</sup>
               </HashLink>{" "}
               Coupling is a relative measure indicated by four factors.
-              <HashLink to="#footnote44" className="footnote" id="note44">
+              <HashLink smooth to="#footnote44" className="footnote" id="note44">
                 <sup>[44]</sup>
               </HashLink>{" "}
               In decreasing magnitude of effect on coupling:
@@ -562,7 +563,7 @@ function Design() {
             </ul>
             <p className="note dropCapNote" id="note45">
               Yourdon and Constantine describe factors of complexity, what they call "complexity in human terms": 1) size of a module; 2) number of decision-making statements; 3) span of data elements (e.g. between uses of a variable); 4) span of control flow (e.g. between an entry point and exit point).
-              <HashLink to="#footnote45" className="footnote">
+              <HashLink smooth to="#footnote45" className="footnote">
                 <sup>[45]</sup>
               </HashLink>
             </p>
@@ -570,27 +571,27 @@ function Design() {
             <h4 className="headline__h4">Cohesion</h4>
             <p className="dropCap" id="note46">
               Cohesion is the degree of functional relatedness of the components of a module.
-              <HashLink to="#footnote46" className="footnote">
+              <HashLink smooth to="#footnote46" className="footnote">
                 <sup>[46]</sup>
                 <sup>,</sup>
               </HashLink>
-              <HashLink to="#footnote47" className="footnote" id="note47">
+              <HashLink smooth to="#footnote47" className="footnote" id="note47">
                 <sup>[47]</sup>
               </HashLink>{" "}
               Cohesion is directly related to a module's relation to the problem solution.
-              <HashLink to="#footnote48" className="footnote" id="note48">
+              <HashLink smooth to="#footnote48" className="footnote" id="note48">
                 <sup>[48]</sup>
               </HashLink>{" "}
               As cohesion increases, overall complexity decreases. Furthermore, as cohesion increases among the modules of a system, overall coupling decreases.
-              <HashLink to="#footnote49" className="footnote" id="note49">
+              <HashLink smooth to="#footnote49" className="footnote" id="note49">
                 <sup>[49]</sup>
               </HashLink>{" "}
               Knowledge of the presence of coupling is more useful to the designer than the extent of any form.
-              <HashLink to="#footnote50" className="footnote" id="note50">
+              <HashLink smooth to="#footnote50" className="footnote" id="note50">
                 <sup>[50]</sup>
                 <sup>,</sup>
               </HashLink>{" "}
-              <HashLink to="#footnote51" className="footnote" id="note51">
+              <HashLink smooth to="#footnote51" className="footnote" id="note51">
                 <sup>[51]</sup>
               </HashLink>{" "}
             </p>
@@ -607,7 +608,7 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note52">
               Design models have a fundamental role in software design
-              <HashLink to="#footnote52" className="footnote">
+              <HashLink smooth to="#footnote52" className="footnote">
                 <sup>[52]</sup>
               </HashLink>{" "}
               (paraphrased):
@@ -623,7 +624,7 @@ function Design() {
               <li className="list">Graphical (systematic methods); each systematic method includes a set of graphical symbols for representing and archiving design data</li>
               <li className="list">
                 Mathematical (formal methods); formal methods are mathematical; these are rarely used "because of the enormous complexity of real systems",
-                <HashLink to="#footnote53" className="footnote" id="note53">
+                <HashLink smooth to="#footnote53" className="footnote" id="note53">
                   <sup>[53]</sup>
                 </HashLink>{" "}
                 and are not discussed
@@ -634,13 +635,13 @@ function Design() {
             <ul>
               <li className="list">
                 They are intended to show structural and architectural information only
-                <HashLink to="#footnote54" className="footnote" id="note54">
+                <HashLink smooth to="#footnote54" className="footnote" id="note54">
                   <sup>[54]</sup>
                 </HashLink>
               </li>
               <li className="list">
                 They are time-independent models of the hierarchical relationships of modules in a system
-                <HashLink to="#footnote55" className="footnote" id="note55">
+                <HashLink smooth to="#footnote55" className="footnote" id="note55">
                   <sup>[55]</sup>
                 </HashLink>{" "}
                 and therefore cannot portray timing of operations
@@ -651,7 +652,7 @@ function Design() {
             </ul>
             <p id="note56">
               Development of the Unified Modeling Language (UML) began as a melding of several object-oriented methodologies and was adopted by the Object Management Group (OMG) as a standard in 1997.
-              <HashLink to="#footnote56" className="footnote">
+              <HashLink smooth to="#footnote56" className="footnote">
                 <sup>[56]</sup>
               </HashLink>{" "}
               UML includes diagrams to represent system structure, behavior, and interactions. UML diagrams can portray static as well as dynamic behavior.
@@ -670,7 +671,7 @@ function Design() {
           <div className="row__colspan-10">
             <p className="dropCap" id="note57">
               Some design problems have recurred often, and their solution recognized and documented in a design pattern. Design reuse occurs when a design pattern can be used to solve a new design problem.
-              <HashLink to="#footnote57" className="footnote">
+              <HashLink smooth to="#footnote57" className="footnote">
                 <sup>[57]</sup>
               </HashLink>{" "}
             </p>
@@ -683,37 +684,22 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note58">
-              Historically, computer capabilities have increased rapidly, allowing the evolution of programming languages with more capabilities. More powerful programming languages allowed construction of software of greater complexity, and design methods evolved to help developers cope with increasing complexity. The most influential of the early design methods was structured design;
-              <HashLink to="#footnote58" className="footnote">
-                <sup>[58]</sup>
-              </HashLink>{" "}
-              other influential methods include Jackson Structured Programming (JSP) and Jackson System Development (JSD).
-              <HashLink to="#footnote59" className="footnote" id="note59">
-                <sup>[59]</sup>
-              </HashLink>{" "}
+            <p className="dropCap">
+              Historically, computer capabilities have increased rapidly, allowing the evolution of programming languages with more capabilities. More powerful programming languages allowed construction of software of greater complexity, and design methods evolved to help developers cope with increasing complexity. The most influential of the early design methods was structured design;<Footnote footnoteId={58}></Footnote>
+              other influential methods include Jackson Structured Programming (JSP) and Jackson System Development (JSD).<Footnote footnoteId={59}></Footnote>
             </p>
-            <p id="note60">
-              As computer capabilities increased, hardware costs decreased, and computers proliferated. Software systems grew larger, and object-oriented methods began to replace structured methods. Object-oriented design is better suited than structured design particularly for larger software systems, is better at managing the complexity of these systems, and improves the reliability of software. Evolution of design methods is ongoing; more recently, a design method for software architectural design has emerged.
-              <HashLink to="#footnote60" className="footnote">
-                <sup>[60]</sup>
-              </HashLink>{" "}
+            <p>
+              As computer capabilities increased, hardware costs decreased, and computers proliferated. Software systems grew larger, and object-oriented methods began to replace structured methods. Object-oriented design is better suited than structured design particularly for larger software systems, is better at managing the complexity of these systems, and improves the reliability of software. Evolution of design methods is ongoing; more recently, a design method for software architectural design has emerged.<Footnote footnoteId={60}></Footnote>
             </p>
-            <p id="note61">
-              As mentioned earlier, design methods can be categorized as follows:
-              <HashLink to="#footnote61" className="footnote">
-                <sup>[61]</sup>
-              </HashLink>{" "}
+            <p>
+              As mentioned earlier, design methods can be categorized as follows:<Footnote footnoteId={61}></Footnote>
             </p>
             <ol>
               <li className="list">Systematic methods (structured design, Jackson system development, object-oriented design, etc.)</li>
               <li className="list">Formal methods (mathematical)</li>
             </ol>
-            <p id="note62">
-              Design methods have a common structure that includes three elements:
-              <HashLink to="#footnote62" className="footnote">
-                <sup>[62]</sup>
-              </HashLink>
+            <p>
+              Design methods have a common structure that includes three elements:<Footnote footnoteId={62}></Footnote>
             </p>
             <ol>
               <li className="list">A design representation (notation symbols)</li>
@@ -721,11 +707,8 @@ function Design() {
               <li className="list">Heuristics (guidelines developed from experience with specific problem domains)</li>
             </ol>
             <p>It is best to use a design method that complements the programming environment. Many languages in common use today have features required for object-oriented programming; indeed, some languages that did not have object-oriented features have adopted them.</p>
-            <p className="note dropCapNote" id="note63">
-              The choice of programming language is important as it “determines whether algorithms and data structures can be naturally and easily coded”, which impacts the probability of correct implementation by the developer.
-              <HashLink to="#footnote63" className="footnote">
-                <sup>[63]</sup>
-              </HashLink>
+            <p className="note dropCapNote">
+              The choice of programming language is important as it “determines whether algorithms and data structures can be naturally and easily coded”, which impacts the probability of correct implementation by the developer.<Footnote footnoteId={63}></Footnote>
             </p>
           </div>
           <div className="row__colspan-1"></div>
@@ -736,25 +719,11 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note64">
-              Yourdon and Constantine describe structured design as "a collection of guidelines for distinguishing between good designs and bad designs, and a collection of techniques, strategies, and heuristics that generally leads to good designs...",
-              <HashLink to="#footnote64" className="footnote">
-                <sup>[64]</sup>
-              </HashLink>{" "}
-              and said that structured design is focused on how to properly partition the application, and how to properly organize the pieces of the system.
-              <HashLink to="#footnote65" className="footnote" id="note65">
-                <sup>[65]</sup>
-              </HashLink>{" "}
-              Proper partitioning and organization is achieved by keeping program modules and functions loosely coupled and highly cohesive. Furthermore, “the cost of coding, debugging, maintenance, and modification are minimized when the problem is subdivided into the smallest functional units that can be treated independently.”
-              <HashLink to="#footnote66" className="footnote" id="note66">
-                <sup>[66]</sup>
-              </HashLink>
+            <p className="dropCap">
+              Yourdon and Constantine describe structured design as "a collection of guidelines for distinguishing between good designs and bad designs, and a collection of techniques, strategies, and heuristics that generally leads to good designs..."<Footnote footnoteId={64}></Footnote>, and said that structured design is focused on how to properly partition the application, and how to properly organize the pieces of the system.<Footnote footnoteId={65}></Footnote> Proper partitioning and organization is achieved by keeping program modules and functions loosely coupled and highly cohesive. Furthermore, “the cost of coding, debugging, maintenance, and modification are minimized when the problem is subdivided into the smallest functional units that can be treated independently.”<Footnote footnoteId={66}></Footnote>
             </p>
-            <p id="note67">
-              Today we know that there are many shortcomings to structured design:
-              <HashLink to="#footnote67" className="footnote">
-                <sup>[67]</sup>
-              </HashLink>{" "}
+            <p>
+              Today we know that there are many shortcomings to structured design:<Footnote footnoteId={67}></Footnote>
             </p>
 
             <ul>
@@ -771,22 +740,11 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note68">
-              Object-oriented design evolved as a better strategy for managing the complexity of large software systems and proliferated as programming languages became available with or added support for objects, classes, and abstract data types. Object-oriented design is “a method of design encompassing the process of object-oriented decomposition and a notation for depicting both logical and physical as well as static and dynamic models of the system under design.”
-              <HashLink to="#footnote68" className="footnote">
-                <sup>[68]</sup>
-              </HashLink>{" "}
+            <p className="dropCap">
+              Object-oriented design evolved as a better strategy for managing the complexity of large software systems and proliferated as programming languages became available with or added support for objects, classes, and abstract data types. Object-oriented design is “a method of design encompassing the process of object-oriented decomposition and a notation for depicting both logical and physical as well as static and dynamic models of the system under design.”<Footnote footnoteId={68}></Footnote>
             </p>
-            <p id="note69">
-              Object-oriented design uses the products of object-oriented analysis, which is: “…a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.”
-              <HashLink to="#footnote69" className="footnote">
-                <sup>[69]</sup>
-              </HashLink>{" "}
-              The conceptual framework of object-oriented design is the object model
-              <HashLink to="#footnote70" className="footnote" id="note70">
-                <sup>[70]</sup>
-              </HashLink>{" "}
-              which must include four main elements:
+            <p>
+              Object-oriented design uses the products of object-oriented analysis, which is: “…a method of analysis that examines requirements from the perspective of the classes and objects found in the vocabulary of the problem domain.”<Footnote footnoteId={69}></Footnote> The conceptual framework of object-oriented design is the object model<Footnote footnoteId={70}></Footnote> which must include four main elements:
             </p>
             <ol>
               <li className="list">Abstraction</li>
@@ -800,17 +758,11 @@ function Design() {
               <li className="list">Concurrency</li>
               <li className="list">Persistence</li>
             </ol>
-            <p id="note71">
-              Identifying the classes and objects for the problem domain requires both discovery and invention.
-              <HashLink to="#footnote71" className="footnote">
-                <sup>[71]</sup>
-              </HashLink>{" "}
+            <p>
+              Identifying the classes and objects for the problem domain requires both discovery and invention.<Footnote footnoteId={71}></Footnote>
             </p>
-            <p id="note72">
-              While there are other programming styles besides object-oriented, in which programs are organized on a conceptual model other than the object model, no single programming style is best for all kinds of applications; however, “this paradigm often serves as the architectural framework in which we employ other paradigms” and “is best suited to the broadest set of applications.”
-              <HashLink to="#footnote72" className="footnote">
-                <sup>[72]</sup>
-              </HashLink>{" "}
+            <p>
+              While there are other programming styles besides object-oriented, in which programs are organized on a conceptual model other than the object model, no single programming style is best for all kinds of applications; however, “this paradigm often serves as the architectural framework in which we employ other paradigms” and “is best suited to the broadest set of applications.”<Footnote footnoteId={72}></Footnote>
             </p>
             <p>Designing software with objects and determining how they fit in a hierarchy requires some knowledge of object technology: definitions of the terms, understanding of an object-oriented language, perhaps a knowledge of the object model. These are beyond the scope of this article, and the reader is referred to the references to learn more.</p>
           </div>
@@ -822,15 +774,8 @@ function Design() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p className="dropCap" id="note73">
-              The primary output of software design is the design specification,
-              <HashLink to="#footnote73" className="footnote">
-                <sup>[73]</sup>
-              </HashLink>{" "}
-              a.k.a. technical specification, often abbreviated technical spec. In general, design elements that should go into a technical spec include:
-              <HashLink to="#footnote74" className="footnote" id="note74">
-                <sup>[74]</sup>
-              </HashLink>{" "}
+            <p className="dropCap">
+              The primary output of software design is the design specification<Footnote footnoteId={73}></Footnote>, a.k.a. technical specification, often abbreviated technical spec. In general, design elements that should go into a technical spec include:<Footnote footnoteId={74}></Footnote>
             </p>
             <ul>
               <li className="list">A statement of the problem and objectives</li>
@@ -841,11 +786,8 @@ function Design() {
               <li className="list">A description of usage</li>
             </ul>
             <p className="note dropCapNote">A technical spec is not the same as a functional specification (functional spec). Functional specs describe the functionality: what the system should do, how users interact with the system, without technical details. Technical specs describe the system architecture: the technologies used, database structure, modules, interactions between components, frameworks used, interactions via APIs, etc.</p>
-            <p id="note75">
-              In <i>Planning Smarter: Creating Blueprint-Quality Software Specifications</i>, Tyson suggests that a technical spec should be a software blueprint with the following elements:
-              <HashLink to="#footnote75" className="footnote">
-                <sup>[75]</sup>
-              </HashLink>{" "}
+            <p>
+              In <i>Planning Smarter: Creating Blueprint-Quality Software Specifications</i>, Tyson suggests that a technical spec should be a software blueprint with the following elements:<Footnote footnoteId={75}></Footnote>
             </p>
             <ul>
               <li className="list">A Data Dictionary to establish a clear, unambiguous vocabulary</li>
@@ -855,15 +797,9 @@ function Design() {
               <li className="list">Logic to clearly define the rules for data translations</li>
               <li className="list">Narratives to describe relevant background</li>
             </ul>
-            <p id="note76">
-              Design decisions and rational should be documented “only if it will be read in the future.”
-              <HashLink to="#footnote76" className="footnote">
-                <sup>[76]</sup>
-              </HashLink>{" "}
-              Consider who may need the documentation (Booch suggests “integrators, database administrators, project managers, operational support teams, technical help desk staff… or people who will join the team in the future”).
-              <HashLink to="#footnote77" className="footnote" id="note77">
-                <sup>[77]</sup>
-              </HashLink>{" "}
+            <p>
+              Design decisions and rational should be documented “only if it will be read in the future.”<Footnote footnoteId={76}></Footnote>
+              Consider who may need the documentation (Booch suggests “integrators, database administrators, project managers, operational support teams, technical help desk staff… or people who will join the team in the future”).<Footnote footnoteId={77}></Footnote>
             </p>
 
             <p>Technical specs take time to create but they provide time-saving benefits:</p>

@@ -54,6 +54,7 @@ const BlogResolutionSwitchingImages = React.lazy(() => import("./components/blog
 const BlogResolutionSwitchingImages2 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching2"))
 const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching3"))
 const BlogWebsiteDesignStandard1 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard1"))
+const BlogWebsiteDesignStandard2 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard2"))
 
 function Main() {
   const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true }
@@ -337,14 +338,18 @@ function Main() {
                 <Route path="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" element={<BlogResolutionSwitchingImages3 />} />
                 <Route path="/blog/2026" element={<Blogs2026 body="light" />} />
                 <Route path="/blog/2026/01/elements-of-a-standard-for-website-design-part1-conventions" element={<BlogWebsiteDesignStandard1 />} />
+                <Route path="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility" element={<BlogWebsiteDesignStandard2 />} />
                 <Route path="/contact" element={<ContactUs body="light" />} />
                 {/* <Route path="/principles/process-models" element={<ProcessModels body="light" />} /> */}
                 <Route path="/principles" element={<Principles />} />
                 <Route path="/principles/requirements" element={<Requirements />} />
-                <Route path="/principles/design" element={<Design />} />
-                <Route path="/principles/lifecycle" element={<LifecycleModels />} />
-                <Route path="/principles/lifecycle-models" element={<Navigate to="/principles/lifecycle" replace />} />
-                <Route path="/principles/reviews" element={<Reviews />} />
+                <Route path="/principles/design" element={<Navigate to="/principles/software-design" replace />} />
+                <Route path="/principles/software-design" element={<Design />} />
+                <Route path="/principles/software-lifecycle" element={<LifecycleModels />} />
+                <Route path="/principles/lifecycle-models" element={<Navigate to="/principles/software-lifecycle" replace />} />
+                <Route path="/principles/lifecycle" element={<Navigate to="/principles/software-lifecycle" replace />} />
+                <Route path="/principles/reviews" element={<Navigate to="/principles/software-reviews" replace />} />
+                <Route path="/principles/software-reviews" element={<Reviews />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/thankyou" element={<Thankyou />} />
                 <Route path="*" element={<NotFound />} />

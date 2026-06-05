@@ -7,6 +7,7 @@ import Breadcrumb from "../Breadcrumb"
 import ImageBlock from "../ImageBlock"
 import ImageLightboxOverlay from "../ImageLighboxOverlay"
 import Note from "../Note"
+import Footnote from "../Footnote"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 

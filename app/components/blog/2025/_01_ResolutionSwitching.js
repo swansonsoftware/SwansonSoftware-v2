@@ -24,6 +24,7 @@ function BlogJan2025_ResSwitching() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
     appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
@@ -55,33 +56,33 @@ function BlogJan2025_ResSwitching() {
   ]
 
   return (
-    <Page title="Part I: Ideas for Choosing Breakpoints">
+    <Page title="Choosing Breakpoints for Resolution Switching of Images Part I: Ideas for Choosing Breakpoints">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Ideas for Choosing Breakpoints for Responsive Images"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Breakpoints for Resolution Switching of Images Part I: Ideas for Choosing Breakpoints"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints/"></CanonicalLink>
       <meta name="description" content="Breakpoints for responsive design and resolution switching images, breakpoints for responsive design CSS, and performance budget in responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
-        <h1 className="headline__h1-cg">Part I: Ideas for Choosing Breakpoints</h1>
-        <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
+        <h1 className="headline__h1-cg">Choosing Breakpoints for Resolution Switching of Images</h1>
+        <h2 className="headline__h2">Part 1: Ideas for Choosing Breakpoints</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
-                <HashLink to="#ideasForChoosingBrkpts" className="list--toc--a">
+                <HashLink smooth to="#ideasForChoosingBrkpts" className="list--toc--a">
                   Ideas for Choosing Breakpoints
                 </HashLink>
                 <ul>
                   <li className="list list--toc">
-                    <HashLink to="#ideasPerfBudget" className="list--toc--a">
+                    <HashLink smooth to="#ideasPerfBudget" className="list--toc--a">
                       A Performance Budget
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#ideasMediaCondition" className="list--toc--a">
+                    <HashLink smooth to="#ideasMediaCondition" className="list--toc--a">
                       Media Condition
                     </HashLink>
                   </li>

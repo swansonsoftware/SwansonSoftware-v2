@@ -22,6 +22,9 @@
       }
     }
   }
+  &--toc-numbered {
+    list-style: decimal;
+  }
 
   &--ul {
     padding-left: 0;

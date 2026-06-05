@@ -35,7 +35,7 @@ function Home() {
       <CanonicalLink href="https://swansonsoftware.com/"></CanonicalLink>
       <meta name="description" content="SwansonSoftware is on a mission to disseminate the principles and practices of software construction that lead to quality software and successful projects." />
 
-      <div className="wrapper wrapper--home-page" id="maincontent">
+      <div className="wrapper wrapper--home-page" id="maincontent" tabIndex={-1}>
         <div className="row row--gutters">
           <div className="row__colspan-7">
             <h1 className="headline__h1-cg">Software Craftsmanship</h1>
@@ -43,6 +43,12 @@ function Home() {
             <p className="dropCap">Swanson Software was created to disseminate knowledge about software craftsmanship. The philosophy at swansonsoftware.com is that any statements of facts that do not originate here must be cited. This philosophy values the quality of sources as well.</p>
           </div>
           <div className="row__colspan-5">
+            <div className="note note--dark">
+              <h2 className="headline__h3-cg-home">June 5, 2026</h2>
+              <p>
+                <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility">Elements of a Standard for Website Design Part 2</Link> extends the basic accessibility introduced in Part 1 to an accessibility baseline for websites.
+              </p>
+            </div>
             <div className="note note--dark">
               <h2 className="headline__h3-cg-home">May 1, 2026</h2>
               <p>
@@ -52,7 +58,19 @@ function Home() {
             <div className="note note--dark">
               <h2 className="headline__h3-cg-home">April 8, 2026</h2>
               <p>
-                A new paper, <Link to="/principles/lifecycle">Software Life Cycle</Link>, replaces the old paper Software Life Cycle Models. This new paper answers the question “What is software life cycle?” and presents the historical origins and development of software life cycle models.
+                A new paper, <Link to="/principles/software-lifecycle">Software Life Cycle</Link>, replaces the old paper Software Life Cycle Models. This new paper answers the question “What is software life cycle?” and presents the historical origins and development of software life cycle models.
+              </p>
+            </div>
+            <div className="note note--dark">
+              <h2 className="headline__h3-cg-home">March 25, 2025</h2>
+              <p>
+                <Link to="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints">Choosing Breakpoints for Resolution Switching of Images</Link> is a three-part post that describes a technique based on an analysis of device sizes to answer the question, how to choose breakpoints when doing resolution switching.
+              </p>
+            </div>
+            <div className="note note--dark">
+              <h2 className="headline__h3-cg-home">March 20, 2025</h2>
+              <p>
+                <Link to="/principles/software-design">Software Design</Link> presents software design concepts and an answer to the question what is software design, as well as a definition of software design. Software design methods are discussed, as are software design strategies.
               </p>
             </div>
           </div>

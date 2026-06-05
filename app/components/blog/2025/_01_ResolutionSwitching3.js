@@ -21,6 +21,7 @@ function BlogJan2025_ResSwitching3() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
     appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
@@ -53,42 +54,42 @@ function BlogJan2025_ResSwitching3() {
   ]
 
   return (
-    <Page title="Part 3: Portrait Orientation, DPR and Sizes, Image Compression">
+    <Page title="Choosing Breakpoints for Resolution Switching of Images Part 3: Portrait Orientation, DPR and Sizes, Image Compression">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="How browsers use the sizes attribute with the device DPR in choosing an image for resolution switching"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Breakpoints for Resolution Switching of Images Part 3: Portrait Orientation, DPR and Sizes, Image Compression"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression/"></CanonicalLink>
       <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
-        <h1 className="headline__h1-cg">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</h1>
-        <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
+        <h1 className="headline__h1-cg">Choosing Breakpoints for Resolution Switching of Images</h1>
+        <h2 className="headline__h2">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
-                <HashLink to="#portraitSizes" className="list--toc--a">
+                <HashLink smooth to="#portraitSizes" className="list--toc--a">
                   Sizes for Portrait Orientation
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#dprAndSizes" className="list--toc--a">
+                <HashLink smooth to="#dprAndSizes" className="list--toc--a">
                   DPR and Sizes
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#compressingImgs" className="list--toc--a">
+                <HashLink smooth to="#compressingImgs" className="list--toc--a">
                   Compressing Images
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#automation" className="list--toc--a">
+                <HashLink smooth to="#automation" className="list--toc--a">
                   Automation
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#refs" className="list--toc--a">
+                <HashLink smooth to="#refs" className="list--toc--a">
                   References
                 </HashLink>
               </li>

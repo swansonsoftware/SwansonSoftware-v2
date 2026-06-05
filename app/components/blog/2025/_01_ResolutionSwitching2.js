@@ -20,6 +20,7 @@ function BlogJan2025_ResSwitching2() {
     appDispatch({ type: "backgroundStyleChange", color: "light" })
     appDispatch({ type: "selectMenu", selectedMenu: "2025" })
     appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
+    appDispatch({ type: "homePageClass", homePageClass: "page" })
     appDispatch({ type: "scrollTop", scrollTop: true })
     const app = document.getElementById("app")
     if (app) {
@@ -51,37 +52,37 @@ function BlogJan2025_ResSwitching2() {
   ]
 
   return (
-    <Page title="Part 2: Finding the Breakpoints">
+    <Page title="Choosing Breakpoints for Resolution Switching of Images Part 2: Finding the Breakpoints">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="A table of breakpoints for resolution switching images based on an analysis of device sizes"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Breakpoints for Resolution Switching of Images Part 2: Finding the Breakpoints"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints/"></CanonicalLink>
       <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
-        <h1 className="headline__h1-cg">Part 2: Finding the Breakpoints</h1>
-        <h2 className="headline__h2">From the Choosing Resolution Switching Breakpoints series</h2>
+        <h1 className="headline__h1-cg">Choosing Breakpoints for Resolution Switching of Images</h1>
+        <h2 className="headline__h2">Part 2: Finding the Breakpoints</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
-                <HashLink to="#findingBrkpts" className="list--toc--a">
+                <HashLink smooth to="#findingBrkpts" className="list--toc--a">
                   Finding Breakpoints Through Analysis of Device Screen Sizes
                 </HashLink>
                 <ul>
                   <li className="list list--toc">
-                    <HashLink to="#screenSizeGroups" className="list--toc--a">
+                    <HashLink smooth to="#screenSizeGroups" className="list--toc--a">
                       Screen Size Groups
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#listBrkpts" className="list--toc--a">
+                    <HashLink smooth to="#listBrkpts" className="list--toc--a">
                       The List of Breakpoints
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#tblImageSizes" className="list--toc--a">
+                    <HashLink smooth to="#tblImageSizes" className="list--toc--a">
                       Table of Image Sizes
                     </HashLink>
                   </li>

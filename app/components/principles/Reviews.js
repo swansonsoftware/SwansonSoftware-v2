@@ -6,6 +6,7 @@ import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
 import Breadcrumb from "../Breadcrumb"
 import Note from "../Note"
+import Footnote from "../Footnote"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
 
@@ -69,7 +70,7 @@ function Reviews() {
   ]
 
   return (
-    <Page title="Software Reviews and Inspections">
+    <Page title="Software Reviews">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T12:05:58-07:00" headline="Software Reviews"></GStructuredData>
       <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />
@@ -82,89 +83,89 @@ function Reviews() {
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
-                <HashLink to="#components" className="list--toc--a">
+                <HashLink smooth to="#components" className="list--toc--a">
                   Components
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#cs" className="list--toc--a">
+                <HashLink smooth to="#cs" className="list--toc--a">
                   Cost and Cost Savings
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#rt" className="list--toc--a">
+                <HashLink smooth to="#rt" className="list--toc--a">
                   Review Types
                 </HashLink>
                 <ul className="list-ul">
                   <li className="list list--toc">
-                    <HashLink to="#fagans" className="list--toc--a">
+                    <HashLink smooth to="#fagans" className="list--toc--a">
                       Fagan's Software Review
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#adr" className="list--toc--a">
+                    <HashLink smooth to="#adr" className="list--toc--a">
                       Active Design Review
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#twopersonreview" className="list--toc--a">
+                    <HashLink smooth to="#twopersonreview" className="list--toc--a">
                       Two-Person Review
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#nfoldreview" className="list--toc--a">
+                    <HashLink smooth to="#nfoldreview" className="list--toc--a">
                       N-Fold Review
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#phasedreview" className="list--toc--a">
+                    <HashLink smooth to="#phasedreview" className="list--toc--a">
                       Phased Review
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#ieeestandard" className="list--toc--a">
+                    <HashLink smooth to="#ieeestandard" className="list--toc--a">
                       IEEE Standard 1028
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#walkthrough" className="list--toc--a">
+                    <HashLink smooth to="#walkthrough" className="list--toc--a">
                       Walkthrough
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#pairprog" className="list--toc--a">
+                    <HashLink smooth to="#pairprog" className="list--toc--a">
                       Pair Programming
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#peercheck" className="list--toc--a">
+                    <HashLink smooth to="#peercheck" className="list--toc--a">
                       Peer Check
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink to="#passaround" className="list--toc--a">
+                    <HashLink smooth to="#passaround" className="list--toc--a">
                       Pass-Around
                     </HashLink>
                   </li>
                 </ul>
               </li>
               <li className="list list--toc">
-                <HashLink to="#rp" className="list--toc--a">
+                <HashLink smooth to="#rp" className="list--toc--a">
                   Review Process
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#frms" className="list--toc--a">
+                <HashLink smooth to="#frms" className="list--toc--a">
                   Sample Forms
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#tools" className="list--toc--a">
+                <HashLink smooth to="#tools" className="list--toc--a">
                   Online Tools
                 </HashLink>
               </li>
               <li className="list list--toc">
-                <HashLink to="#notes" className="list--toc--a">
+                <HashLink smooth to="#notes" className="list--toc--a">
                   Notes
                 </HashLink>
               </li>

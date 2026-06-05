@@ -32,7 +32,7 @@ function Requirements() {
   ]
 
   return (
-    <Page title="Requirements">
+    <Page title="Software Requirements">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Requirements"></GStructuredData>
       <meta name="description" content="Software requirements" />

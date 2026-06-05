@@ -47,16 +47,18 @@ function Blogs2026() {
             <p>
               <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part1-conventions">Part 1: Conventions</Link>
             </p>
-            <p>
-              Part 2: Accessibility (<i>coming soon</i>)
-            </p>
-            <p>
-              Part 3: UI Components (<i>coming soon</i>)
-            </p>
           </div>
 
-          <div className="row__colspan-4"></div>
-          <div className="row__colspan-8">&nbsp;</div>
+          <div className="row__colspan-4">
+            <h2 className="headline__h2">June 5</h2>
+          </div>
+          <div className="row__colspan-8">
+            <h3 className="headline__h3">Elements of a Standard for Website Design</h3>
+            <p className="dropCap">Part 2 extends the basic accessibility introduced in Part 1 to an accessibility baseline for websites.</p>
+            <p>
+              <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility">Part 2: Accessibility</Link>
+            </p>
+          </div>
         </div>
       </div>
     </Page>

@@ -13,7 +13,8 @@
     padding: 10px 30px;
     position: absolute;
     height: 70px;
-    top: -100px;
+    /*top: -100px;*/
+    transform: translateY(-100px);
     left: 10px;
     background-color: $HeaderFooterLiteBackground;
     color: $bodyLiteBGFontColor;
@@ -27,7 +28,8 @@
     z-index: $zIndex-5-FifthLevel;
 
     &:focus {
-      top: 10px;
+      /*top: 10px;*/
+      transform: translateY(10px);
       outline-color: transparent;
       -webkit-transition: top 0.1s $cb-ease-in;
       transition: top 0.1s $cb-ease-in;
