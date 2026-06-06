@@ -9,6 +9,7 @@ import Note from "../Note"
 import Footnote from "../Footnote"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
+import CanonicalLink from "../CanonicalLink"
 
 function Design() {
   const appDispatch = useContext(DispatchContext)
@@ -118,6 +119,7 @@ function Design() {
     <Page title="Software Design">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
+      <CanonicalLink href="https://swansonsoftware.com/principles/software-design/"></CanonicalLink>
       <meta name="description" content="In this article you will find a discussion of software design concepts and an answer to the question what is software design, as well as a software design definition. Software design methods are discussed, as are software design strategies." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>

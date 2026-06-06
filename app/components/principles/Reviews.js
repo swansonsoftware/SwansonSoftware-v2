@@ -9,6 +9,7 @@ import Note from "../Note"
 import Footnote from "../Footnote"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
+import CanonicalLink from "../CanonicalLink"
 
 function Reviews() {
   const appDispatch = useContext(DispatchContext)
@@ -73,6 +74,7 @@ function Reviews() {
     <Page title="Software Reviews">
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" dateModified="2025-03-26T12:05:58-07:00" headline="Software Reviews"></GStructuredData>
+      <CanonicalLink href="https://swansonsoftware.com/principles/software-reviews/"></CanonicalLink>
       <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>

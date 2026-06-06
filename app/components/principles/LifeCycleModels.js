@@ -10,6 +10,7 @@ import Note from "../Note"
 import Footnote from "../Footnote"
 import GTag from "../GTag"
 import GStructuredData from "../GStructuredData"
+import CanonicalLink from "../CanonicalLink"
 
 function LifecycleModels() {
   const appDispatch = useContext(DispatchContext)
@@ -176,6 +177,7 @@ function LifecycleModels() {
       <ImageLightboxOverlay />
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2026-04-08T12:40:28-07:00" headline="Software Life Cycle"></GStructuredData>
+      <CanonicalLink href="https://swansonsoftware.com/principles/software-lifecycle/"></CanonicalLink>
       <meta name="description" content="This article describes the software life cycle, discusses the different terminology used, including software lifecycle and software development life cycle, and the acronym SDLC. It answers the questions “what is software life cycle” and “what is software development life cycle model” and it describes the categories of life cycle models, and how the types of software life cycle models fit the categories. Some examples of life cycle models are included." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
