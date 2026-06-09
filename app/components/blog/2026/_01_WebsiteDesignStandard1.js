@@ -130,7 +130,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <p>I have found that there are few if any credible sources on the internet that tell you what needs to go into a website, what are all the pieces that need to be there for a good site. For a site that serves as your company’s brochure of services, what accessibility features does it need? What kind of navigation? How should menu dropdowns work, should the user have to click on the menu to make it expand (the standard for PC applications), or should the menu expand when the cursor hovers over it? What about a search feature, what about a Contact Us page?</p>
+            <p>I have found that there are few if any credible sources on the internet that tell you what needs to go into a website, what are all the pieces that need to be there for a good site. For a site that serves as your company’s brochure of services, what accessibility features does it need? What kind of navigation? How should menu dropdowns work, should the user have to click on the menu to make it expand (the standard for PC applications), or should the menu expand when the mouse pointer hovers over it? What about a search feature, what about a Contact Us page?</p>
             <p>Ideas for this vision come from pioneers and experts in useability and accessibility. This will be a multi-part post starting with the following topics:</p>
             <ul>
               <li className="list">Part 1: Conventions. Conventions are the elements that should be present in every website and the metaphors used in their presentation, elements that cover basic accessibility, and page validation to ensure there are no errors in the code.</li>

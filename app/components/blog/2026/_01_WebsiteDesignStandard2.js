@@ -396,7 +396,12 @@ function Blog2026_01_WebsiteDesignStandard2() {
 `}</pre>
             </p>
             <p>Screen readers will announce this as “link” with no description.</p>
-            <h4 className="headline__h4">There are several ways to fix this</h4>
+            <p>
+              Several ways to fix this are described in the Accessibility Conformance Testing (ACT) Rules at{" "}
+              <Link className="wrapper__article__outbound" to="https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/">
+                https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/
+              </Link>
+            </p>
             <ul>
               <li className="list">
                 Use the image’s alt text
@@ -408,7 +413,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 Use a visually hidden class that follows the current W3C/ARIA Authoring Practices pattern
                 <pre>{`<a href="concert-season.pdf" target="_blank">
    <img src="banner.jpg">
-   <span class="hidden-link-text">Get our new Concert Season Brochure</span>
+   <span class="visually-hidden">Get our new Concert Season Brochure</span>
 </a>
 `}</pre>
                 The CSS class:
@@ -424,19 +429,24 @@ function Blog2026_01_WebsiteDesignStandard2() {
    border: 0;
 }
               `}</pre>
-              </li>
-            </ul>
-            <p className="note">
-              The old workaround was to add a span tag and position the text far off screen:
-              <pre style={{ margin: "0", fontStyle: "normal", paddingBottom: "10px" }}>
-                {`
+                <p className="note">
+                  The old workaround was to add a span tag and position the text far off screen:
+                  <pre style={{ margin: "0", fontStyle: "normal", paddingBottom: "10px" }}>
+                    {`
 .visually-hidden {
    position: absolute;
    left: -9999px;
 }`}
-              </pre>
-              This technique can cause layout issues and should not be used.
-            </p>
+                  </pre>
+                  This technique can cause layout issues and should not be used.
+                </p>
+              </li>
+              <li className="list">
+                Add a title attribute that contains an accessible name to either the a element or the img element
+                <pre>{`<a href="concert-season.pdf" title="Get our new Concert Season Brochure">
+<img src="banner.jpg" alt=""/></a>`}</pre>
+              </li>
+            </ul>
 
             <h3 className="headline__h3" id="emptybuttons">
               Empty Buttons
