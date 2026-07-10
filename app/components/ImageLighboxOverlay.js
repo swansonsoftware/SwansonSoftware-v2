@@ -64,9 +64,8 @@ function ImageLightboxOverlay() {
   return (
     <div className="lightbox">
       <div className={appState.imageOverlay} tabIndex={"-1"}>
-        <button id="overlay-close-button" tabIndex="0" className="lightbox__image-overlay__close-btn">
-          <span className="accessibility--hidden">Select this to close the photo.</span>
-          <svg id="closeicon" className="lightbox__photo-overlay__close-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+        <button id="overlay-close-button" tabIndex="0" className="lightbox__image-overlay__close-btn" title="Close image">
+          <svg id="closeicon" className="lightbox__photo-overlay__close-svg" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
             <path className="lightbox__photo-overlay__close-svg--path" d="M13 25.75C5.97 25.75.25 20.03.25 13S5.97.25 13 .25 25.75 5.97 25.75 13 20.03 25.75 13 25.75z" />
             <path className="lightbox__photo-overlay__close-svg--path" d="m8.59 17.41 8.92-8.92M17.459 17.459l-8.92-8.92" />
           </svg>

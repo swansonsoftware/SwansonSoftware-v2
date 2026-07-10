@@ -158,7 +158,7 @@ function Header() {
   return (
     <>
       <div className={appState.menuOverlay} id="overlay"></div>
-      <header role="banner" className={siteHeaderClass}>
+      <header className={siteHeaderClass}>
         <div className="wrapper--site-header">
           <Logo CloseMenu={CloseMenu} />
           <HeaderMenuIcon ToggleMenuIcon={ToggleMenuIcon} />

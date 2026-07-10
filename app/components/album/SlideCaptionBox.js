@@ -40,9 +40,8 @@ function SlideCaptionBox() {
 
   return (
     <div className="album-photos__photo-caption-box">
-      <button id="slideshow-caption-box-button" tabIndex="0" className="album-photos__photo-caption-box__button">
-        <span className="accessibility--hidden">Select this button to alternately close or open the box with the photo caption.</span>
-        <svg id="slide-caption-box-left-arrow" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+      <button id="slideshow-caption-box-button" tabIndex="0" title="Close or open the photo caption" className="album-photos__photo-caption-box__button">
+        <svg id="slide-caption-box-left-arrow" role="img" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.421 1.327 4.579 7.854M11.414 14.673 4.579 7.854" className="album-photos__photo-caption-box__button--icon-path" />
         </svg>
       </button>

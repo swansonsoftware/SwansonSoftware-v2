@@ -32,6 +32,7 @@ function ImageBlock(props) {
         type="button"
         name={image.captionHeading ? image.captionHeading : "none"}
         tabIndex="0"
+        title="View Large"
         className="wrapper--image"
         onClick={e => {
           OpenOverlay(e, image)

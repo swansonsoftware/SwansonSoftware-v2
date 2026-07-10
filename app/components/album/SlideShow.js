@@ -418,10 +418,17 @@ function SlideShow(props) {
 
   function TogglePlay(e) {
     if (e.code == "Enter" || e.type == "click") {
+      let togglePause = document.querySelector("#slideshow-pause-play")
       if (btnIcon == PLAY) {
         play(e)
+        if (togglePause) {
+          togglePause.innerText = "Pause Slideshow"
+        }
       } else {
         pause(e)
+        if (togglePause) {
+          togglePause.innerText = "Play Slideshow"
+        }
       }
     }
   }
@@ -522,12 +529,19 @@ function SlideShow(props) {
     const svgFullscreen = document.getElementById("showFullscreen")
     const svgFullscreenExit = document.getElementById("exitFullscreen")
     if (svgFullscreen && svgFullscreenExit) {
+      let toggleFullScr = document.querySelector("#slideshow-full-screen")
       if (btnId == FULLSCREEN) {
         svgFullscreen.style.display = "none"
         svgFullscreenExit.style.display = "inline"
+        if (toggleFullScr) {
+          toggleFullScr.innerText = "Exit Full Screen"
+        }
       } else {
         svgFullscreen.style.display = "inline"
         svgFullscreenExit.style.display = "none"
+        if (toggleFullScr) {
+          toggleFullScr.innerText = "Show Full Screen"
+        }
       }
     }
   }

@@ -98,7 +98,7 @@ function ContactUs() {
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
-    { id: 1, toText: "Contact Swanson Software", toUrl: "" }
+    { id: 1, toText: "Contact Us", toUrl: "" }
   ]
 
   return (
@@ -107,7 +107,7 @@ function ContactUs() {
       <meta name="description" content="Contact Us" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
-        <h1 className="headline__h1">Contact Swanson Software</h1>
+        <h1 className="headline__h1">Contact Us</h1>
         <p>Please use the form below to contact SwansonSoftware. SwansonSoftware does not store or share any information you send, and you will not get unsolicited email or marketing material from SwansonSoftware.</p>
         <p>* Indicates required.</p>
 
@@ -164,16 +164,14 @@ function ContactUs() {
         <div className="form--section">
           <h2 className="headline__h3">Find us on social media</h2>
 
-          <Link className="social" to="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ" rel="noopener noreferrer" target="_blank" title="Swanson YouTube Channel">
-            <span className="accessibility--hidden">Go to Gregory Swanson YouTube Channel.</span>
-            <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <Link className="social" to="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ" rel="noopener noreferrer" target="_blank" title="Go to my YouTube Channel">
+            <svg height="36px" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 448 512">
               <path d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z" />
             </svg>
           </Link>
 
-          <Link className="social" to="https://www.facebook.com/gregory.swanson.315" rel="noopener noreferrer" target="_blank" title="Swanson Facebook page">
-            <span className="accessibility--hidden">Go to Gregory Swanson Facebook page.</span>
-            <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <Link className="social" to="https://www.facebook.com/gregory.swanson.315" rel="noopener noreferrer" target="_blank" title="Go to my Facebook page">
+            <svg height="36px" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 448 512">
               <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z" />
             </svg>
           </Link>

@@ -57,8 +57,8 @@ function Logo({ CloseMenu = { CloseMenu } }) {
     <div className="site-header__logo">
       <Link to="/" id="header-logo-link" tabIndex="0" onFocus={handleFocus} onClick={updateMenu}>
         <img src={appState.backgroundStyle == "dark" ? logoDark : logoLite} width="220" height="53" className="logo" alt="Swanson Software logo" title="Swanson Software home" />
+        <img src={appState.backgroundStyle == "dark" ? taglineDark : taglineLite} width="215" height="20" className="tagline" alt="About Software Construction" title="Tagline" />
       </Link>
-      <img src={appState.backgroundStyle == "dark" ? taglineDark : taglineLite} width="215" height="20" className="tagline" alt="About Software Construction" title="Tagline" />
     </div>
   )
 }

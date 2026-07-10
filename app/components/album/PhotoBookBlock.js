@@ -14,6 +14,7 @@ function PhotoBookBlock(props) {
       type="button"
       name={props.caption}
       tabIndex="0"
+      title="Open Album"
       onClick={e => {
         OpenPhotoBook(e)
       }}

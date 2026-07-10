@@ -15,6 +15,7 @@ function PhotoBlock(props) {
       type="button"
       name={image.captionHeading}
       tabIndex="0"
+      title="View Large"
       onClick={e => {
         props.OpenOverlay(e, image)
       }}

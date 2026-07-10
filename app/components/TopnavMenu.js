@@ -78,7 +78,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
             <span className={backgroundStyle == "dark" ? "menu-item__subheading-3 menu-item__subheading-3--dark" : "menu-item__subheading-3"}>{subtext}</span>
           </div>
           <div className={idx === appState.menuDropdownActiveTopic ? "col-2 col-2--grow" : "col-2"}>
-            <ul id={idprefix + topic + idpostfix} className="menu-item">
+            <ul id={idprefix + topic + idpostfix} className="menu-item" role="menu">
               {CreateSubTopicItems(topic, backgroundStyle)}
             </ul>
           </div>
@@ -93,10 +93,11 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
     let topicitems = menuitems
       .filter(menuitem => menuitem.topic == topic)
       .map(item => (
-        <li key={item.id}>
+        <li key={item.id} role="none">
           <Link
             to={item.link}
             tabIndex="0"
+            role="menuitem"
             className={getMenuItemClass(theBackgroundStyle, item.name)}
             aria-current={appState.selectedMenu == item.name ? "page" : undefined}
             onClick={e => {
@@ -272,7 +273,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
   return (
     <>
       <nav
-        aria-label="Swanson Software"
+        aria-label="Primary"
         className="nav nav--pull-right"
         onBlur={e => {
           if (!e.currentTarget.contains(e.relatedTarget)) {
@@ -305,9 +306,10 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
                       aria-expanded="false"
                       aria-controls={idprefix + menuTopic.topic + idpostfix}
                       aria-label={menuTopic.pages}
+                      aria-haspopup="true"
                     >
                       <span className="nav__button--icon-spacer">{menuTopic.topic}</span>
-                      <svg id={"svg-" + menuTopic.topic} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.menuDropdownActiveTopic === menuTopic.topicid ? "nav__button--icon-rotate-180" : ""}>
+                      <svg aria-hidden="true" id={"svg-" + menuTopic.topic} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.menuDropdownActiveTopic === menuTopic.topicid ? "nav__button--icon-rotate-180" : ""}>
                         <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835" className={appState.backgroundStyle == "dark" ? "nav__button--icon-stroke--dark" : "nav__button--icon-stroke"} />
                       </svg>
                     </button>
