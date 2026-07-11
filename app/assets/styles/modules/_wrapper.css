@@ -242,7 +242,7 @@
         display: inline;
         padding-left: 2.2ex;
         margin-left: 2px;
-        mask-image: url("../images/outbound.svg"), linear-gradient(transparent, transparent); /*need linear-gradient for iOS*/
+        mask-image: url("../assets/images/outbound.svg"), linear-gradient(transparent, transparent); /*need linear-gradient for iOS*/
         mask-position: center;
         mask-repeat: no-repeat;
         mask-size: 1.4ex 1.4ex;

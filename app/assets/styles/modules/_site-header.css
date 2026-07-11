@@ -210,7 +210,7 @@
   &__menu-icon--collapsed::after {
     padding: 20px 20px;
     content: "";
-    mask-image: url("../images/menu-mobile-hamburger.svg"), linear-gradient(transparent, transparent);
+    mask-image: url("../assets/images/menu-mobile-hamburger.svg"), linear-gradient(transparent, transparent);
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: 5ex 5ex;
@@ -222,7 +222,7 @@
   &__menu-icon--expanded::after {
     padding: 20px 20px;
     content: "";
-    mask-image: url("../images/menu-mobile-close.svg"), linear-gradient(transparent, transparent);
+    mask-image: url("../assets/images/menu-mobile-close.svg"), linear-gradient(transparent, transparent);
     mask-position: center;
     mask-repeat: no-repeat;
     mask-size: 5ex 5ex;
