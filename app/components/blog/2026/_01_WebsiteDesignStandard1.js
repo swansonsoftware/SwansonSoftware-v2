@@ -70,7 +70,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
     { id: 15, listId: "footnote15", noteId: "#note15", text1: "“...low contrast text...was found on 83.6% of the one million most popular website's home pages, making it the most commonly detected accessibility issue.” Firth, chapter 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 16, listId: "footnote16", noteId: "#note16", text1: "Krug, 2014, chapter 12; Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 17, listId: "footnote17", noteId: "#note17", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 18, listId: "footnote18", noteId: "#note18", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/", text2IsLink: true, text2Link: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 18, listId: "footnote18", noteId: "#note18", text1: "See ", text1IsLink: false, text1Link: "", text2: "ARIA Authoring Practices Guide Read Me First", text2IsLink: true, text2Link: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/", text3: "", text3IsLink: false, text3Link: "" },
     { id: 19, listId: "footnote19", noteId: "#note19", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" }
   ]
 
@@ -86,7 +86,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
         <div className="headline__author">Gregory Swanson | Updated June 5, 2026</div>
 
         <div className="row row--gutters">
-          <div className="row__colspan-5">
+          <div className="row__colspan-6">
             <h2 className="headline__h2-contents">Contents</h2>
             <ul className="list--ul">
               <li className="list list--toc">
@@ -126,7 +126,6 @@ function Blog2026_01_WebsiteDesignStandard1() {
           <div className="row__colspan-6">
             <p className="dropCap">In this post, I present a vision for a standard on website design. Why do we need a standard for website design? Because the ecosystem for web development is huge, and a web developer can spend all their time learning how to put a website together with HTML, CSS, and JavaScript, but not know that you should not skip heading levels, or what breadcrumbs are and when and how they should appear, or what a favicon does, or whether it is appropriate to use the mailto: attribute in a &lt;a&gt; element, and so many other points that should be considered.</p>
           </div>
-          <div className="row__colspan-1"></div>
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">

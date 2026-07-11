@@ -38,20 +38,20 @@ function Blog2026_01_WebsiteDesignStandard2() {
 
   const notes = [
     { id: 1, listId: "footnote1", noteId: "#note1", text1: "Practical Web Accessibility: A Comprehensive Guide to Digital Inclusion, 2nd edition, by Ashley Firth. Apress, 2024. Chapter 1.", text1IsLink: false, text1Link: "" },
-    { id: 2, listId: "footnote2", noteId: "#note2", text1: "Ibid., chapter 2; source: WebAIM Screen Reader User Survey #9 (2021) (", text1IsLink: false, text1Link: "", text2: "https://webaim.org/projects/screenreadersurvey9/#progress", text2IsLink: true, text2Link: "https://webaim.org/projects/screenreadersurvey9/#progress", text3: ") A more recent survey (#10) from 2024 found 65% of users said accessibility on the web has stayed the same or gotten worse (https://webaim.org/projects/screenreadersurvey10/#progress)", text3IsLink: false, text3Link: "" },
+    { id: 2, listId: "footnote2", noteId: "#note2", text1: "Ibid., chapter 2; source: ", text1IsLink: false, text1Link: "", text2: "WebAIM Screen Reader User Survey #9 (2021)", text2IsLink: true, text2Link: "https://webaim.org/projects/screenreadersurvey9/#progress", text3: ". A more recent survey ", text3IsLink: false, text3Link: "", text4: "(#10) from 2024", text4IsLink: true, text4Link: "https://webaim.org/projects/screenreadersurvey10/#progress", text5: " found 65% of users said accessibility on the web has stayed the same or gotten worse.", text5IsLink: false },
     { id: 3, listId: "footnote3", noteId: "#note3", text1: "Firth, 2024, chapter 2; Krug, Steve, 2014, Don't Make Me Think, Revisited: A Common Sense Approach to Web Usability (3rd Edition), New Riders, chapter 12; Web Content Accessibility Guidelines (WCAG) 2.2: Background on WCAG 2 (", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#background-on-wcag-2", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#background-on-wcag-2", text3: ")", text3IsLink: false, text3Link: "" },
     { id: 4, listId: "footnote4", noteId: "#note4", text1: "These goals are described in Web Content Accessibility Guidelines (WCAG) 2.2 (", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/", text3: ")", text3IsLink: false, text3Link: "" },
     { id: 5, listId: "footnote5", noteId: "#note5", text1: "Krug, 2014, chapter 12: “If web accessibility is going to become ubiquitous, it’s going to have to be easier to do. Screen readers and other adaptive technologies have to get smarter, the tools for building sites (like Dreamweaver) have to make it easier to code correctly for accessibility, and our design processes need to be updated to include thinking about accessibility from the beginning.”", text1IsLink: false, text1Link: "" },
-    { id: 6, listId: "footnote6", noteId: "#note6", text1: "Discussed in Firth, 2024, chapter 1: Beyoncé’s website was the victim of a class action lawsuit because of its lack of accessibility: ", text1IsLink: false, text1Link: "", text2: "https://www.boia.org/blog/beyonces-website-the-focus-of-an-accessibility-lawsuit", text2IsLink: true, text2Link: "https://www.boia.org/blog/beyonces-website-the-focus-of-an-accessibility-lawsuit", text3: " and ", text3IsLink: false, text3Link: "", text4: "https://www.accessibility.com/digital-lawsuits/mary-parkwood-2019-01-4", text4IsLink: true, text4Link: "https://www.accessibility.com/digital-lawsuits/mary-parkwood-2019-01-4", text5: "; also ADA Website Accessibility Lawsuits: What Advertisers Need to Know (", text5IsLink: false, text5Link: "", text6: "https://advertisinglaw.fkks.com/post/102f6xu/ada-website-accessibility-lawsuits-what-advertisers-need-to-know)", text6IsLink: true, text6Link: "https://advertisinglaw.fkks.com/post/102f6xu/ada-website-accessibility-lawsuits-what-advertisers-need-to-know" },
+    { id: 6, listId: "footnote6", noteId: "#note6", text1: "Discussed in Firth, 2024, chapter 1: Beyoncé’s website was the victim of a class action lawsuit because of its lack of accessibility: ", text1IsLink: false, text1Link: "", text2: "https://www.boia.org/blog/beyonces-website-the-focus-of-an-accessibility-lawsuit", text2IsLink: true, text2Link: "https://www.boia.org/blog/beyonces-website-the-focus-of-an-accessibility-lawsuit", text3: " and ", text3IsLink: false, text3Link: "", text4: "https://www.accessibility.com/digital-lawsuits/mary-parkwood-2019-01-4", text4IsLink: true, text4Link: "https://www.accessibility.com/digital-lawsuits/mary-parkwood-2019-01-4", text5: "; also ADA Website Accessibility Lawsuits: ", text5IsLink: false, text5Link: "", text6: "What Advertisers Need to Know", text6IsLink: true, text6Link: "https://advertisinglaw.fkks.com/post/102f6xu/ada-website-accessibility-lawsuits-what-advertisers-need-to-know" },
     { id: 7, listId: "footnote7", noteId: "#note7", text1: "Firth, 2024, chapter 1.", text1IsLink: false, text1Link: "" },
     { id: 8, listId: "footnote8", noteId: "#note8", text1: "Ibid.", text1IsLink: false, text1Link: "" },
     { id: 9, listId: "footnote9", noteId: "#note9", text1: "Ibid.", text1IsLink: false, text1Link: "" },
     { id: 10, listId: "footnote10", noteId: "#note10", text1: "Data from ", text1IsLink: false, text1Link: "", text2: "https://webaim.org/projects/million/", text2IsLink: true, text2Link: "https://webaim.org/projects/million/" },
-    { id: 11, listId: "footnote11", noteId: "#note11", text1: "https://webaim.org/projects/million/#contrast", text1IsLink: true, text1Link: "https://webaim.org/projects/million/#contrast", text2: "; referenced in Firth, 2024, chapter 3; see also Krug, 2014, chapters 12 and 13.", text2IsLink: false, text2Link: "" },
+    { id: 11, listId: "footnote11", noteId: "#note11", text1: "Low Contrast Text most common error", text1IsLink: true, text1Link: "https://webaim.org/projects/million/#contrast", text2: "; referenced in Firth, 2024, chapter 3; see also Krug, 2014, chapters 12 and 13.", text2IsLink: false, text2Link: "" },
     { id: 12, listId: "footnote12", noteId: "#note12", text1: "Firth, 2024, chapter 3. Also, see an article on “different options and approaches to implementing a dark mode design”: ", text1IsLink: false, text1Link: "", text2: "https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/", text2IsLink: true, text2Link: "https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/" },
     { id: 13, listId: "footnote13", noteId: "#note13", text1: "Ibid.", text1IsLink: false, text1Link: "" },
     { id: 14, listId: "footnote14", noteId: "#note14", text1: "Ibid; Krug, 2014, chapter 12, “make your forms work with screen readers.”", text1IsLink: false, text1Link: "" },
-    { id: 15, listId: "footnote15", noteId: "#note15", text1: "WebAIM's WCAG 2 Checklist (", text1IsLink: false, text1Link: "", text2: "https://webaim.org/standards/wcag/checklist#sc3.1.1", text2IsLink: true, text2Link: "https://webaim.org/standards/wcag/checklist#sc3.1.1", text3: ") See also ", text3IsLink: false, text3Link: "", text4: "https://webaim.org/techniques/language/", text4IsLink: true, text4Link: "https://webaim.org/techniques/language/" },
+    { id: 15, listId: "footnote15", noteId: "#note15", text1: "WebAIM's WCAG 2 Checklist. ", text1IsLink: true, text1Link: "https://webaim.org/standards/wcag/checklist#sc3.1.1", text2: " See also the WebAIM article ", text2IsLink: false, text2Link: "", text3: "Document and Content Language", text3IsLink: true, text3Link: "https://webaim.org/techniques/language/", text4: ".", text4IsLink: false },
     { id: 16, listId: "footnote16", noteId: "#note16", text1: "The AIM score is visible in the WAVE web accessibility evaluation tool.", text1IsLink: false, text1Link: "" },
     { id: 17, listId: "footnote17", noteId: "#note17", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "" },
     { id: 18, listId: "footnote18", noteId: "#note18", text1: "Ibid.", text1IsLink: false, text1Link: "" },
@@ -67,14 +67,14 @@ function Blog2026_01_WebsiteDesignStandard2() {
     { id: 28, listId: "footnote28", noteId: "#note28", text1: "Ibid.", text1IsLink: false, text1Link: "" },
     { id: 29, listId: "footnote29", noteId: "#note29", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "" },
     { id: 30, listId: "footnote30", noteId: "#note30", text1: "Ibid.", text1IsLink: false, text1Link: "" },
-    { id: 31, listId: "footnote31", noteId: "#note31", text1: "Ibid., chapter 3; Chris Lilley, “em, px, pt, cm, in …”, 2010-2025, W3C, ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/Style/Examples/007/units.en.html", text2IsLink: true, text2Link: "https://www.w3.org/Style/Examples/007/units.en.html", text3: ".", text3IsLink: false, text3Link: "" },
+    { id: 31, listId: "footnote31", noteId: "#note31", text1: "Ibid., chapter 3; Chris Lilley, 2010-2025, W3C, ", text1IsLink: false, text1Link: "", text2: "em, px, pt, cm, in …", text2IsLink: true, text2Link: "https://www.w3.org/Style/Examples/007/units.en.html", text3: ".", text3IsLink: false, text3Link: "" },
     { id: 32, listId: "footnote32", noteId: "#note32", text1: "Low Vision Accessibility Task Force (a Task Force of the Web Content Accessibility Guidelines Working Group), 2016. Accessibility Requirements for People with Low Vision.", text1IsLink: false, text1Link: "" },
-    { id: 33, listId: "footnote33", noteId: "#note33", text1: "Firth, 2024, chapter 3. See also W3C ", text1IsLink: false, text1Link: "", text2: "Supplemental Guidance: Text Justification - Low Vision Accessibility Task Force", text2IsLink: true, text2Link: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Supplemental_Guidance:_Text_Justification", text3: ", and ", text3IsLink: false, text3Link: "", text4: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation", text4IsLink: true, text4Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
+    { id: 33, listId: "footnote33", noteId: "#note33", text1: "Firth, 2024, chapter 3. See also W3C ", text1IsLink: false, text1Link: "", text2: "Supplemental Guidance: Text Justification - Low Vision Accessibility Task Force", text2IsLink: true, text2Link: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Supplemental_Guidance:_Text_Justification", text3: ", and ", text3IsLink: false, text3Link: "", text4: "WCAG 2.1 Understanding Visual Presentation (Level AAA)", text4IsLink: true, text4Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
     { id: 34, listId: "footnote34", noteId: "#note34", text1: "Ibid., chapter 3. There is an online tool: ", text1IsLink: false, text1Link: "", text2: "WebAIM: Contrast Checker", text2IsLink: true, text2Link: "https://webaim.org/resources/contrastchecker/" },
     { id: 35, listId: "footnote35", noteId: "#note35", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "" },
     { id: 36, listId: "footnote36", noteId: "#note36", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#text-spacing", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#text-spacing" },
     { id: 37, listId: "footnote37", noteId: "#note37", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#visual-presentation ", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#visual-presentation" },
-    { id: 38, listId: "footnote38", noteId: "#note38", text1: "The reasons are explained here: ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation", text2IsLink: true, text2Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
+    { id: 38, listId: "footnote38", noteId: "#note38", text1: "The reasons are explained in ", text1IsLink: false, text1Link: "", text2: "WCAG 2.1 Understanding Visual Presentation (Level AAA)", text2IsLink: true, text2Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
     { id: 39, listId: "footnote39", noteId: "#note39", text1: "Firth, 2024, chapter 4.", text1IsLink: false, text1Link: "" },
     { id: 40, listId: "footnote40", noteId: "#note40", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "" },
     { id: 41, listId: "footnote41", noteId: "#note41", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "" },
@@ -360,13 +360,13 @@ function Blog2026_01_WebsiteDesignStandard2() {
               </pre>
             </p>
             <p>
-              Several ways to fix this are described in the Accessibility Conformance Testing (ACT) Rules at{" "}
+              Several ways to fix this are described in the{" "}
               <Link className="wrapper__article__outbound" to="https://www.w3.org/WAI/standards-guidelines/act/rules/">
-                https://www.w3.org/WAI/standards-guidelines/act/rules/
+                Accessibility Conformance Testing (ACT) Rules
               </Link>
-              , under Guideline 1.3 – Adaptable, or here:{" "}
+              , under Guideline 1.3 – Adaptable, or{" "}
               <Link className="wrapper__article__outbound" to="https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/">
-                https://www.w3.org/WAI/standards-guidelines/act/rules/e086e5/
+                here
               </Link>
             </p>
             <h4 className="headline__h4">Some examples that fix this</h4>
@@ -397,9 +397,9 @@ function Blog2026_01_WebsiteDesignStandard2() {
             </p>
             <p>Screen readers will announce this as “link” with no description.</p>
             <p>
-              Several ways to fix this are described in the Accessibility Conformance Testing (ACT) Rules at{" "}
+              Several ways to fix this are described in the{" "}
               <Link className="wrapper__article__outbound" to="https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/">
-                https://www.w3.org/WAI/standards-guidelines/act/rules/c487ae/proposed/
+                Accessibility Conformance Testing (ACT) Rules
               </Link>
             </p>
             <ul>
