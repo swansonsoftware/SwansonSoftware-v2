@@ -55,6 +55,21 @@
     color: rgb(212, 212, 212);
     background-color: rgb(27, 39, 79);
   }
+  &__code {
+    margin: 30px 0;
+    padding: 20px 10px 20px 10px;
+    border-radius: 10px;
+    font: 1.2rem/1.45 monospace;
+    white-space: pre;
+    color: rgb(212, 212, 212);
+    background-color: rgb(27, 39, 79);
+  }
+  &__code--nobox {
+    border-radius: 10px;
+    font: 1.2rem/1.45 monospace;
+    white-space: pre;
+    color: inherit;
+  }
   div.legend {
     margin: 30px;
     border: 2px solid black;

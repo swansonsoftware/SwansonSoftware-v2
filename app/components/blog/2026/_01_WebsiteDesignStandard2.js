@@ -315,16 +315,12 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p>
               Firth suggests providing a dark mode option to allow users to switch themes as they desire.<Footnote footnoteId={12}></Footnote> One way to achieve the option is by using the CSS filter property combined with the hue-rotate() function:
             </p>
-            <p className="code">
-              <pre style={{ margin: "0" }}>filter: invert(100%) hue-rotate(180deg);</pre>
-            </p>
+            <pre className="page__code">filter: invert(100%) hue-rotate(180deg);</pre>
             <p>While this can work, applying the rules to the body tag (as described in Firth’s example) will affect images as well. It requires care to get right.</p>
             <p>As modern operating systems offer alternate color schemes, web developers should test their sites with these alternate schemes. If an alternate color scheme is adversely affecting a website’s appearance, it is best to resolve the issue without resorting to CSS tricks to adapt pages when an alternate color scheme is in use. The CSS media features prefers-color-scheme and forced-colors do not work with Microsoft’s new contrast themes, although prefers-color-scheme works with Edge’s “Overall appearance” settings and with macOS’ Light mode, Dark mode, and Auto mode.</p>
-            <p className="code">
-              <pre style={{ margin: "0" }}>
-                @media (prefers-color-scheme: dark)<br></br>@media (forced-colors: active)
-              </pre>
-            </p>
+            <pre className="page__code">
+              @media (prefers-color-scheme: dark)<br></br>@media (forced-colors: active)
+            </pre>
 
             <h3 className="headline__h3" id="noalttext">
               Missing Alternative Text for Images
@@ -332,9 +328,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p className="dropCap">
               Images need to have an alt attribute populated with alt text, unless the image is used for decoration only, in which case the attribute should be present but empty.<Footnote footnoteId={13}></Footnote> An alt attribute is used to provide text that is read and played by screen readers. Without alt text, the carefully curated, beautiful photos on your web page will be read by a screen reader simply “image.”
             </p>
-            <p className="code">
-              <pre style={{ margin: "0" }}>{`<img width="220" height="53" class="logo" alt="Swanson Software logo" title="Swanson Software home" src="assets/images/logo-dark.svg">`}</pre>
-            </p>
+            <pre className="page__code">{`<img width="220" height="53" class="logo" alt="Swanson Software logo" title="Swanson Software home" src="assets/images/logo-dark.svg">`}</pre>
             <p>It is up to the content creator to come up with the alt text, but if it’s vague or does not adequately convey the information in the image, then it’s not useful for screen reader users. And while accessibility scanners might warn about alt text longer than around 100 characters, long alt text is justified when it is needed.</p>
             <h4 className="headline__h4">Guidelines for alt text:</h4>
             <ul>
@@ -351,14 +345,12 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p className="dropCap">
               Screen readers will correctly announce form field names when form fields have a label, if that label is linked to the field with the “for” attribute.<Footnote footnoteId={14}></Footnote> When there is no label, or when the label is not linked to the field, screen readers guess at the name.
             </p>
-            <p className="code">
-              <pre style={{ margin: "0" }}>
-                {`<label for="name">
+            <pre className="page__code">
+              {`<label for="name">
    <span class="form--required">*</span> Name:
 </label>
 <input id="name" placeholder="Name" maxlength="100" required="" type="text" name="name"></input>`}
-              </pre>
-            </p>
+            </pre>
             <p>
               Several ways to fix this are described in the{" "}
               <Link className="wrapper__article__outbound" to="https://www.w3.org/WAI/standards-guidelines/act/rules/">
@@ -389,12 +381,10 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Empty Links
             </h3>
             <p className="dropCap">Empty links are often created accidentally by wrapping an image with an anchor tag</p>
-            <p className="code">
-              <pre style={{ margin: "0" }}>{`<a href="concert-season.pdf" target="_blank">
+            <pre className="page__code">{`<a href="concert-season.pdf" target="_blank">
    <img src="banner.jpg">
 </a>
 `}</pre>
-            </p>
             <p>Screen readers will announce this as “link” with no description.</p>
             <p>
               Several ways to fix this are described in the{" "}
@@ -430,14 +420,17 @@ function Blog2026_01_WebsiteDesignStandard2() {
 }
               `}</pre>
                 <p className="note">
-                  The old workaround was to add a span tag and position the text far off screen:
-                  <pre style={{ margin: "0", fontStyle: "normal", paddingBottom: "10px" }}>
+                  The old workaround was to add a span tag and position the text far off screen:<br></br>
+                  <br></br>
+                  <span style={{ margin: "0", fontStyle: "normal", paddingBottom: "10px", fontFamily: "monospace", fontSize: "0.9em" }}>
                     {`
 .visually-hidden {
    position: absolute;
    left: -9999px;
 }`}
-                  </pre>
+                  </span>
+                  <br></br>
+                  <br></br>
                   This technique can cause layout issues and should not be used.
                 </p>
               </li>
@@ -452,12 +445,10 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Empty Buttons
             </h3>
             <p className="dropCap">Like empty links, empty buttons are often created accidentally by wrapping an image with a button tag. Thus, there is no text that indicates what the button does.</p>
-            <p className="code">
-              <pre style={{ margin: "0" }}>{`<button aria-label="Delete item">
+            <pre className="page__code">{`<button aria-label="Delete item">
   <img src="trash.svg" alt="">
 </button>
 `}</pre>
-            </p>
             <p>There are several ways to fix this, depending on context.</p>
             <ul>
               <li className="list">
@@ -485,10 +476,8 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <h3 className="headline__h3" id="nodoclang">
               Missing Document Language
             </h3>
-            <p className="dropCap">
-              The document language is specified in the html tag:
-              <pre>{`<html lang="en">`}</pre>
-            </p>
+            <p className="dropCap">The document language is specified in the html tag:</p>
+            <pre style={{ fontSize: "1.2em" }}>{`<html lang="en">`}</pre>
 
             <p>
               When the language attribute is missing, the W3C validator will only issue a warning “Consider adding a lang attribute to the html start tag to declare the language of this document”, but the WAVE Evaluation Tool will treat a missing language attribute as an error. Screen readers use the attribute to determine the appropriate language to use when reading the content, and it “facilitates automatic translation of content.”<Footnote footnoteId={15}></Footnote>
@@ -650,13 +639,13 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <h4 className="headline__h4">CSS Focus</h4>
             <p>
               Mouse users don’t need focus styles, and keyboard users don’t need hover styles. Combining <code>:hover</code> and <code>:focus-visible</code> selectors in a CSS rule makes managing the styles easy:<Footnote footnoteId={28}></Footnote>
-              <pre>{`.button:hover,
+            </p>
+            <pre className="page__code--nobox">{`.button:hover,
 .button:focus {
    outline: 2px solid #4da3ff;
    background-color: #eef7ff;
 }
 `}</pre>
-            </p>
           </div>
           <div className="row__colspan-1"></div>
 
