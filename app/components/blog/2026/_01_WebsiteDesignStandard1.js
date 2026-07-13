@@ -65,25 +65,30 @@ function Blog2026_01_WebsiteDesignStandard1() {
       text3IsLink: false,
       text3Link: ""
     },
-    { id: 13, listId: "footnote13", noteId: "#note13", text1: "Krug, 2014, chapter 12; Firth, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 14, listId: "footnote14", noteId: "#note14", text1: "Sizes specified in pixel units blocks adjustments that should occur when users change their device settings, forcing them to use zoom instead (Firth, chapter 3); “…almost every site I go to still fails my three-second accessibility test—increasing the size of type.” Krug, 2014, chapter 12.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 15, listId: "footnote15", noteId: "#note15", text1: "“...low contrast text...was found on 83.6% of the one million most popular website's home pages, making it the most commonly detected accessibility issue.” Firth, chapter 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 16, listId: "footnote16", noteId: "#note16", text1: "Krug, 2014, chapter 12; Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 17, listId: "footnote17", noteId: "#note17", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 18, listId: "footnote18", noteId: "#note18", text1: "See ", text1IsLink: false, text1Link: "", text2: "ARIA Authoring Practices Guide Read Me First", text2IsLink: true, text2Link: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 19, listId: "footnote19", noteId: "#note19", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" }
+    { id: 13, listId: "footnote13", noteId: "#note13", text1: "Do I Need to Copyright My Website? Laws Explained – Legal Clarity.", text1IsLink: true, text1Link: "https://legalclarity.org/do-i-need-to-formally-copyright-my-website" },
+    { id: 14, listId: "footnote14", noteId: "#note14", text1: "17 USC 401: Notice of copyright: Visually perceptible copies", text1IsLink: true, text1Link: "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title17-section401&num=0&edition=prelim" },
+    { id: 15, listId: "footnote15", noteId: "#note15", text1: "Copyright All Rights Reserved: What It Means (and Doesn’t) - Third Chair", text1IsLink: true, text1Link: "https://usethirdchair.com/blog/copyright-all-rights-reserved-what-it-means-and-doesn-t" },
+    { id: 16, listId: "footnote16", noteId: "#note16", text1: "See ", text1IsLink: false, text1Link: "", text2: "Define Website Favicon for Search Results - Google", text2IsLink: true, text2Link: "https://developers.google.com/search/docs/appearance/favicon-in-search" },
+    { id: 17, listId: "footnote17", noteId: "#note17", text1: "See the ", text1IsLink: false, text1Link: "", text2: "HTML standard", text2IsLink: true, text2Link: "https://html.spec.whatwg.org/#rel-icon", text3: " for details.", text3IsLink: false, text3Link: "" },
+    { id: 18, listId: "footnote18", noteId: "#note18", text1: "Krug, 2014, chapter 12; Firth, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 19, listId: "footnote19", noteId: "#note19", text1: "Sizes specified in pixel units blocks adjustments that should occur when users change their device settings, forcing them to use zoom instead (Firth, chapter 3); “…almost every site I go to still fails my three-second accessibility test—increasing the size of type.” Krug, 2014, chapter 12.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 20, listId: "footnote20", noteId: "#note20", text1: "“...low contrast text...was found on 83.6% of the one million most popular website's home pages, making it the most commonly detected accessibility issue.” Firth, chapter 3.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 21, listId: "footnote21", noteId: "#note21", text1: "Krug, 2014, chapter 12; Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 22, listId: "footnote22", noteId: "#note22", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 23, listId: "footnote23", noteId: "#note23", text1: "See ", text1IsLink: false, text1Link: "", text2: "ARIA Authoring Practices Guide Read Me First", text2IsLink: true, text2Link: "https://www.w3.org/WAI/ARIA/apg/practices/read-me-first/", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 24, listId: "footnote24", noteId: "#note24", text1: "Firth, 2024, chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" }
   ]
 
   return (
     <Page title="Elements of a Standard for Website Design Part 1: Conventions">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2026-05-01T11:19:28-07:00" dateModified="2026-06-05T11:01:56-07:00" headline="Elements of a Standard for Website Design Part 1: Conventions"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2026-05-01T11:19:28-07:00" dateModified="2026-07-13T10:32:44-07:00" headline="Elements of a Standard for Website Design Part 1: Conventions"></GStructuredData>
       <meta name="description" content="Elements of a standard for website design, including conventions for website useability, accessibility, and design." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 1: Conventions</h2>
-        <div className="headline__author">Gregory Swanson | Updated June 5, 2026</div>
+        <div className="headline__author">Gregory Swanson | Updated July 13, 2026</div>
 
         <div className="row row--gutters">
           <div className="row__colspan-6">
@@ -195,6 +200,25 @@ function Blog2026_01_WebsiteDesignStandard1() {
             <p>
               While working out the above conventions for a website, follow standard metaphors for operation and appearance of elements (a couple examples: use a shopping cart for selling products, and use a magnifying glass icon for search)<Footnote footnoteId={12}></Footnote> because non-standard mechanisms may reduce useability.
             </p>
+            <p>In addition to the above conventions, which improve useability, there are a couple which make a site appear more professional:</p>
+            <ul>
+              <li className="list">
+                A copyright notice<Footnote footnoteId={13}></Footnote>, preferably with a script that automatically updates the year, and using either the word Copyright or the copyright symbol but not both. The format<Footnote footnoteId={14}></Footnote> should be like this:<br></br>
+                &copy; &nbsp;2026. Your Name/Company<br></br>
+                Or:<br></br>
+                &copy; &nbsp;2026. Your Name/Company. All rights reserved.<br></br>
+                The phrase “All rights reserved” is not required but has strong tradition and “sets expectations for licensing”, hinting that “this is licensable.”<Footnote footnoteId={15}></Footnote>
+                <br></br>
+                <br></br>
+                Not like this:<br></br>
+                Copyright &copy; &nbsp;2026. Your Name/Company<br></br>
+                <br></br>
+                If you include the symbol with the word Copyright, screen readers will announce “copyright copyright.”
+              </li>
+              <li className="list">
+                A “favicon”<Footnote footnoteId={16}></Footnote>, which is like a mini logo or a badge, and it helps users recognize your brand. The icon is specified with a &lt;link&gt; tag in the header of the home page.<Footnote footnoteId={17}></Footnote> Browsers no longer display the favicon in the address bar; it has been moved to the browser tab. Favicons appear in search results as well as other locations such as favorites lists and the browser’s bookmarks bar. The ICO format is not required, but the most widely supported image formats are limited to ICO, PNG, and GIF. If we exclude Internet Explorer, which is acceptable because Microsoft has phased out IE, support extends to JPEG and WebP, but JPEG does not support transparent background.
+              </li>
+            </ul>
 
             <h3 className="headline__h3" id="basicAccessibility">
               Basic Accessibility
@@ -202,23 +226,23 @@ function Blog2026_01_WebsiteDesignStandard1() {
             <p className="dropCap">Every website should provide at least the minimum in accessibility features, which are:</p>
             <ul>
               <li className="list">
-                A Skip to Content button that is the first button in the tab order, and which appears when a user selects the tab button after the page loads<Footnote footnoteId={13}></Footnote> (unless you have a cookie policy popup, in which case the buttons on the popup should be first, followed by the Skip to Content button)
+                A Skip to Content button that is the first button in the tab order, and which appears when a user selects the tab button after the page loads<Footnote footnoteId={18}></Footnote> (unless you have a cookie policy popup, in which case the buttons on the popup should be first, followed by the Skip to Content button)
               </li>
               <li className="list">
-                Appropriate font size and line spacing specified in relative units<Footnote footnoteId={14}></Footnote>
+                Appropriate font size and line spacing specified in relative units<Footnote footnoteId={19}></Footnote>
               </li>
               <li className="list">
-                Adequate contrast between text and background<Footnote footnoteId={15}></Footnote>
+                Adequate contrast between text and background<Footnote footnoteId={20}></Footnote>
               </li>
               <li className="list">
-                Alt text for images<Footnote footnoteId={16}></Footnote>
+                Alt text for images<Footnote footnoteId={21}></Footnote>
               </li>
               <li className="list">
-                Proper heading structure, with at least one and no more than one &lt;h1&gt; tag, no skipping heading levels, and no fake headings (text in any element other than a h1, h2, h3, h4, h5, or h6 element made to appear like a heading), so that screen reader software works correctly and because some users with vision impairments use headings to both understand and to navigate a page<Footnote footnoteId={17}></Footnote>
+                Proper heading structure, with at least one and no more than one &lt;h1&gt; tag, no skipping heading levels, and no fake headings (text in any element other than a h1, h2, h3, h4, h5, or h6 element made to appear like a heading), so that screen reader software works correctly and because some users with vision impairments use headings to both understand and to navigate a page<Footnote footnoteId={22}></Footnote>
               </li>
             </ul>
             <p>
-              In addition to the above accessibility features, websites should have good Aria markup or no Aria markup.<Footnote footnoteId={18}></Footnote>
+              In addition to the above accessibility features, websites should have good Aria markup or no Aria markup.<Footnote footnoteId={23}></Footnote>
             </p>
 
             <h3 className="headline__h3" id="validatePages">
@@ -231,7 +255,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
                 <Link className="wrapper__article__outbound" to="https://validator.w3.org">
                   https://validator.w3.org/
                 </Link>
-                ) will check your HTML or XHTML markup for issues, and they have other validators for CSS, RSS feeds, etc. Each page of a website should be validated to make sure that there are no missing closing tags and that tags and their properties are used correctly. Incorrect HTML can confuse and even break screen readers.<Footnote footnoteId={19}></Footnote>
+                ) will check your HTML or XHTML markup for issues, and they have other validators for CSS, RSS feeds, etc. Each page of a website should be validated to make sure that there are no missing closing tags and that tags and their properties are used correctly. Incorrect HTML can confuse and even break screen readers.<Footnote footnoteId={24}></Footnote>
               </li>
               <li className="list">
                 WAVE Web Accessibility Evaluation Tools (

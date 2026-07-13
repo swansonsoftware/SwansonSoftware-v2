@@ -56,7 +56,7 @@ function BlogJan2025_ResSwitching3() {
   return (
     <Page title="Choosing Breakpoints for Resolution Switching of Images Part 3: Portrait Orientation, DPR and Sizes, Image Compression">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Breakpoints for Resolution Switching of Images Part 3: Portrait Orientation, DPR and Sizes, Image Compression"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2026-07-13T10:32:44-07:00" headline="Choosing Breakpoints for Resolution Switching of Images Part 3: Portrait Orientation, DPR and Sizes, Image Compression"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression/"></CanonicalLink>
       <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
@@ -211,7 +211,7 @@ function BlogJan2025_ResSwitching3() {
             <p>How can we fix it? With a screen width of 360px and DPR 2, the best we can hope for is to create a media query that will make the browser download the 768px wide image. The 672px image is out of the question because 672 / DPR = 336, which is smaller than the device’s 360px wide screen. </p>
             <p>
               If you really want the smaller 768px image to download you are going to need to provide a copy between about 360px and (768 / DPR =) 384px. Remember the warning about “creating nonsensical breakpoints at smaller image sizes, creating big jumps between breakpoints that has consequences related to DPR” in the section{" "}
-              <HashLink smooth to="/blog/2025/01/resolution-switching-images#ideasPerfBudget">
+              <HashLink smooth to="/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints#ideasPerfBudget">
                 Choosing Breakpoints using a Performance Budget
               </HashLink>
               , this is what I was referring to. The difference between compressed images at 320px and 384px will usually if not always be less than 20k. At any rate, as a simple test just add a media query for 380px to the <code>sizes</code>, we can forego creating another image for this test:
@@ -231,7 +231,7 @@ function BlogJan2025_ResSwitching3() {
             <h2 className="headline__h2">Compressing Images</h2>
             <p className="dropCap">
               When saving images and perhaps converting them to a newer format such as WEBP, compression must be adjusted to get the size within the range indicated in the table above (see{" "}
-              <HashLink smooth to="/blog/2025/01/resolution-switching-images-part2#tblImageSizes">
+              <HashLink smooth to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints#tblImageSizes">
                 Table of Image Sizes
               </HashLink>
               . Two factors affect how much compression is needed:

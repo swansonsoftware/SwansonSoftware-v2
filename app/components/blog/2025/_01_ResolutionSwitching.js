@@ -59,7 +59,7 @@ function BlogJan2025_ResSwitching() {
     <Page title="Choosing Breakpoints for Resolution Switching of Images Part I: Ideas for Choosing Breakpoints">
       <ImageLightboxOverlay />
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Breakpoints for Resolution Switching of Images Part I: Ideas for Choosing Breakpoints"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2026-07-13T10:32:44-07:00" headline="Choosing Breakpoints for Resolution Switching of Images Part I: Ideas for Choosing Breakpoints"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part1-ideas-for-choosing-breakpoints/"></CanonicalLink>
       <meta name="description" content="Breakpoints for responsive design and resolution switching images, breakpoints for responsive design CSS, and performance budget in responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
@@ -174,7 +174,7 @@ function BlogJan2025_ResSwitching() {
               </li>
               <li className="list">
                 A 20 kb performance budget creates nonsensical breakpoints at smaller image sizes, creating big jumps between breakpoints that has consequences related to DPR (
-                <HashLink smooth to="/blog/2025/01/resolution-switching-images-part3#anotherExample">
+                <HashLink smooth to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression#anotherExample">
                   explained below
                 </HashLink>
                 ) if you use the <code>sizes</code> attribute with anything other than the default 100vw

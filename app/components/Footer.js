@@ -9,7 +9,7 @@ function Footer(props) {
   return (
     <footer className={appState.backgroundStyle == "light" ? "footer" : "footer footer--dark-bg"}>
       <div className={appState.backgroundStyle == "light" ? "wrapper--site-footer" : "wrapper--site-footer wrapper--site-footer--dark-bg"}>
-        <span className="footer__copyright">&copy; &nbsp;{currentDate.getFullYear()} SwansonSoftware.com. All rights reserved.</span>
+        <span className="footer__copyright">&copy; &nbsp;{currentDate.getFullYear()} SwansonSoftware.com</span>
         <span className="footer__link">
           <Link to="/about-us" id="about-us-link" tabIndex={0}>
             About Us

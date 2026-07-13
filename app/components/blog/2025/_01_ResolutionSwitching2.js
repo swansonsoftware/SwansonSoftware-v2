@@ -54,7 +54,7 @@ function BlogJan2025_ResSwitching2() {
   return (
     <Page title="Choosing Breakpoints for Resolution Switching of Images Part 2: Finding the Breakpoints">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-10T14:20:04-08:00" headline="Choosing Breakpoints for Resolution Switching of Images Part 2: Finding the Breakpoints"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2025-03-20T08:01:24-07:00" dateModified="2026-07-13T10:32:44-07:00" headline="Choosing Breakpoints for Resolution Switching of Images Part 2: Finding the Breakpoints"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints/"></CanonicalLink>
       <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
@@ -1021,7 +1021,7 @@ function BlogJan2025_ResSwitching2() {
               <span className="note">One caveat with this technique is that there is no way to prevent a device with high DPR, say 3 or 4, from downloading the 3x or 4x copy.</span>
               <span className="note">
                 To illustrate, take a device like the Samsung Galaxy S9 that has DPR 4.5. Create a webpage with an image that has a <code>srcset</code> with all the image sizes from the table and <code>sizes="100vw"</code>, rotate the device so the long side is horizontal, then load the page in the device’s browser. The screen size is 658px wide by 320px high. The table does not have a 658px wide image, but the next image larger than 658px is 672 x 378, and so the browser chooses that as the basis for the DPR calculation (the DPR calculation is{" "}
-                <HashLink smooth to="/blog/2025/01/resolution-switching-images-part3#anotherExample">
+                <HashLink smooth to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression#anotherExample">
                   explained below
                 </HashLink>
                 ):
