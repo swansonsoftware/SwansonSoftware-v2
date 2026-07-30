@@ -167,6 +167,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
 
   function handleFocus() {
     // Show the header
+    // should replace below with updateSiteHeaderClass(EXPANDED)
     let siteHeader = document.querySelector(".site-header")
     if (siteHeader) {
       if (siteHeader.classList.contains("site-header--collapse")) {
