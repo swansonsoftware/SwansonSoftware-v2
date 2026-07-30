@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import { Link } from "react-router-dom"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
@@ -12,17 +13,7 @@ function Principles() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Principles" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "Principles", menuActiveCategory: "0", homePageClass: "page", scrollTop: true })
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
@@ -45,7 +36,7 @@ function Principles() {
             </h2>
           </div>
           <div className="row__colspan-7">
-            <p>A definition of software design, a discussion of software design concepts and methods, and an explanation of the output of software design: the technical specification.</p>
+            <p>This article explores software design, beginning with an answer to the question, “what is software design” and a description of the properties of a good design. It continues by describing analysis and design activities, presenting software design principles and strategies including decomposition and composition, modularity, and abstraction, discussing design methods with emphasis on structured and object-oriented design, and concludes with the product of software design: the technical specification.</p>
           </div>
         </div>
         <div className="row row__margin-bottom-0 row--gutters">

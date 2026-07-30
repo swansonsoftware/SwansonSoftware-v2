@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import DispatchContext from "../../DispatchContext"
 import Page from "../Page"
 import StateContext from "../../StateContext"
@@ -13,17 +14,7 @@ function Favorites() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "dark" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "dark", selectMenu: "Favorites", menuActiveCategory: "2", homePageClass: "page", scrollTop: true })
 
   const photobooks = [
     { id: 1, href: "/album/favorites/favorites-kauai", src: "../assets/images/2000s/2001-006-thumbnail.webp", srcset: "../assets/images/2000s/2001-006-thumbnail.webp 1x, ../assets/images/2000s/2001-006-672.webp 2x", sizes: "100vw", width: "320", height: "213", alt: "Photo album of Kauai favorites", caption: "Kauai (mostly)" },

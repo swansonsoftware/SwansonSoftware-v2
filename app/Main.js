@@ -57,7 +57,7 @@ const BlogWebsiteDesignStandard1 = React.lazy(() => import("./components/blog/20
 const BlogWebsiteDesignStandard2 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard2"))
 
 function Main() {
-  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true }
+  const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true, headerVisClass: "site-header site-header--expand" }
 
   function theReducer(state, action) {
     switch (action.type) {
@@ -75,7 +75,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "siteHeaderClass": {
@@ -92,7 +93,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "homePageClass": {
@@ -110,7 +112,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "updateBreadcrumbClass": {
@@ -127,7 +130,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "selectMenu": {
@@ -145,7 +149,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "menuOverlay": {
@@ -162,7 +167,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "menuActiveCategory": {
@@ -180,7 +186,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "menuDropdownActiveTopic": {
@@ -192,12 +199,13 @@ function Main() {
           selectedMenu: state.selectedMenu,
           menuOverlay: state.menuOverlay,
           menuActiveCategory: state.menuActiveCategory,
-          menuDropdownActiveTopic: action.menuDropdownActiveTopic,
+          menuDropdownActiveTopic: String(action.menuDropdownActiveTopic),
           menuListClassByIconState: state.menuListClassByIconState,
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "menuListClassByIconState": {
@@ -214,7 +222,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "mobileMenuIconState": {
@@ -231,7 +240,8 @@ function Main() {
           mobileMenuIconState: action.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "captionBoxBtn": {
@@ -248,7 +258,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: action.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "imageOverlay": {
@@ -265,7 +276,8 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: action.imageOverlay,
-          scrollTop: state.scrollTop
+          scrollTop: state.scrollTop,
+          headerVisClass: state.headerVisClass
         }
       }
       case "scrollTop": {
@@ -283,7 +295,27 @@ function Main() {
           mobileMenuIconState: state.mobileMenuIconState,
           captionBoxBtn: state.captionBoxBtn,
           imageOverlay: state.imageOverlay,
-          scrollTop: action.scrollTop
+          scrollTop: action.scrollTop,
+          headerVisClass: state.headerVisClass
+        }
+      }
+      case "headerVisClass": {
+        //Show or hide the menu
+        return {
+          backgroundStyle: state.backgroundStyle,
+          siteHeaderClass: state.siteHeaderClass,
+          homePageClass: state.homePageClass,
+          breadcrumbClass: state.breadcrumbClass,
+          selectedMenu: state.selectedMenu,
+          menuOverlay: state.menuOverlay,
+          menuActiveCategory: state.menuActiveCategory,
+          menuDropdownActiveTopic: state.menuDropdownActiveTopic,
+          menuListClassByIconState: state.menuListClassByIconState,
+          mobileMenuIconState: state.mobileMenuIconState,
+          captionBoxBtn: state.captionBoxBtn,
+          imageOverlay: state.imageOverlay,
+          scrollTop: state.scrollTop,
+          headerVisClass: action.headerVisClass
         }
       }
     }
@@ -295,7 +327,7 @@ function Main() {
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
         <BrowserRouter>
-          <SkipToContent />
+          {/*<SkipToContent />*/}
           <Header />
           <main className={state.homePageClass}>
             <Suspense fallback={<LoadingDotsIcon />}>

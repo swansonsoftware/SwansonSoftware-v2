@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
@@ -17,17 +18,7 @@ function Design() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Software Design" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "Software Design", menuActiveCategory: "0", homePageClass: "page", scrollTop: true })
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
@@ -120,10 +111,12 @@ function Design() {
       <GTag></GTag>
       <GStructuredData type="Article" datePublished="2025-03-20T08:01:24-07:00" dateModified="2025-11-05T12:20:12-08:00" headline="Software Design"></GStructuredData>
       <CanonicalLink href="https://swansonsoftware.com/principles/software-design/"></CanonicalLink>
-      <meta name="description" content="In this article you will find a discussion of software design concepts and an answer to the question what is software design, as well as a software design definition. Software design methods are discussed, as are software design strategies." />
+      <meta name="description" content="This article explores software design, beginning with an answer to the question, “what is software design” and a description of the properties of a good design. It continues by describing analysis and design activities, presenting software design principles and strategies including decomposition and composition, modularity, and abstraction, discussing design methods with emphasis on structured and object-oriented design, and concludes with the product of software design: the technical specification." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
-        <h1 className="headline__h1-cg">Software Design</h1>
+        <h1 className="headline__h1-cg" id="heading" tabIndex={-1}>
+          Software Design
+        </h1>
         <div className="headline__author">Gregory Swanson | Updated November 5, 2025</div>
         <div className="row row--gutters">
           <div className="row__colspan-4">
@@ -212,10 +205,11 @@ function Design() {
               </li>
             </ul>
           </div>
-          <div className="row__colspan-7" id="designDevLifecycle">
-            <p className="dropCap">This article explores software design. The focus of software design is on creating a specification that describes the protocol for elements discovered in user requirements, and that can be efficiently implemented.</p>
-            <h2 className="headline__h2">Design in the Development Lifecycle</h2>
-            <p className="dropCap">Software projects progress through several phases, from an initial phase where the project is scoped to a final phase of deployment. The names of these phases, of which there are usually four or five, depend on the software development process model in use; the terminology we will use is:</p>
+          <div className="row__colspan-7">
+            <h2 className="headline__h2" id="designDevLifecycle" tabIndex={-1}>
+              Design in the Development Lifecycle
+            </h2>
+            <p className="dropCap">The focus of software design is on creating a specification that describes the protocol for elements discovered in user requirements, and that can be efficiently implemented. Software projects progress through several phases, from an initial phase where the project is scoped to a final phase of deployment. The names of these phases, of which there are usually four or five, depend on the software development process model in use; the terminology we will use is:</p>
             <ol>
               <li className="list">Scoping</li>
               <li className="list">Elaboration</li>
@@ -263,8 +257,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="whatIsSoftwareDesign">
-            <h2 className="headline__h2">What is Software Design?</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="whatIsSoftwareDesign" tabIndex={-1}>
+              What is Software Design?
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -298,7 +294,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="analysis">
+            <h3 className="headline__h3" id="analysis" tabIndex={-1}>
               Analysis
             </h3>
           </div>
@@ -338,7 +334,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="design">
+            <h3 className="headline__h3" id="design" tabIndex={-1}>
               Design
             </h3>
           </div>
@@ -380,8 +376,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="creatingGoodDesigns">
-            <h2 className="headline__h2">Creating Good Designs</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="creatingGoodDesigns" tabIndex={-1}>
+              Creating Good Designs
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -419,7 +417,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="decomposition">
+            <h3 className="headline__h3" id="decomposition" tabIndex={-1}>
               Decomposition
             </h3>
           </div>
@@ -466,7 +464,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="composition">
+            <h3 className="headline__h3" id="composition" tabIndex={-1}>
               Composition
             </h3>
           </div>
@@ -493,7 +491,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="modularity">
+            <h3 className="headline__h3" id="modularity" tabIndex={-1}>
               Separation of Concern: Modularity
             </h3>
           </div>
@@ -601,7 +599,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="theDesignModel">
+            <h3 className="headline__h3" id="theDesignModel" tabIndex={-1}>
               Abstraction: The Design Model
             </h3>
           </div>
@@ -664,7 +662,7 @@ function Design() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="designPatterns">
+            <h3 className="headline__h3" id="designPatterns" tabIndex={-1}>
               Design Patterns
             </h3>
           </div>
@@ -680,8 +678,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="designMethods">
-            <h2 className="headline__h2">Design Methods</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="designMethods" tabIndex={-1}>
+              Design Methods
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -715,8 +715,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="structuredDesign">
-            <h3 className="headline__h3">Structured Design</h3>
+          <div className="row__colspan-12">
+            <h3 className="headline__h3" id="structuredDesign" tabIndex={-1}>
+              Structured Design
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -736,8 +738,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="objectOrientedDesign">
-            <h3 className="headline__h3">Object-oriented Design</h3>
+          <div className="row__colspan-12">
+            <h3 className="headline__h3" id="objectOrientedDesign" tabIndex={-1}>
+              Object-oriented Design
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -770,8 +774,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="designArtifacts">
-            <h2 className="headline__h2">Design Artifacts</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="designArtifacts" tabIndex={-1}>
+              Design Artifacts
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -813,8 +819,10 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
-            <h3 className="headline__h3">Notes</h3>
+          <div className="row__colspan-12 row__margin-bottom-0">
+            <h3 className="headline__h3" id="notes" tabIndex={-1}>
+              Notes
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
@@ -18,18 +19,8 @@ function LifecycleModels() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Software Life Cycle" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
-  //
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "Software Life Cycle", menuActiveCategory: "0", homePageClass: "page", scrollTop: true })
+
   const images = [
     { id: 1, lazy: false, src: "../../../../assets/images/principles/lifecycle-waterfall-model.svg", width: "1366", height: "780", alt: "The Waterfall model of software development", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 1. The Waterfall Model. W. W. Royce, “Managing the Development of Large Software Systems: Concepts and Techniques,” Proc. Wescon, Aug. 1970.", dataSrcset: "" },
     { id: 2, lazy: false, src: "../../../../assets/images/principles/lifecycle-sashimi-model.svg", width: "440", height: "600", alt: "The Sashimi model of software development", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Figure 2. Sashimi model. Adapted from DeGrace and Stahl, 1990.", dataSrcset: "" },
@@ -283,8 +274,10 @@ function LifecycleModels() {
               </li>
             </ul>
           </div>
-          <div className="row__colspan-6" id="whatisslc">
-            <h2 className="headline__h2">What is Software Life Cycle?</h2>
+          <div className="row__colspan-6">
+            <h2 className="headline__h2" id="whatisslc" tabIndex={-1}>
+              What is Software Life Cycle?
+            </h2>
             <p className="dropCap" id="note1">
               The software life cycle describes the phases which a software system goes through during its lifespan and includes all stages from “the conception of ideas through to the retirement of a system.”
               <HashLink to="#footnote1" className="footnote">
@@ -328,8 +321,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="thesdlc">
-            <h2 className="headline__h2">Origins of the Software Life Cycle</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="thesdlc" tabIndex={-1}>
+              Origins of the Software Life Cycle
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -547,8 +542,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="processarch">
-            <h2 className="headline__h2">Software Process Architecture</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="processarch" tabIndex={-1}>
+              Software Process Architecture
+            </h2>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -592,8 +589,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="lifecyclemodels">
-            <h2 className="headline__h2">Software Life Cycle Models</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="lifecyclemodels" tabIndex={-1}>
+              Software Life Cycle Models
+            </h2>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -699,12 +698,14 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="sdlcmodels">
-            <h2 className="headline__h2">A Few Models</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="sdlcmodels" tabIndex={-1}>
+              A Few Models
+            </h2>
           </div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="codeandfix">
+            <h3 className="headline__h3" id="codeandfix" tabIndex={-1}>
               Code and Fix
             </h3>
           </div>
@@ -746,7 +747,7 @@ function LifecycleModels() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="waterfall">
+            <h3 className="headline__h3" id="waterfall" tabIndex={-1}>
               Waterfall
             </h3>
           </div>
@@ -873,7 +874,7 @@ function LifecycleModels() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="sashimi">
+            <h3 className="headline__h3" id="sashimi" tabIndex={-1}>
               Sashimi
             </h3>
           </div>
@@ -909,7 +910,7 @@ function LifecycleModels() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="spiralmodel">
+            <h3 className="headline__h3" id="spiralmodel" tabIndex={-1}>
               Spiral
             </h3>
           </div>
@@ -945,7 +946,7 @@ function LifecycleModels() {
           </div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="stageddeliv">
+            <h3 className="headline__h3" id="stageddeliv" tabIndex={-1}>
               Staged Delivery
             </h3>
           </div>
@@ -1008,7 +1009,7 @@ function LifecycleModels() {
           </div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="evolutionaryproto">
+            <h3 className="headline__h3" id="evolutionaryproto" tabIndex={-1}>
               Evolutionary Prototyping
             </h3>
           </div>
@@ -1068,7 +1069,7 @@ function LifecycleModels() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="evolutionarydeliv">
+            <h3 className="headline__h3" id="evolutionarydeliv" tabIndex={-1}>
               Evolutionary Delivery
             </h3>
           </div>
@@ -1094,8 +1095,10 @@ function LifecycleModels() {
             <ImageBlock key={images[4].id} image={images[4]}></ImageBlock>
           </div>
 
-          <div className="row__colspan-12" id="tailoredmodel">
-            <h3 className="headline__h3">Tailored Process Model</h3>
+          <div className="row__colspan-12">
+            <h3 className="headline__h3" id="tailoredmodel" tabIndex={-1}>
+              Tailored Process Model
+            </h3>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -1152,8 +1155,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="tailoredulevel">
-            <h4 className="headline__h4">U-level Models</h4>
+          <div className="row__colspan-12">
+            <h4 className="headline__h4" id="tailoredulevel" tabIndex={-1}>
+              U-level Models
+            </h4>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -1188,8 +1193,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="tailoredwlevel">
-            <h4 className="headline__h4">W-level Models</h4>
+          <div className="row__colspan-12">
+            <h4 className="headline__h4" id="tailoredwlevel" tabIndex={-1}>
+              W-level Models
+            </h4>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -1208,8 +1215,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="tailoredalevel">
-            <h4 className="headline__h4">A-level Models</h4>
+          <div className="row__colspan-12">
+            <h4 className="headline__h4" id="tailoredalevel" tabIndex={-1}>
+              A-level Models
+            </h4>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -1231,8 +1240,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="choosemodel">
-            <h2 className="headline__h2">Choosing a Model</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="choosemodel" tabIndex={-1}>
+              Choosing a Model
+            </h2>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
@@ -1245,8 +1256,10 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
-            <h3 className="headline__h3">Notes</h3>
+          <div className="row__colspan-12 row__margin-bottom-0">
+            <h3 className="headline__h3" id="notes" tabIndex={-1}>
+              Notes
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "./InitializePage"
 import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
@@ -11,22 +12,10 @@ function Home() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
   const assetsPath = window.location.protocol + "//" + window.location.host + "/assets/images/"
-  // const brain = assetsPath + "brain-7842215.svg"
-  // const tools = assetsPath + "website-6700615.svg"
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "dark" })
-    appDispatch({ type: "selectMenu", selectedMenu: "" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page page__home" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "dark", selectMenu: "", menuActiveCategory: "-1", homePageClass: "page page__home", scrollTop: true })
 
   return (
     <Page title="Home">

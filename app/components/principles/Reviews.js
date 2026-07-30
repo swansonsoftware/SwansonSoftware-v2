@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
 import Page from "../Page"
@@ -17,17 +18,7 @@ function Reviews() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Software Reviews" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "0" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "Software Reviews", menuActiveCategory: "0", homePageClass: "page", scrollTop: true })
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
@@ -130,24 +121,31 @@ function Reviews() {
                     </HashLink>
                   </li>
                   <li className="list list--toc">
-                    <HashLink smooth to="#walkthrough" className="list--toc--a">
-                      Walkthrough
+                    <HashLink smooth to="#informalreviews" className="list--toc--a">
+                      Informal Reviews
                     </HashLink>
-                  </li>
-                  <li className="list list--toc">
-                    <HashLink smooth to="#pairprog" className="list--toc--a">
-                      Pair Programming
-                    </HashLink>
-                  </li>
-                  <li className="list list--toc">
-                    <HashLink smooth to="#peercheck" className="list--toc--a">
-                      Peer Check
-                    </HashLink>
-                  </li>
-                  <li className="list list--toc">
-                    <HashLink smooth to="#passaround" className="list--toc--a">
-                      Pass-Around
-                    </HashLink>
+                    <ul className="list-ul">
+                      <li className="list list--toc">
+                        <HashLink smooth to="#walkthrough" className="list--toc--a">
+                          Walkthrough
+                        </HashLink>
+                      </li>
+                      <li className="list list--toc">
+                        <HashLink smooth to="#pairprog" className="list--toc--a">
+                          Pair Programming
+                        </HashLink>
+                      </li>
+                      <li className="list list--toc">
+                        <HashLink smooth to="#peercheck" className="list--toc--a">
+                          Peer Check
+                        </HashLink>
+                      </li>
+                      <li className="list list--toc">
+                        <HashLink smooth to="#passaround" className="list--toc--a">
+                          Pass-Around
+                        </HashLink>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -204,8 +202,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="components">
-            <h2 className="headline__h2">Components of Software Reviews</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="components" tabIndex={-1}>
+              Components of Software Reviews
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -229,8 +229,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="cs">
-            <h2 className="headline__h2">Cost and Cost Savings from Software Reviews</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="cs" tabIndex={-1}>
+              Cost and Cost Savings from Software Reviews
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -262,8 +264,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="rt">
-            <h2 className="headline__h2">Review Types</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="rt" tabIndex={-1}>
+              Review Types
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -287,7 +291,7 @@ function Reviews() {
             </p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="fagans">
+            <h3 className="headline__h3" id="fagans" tabIndex={-1}>
               Fagan's Software Review
             </h3>
           </div>
@@ -315,7 +319,7 @@ function Reviews() {
             </ul>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="adr">
+            <h3 className="headline__h3" id="adr" tabIndex={-1}>
               Active Design Review
             </h3>
           </div>
@@ -350,7 +354,7 @@ function Reviews() {
             <p>ADR has two roles: author and reviewer.</p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="twopersonreview">
+            <h3 className="headline__h3" id="twopersonreview" tabIndex={-1}>
               Two-Person Review
             </h3>
           </div>
@@ -368,7 +372,7 @@ function Reviews() {
             </p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="nfoldreview">
+            <h3 className="headline__h3" id="nfoldreview" tabIndex={-1}>
               N-Fold Review
             </h3>
           </div>
@@ -399,7 +403,7 @@ function Reviews() {
             <p>The success of N-Fold Review depends on 1) adequate availability of expertise, and 2) ability to meet the additional costs required by multiple review teams.</p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="phasedreview">
+            <h3 className="headline__h3" id="phasedreview" tabIndex={-1}>
               Phased Review
             </h3>
           </div>
@@ -424,7 +428,7 @@ function Reviews() {
             <p>Wong finds that PRs are not widely used in practice, perhaps because they have the drawback of higher cost over other review processes.</p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h3 className="headline__h3" id="ieeestandard">
+            <h3 className="headline__h3" id="ieeestandard" tabIndex={-1}>
               IEEE Standard 1028 For Software Reviews
             </h3>
           </div>
@@ -453,12 +457,14 @@ function Reviews() {
             </ol>
           </div>
           <div className="row__colspan-12">
-            <h3 className="headline__h3">Informal Reviews</h3>
+            <h3 className="headline__h3" id="informalreviews" tabIndex={-1}>
+              Informal Reviews
+            </h3>
           </div>
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10"></div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h4 className="headline__h4" id="walkthrough">
+            <h4 className="headline__h4" id="walkthrough" tabIndex={-1}>
               Walkthrough
             </h4>
           </div>
@@ -537,7 +543,7 @@ function Reviews() {
             <p>Certain results indicate problems in the process. These are used to determine when reinspection is needed.</p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h4 className="headline__h4" id="pairprog">
+            <h4 className="headline__h4" id="pairprog" tabIndex={-1}>
               Pair Programming
             </h4>
           </div>
@@ -552,7 +558,7 @@ function Reviews() {
             </p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h4 className="headline__h4" id="peercheck">
+            <h4 className="headline__h4" id="peercheck" tabIndex={-1}>
               Peer Check
             </h4>
           </div>
@@ -567,7 +573,7 @@ function Reviews() {
             </p>
           </div>
           <div className="row__colspan-12 row__colspan-12--no-top-pad">
-            <h4 className="headline__h4" id="passaround">
+            <h4 className="headline__h4" id="passaround" tabIndex={-1}>
               Pass-Around
             </h4>
           </div>
@@ -583,8 +589,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="rp">
-            <h2 className="headline__h2">Review Process</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="rp" tabIndex={-1}>
+              Review Process
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -624,8 +632,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="frms">
-            <h2 className="headline__h2">Sample Forms</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="frms" tabIndex={-1}>
+              Sample Forms
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -687,8 +697,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12" id="tools">
-            <h2 className="headline__h2">Online Tools</h2>
+          <div className="row__colspan-12">
+            <h2 className="headline__h2" id="tools" tabIndex={-1}>
+              Online Tools
+            </h2>
           </div>
 
           <div className="row__colspan-1"></div>
@@ -697,8 +709,10 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
-            <h3 className="headline__h3">Notes</h3>
+          <div className="row__colspan-12 row__margin-bottom-0">
+            <h3 className="headline__h3" id="notes" tabIndex={-1}>
+              Notes
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import InitializePage from "../../InitializePage"
 import { Link } from "react-router-dom"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
@@ -20,17 +21,7 @@ function BlogJan2025_ResSwitching() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "2025" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "2025", menuActiveCategory: "1", homePageClass: "page", scrollTop: true })
 
   //could add a new component:
   //function ScrollToAnchor() {
@@ -135,17 +126,21 @@ function BlogJan2025_ResSwitching() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="ideasForChoosingBrkpts"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">Ideas for Choosing Breakpoints</h2>
+            <h2 className="headline__h2" id="ideasForChoosingBrkpts" tabIndex={-1}>
+              Ideas for Choosing Breakpoints
+            </h2>
             <p className="dropCap">We can’t provide an unlimited number of images, for example having breakpoints 1px apart; so, let’s make a rule: if wasted bandwidth means anything larger than the exact size needed, then we accept that there will be some wasted bandwidth, but we try to minimize that.</p>
             <p>While researching this post I came across other ideas for choosing break points. Consider these as they might be appropriate for your situation.</p>
           </div>
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-1"></div>
-          <div className="row__colspan-10" id="ideasPerfBudget">
-            <h3 className="headline__h3">Choosing Breakpoints using a Performance Budget</h3>
+          <div className="row__colspan-10">
+            <h3 className="headline__h3" id="ideasPerfBudget" tabIndex={-1}>
+              Choosing Breakpoints using a Performance Budget
+            </h3>
             <p>
               Jason Grigsby describes this technique in his post{" "}
               <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://cloudfour.com/thinks/responsive-images-101-part-9-image-breakpoints/">
@@ -182,8 +177,10 @@ function BlogJan2025_ResSwitching() {
             </ul>
           </div>
           <div className="row__colspan-1"></div>
-          <div className="row__colspan-10" id="ideasMediaCondition">
-            <h3 className="headline__h3">Choosing Breakpoints based on media condition</h3>
+          <div className="row__colspan-10">
+            <h3 className="headline__h3" id="ideasMediaCondition" tabIndex={-1}>
+              Choosing Breakpoints based on media condition
+            </h3>
             <p>
               I learned about this from imagekit.io’s post{" "}
               <Link className="wrapper__article__outbound" rel="noopener noreferrer" to="https://imagekit.io/responsive-images/">

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import InitializePage from "./InitializePage"
 import { Link, useNavigate } from "react-router-dom"
 import Page from "./Page"
 import DispatchContext from "../DispatchContext"
@@ -14,27 +15,18 @@ function ContactUs() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "-1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "", menuActiveCategory: "-1", homePageClass: "page", scrollTop: true })
 
   const eventListenerAbortCtrlr = new AbortController()
 
+  //why is this needed? Commenting out 7/28/2026
   const handleBlur = event => {
     if (
       !event.relatedTarget || // No related target (e.g., clicked outside)
       (event.relatedTarget.tagName !== "INPUT" && event.relatedTarget.tagName !== "TEXTAREA" && event.relatedTarget.tagName !== "BUTTON")
     ) {
       // Focus back to the current input
-      event.target.focus()
+      // event.target.focus()
     }
   }
 
@@ -111,7 +103,7 @@ function ContactUs() {
         <p>Please use the form below to contact SwansonSoftware. SwansonSoftware does not store or share any information you send, and you will not get unsolicited email or marketing material from SwansonSoftware.</p>
         <p>* Indicates required.</p>
 
-        <form id="contactus" className="form">
+        <form id="contactus" className="form" aria-label="Contact Us">
           <div>
             <label htmlFor="name">
               <span className="form--required">*</span> Name:

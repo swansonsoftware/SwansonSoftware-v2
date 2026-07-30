@@ -74,7 +74,6 @@ function ScrollToTop() {
         <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" className={"nav__button--icon-rotate-180 nav__button--svg-scrolltop"}>
           <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835" className={appState.backgroundStyle == "dark" ? "nav__button--icon-stroke--dark" : "nav__button--icon-stroke"} />
         </svg>
-        Top
       </button>
     </>
   )

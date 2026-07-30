@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
@@ -12,10 +13,7 @@ function _2010sSlideshowNormas() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "selectMenu", selectedMenu: "2010s" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "dark", selectMenu: "2010s", menuActiveCategory: "2", homePageClass: "page", scrollTop: false })
 
   const photos = [
     { id: 1, lazy: false, src: "../assets/images/2010s/2013_1223-608.webp", width: "608", height: "456", captionHeading: "2013", caption: "2013, Norma's old house next door, now Henry and Lisa's. After Norma passed away We took care of the persimon trees and garden while her relatives got the house ready to sell", alt: "Light blue Mediterranean-style house with rounded window tops", sizes: "100vw", srcset: "../assets/images/2010s/2013_1223-960.webp 960w, ../assets/images/2010s/2013_1223-1180.webp 1180w, ../assets/images/2010s/2013_1223-1290.webp 1290w, ../assets/images/2010s/2013_1223-1368.webp 1368w, ../assets/images/2010s/2013_1223-1442.webp 1442w, ../assets/images/2010s/2013_1223-1600.webp 1600w, ../assets/images/2010s/2013_1223-1852.webp 1852w, ../assets/images/2010s/2013_1223-1920.webp 1920w, ../assets/images/2010s/2013_1223-2120.webp 2120w, ../assets/images/2010s/2013_1223-2379.webp 2379w" },

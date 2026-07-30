@@ -11,9 +11,19 @@ function SkipToContent() {
   function handleClick() {
     let siteHeader = document.querySelector(".site-header")
     if (siteHeader.classList.contains("site-header--expand")) {
-      siteHeader.classList.remove("site-header--expand")
-      siteHeader.classList.add("site-header--collapse")
-      window.scrollTo(0, 0)
+      let baseclass = ""
+      if (document.body.scrollHeight <= window.innerHeight + 100) {
+        baseclass = "site-header"
+      } else {
+        baseclass = "site-header site-header--collapse"
+      }
+      if (appBackgroundColor.current == "dark") {
+        appDispatch({ type: "headerVisClass", headerVisClass: baseclass + " site-header--dark" })
+      } else {
+        appDispatch({ type: "headerVisClass", headerVisClass: baseclass })
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
     }
     let breadcrumbStyle = appState.breadcrumbClass
     if (appBackgroundColor.current == "dark") {

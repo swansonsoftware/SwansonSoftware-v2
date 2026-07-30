@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../../InitializePage"
 import { Link } from "react-router-dom"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
@@ -16,17 +17,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "2026" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "2026", menuActiveCategory: "1", homePageClass: "page", scrollTop: true })
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
@@ -146,7 +137,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h3 className="headline__h3" id="whofor">
+            <h3 className="headline__h3" id="whofor" tabIndex={-1}>
               Who This Post is For
             </h3>
             <ul>
@@ -157,9 +148,11 @@ function Blog2026_01_WebsiteDesignStandard1() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="conventions"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">Conventions</h2>
+            <h2 className="headline__h2" id="conventions" tabIndex={-1}>
+              Conventions
+            </h2>
             <p className="dropCap">We should agree to a few conventions that every website should follow. These are features that users have come to expect, and they expect them to work in a standard way, because they have seen and used them on many websites.</p>
             <p>Every website should have:</p>
             <ul>
@@ -220,7 +213,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
               </li>
             </ul>
 
-            <h3 className="headline__h3" id="basicAccessibility">
+            <h3 className="headline__h3" id="basicAccessibility" tabIndex={-1}>
               Basic Accessibility
             </h3>
             <p className="dropCap">Every website should provide at least the minimum in accessibility features, which are:</p>
@@ -245,7 +238,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
               In addition to the above accessibility features, websites should have good Aria markup or no Aria markup.<Footnote footnoteId={23}></Footnote>
             </p>
 
-            <h3 className="headline__h3" id="validatePages">
+            <h3 className="headline__h3" id="validatePages" tabIndex={-1}>
               Validate Pages
             </h3>
             <p className="dropCap">Finally, every page of a website should be tested with the common validators before publishing the site for the first time, and thereafter new pages and pages that are changed should be tested, and any errors or warnings listed by the validators should be investigated and fixed if possible:</p>
@@ -280,8 +273,10 @@ function Blog2026_01_WebsiteDesignStandard1() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
-            <h3 className="headline__h3">Notes</h3>
+          <div className="row__colspan-12 row__margin-bottom-0">
+            <h3 className="headline__h3" id="notes" tabIndex={-1}>
+              Notes
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>

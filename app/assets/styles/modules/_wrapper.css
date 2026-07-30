@@ -219,6 +219,7 @@
   &__article {
     max-width: inherit;
     &:focus-visible {
+      /* keyboard only */
       outline: 3px solid #000000;
       outline-offset: -3px;
       /*box-shadow:

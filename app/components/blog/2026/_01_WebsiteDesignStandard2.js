@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import InitializePage from "../../InitializePage"
 import { Link } from "react-router-dom"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
@@ -16,17 +17,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "2026" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "2026", menuActiveCategory: "1", homePageClass: "page", scrollTop: true })
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
@@ -148,72 +139,72 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 <HashLink smooth to="#mostannoying" className="list--toc--a">
                   The Most Annoying for Screen Reader Users
                 </HashLink>
-                <ol className="toc">
-                  <li className="list list--toc list--toc-numbered" value={"7"}>
+                <ul>
+                  <li className="list list--toc">
                     <HashLink smooth to="#badheading" className="list--toc--a">
                       Improper Heading Structure
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#noskiplink" className="list--toc--a">
                       No Skip to Main Content button
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#nokbdaccess" className="list--toc--a">
                       Content not accessible by keyboard
                     </HashLink>
                   </li>
-                </ol>
+                </ul>
               </li>
               <li className="list list--toc">
                 <HashLink smooth to="#annoyingforgreateraudience" className="list--toc--a">
                   The Most Annoying for the Greater Audience
                 </HashLink>
-                <ol className="toc">
-                  <li className="list list--toc list--toc-numbered" value={"10"}>
+                <ul>
+                  <li className="list list--toc">
                     <HashLink smooth to="#smallfont" className="list--toc--a">
                       Small Font Size Specified in Pixel (px) Units
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#lineheight" className="list--toc--a">
                       Line Height
                     </HashLink>
                   </li>
-                </ol>
+                </ul>
               </li>
               <li className="list list--toc">
                 <HashLink smooth to="#additionalitems" className="list--toc--a">
                   Additional Items Important to Accessibility
                 </HashLink>
-                <ol className="toc">
-                  <li className="list list--toc list--toc-numbered" value={"12"}>
+                <ul>
+                  <li className="list list--toc">
                     <HashLink smooth to="#menuhovereffects" className="list--toc--a">
                       Menu Hover Effects
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#color" className="list--toc--a">
                       Color
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#clickarea" className="list--toc--a">
                       Click Area
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#nativehtml" className="list--toc--a">
                       Use Native HTML Tags
                     </HashLink>
                   </li>
-                  <li className="list list--toc list--toc-numbered">
+                  <li className="list list--toc">
                     <HashLink smooth to="#cssborder" className="list--toc--a">
                       CSS Border
                     </HashLink>
                   </li>
-                </ol>
+                </ul>
               </li>
               <li className="list list--toc">
                 <HashLink smooth to="#notes" className="list--toc--a">
@@ -231,7 +222,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p className="dropCap">Part 2 continues by extending the basic accessibility from Part 1 to an accessibility baseline for websites. Accessibility is a big topic that web developers may feel is burdensome to learn and a distraction from learning how to make things work with JavaScript, CSS, and their framework of choice. However, only 6 issues account for over 90% of accessibility errors on websites, and addressing those is a much easier goal to achieve, but we will go a little further and cover a handful of additional accessibility issues that are high on the list of annoyances, and not just for users with access needs.</p>
             <p>The sources for Part 2 provide the latest in-depth information if you are interested in learning more.</p>
 
-            <h3 className="headline__h3" id="currentstate">
+            <h3 className="headline__h3" id="currentstate" tabIndex={-1}>
               The Current State of Accessibility
             </h3>
             <p className="dropCap">
@@ -257,9 +248,11 @@ function Blog2026_01_WebsiteDesignStandard2() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="wcag"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">WCAG</h2>
+            <h2 className="headline__h2" id="wcag" tabIndex={-1}>
+              WCAG
+            </h2>
             <p className="dropCap">
               Web Content Accessibility Guidelines (
               <Link className="wrapper__article__outbound" to="https://www.w3.org/TR/2024/REC-WCAG22-20241212/">
@@ -270,9 +263,11 @@ function Blog2026_01_WebsiteDesignStandard2() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="bigsix"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">The Big Six</h2>
+            <h2 className="headline__h2" id="bigsix" tabIndex={-1}>
+              The Big Six
+            </h2>
             <p className="dropCap">
               WebAIM reports on the accessibility of the top 1 million web sites.<Footnote footnoteId={10}></Footnote> As of 2026, 96% of all errors fall into six categories, and the categories have not changed for the seven years that WebAIM has been compiling the report:
             </p>
@@ -286,7 +281,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
             </ol>
             <p>Concentrating on these six will get you to a decent level of accessibility, so we address these first.</p>
 
-            <h3 className="headline__h3" id="lowcontrasttext">
+            <h3 className="headline__h3" id="lowcontrasttext" tabIndex={-1}>
               Low Contrast Text
             </h3>
             <p className="dropCap">
@@ -322,7 +317,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               @media (prefers-color-scheme: dark)<br></br>@media (forced-colors: active)
             </pre>
 
-            <h3 className="headline__h3" id="noalttext">
+            <h3 className="headline__h3" id="noalttext" tabIndex={-1}>
               Missing Alternative Text for Images
             </h3>
             <p className="dropCap">
@@ -339,7 +334,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               <li className="list">Use punctuation, screen readers use punctuation and will announce when an end of a sentence occurs</li>
             </ul>
 
-            <h3 className="headline__h3" id="noinputlabels">
+            <h3 className="headline__h3" id="noinputlabels" tabIndex={-1}>
               Missing Form Input Labels
             </h3>
             <p className="dropCap">
@@ -377,7 +372,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               </li>
             </ul>
 
-            <h3 className="headline__h3" id="emptylinks">
+            <h3 className="headline__h3" id="emptylinks" tabIndex={-1}>
               Empty Links
             </h3>
             <p className="dropCap">Empty links are often created accidentally by wrapping an image with an anchor tag</p>
@@ -441,7 +436,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               </li>
             </ul>
 
-            <h3 className="headline__h3" id="emptybuttons">
+            <h3 className="headline__h3" id="emptybuttons" tabIndex={-1}>
               Empty Buttons
             </h3>
             <p className="dropCap">Like empty links, empty buttons are often created accidentally by wrapping an image with a button tag. Thus, there is no text that indicates what the button does.</p>
@@ -473,7 +468,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               </li>
             </ul>
 
-            <h3 className="headline__h3" id="nodoclang">
+            <h3 className="headline__h3" id="nodoclang" tabIndex={-1}>
               Missing Document Language
             </h3>
             <p className="dropCap">The document language is specified in the html tag:</p>
@@ -487,7 +482,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
 
           <div className="row__colspan-1" id="annoyingforscreenreaderusers"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2" id="mostannoying">
+            <h2 className="headline__h2" id="mostannoying" tabIndex={-1}>
               The Most Annoying for Screen Reader Users
             </h2>
             <p className="dropCap">
@@ -498,7 +493,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               <li className="list">No Skip to Main Content button</li>
               <li className="list">Content not accessible by keyboard</li>
             </ul>
-            <h3 className="headline__h3" id="badheading">
+            <h3 className="headline__h3" id="badheading" tabIndex={-1}>
               Improper Heading Structure
             </h3>
             <p className="dropCap">
@@ -553,7 +548,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 </div>
               </li>
             </ul>
-            <h3 className="headline__h3" id="noskiplink">
+            <h3 className="headline__h3" id="noskiplink" tabIndex={-1}>
               No Skip to Main Content Button
             </h3>
             <p className="dropCap">
@@ -613,7 +608,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 </div>
               </li>
             </ul>
-            <h3 className="headline__h3" id="nokbdaccess">
+            <h3 className="headline__h3" id="nokbdaccess" tabIndex={-1}>
               Content Not Accessible by Keyboard
             </h3>
             <p className="dropCap">
@@ -651,10 +646,10 @@ function Blog2026_01_WebsiteDesignStandard2() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2" id="annoyingforgreateraudience">
+            <h2 className="headline__h2" id="annoyingforgreateraudience" tabIndex={-1}>
               The Most Annoying for the Greater Audience
             </h2>
-            <h3 className="headline__h3" id="smallfont">
+            <h3 className="headline__h3" id="smallfont" tabIndex={-1}>
               Small Font Size Specified in Pixel (px) Units
             </h3>
             <p className="dropCap">
@@ -688,7 +683,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               </li>
             </ul>
 
-            <h3 className="headline__h3" id="lineheight">
+            <h3 className="headline__h3" id="lineheight" tabIndex={-1}>
               Line Height
             </h3>
             <p className="dropCap">Line height, the spacing between two lines of text, is just as important as text size in its effect on accessibility. WCAG specifically calls out spacing for line height.</p>
@@ -708,26 +703,26 @@ function Blog2026_01_WebsiteDesignStandard2() {
 
           <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2" id="additionalitems">
+            <h2 className="headline__h2" id="additionalitems" tabIndex={-1}>
               Additional Items Important to Accessibility
             </h2>
             <p className="dropCap">The following are common enough to justify mentioning them in this final section on accessibility.</p>
 
-            <h3 className="headline__h3" id="menuhovereffects">
+            <h3 className="headline__h3" id="menuhovereffects" tabIndex={-1}>
               Menu Hover Effects
             </h3>
             <p className="dropCap">
               Typical menu functionality on websites is to expand the menu when the mouse pointer hovers over a top-level menu item. This can be problematic for users who rely on voice-to-text software because voice commands typically initiate a full interaction such as a click.<Footnote footnoteId={39}></Footnote>
             </p>
 
-            <h3 className="headline__h3" id="color">
+            <h3 className="headline__h3" id="color" tabIndex={-1}>
               Color
             </h3>
             <p className="dropCap">
               Status messages should not rely on color alone to infer status because the meaning is obscured for anyone with color blindness. When using color for status messages, it is essential to include wording or icons to supplement the meaning indicated by the color.<Footnote footnoteId={40}></Footnote>
             </p>
 
-            <h3 className="headline__h3" id="clickarea">
+            <h3 className="headline__h3" id="clickarea" tabIndex={-1}>
               Click Area
             </h3>
             <p className="dropCap">
@@ -739,14 +734,14 @@ function Blog2026_01_WebsiteDesignStandard2() {
               <li className="list">2.5.8 Target Size (Minimum) – level AA, minimum target size of 24 pixels by 24 pixels</li>
             </ol>
 
-            <h3 className="headline__h3" id="nativehtml">
+            <h3 className="headline__h3" id="nativehtml" tabIndex={-1}>
               Use Native HTML Tags
             </h3>
             <p className="dropCap">
               Native tags are recognized by screen readers and they have accessibility built-in.<Footnote footnoteId={42}></Footnote> The HTML and CSS standards modernized, and browsers began to standardize their support for them, so there is perhaps no need to create custom versions of HTML tags such as buttons and checkboxes.
             </p>
 
-            <h3 className="headline__h3" id="cssborder">
+            <h3 className="headline__h3" id="cssborder" tabIndex={-1}>
               CSS Border
             </h3>
             <p className="dropCap">
@@ -755,8 +750,10 @@ function Blog2026_01_WebsiteDesignStandard2() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-12 row__margin-bottom-0" id="notes">
-            <h3 className="headline__h3">Notes</h3>
+          <div className="row__colspan-12 row__margin-bottom-0">
+            <h3 className="headline__h3" id="notes" tabIndex={-1}>
+              Notes
+            </h3>
           </div>
 
           <div className="row__colspan-1"></div>

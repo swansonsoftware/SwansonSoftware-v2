@@ -29,8 +29,14 @@
 
   &__h2 {
     font: 500 2.5rem/1.15 $headersFont;
-    padding: 10px 0 3px 0;
+    padding: 10px 0 5px 3px;
     margin: 0;
+    &:focus-visible {
+      /*keyboard only*/
+      outline: 3px solid #000000;
+      outline-offset: -3px;
+      border-radius: 15px;
+    }
 
     &--recipe {
       padding-top: 30px;
@@ -56,13 +62,19 @@
 
   &__h3 {
     font: 600 2.1rem/1.15 $headersFont;
-    padding: 10px 0 2px 0;
+    padding: 10px 0 5px 3px;
     margin: 0;
     &--bold {
       font-weight: 700;
     }
     &--xtra-pad {
       padding-top: 18px;
+    }
+    &:focus-visible {
+      /*keyboard only*/
+      outline: 3px solid #000000;
+      outline-offset: -3px;
+      border-radius: 15px;
     }
 
     @mixin atMin1200Wide {
@@ -102,8 +114,14 @@
 
   &__h4 {
     font: 700 1.9rem/1.15 $headersFont;
-    padding: 10px 0 2px 0;
+    padding: 10px 0 4px 3px;
     margin: 0;
+    &:focus-visible {
+      /*keyboard only*/
+      outline: 3px solid #000000;
+      outline-offset: -3px;
+      border-radius: 15px;
+    }
 
     @mixin atMin1200Wide {
       font-size: 1.7rem;
@@ -114,5 +132,6 @@
     font-size: 1.3rem;
     font-style: italic;
     margin-bottom: 30px;
+    margin-top: 10px;
   }
 }

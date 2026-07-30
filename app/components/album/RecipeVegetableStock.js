@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import DispatchContext from "../../DispatchContext"
 import Page from "../Page"
 import StateContext from "../../StateContext"
@@ -14,16 +15,7 @@ function VegetableStock() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "Recipes" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "Recipes", menuActiveCategory: "2", homePageClass: "page", scrollTop: true })
 
   const images = [
     { id: 1, lazy: false, src: "../../assets/images/2020s/DSC04271-b-thumbnail.webp", srcset: "../../assets/images/2020s/DSC04271-b-thumbnail.webp 1x, ../../assets/images/2020s/DSC04271-b-672.webp 2x", sizes: "(max-width: 480px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw", width: "320", height: "180", alt: "Sliced leeks on white cutting board", dataOrientation: "", dataPortraitsizes: "", captionHeading: "", caption: "Leeks sliced thinly crosswise", dataSrcset: "320=320x180;360=360x202;393=393x221;432=432x243;608=608x342;672=672x378;768=768x432;896=896x504;960=960x540;1180=1180x664;1290=1290x726;1368=1368x769;1442=1442x811;1600=1600x900;1852=1852x1042;1920=1920x1080;2120=2120x1192;2379=2379x1338;2560=2560x1440;2796=2796x1573;2960=2960x1665;3240=3240x1822;3840=3840x2160" },

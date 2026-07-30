@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
+import SkipToContent from "./SkipToContent"
 import Logo from "./Logo"
 import HeaderMenuIcon from "./HeaderMenuIcon"
 import TopnavMenu from "./TopnavMenu"
@@ -9,7 +10,6 @@ function Header() {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
-  const [siteHeaderClass, setSiteHeaderClass] = useState("site-header site-header--expand")
   const siteHeaderClassExpanded = useRef("site-header site-header--expand")
   const siteHeaderClassCollapsed = useRef("site-header site-header--collapse")
   const breadcrumbHidden = useRef(false)
@@ -23,6 +23,12 @@ function Header() {
     appDispatch({ type: "menuListClassByIconState", class: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden" })
     appDispatch({ type: "menuDropdownActiveTopic", menuDropdownActiveTopic: "" })
     appDispatch({ type: "updateBreadcrumbClass", class: currBreadcrumbStyle.current })
+    let menuButtons = document.querySelectorAll(".nav__button")
+    if (menuButtons) {
+      menuButtons.forEach(button => {
+        button.attributes["aria-expanded"].value = "false"
+      })
+    }
     ShowHamburgerMenuIcon()
   }
 
@@ -65,9 +71,9 @@ function Header() {
 
   function updateSiteHeaderClass(expanded) {
     if (expanded) {
-      setSiteHeaderClass(siteHeaderClassExpanded.current)
+      appDispatch({ type: "headerVisClass", headerVisClass: siteHeaderClassExpanded.current })
     } else {
-      setSiteHeaderClass(siteHeaderClassCollapsed.current)
+      appDispatch({ type: "headerVisClass", headerVisClass: siteHeaderClassCollapsed.current })
     }
   }
 
@@ -80,7 +86,7 @@ function Header() {
       SetHeaderVisibility(breadcrumbStyle)
     } else {
       if (window.scrollY < 50) {
-        setSiteHeaderClass(siteHeaderClassExpanded.current)
+        appDispatch({ type: "headerVisClass", headerVisClass: siteHeaderClassExpanded.current })
         if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
           let classlist = breadcrumbStyle.split(" ")
           let filtered = classlist.filter(classname => classname !== "site-header__breadcrumb__fixed")
@@ -99,7 +105,7 @@ function Header() {
 
     if (prevScrollpos > currentScrollPos) {
       //scrolling up
-      setSiteHeaderClass(siteHeaderClassExpanded.current)
+      appDispatch({ type: "headerVisClass", headerVisClass: siteHeaderClassExpanded.current })
       if (breadcrumbHidden.current != true) {
         if (breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
           let classlist = breadcrumbStyle.split(" ")
@@ -114,7 +120,7 @@ function Header() {
     } else {
       //scrolling down
       if (prevScrollpos + 5 < currentScrollPos && currentScrollPos > antiBounceBuffer) {
-        setSiteHeaderClass(siteHeaderClassCollapsed.current)
+        appDispatch({ type: "headerVisClass", headerVisClass: siteHeaderClassCollapsed.current })
         if (breadcrumbHidden.current != true) {
           if (!breadcrumbStyle.includes("site-header__breadcrumb__fixed")) {
             breadcrumbStyle += " site-header__breadcrumb__fixed"
@@ -139,13 +145,13 @@ function Header() {
 
   useEffect(() => {
     if (appState.backgroundStyle == "dark") {
-      setSiteHeaderClass("site-header site-header--expand site-header--dark")
+      appDispatch({ type: "headerVisClass", headerVisClass: "site-header site-header--expand site-header--dark" })
       siteHeaderClassExpanded.current = "site-header site-header--expand site-header--dark"
       siteHeaderClassCollapsed.current = "site-header site-header--collapse site-header--dark"
       currBreadcrumbStyle.current = "site-header__breadcrumb site-header__breadcrumb--dark-bg"
       menuIconStyle.current = "site-header__menu-icon--dark"
     } else {
-      setSiteHeaderClass("site-header site-header--expand")
+      appDispatch({ type: "headerVisClass", headerVisClass: "site-header site-header--expand" })
       siteHeaderClassExpanded.current = "site-header site-header--expand"
       siteHeaderClassCollapsed.current = "site-header site-header--collapse"
       currBreadcrumbStyle.current = "site-header__breadcrumb"
@@ -157,8 +163,9 @@ function Header() {
 
   return (
     <>
-      <div className={appState.menuOverlay} id="overlay"></div>
-      <header className={siteHeaderClass}>
+      <div className={appState.menuOverlay} id="overlay" tabIndex={-1}></div>
+      <header className={appState.headerVisClass} id="head" tabIndex={-1}>
+        <SkipToContent />
         <div className="wrapper--site-header">
           <Logo CloseMenu={CloseMenu} />
           <HeaderMenuIcon ToggleMenuIcon={ToggleMenuIcon} />

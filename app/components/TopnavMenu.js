@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import ReactDOM from "react-dom"
 import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
@@ -8,11 +8,14 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
 
+  const currentElement = useRef()
+
   const EXPANDED = true
 
   var prevTopicId = -1
   var idprefix = "ul-id-"
   var idpostfix = "-menu"
+  var focusableElements
 
   // { topic: "Principles", name: "Process Models", link: "/principles/process-models", pages: "Software Development Principles pages", topicid: 0, id: 0 },
   // { topic: "Principles", name: "Requirements", link: "/principles/requirements", pages: "Software Development Principles pages", topicid: 0, id: 1 },
@@ -59,13 +62,14 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
     })
 
     return (
-      <div className={idx === appState.menuDropdownActiveTopic ? "site-header__menu-dropdown site-header__menu-dropdown--visible" : "site-header__menu-dropdown"} data-menuname={topic}>
+      <div className={String(idx) === appState.menuDropdownActiveTopic ? "site-header__menu-dropdown site-header__menu-dropdown--visible" : "site-header__menu-dropdown"} data-menuname={topic}>
         <div className={backgroundStyle == "dark" ? "site-header__menu-dropdown--container site-header__menu-dropdown--container--dark" : "site-header__menu-dropdown--container"}>
           <div className="col-1">
-            <span className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>
+            <span role="menu" className={backgroundStyle == "dark" ? "menu-item__subheading-2 menu-item__subheading-2--dark" : "menu-item__subheading-2"}>
               <Link
                 to={link}
                 tabIndex="0"
+                role="menuitem"
                 className={getMenuItemClass(backgroundStyle == "dark" ? "menu-item__link menu-item__link--dark" : "menu-item__link menu-item__link--lite", topic)}
                 aria-current={appState.selectedMenu == topic ? "page" : undefined}
                 onClick={e => {
@@ -77,7 +81,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
             </span>
             <span className={backgroundStyle == "dark" ? "menu-item__subheading-3 menu-item__subheading-3--dark" : "menu-item__subheading-3"}>{subtext}</span>
           </div>
-          <div className={idx === appState.menuDropdownActiveTopic ? "col-2 col-2--grow" : "col-2"}>
+          <div className={String(idx) === appState.menuDropdownActiveTopic ? "col-2 col-2--grow" : "col-2"}>
             <ul id={idprefix + topic + idpostfix} className="menu-item" role="menu">
               {CreateSubTopicItems(topic, backgroundStyle)}
             </ul>
@@ -194,31 +198,129 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
     }
   }
 
+  function moveWithinSubmenu(currElement, direction) {
+    // Find the index of the current element in the full list
+    const currentIndex = focusableElements.indexOf(currElement)
+
+    let buttonIndex = currentIndex
+    while (buttonIndex >= 0 && focusableElements[buttonIndex].tagName !== "BUTTON") {
+      buttonIndex--
+    }
+
+    const submenuItems = getSubmenuItems(buttonIndex)
+    const submenuIndex = submenuItems.indexOf(currElement)
+
+    // Compute the next index inside the submenu
+    const nextIndex = (submenuIndex + direction + submenuItems.length) % submenuItems.length
+
+    if (nextIndex < 0 || nextIndex >= submenuItems.length) {
+      return
+    }
+
+    submenuItems[nextIndex].focus()
+  }
+
+  // Get all submenu items under the button
+  function getSubmenuItems(buttonIndex) {
+    const submenu = []
+
+    for (let i = buttonIndex + 1; i < focusableElements.length; i++) {
+      const el = focusableElements[i]
+      if (el.type === "button") break
+      submenu.push(el)
+    }
+
+    return submenu
+  }
+
   function menuKeyPressHandler(e) {
     if (e.code == "Escape") {
       CloseMenu()
     } else {
-      if (e.code == "ArrowRight" || e.code == "ArrowLeft") {
-        let direction = 0
-        if (e.code == "ArrowRight") {
+      focusableElements = Array.from(document.querySelectorAll('button[role="menuitem"], a[role="menuitem"]'))
+      let direction = 0
+      currentElement.current = document.activeElement
+      var flag = false
+      var selectedIndex = -1
+
+      // Distinguish between buttons and links using element id and type.
+
+      switch (e.code) {
+        case "ArrowRight":
           direction = 1
-        } else if (e.code == "ArrowLeft") {
+          if (currentElement.current.type === "button") {
+            let currentIndex = Number(currentElement.current.id)
+            const btnCount = focusableElements.filter(el => el.type === "button").length
+
+            let nextIndex = currentIndex + direction
+            if (nextIndex > btnCount - 1) {
+              nextIndex = 0
+            }
+
+            if (nextIndex >= 0) {
+              focusableElements.filter(el => el.type === "button")[nextIndex].focus()
+            }
+          }
+          flag = true
+          break
+        case "ArrowLeft":
           direction = -1
-        }
+          if (currentElement.current.type === "button") {
+            let currentIndex = Number(currentElement.current.id)
+            const btnCount = focusableElements.filter(el => el.type === "button").length
 
-        const currentElement = document.activeElement
-        const focusableElements = Array.from(document.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')).filter(el => !el.hasAttribute("disabled"))
+            let nextIndex = currentIndex + direction
+            if (nextIndex < 0) {
+              nextIndex = btnCount - 1
+            }
 
-        const currentIndex = focusableElements.indexOf(currentElement)
+            if (nextIndex >= 0) {
+              focusableElements.filter(el => el.type === "button")[nextIndex].focus()
+            }
+          }
+          flag = true
+          break
+        case "ArrowDown":
+        case "Down":
+          if (currentElement.current.type === "button") {
+            const topicId = currentElement.current.id
 
-        let nextIndex = currentIndex + direction
+            const isExpanded = currentElement.current.getAttribute("aria-expanded") === "true"
+            if (!isExpanded) {
+              ToggleMenuExpansion(e, topicId)
+            }
 
-        if (nextIndex >= focusableElements.length) {
-          nextIndex = 0
-        } else if (nextIndex < 0) {
-          nextIndex = focusableElements.length - 1
-        }
-        focusableElements[nextIndex].focus()
+            focusableElements = Array.from(document.querySelectorAll('button[role="menuitem"], a[role="menuitem"]'))
+
+            // After expansion, move focus to the first submenu item
+            const buttonIndex = focusableElements.indexOf(currentElement.current)
+            const submenuItems = getSubmenuItems(buttonIndex)
+
+            // gs: setting focus is broken here, as of 7/30/2026.
+            if (submenuItems.length > 0) {
+              submenuItems[0].focus()
+            }
+          } else if (currentElement.current.getAttribute("role") == "menuitem") {
+            direction = 1
+            moveWithinSubmenu(currentElement.current, direction)
+          }
+          flag = true
+          break
+        case "ArrowUp":
+        case "Up":
+          if (currentElement.current.type === "button" || currentElement.current.getAttribute("role") == "menuitem") {
+            direction = -1
+            moveWithinSubmenu(currentElement.current, direction)
+            flag = true
+          }
+          break
+        default:
+          break
+      }
+
+      if (flag) {
+        e.stopPropagation()
+        e.preventDefault()
       }
     }
   }
@@ -248,7 +350,8 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
         button.addEventListener("focus", showHeader, { signal: eventListenerAbortCtrlr.signal })
       })
     }
-    document.addEventListener("keyup", menuKeyPressHandler, { signal: eventListenerAbortCtrlr.signal })
+
+    focusableElements = Array.from(document.querySelectorAll('[role="menuitem"]'))
     return () => eventListenerAbortCtrlr.abort()
   }, [])
 
@@ -280,8 +383,9 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
             CloseMenu()
           }
         }}
+        onKeyDown={menuKeyPressHandler}
       >
-        <ul id="exTest" className={appState.menuListClassByIconState}>
+        <ul id="exTest" role="menubar" className={appState.menuListClassByIconState}>
           {menuitems
             .filter((curritem, idx, arr) => {
               if (idx > 0) {
@@ -297,7 +401,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
                       type="button"
                       tabIndex="0"
                       onClick={e => {
-                        ToggleMenuExpansion(e, menuTopic.topicid)
+                        ToggleMenuExpansion(e, String(menuTopic.topicid))
                       }}
                       onFocus={e => {
                         handleFocus()
@@ -307,9 +411,10 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
                       aria-controls={idprefix + menuTopic.topic + idpostfix}
                       aria-label={menuTopic.pages}
                       aria-haspopup="true"
+                      role="menuitem"
                     >
                       <span className="nav__button--icon-spacer">{menuTopic.topic}</span>
-                      <svg aria-hidden="true" id={"svg-" + menuTopic.topic} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.menuDropdownActiveTopic === menuTopic.topicid ? "nav__button--icon-rotate-180" : ""}>
+                      <svg id={"svg-" + menuTopic.topic} viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" className={appState.menuDropdownActiveTopic === menuTopic.topicid ? "nav__button--icon-rotate-180" : ""}>
                         <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835" className={appState.backgroundStyle == "dark" ? "nav__button--icon-stroke--dark" : "nav__button--icon-stroke"} />
                       </svg>
                     </button>

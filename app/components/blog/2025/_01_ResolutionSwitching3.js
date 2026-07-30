@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import InitializePage from "../../InitializePage"
 import { Link } from "react-router-dom"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
@@ -17,17 +18,7 @@ function BlogJan2025_ResSwitching3() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "2025" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "2025", menuActiveCategory: "1", homePageClass: "page", scrollTop: true })
 
   //could add a new component:
   //function ScrollToAnchor() {
@@ -105,14 +96,16 @@ function BlogJan2025_ResSwitching3() {
               </li>
             </ul>
           </div>
-          <div className="row__colspan-6" id="portraitSizes">
-            <h3 className="headline__h3">Sizes for Portrait Orientation</h3>
+          <div className="row__colspan-6">
+            <h3 className="headline__h3" id="portraitSizes" tabIndex={-1}>
+              Sizes for Portrait Orientation
+            </h3>
             <p className="dropCap">
               While images in landscape orientation displayed full screen should have <code>sizes</code> set to 100vw, images that have a portrait orientation must use a max-height media query in the <code>sizes</code> attribute. The max-height media query allows you to tell the browser to use an image of a specific width when the viewport is up to a certain height.
             </p>
           </div>
 
-          <div className="row__colspan-1" id="portraitSizes"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
             <p>
               The <code>sizes</code> for 3:4 (portrait) based on the above table is:
@@ -145,11 +138,11 @@ function BlogJan2025_ResSwitching3() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="dprAndSizes">
-            {" "}
-          </div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">DPR and Sizes</h2>
+            <h2 className="headline__h2" id="dprAndSizes" tabIndex={-1}>
+              DPR and Sizes
+            </h2>
             <h3 className="headline__h3 headline__h3--xtra-pad">
               Be careful when specifying <code>sizes</code>
             </h3>
@@ -226,15 +219,17 @@ function BlogJan2025_ResSwitching3() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="compressingImgs"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">Compressing Images</h2>
+            <h2 className="headline__h2" id="compressingImgs" tabIndex={-1}>
+              Compressing Images
+            </h2>
             <p className="dropCap">
               When saving images and perhaps converting them to a newer format such as WEBP, compression must be adjusted to get the size within the range indicated in the table above (see{" "}
               <HashLink smooth to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints#tblImageSizes">
                 Table of Image Sizes
               </HashLink>
-              . Two factors affect how much compression is needed:
+              ). Two factors affect how much compression is needed:
             </p>
             <ol>
               <li className="list">Smaller images compress more easily than larger images</li>
@@ -244,18 +239,22 @@ function BlogJan2025_ResSwitching3() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="automation"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h2 className="headline__h2">Automation</h2>
+            <h2 className="headline__h2" id="automation" tabIndex={-1}>
+              Automation
+            </h2>
             <h3 className="headline__h3 headline__h3--xtra-pad">Automating Image Generation</h3>
             <p className="dropCap">Creating so many images to provide optimized resolution switching is not really feasible unless you can automate the task. Some image editing applications such as Corel PaintShop and Adobe Photoshop have a recording capability, where you record while performing these operations on an image, creating a resized copy for each image size you need, then save the recording as a script that can be played back. The recording must be edited to make it generic.</p>
             <p>PaintShop's scripts are recorded (or written) in the Python language. Unfortunately, Corel's PaintShop does not let you choose a compression factor while saving in WEBP format, but Adobe's PhotoShop does.</p>
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="refs"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h3 className="headline__h3">References</h3>
+            <h3 className="headline__h3" id="refs" tabIndex={-1}>
+              References
+            </h3>
             <p>I used a lot of online resources when researching for this post and I would like to thank:</p>
             <p>
               Chris Coyier:{" "}

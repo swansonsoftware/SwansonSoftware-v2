@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react"
+import InitializePage from "../../InitializePage"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
@@ -16,17 +17,7 @@ function BlogJan2025_ResSwitching2() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "2025" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-    appDispatch({ type: "scrollTop", scrollTop: true })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "2025", menuActiveCategory: "1", homePageClass: "page", scrollTop: true })
 
   //could add a new component:
   //function ScrollToAnchor() {
@@ -100,8 +91,10 @@ function BlogJan2025_ResSwitching2() {
               </li>
             </ul>
           </div>
-          <div className="row__colspan-6" id="findingBrkpts">
-            <h3 className="headline__h3">Finding Breakpoints Through Analysis of Device Screen Sizes</h3>
+          <div className="row__colspan-6">
+            <h3 className="headline__h3" id="findingBrkpts" tabIndex={-1}>
+              Finding Breakpoints Through Analysis of Device Screen Sizes
+            </h3>
             <p className="dropCap">Any discussion about choosing breakpoints for resolution switching is difficult because assumptions need to be made that impact the choice of breakpoints. There may be no single correct way to choose breakpoints that covers all situations. </p>
           </div>
 
@@ -423,8 +416,10 @@ function BlogJan2025_ResSwitching2() {
           <div className="row__colspan-1"></div>
 
           <div className="row__colspan-1"></div>
-          <div className="row__colspan-10" id="screenSizeGroups">
-            <h3 className="headline__h3">Screen Size Groups</h3>
+          <div className="row__colspan-10">
+            <h3 className="headline__h3" id="screenSizeGroups" tabIndex={-1}>
+              Screen Size Groups
+            </h3>
             <p className="dropCap">From the above table we can create groups by removing duplicates and combining nearby sizes. We will consider all unique portrait and landscape orientation widths because we can expect images of both orientations, and because users can rotate the device and view an image in either orientation.</p>
             <p>Here is the grouping I came up with and it is arbitrary; you could make the grouping more granular, less granular, or specify different values for groups:</p>
 
@@ -927,9 +922,11 @@ function BlogJan2025_ResSwitching2() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="listBrkpts"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h3 className="headline__h3">The List of Breakpoints</h3>
+            <h3 className="headline__h3" id="listBrkpts" tabIndex={-1}>
+              The List of Breakpoints
+            </h3>
             <p className="dropCap">From the above table we have 23 groups, or breakpoints. This list is long, but for many image situations only part of the list is needed:</p>
             <table className="table table--no-border table--cell-border-dark">
               <thead className="table--light-blue">
@@ -1012,9 +1009,11 @@ function BlogJan2025_ResSwitching2() {
           </div>
           <div className="row__colspan-1"></div>
 
-          <div className="row__colspan-1" id="tblImageSizes"></div>
+          <div className="row__colspan-1"></div>
           <div className="row__colspan-10">
-            <h3 className="headline__h3">Table of Image Sizes</h3>
+            <h3 className="headline__h3" id="tblImageSizes" tabIndex={-1}>
+              Table of Image Sizes
+            </h3>
             <p className="dropCap">For this example and for the album on this website, the photos we have include three common photo aspect ratios: 16:9, 4:3, and 3:2. Breakpoints are based on image width and are the same for each aspect ratio. The table includes a Size Compressed column; the size indicated is what to try for when compressing the image. The compressed sizes are arbitrary, but they are reasonable, and I used them for the album on this website. </p>
             <p>Again, you would likely not use all these sizes most of the time. For images that will display full screen, just the sizes from 1180 width and up would do because most devices today have a DPR of 2 or higher, so the browser will never download the smaller sizes.</p>
             <p className="note dropCapNote">

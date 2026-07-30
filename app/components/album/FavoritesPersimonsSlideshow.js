@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../InitializePage"
 import Page from "../Page"
 import DispatchContext from "../../DispatchContext"
 import StateContext from "../../StateContext"
@@ -12,10 +13,7 @@ function FavoritesPersimonsSlideshow() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "selectMenu", selectedMenu: "Favorites" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "2" })
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "dark", selectMenu: "Favorites", menuActiveCategory: "2", homePageClass: "page", scrollTop: false })
 
   const photos = [
     { id: 1, lazy: false, src: "../../assets/images/2010s/2010-11-14_0531-608.webp", width: "608", height: "456", captionHeading: "Company Kitchen", caption: "Bringing persimons to share at work", alt: "Basket with persimons", sizes: "100vw", srcset: "../../assets/images/2010s/2010-11-14_0531-320.webp 320w, ../../assets/images/2010s/2010-11-14_0531-360.webp 360w, ../../assets/images/2010s/2010-11-14_0531-393.webp 393w, ../../assets/images/2010s/2010-11-14_0531-432.webp 432w, ../../assets/images/2010s/2010-11-14_0531-608.webp 608w, ../../assets/images/2010s/2010-11-14_0531-672.webp 672w, ../../assets/images/2010s/2010-11-14_0531-768.webp 768w, ../../assets/images/2010s/2010-11-14_0531-896.webp 896w, ../../assets/images/2010s/2010-11-14_0531-960.webp 960w, ../../assets/images/2010s/2010-11-14_0531-1180.webp 1180w, ../../assets/images/2010s/2010-11-14_0531-1290.webp 1290w, ../../assets/images/2010s/2010-11-14_0531-1368.webp 1368w, ../../assets/images/2010s/2010-11-14_0531-1442.webp 1442w, ../../assets/images/2010s/2010-11-14_0531-1600.webp 1600w, ../../assets/images/2010s/2010-11-14_0531-1852.webp 1852w, ../../assets/images/2010s/2010-11-14_0531-1920.webp 1920w, ../../assets/images/2010s/2010-11-14_0531-2120.webp 2120w, ../../assets/images/2010s/2010-11-14_0531-2379.webp 2379w, ../../assets/images/2010s/2010-11-14_0531-2560.webp 2560w, ../../assets/images/2010s/2010-11-14_0531-2796.webp 2796w, ../../assets/images/2010s/2010-11-14_0531-2960.webp 2960w, ../../assets/images/2010s/2010-11-14_0531-3240.webp 3240w, ../../assets/images/2010s/2010-11-14_0531-3840.webp 3840w" },

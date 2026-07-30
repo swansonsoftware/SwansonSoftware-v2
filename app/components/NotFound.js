@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "./InitializePage"
 import { Link } from "react-router-dom"
 import DispatchContext from "../DispatchContext"
 import StateContext from "../StateContext"
@@ -10,10 +11,7 @@ function NotFound() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "homePageClass", homePageClass: "page" })
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "", menuActiveCategory: "-1", homePageClass: "page", scrollTop: true })
 
   return (
     <Page title="404 - Page Not Found">

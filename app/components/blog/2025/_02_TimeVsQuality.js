@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import InitializePage from "../../InitializePage"
 import Page from "../../Page"
 import DispatchContext from "../../../DispatchContext"
 import StateContext from "../../../StateContext"
@@ -12,15 +13,7 @@ function BlogJan2025_TimeVsQuality() {
 
   appState.backgroundStyle == "light" ? (document.body.classList.remove("dark"), document.body.classList.add("light")) : (document.body.classList.remove("light"), document.body.classList.add("dark"))
 
-  useEffect(() => {
-    appDispatch({ type: "backgroundStyleChange", color: "light" })
-    appDispatch({ type: "selectMenu", selectedMenu: "2025" })
-    appDispatch({ type: "menuActiveCategory", menuActiveCategory: "1" })
-    const app = document.getElementById("app")
-    if (app) {
-      app.focus()
-    }
-  }, [])
+  InitializePage({ backgroundStyleChangeColor: "light", selectMenu: "2025", menuActiveCategory: "1", homePageClass: "page", scrollTop: true })
 
   const breadcrumbs = [
     { id: 0, toText: "Home", toUrl: "/" },
