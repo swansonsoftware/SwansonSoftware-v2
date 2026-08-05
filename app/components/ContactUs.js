@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react"
-import InitializePage from "./InitializePage"
+import InitializePage from "./InitializePage.js"
 import { Link, useNavigate } from "react-router-dom"
-import Page from "./Page"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
-import Breadcrumb from "./Breadcrumb"
-import GTag from "./GTag"
+import Page from "./Page.js"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
+import Breadcrumb from "./Breadcrumb.js"
+import GTag from "./GTag.js"
 
 function ContactUs() {
   const appDispatch = useContext(DispatchContext)

@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import DispatchContext from "../../DispatchContext"
+import DispatchContext from "../../DispatchContext.js"
 
 function PhotoBlock(props) {
   const appDispatch = useContext(DispatchContext)

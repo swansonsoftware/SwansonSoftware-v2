@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react"
-import DispatchContext from "../../DispatchContext"
-import PhotoBlock from "./PhotoBlock"
-import PhotoSlideshowBlock from "./PhotoSlideshowBlock"
-import VideoBlock from "./VideoBlock"
-import PhotoOverlayEvents from "./PhotoOverlayEvents"
-import PhotoLightboxOverlay from "./PhotoLightboxOverlay"
-import OverlayOpener from "../../assets/scripts/modules/OverlayOpener"
+import DispatchContext from "../../DispatchContext.js"
+import PhotoBlock from "./PhotoBlock.js"
+import PhotoSlideshowBlock from "./PhotoSlideshowBlock.js"
+import VideoBlock from "./VideoBlock.js"
+import PhotoOverlayEvents from "./PhotoOverlayEvents.js"
+import PhotoLightboxOverlay from "./PhotoLightboxOverlay.js"
+import OverlayOpener from "../../assets/scripts/modules/OverlayOpener.js"
 
 function PhotoAlbum(props) {
   const appDispatch = useContext(DispatchContext)

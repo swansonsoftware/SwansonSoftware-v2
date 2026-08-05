@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import DispatchContext from "../../DispatchContext"
-import StateContext from "../../StateContext"
+import DispatchContext from "../../DispatchContext.js"
+import StateContext from "../../StateContext.js"
 
 function PhotoLightboxOverlay() {
   const appDispatch = useContext(DispatchContext)

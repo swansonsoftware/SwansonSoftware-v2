@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react"
-import DispatchContext from "../DispatchContext"
-import ImageOverlayOpener from "../assets/scripts/modules/ImageOverlayOpener"
-import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation"
+import DispatchContext from "../DispatchContext.js"
+import ImageOverlayOpener from "../assets/scripts/modules/ImageOverlayOpener.js"
+import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation.js"
 
 function ImageBlock(props) {
   const appDispatch = useContext(DispatchContext)

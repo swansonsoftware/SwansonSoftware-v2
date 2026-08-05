@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react"
-import InitializePage from "../InitializePage"
-import Page from "../Page"
-import DispatchContext from "../../DispatchContext"
-import StateContext from "../../StateContext"
-import SlideShow from "./SlideShow"
-import Breadcrumb from "../BreadcrumbSlideshow"
-import GTag from "../GTag"
+import InitializePage from "../InitializePage.js"
+import Page from "../Page.js"
+import DispatchContext from "../../DispatchContext.js"
+import StateContext from "../../StateContext.js"
+import SlideShow from "./SlideShow.js"
+import Breadcrumb from "../BreadcrumbSlideshow.js"
+import GTag from "../GTag.js"
 
 function FavoritesPersimonsSlideshow() {
   const appDispatch = useContext(DispatchContext)

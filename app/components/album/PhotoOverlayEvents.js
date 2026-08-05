@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import OverlayTabNavigation from "../../assets/scripts/modules/OverlayTabNavigation"
+import OverlayTabNavigation from "../../assets/scripts/modules/OverlayTabNavigation.js"
 
 function PhotoOverlayEvents(props) {
   function CloseOverlayOnEsc(e) {

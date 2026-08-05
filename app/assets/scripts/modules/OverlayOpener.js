@@ -1,4 +1,4 @@
-import OverlayTabNavigation from "./OverlayTabNavigation"
+import OverlayTabNavigation from "./OverlayTabNavigation.js"
 
 class OverlayOpener {
   constructor(e, image, path) {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import DispatchContext from "../DispatchContext"
+import DispatchContext from "../DispatchContext.js"
 
 export default function InitializePage({ backgroundStyleChangeColor, selectMenu, menuActiveCategory, homePageClass, scrollTop }) {
   const appDispatch = useContext(DispatchContext)

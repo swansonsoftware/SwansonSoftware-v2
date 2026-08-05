@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
-import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
+import OverlayTabNavigation from "../assets/scripts/modules/OverlayTabNavigation.js"
 
 function ImageLightboxOverlay() {
   const appDispatch = useContext(DispatchContext)

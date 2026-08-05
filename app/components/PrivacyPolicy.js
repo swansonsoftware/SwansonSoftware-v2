@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react"
-import InitializePage from "./InitializePage"
+import InitializePage from "./InitializePage.js"
 import { Link } from "react-router-dom"
 import { HashLink } from "react-router-hash-link"
-import Page from "./Page"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
-import Breadcrumb from "./Breadcrumb"
-import GTag from "./GTag"
+import Page from "./Page.js"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
+import Breadcrumb from "./Breadcrumb.js"
+import GTag from "./GTag.js"
 
 function PrivacyPolicy() {
   const appDispatch = useContext(DispatchContext)

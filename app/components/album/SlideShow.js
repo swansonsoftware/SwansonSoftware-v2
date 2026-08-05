@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react"
-import DispatchContext from "../../DispatchContext"
-import SlideShowBlock from "./SlideShowBlock"
-import SlideCaptionBox from "./SlideCaptionBox"
-import SlideShowVcrButtons from "./SlideShowVcrButtons"
+import DispatchContext from "../../DispatchContext.js"
+import SlideShowBlock from "./SlideShowBlock.js"
+import SlideCaptionBox from "./SlideCaptionBox.js"
+import SlideShowVcrButtons from "./SlideShowVcrButtons.js"
 
 function SlideShow(props) {
   const appDispatch = useContext(DispatchContext)

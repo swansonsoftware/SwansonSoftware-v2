@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react"
-import InitializePage from "../InitializePage"
-import DispatchContext from "../../DispatchContext"
+import InitializePage from "../InitializePage.js"
+import DispatchContext from "../../DispatchContext.js"
 import { Link } from "react-router-dom"
-import Page from "../Page"
-import StateContext from "../../StateContext"
-import Breadcrumb from "../Breadcrumb"
-import GTag from "../GTag"
-import ImageBlock from "../ImageBlock"
-import ImageLightboxOverlay from "../ImageLighboxOverlay"
+import Page from "../Page.js"
+import StateContext from "../../StateContext.js"
+import Breadcrumb from "../Breadcrumb.js"
+import GTag from "../GTag.js"
+import ImageBlock from "../ImageBlock.js"
+import ImageLightboxOverlay from "../ImageLighboxOverlay.js"
 
 function PieDough() {
   const appDispatch = useContext(DispatchContext)

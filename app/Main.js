@@ -2,59 +2,59 @@ import React, { useReducer, Suspense, useContext, useEffect } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import ReactDOM from "react-dom/client"
 import "./assets/styles/styles.css"
-import StateContext from "./StateContext"
-import DispatchContext from "./DispatchContext"
+import StateContext from "./StateContext.js"
+import DispatchContext from "./DispatchContext.js"
 
 // Components
-import NotFound from "./components/NotFound"
-const LoadingDotsIcon = React.lazy(() => import("./components/DotsLoading"))
-import Home from "./components/Home"
-import SkipToContent from "./components/SkipToContent"
-import ScrollToTop from "./components/ScrollToTop"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-const Thankyou = React.lazy(() => import("./components/Thankyou"))
-const _1900s = React.lazy(() => import("./components/album/_1900s"))
-const _1999KauaiSlideshow = React.lazy(() => import("./components/album/_1999KauaiSlideshow"))
-const _2000s = React.lazy(() => import("./components/album/_2000s"))
-const _2010s = React.lazy(() => import("./components/album/_2010s"))
-const _2010sSlideshow = React.lazy(() => import("./components/album/_2010sSlideshow"))
-const _2010sSlideshowGardens = React.lazy(() => import("./components/album/_2010sSlideshowGardens"))
-const _2010sSlideshowWashington = React.lazy(() => import("./components/album/_2012SlideshowWashington"))
-const _2013SlideshowNormas = React.lazy(() => import("./components/album/_2013SlideshowNormas"))
-const _2020s = React.lazy(() => import("./components/album/_2020s"))
-const _2020sSlideshow = React.lazy(() => import("./components/album/_2020sSlideshow"))
-const About = React.lazy(() => import("./components/About"))
-const Album = React.lazy(() => import("./components/album/Album"))
-const Blog = React.lazy(() => import("./components/blog/Blog"))
-const Blogs2025 = React.lazy(() => import("./components/blog/_2025"))
-const Blogs2026 = React.lazy(() => import("./components/blog/_2026"))
-const ContactUs = React.lazy(() => import("./components/ContactUs"))
-const Design = React.lazy(() => import("./components/principles/Design"))
-const Favorites = React.lazy(() => import("./components/album/Favorites"))
-const FavoritesCats = React.lazy(() => import("./components/album/FavoritesCats"))
-const FavoritesGardens = React.lazy(() => import("./components/album/FavoritesGardens"))
-const FavoritesKauai = React.lazy(() => import("./components/album/FavoritesKauai"))
-const FavoritesKauaiSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiSlideshow"))
-const FavoritesKauaiBeachVillasSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiBeachVillasSlideshow"))
-const FavoritesKauaiStreamSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiStreamSlideshow"))
-const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersimons"))
-const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow"))
-const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels"))
-const Principles = React.lazy(() => import("./components/principles/Principles"))
-const PrivacyPolicy = React.lazy(() => import("./components/PrivacyPolicy"))
-const ProcessModels = React.lazy(() => import("./components/principles/ProcessModels"))
-const Recipes = React.lazy(() => import("./components/album/Recipes"))
-const RecipeClamChowder = React.lazy(() => import("./components/album/RecipeClamChowder"))
-const RecipePieDough = React.lazy(() => import("./components/album/RecipePieDough"))
-const RecipeVegetableStock = React.lazy(() => import("./components/album/RecipeVegetableStock"))
-const Requirements = React.lazy(() => import("./components/principles/Requirements"))
-const Reviews = React.lazy(() => import("./components/principles/Reviews"))
-const BlogResolutionSwitchingImages = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching"))
-const BlogResolutionSwitchingImages2 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching2"))
-const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching3"))
-const BlogWebsiteDesignStandard1 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard1"))
-const BlogWebsiteDesignStandard2 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard2"))
+import NotFound from "./components/NotFound.js"
+const LoadingDotsIcon = React.lazy(() => import("./components/DotsLoading.js"))
+import Home from "./components/Home.js"
+import SkipToContent from "./components/SkipToContent.js"
+import ScrollToTop from "./components/ScrollToTop.js"
+import Header from "./components/Header.js"
+import Footer from "./components/Footer.js"
+const Thankyou = React.lazy(() => import("./components/Thankyou.js"))
+const _1900s = React.lazy(() => import("./components/album/_1900s.js"))
+const _1999KauaiSlideshow = React.lazy(() => import("./components/album/_1999KauaiSlideshow.js"))
+const _2000s = React.lazy(() => import("./components/album/_2000s.js"))
+const _2010s = React.lazy(() => import("./components/album/_2010s.js"))
+const _2010sSlideshow = React.lazy(() => import("./components/album/_2010sSlideshow.js"))
+const _2010sSlideshowGardens = React.lazy(() => import("./components/album/_2010sSlideshowGardens.js"))
+const _2010sSlideshowWashington = React.lazy(() => import("./components/album/_2012SlideshowWashington.js"))
+const _2013SlideshowNormas = React.lazy(() => import("./components/album/_2013SlideshowNormas.js"))
+const _2020s = React.lazy(() => import("./components/album/_2020s.js"))
+const _2020sSlideshow = React.lazy(() => import("./components/album/_2020sSlideshow.js"))
+const About = React.lazy(() => import("./components/About.js"))
+const Album = React.lazy(() => import("./components/album/Album.js"))
+const Blog = React.lazy(() => import("./components/blog/Blog.js"))
+const Blogs2025 = React.lazy(() => import("./components/blog/_2025.js"))
+const Blogs2026 = React.lazy(() => import("./components/blog/_2026.js"))
+const ContactUs = React.lazy(() => import("./components/ContactUs.js"))
+const Design = React.lazy(() => import("./components/principles/Design.js"))
+const Favorites = React.lazy(() => import("./components/album/Favorites.js"))
+const FavoritesCats = React.lazy(() => import("./components/album/FavoritesCats.js"))
+const FavoritesGardens = React.lazy(() => import("./components/album/FavoritesGardens.js"))
+const FavoritesKauai = React.lazy(() => import("./components/album/FavoritesKauai.js"))
+const FavoritesKauaiSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiSlideshow.js"))
+const FavoritesKauaiBeachVillasSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiBeachVillasSlideshow.js"))
+const FavoritesKauaiStreamSlideshow = React.lazy(() => import("./components/album/FavoritesKauaiStreamSlideshow.js"))
+const FavoritesPersimons = React.lazy(() => import("./components/album/FavoritesPersimons.js"))
+const FavoritesPersimonsSlideshow = React.lazy(() => import("./components/album/FavoritesPersimonsSlideshow.js"))
+const LifecycleModels = React.lazy(() => import("./components/principles/LifeCycleModels.js"))
+const Principles = React.lazy(() => import("./components/principles/Principles.js"))
+const PrivacyPolicy = React.lazy(() => import("./components/PrivacyPolicy.js"))
+const ProcessModels = React.lazy(() => import("./components/principles/ProcessModels.js"))
+const Recipes = React.lazy(() => import("./components/album/Recipes.js"))
+const RecipeClamChowder = React.lazy(() => import("./components/album/RecipeClamChowder.js"))
+const RecipePieDough = React.lazy(() => import("./components/album/RecipePieDough.js"))
+const RecipeVegetableStock = React.lazy(() => import("./components/album/RecipeVegetableStock.js"))
+const Requirements = React.lazy(() => import("./components/principles/Requirements.js"))
+const Reviews = React.lazy(() => import("./components/principles/Reviews.js"))
+const BlogResolutionSwitchingImages = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching.js"))
+const BlogResolutionSwitchingImages2 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching2.js"))
+const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching3.js"))
+const BlogWebsiteDesignStandard1 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard1.js"))
+const BlogWebsiteDesignStandard2 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard2.js"))
 
 function Main() {
   const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true, headerVisClass: "site-header site-header--expand" }
@@ -398,7 +398,3 @@ function Main() {
 
 const root = ReactDOM.createRoot(document.querySelector("#app"))
 root.render(<Main />)
-
-if (module.hot) {
-  module.hot.accept()
-}

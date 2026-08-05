@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
-import StateContext from "../StateContext"
+import StateContext from "../StateContext.js"
 
 function ScrollToTop() {
   const appState = useContext(StateContext)

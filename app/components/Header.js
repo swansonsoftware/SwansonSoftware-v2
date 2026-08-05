@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
-import SkipToContent from "./SkipToContent"
-import Logo from "./Logo"
-import HeaderMenuIcon from "./HeaderMenuIcon"
-import TopnavMenu from "./TopnavMenu"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
+import SkipToContent from "./SkipToContent.js"
+import Logo from "./Logo.js"
+import HeaderMenuIcon from "./HeaderMenuIcon.js"
+import TopnavMenu from "./TopnavMenu.js"
 
 function Header() {
   const appDispatch = useContext(DispatchContext)

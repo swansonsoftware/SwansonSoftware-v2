@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react"
-import InitializePage from "../InitializePage"
-import Page from "../Page"
-import DispatchContext from "../../DispatchContext"
-import StateContext from "../../StateContext"
-import PhotoAlbum from "./PhotoAlbum"
-import Breadcrumb from "../Breadcrumb"
-import GTag from "../GTag"
+import InitializePage from "../InitializePage.js"
+import Page from "../Page.js"
+import DispatchContext from "../../DispatchContext.js"
+import StateContext from "../../StateContext.js"
+import PhotoAlbum from "./PhotoAlbum.js"
+import Breadcrumb from "../Breadcrumb.js"
+import GTag from "../GTag.js"
 
 function FavoritesGardens() {
   const appDispatch = useContext(DispatchContext)

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState, useRef } from "react"
 import ReactDOM from "react-dom"
 import { Link } from "react-router-dom"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
 
 function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updateSiteHeaderClass } }) {
   const appDispatch = useContext(DispatchContext)

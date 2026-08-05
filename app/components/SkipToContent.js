@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react"
-import DispatchContext from "../DispatchContext"
+import DispatchContext from "../DispatchContext.js"
 import { HashLink } from "react-router-hash-link"
-import StateContext from "../StateContext"
+import StateContext from "../StateContext.js"
 
 function SkipToContent() {
   const appDispatch = useContext(DispatchContext)

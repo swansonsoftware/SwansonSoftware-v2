@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react"
-import InitializePage from "./InitializePage"
+import InitializePage from "./InitializePage.js"
 import { Link } from "react-router-dom"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
-import Page from "./Page"
-import GTag from "./GTag"
-import GStructuredData from "./GStructuredData"
-import CanonicalLink from "./CanonicalLink"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
+import Page from "./Page.js"
+import GTag from "./GTag.js"
+import GStructuredData from "./GStructuredData.js"
+import CanonicalLink from "./CanonicalLink.js"
 
 function Home() {
   const appDispatch = useContext(DispatchContext)

@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from "react"
-import InitializePage from "../InitializePage"
-import DispatchContext from "../../DispatchContext"
-import Page from "../Page"
-import StateContext from "../../StateContext"
-import Breadcrumb from "../Breadcrumb"
-import GTag from "../GTag"
-import ImageBlock from "../ImageBlock"
-import ImageLightboxOverlay from "../ImageLighboxOverlay"
-import GStructuredData from "../GStructuredData"
+import InitializePage from "../InitializePage.js"
+import DispatchContext from "../../DispatchContext.js"
+import Page from "../Page.js"
+import StateContext from "../../StateContext.js"
+import Breadcrumb from "../Breadcrumb.js"
+import GTag from "../GTag.js"
+import ImageBlock from "../ImageBlock.js"
+import ImageLightboxOverlay from "../ImageLighboxOverlay.js"
+import GStructuredData from "../GStructuredData.js"
 
 function VegetableStock() {
   const appDispatch = useContext(DispatchContext)

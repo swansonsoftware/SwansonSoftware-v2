@@ -1,8 +1,8 @@
 import React, { useRef } from "react"
-import PhotoBlock from "./PhotoBlock"
-import PhotoOverlayEvents from "./PhotoOverlayEvents"
-import PhotoLightboxOverlay from "./PhotoLightboxOverlay"
-import OverlayOpener from "../../assets/scripts/modules/OverlayOpener"
+import PhotoBlock from "./PhotoBlock.js"
+import PhotoOverlayEvents from "./PhotoOverlayEvents.js"
+import PhotoLightboxOverlay from "./PhotoLightboxOverlay.js"
+import OverlayOpener from "../../assets/scripts/modules/OverlayOpener.js"
 
 // NOT USED
 

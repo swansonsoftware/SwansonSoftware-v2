@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import StateContext from "../StateContext"
-import LiteYTEmbed from "../assets/scripts/modules/lite-yt-embed"
+import StateContext from "../StateContext.js"
+import LiteYTEmbed from "../assets/scripts/modules/lite-yt-embed.js"
 
 function LiteYouTube(props) {
   const appState = useContext(StateContext)

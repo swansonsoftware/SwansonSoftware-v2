@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
-import DispatchContext from "../DispatchContext"
-import StateContext from "../StateContext"
+import DispatchContext from "../DispatchContext.js"
+import StateContext from "../StateContext.js"
 
 function Logo({ CloseMenu = { CloseMenu } }) {
   const appDispatch = useContext(DispatchContext)
