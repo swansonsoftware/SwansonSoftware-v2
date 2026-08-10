@@ -26,7 +26,7 @@ function ImageBlock(props) {
   }
 
   return (
-    <div>
+    <span>
       <button
         id={"imageBlock" + props.image.id}
         type="button"
@@ -44,7 +44,7 @@ function ImageBlock(props) {
         <img style={imgborder} loading={image.lazy ? "lazy" : "eager"} width={image.width} height={image.height} src={image.src} srcSet={image.srcset ? image.srcset : undefined} alt={image.alt} data-srcset={image.dataSrcset} sizes={image.sizes ? image.sizes : undefined}></img>
       </button>
       {image.caption ? <span className="row__imageCaptionSpan">{image.caption}</span> : ""}
-    </div>
+    </span>
   )
 }
 

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Aria Test</title>
+    <style>
+        p {
+            font-size: 1.4rem;
+        }
+
+        .header {
+            border: #005a9c solid 2px;
+            background: #eee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .topnav {
+            margin: 0;
+            padding: 25px 10px 0px 10px;
+        }
+
+        .menubar-navigation {
+            margin: 0;
+            padding: 2px;
+            font-size: 110%;
+            list-style: none;
+            background-color: #eee;
+            border: #eee solid 1px;
+        }
+
+        .menubar-navigation li {
+            margin: 0;
+            padding: 0;
+            border: 0 solid black;
+            list-style: none;
+        }
+
+        .menubar-navigation>li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social {
+            margin: 10px;
+        }
+
+        .album-photos {
+            display: grid;
+            row-gap: 15px;
+            column-gap: 60px;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        @media (min-width: 820px) {
+            .album-photos {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 18px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .album-photos {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header" id="top">
+        <div><a href="#top"><img src="assets/images/logo.svg" width="220" height="53" className="logo"
+                    alt="Swanson Software" title="Logo" /></a></div>
+        <nav class="topnav">
+            <ul class="menubar-navigation" role="menubar">
+                <li role="none"><a href="#prin" role="menuitem">Principles</a></li>
+                <li role="none"><a href="#blog" role="menuitem">Blog</a></li>
+                <li role="none"><a href="#album" role="menuitem">Album</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>ARIA Test</h1>
+        <h2 id="prin">Principles</h2>
+        <p>Principles pages.</p>
+        <h2 id="blog">Blog</h2>
+        <p>Blog pages.</p>
+        <h2 id="album">Album</h2>
+        <div class="album-photos">
+            <img src="assets/images/2020s/2022-07-10-DSC03965-c-thumbnail.webp" width="320" height="180">
+            <img src="assets/images/2020s/2024-07-14-DSC04180-d-thumbnail.webp" width="320" height="180">
+            <img src="assets/images/2020s/2025-07-23-DSC04322b-thumbnail.webp" width="320" height="180">
+        </div>
+    </main>
+    <div class="social-row">
+        <a class="social" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ"
+            target="_blank" title="Go to my YouTube channel">
+            <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img">
+                <path
+                    d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z">
+                </path>
+            </svg>
+        </a>
+        <a class="social" rel="noopener noreferrer" href="https://www.facebook.com/gregory.swanson.315" target="_blank"
+            title="Go to my Facebook page">
+            <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img">
+                <path
+                    d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
+                </path>
+            </svg>
+        </a>
+    </div>
+
+</body>
+
+</html>

@@ -21,6 +21,15 @@
         text-decoration: underline;
       }
     }
+    &-hr {
+      border: none;
+      border-top: 3px double #000;
+      color: #000;
+      overflow: visible;
+      text-align: center;
+      height: 5px;
+      width: 90%;
+    }
   }
   &--toc-numbered {
     list-style: decimal;

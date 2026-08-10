@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Aria Test</title>
+    <style>
+        p {
+            font-size: 1.4rem;
+        }
+
+        .header {
+            border: #005a9c solid 2px;
+            background: #eee;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .topnav {
+            margin: 0;
+            padding: 25px 10px 0px 10px;
+        }
+
+        .menubar-navigation {
+            margin: 0;
+            margin-right: 90px;
+            padding: 2px;
+            font-size: 110%;
+            list-style: none;
+            background-color: #eee;
+            border: #eee solid 1px;
+        }
+
+        .menubar-navigation li {
+            margin: 0;
+            padding: 0;
+            color: #000;
+            border: 0 solid black;
+            list-style: none;
+        }
+
+        .menubar-navigation>li li {
+            display: block;
+        }
+
+        .menubar-navigation>li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .menubar-navigation ul {
+            position: absolute;
+        }
+
+        .hide-menu {
+            display: none;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            padding: 7px 4px;
+            border: 0;
+            background-color: #eee;
+        }
+
+        .show-menu {
+            display: block;
+            width: 8em;
+            margin: 2px;
+            padding: 4px;
+            padding-left: 8px;
+            background-color: #eee;
+            border: 2px solid black;
+            color: black;
+        }
+
+        .nav__button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            background-color: transparent;
+            margin: 0 4px 0 0;
+            outline-offset: 2px;
+            border-radius: 9999px;
+            color: #000;
+            text-decoration-color: #000;
+        }
+
+        .nav__button:focus {
+            outline: 4px solid #000;
+        }
+
+        .nav__button--icon-stroke {
+            stroke: #000;
+            stroke-width: 2.5px;
+            stroke-linecap: round;
+        }
+
+        .nav__button--icon-rotate-180 {
+            transform: translateX(0) translateY(0) rotate(180deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+        }
+
+        .nav__svg {
+            margin-left: 5px;
+            height: 16px;
+            width: 16px;
+            z-index: 1;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav__svg:hover {
+            cursor: pointer;
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social {
+            margin: 10px;
+        }
+
+        .album-photos {
+            display: grid;
+            row-gap: 15px;
+            column-gap: 60px;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        @media (min-width: 820px) {
+            .album-photos {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 18px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .album-photos {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        let expanded = false;
+        function toggleExpand(obj) {
+            svg = null
+            prinSvg = document.getElementById("principlesSvg")
+            blogSvg = document.getElementById("blogSvg")
+            albumSvg = document.getElementById("albumSvg")
+            switch (obj.innerText) {
+                case "Principles":
+                    if (prinSvg.classList.contains("nav__button--icon-rotate-180")) {
+                        prinSvg.classList.remove("nav__button--icon-rotate-180")
+                        document.getElementById("principles").classList.remove("show-menu")
+                        document.getElementById("principles").classList.add("hide-menu")
+                    } else {
+                        prinSvg.classList.add("nav__button--icon-rotate-180")
+                        blogSvg.classList.remove("nav__button--icon-rotate-180")
+                        albumSvg.classList.remove("nav__button--icon-rotate-180")
+                        document.getElementById("principles").classList.remove("hide-menu")
+                        document.getElementById("principles").classList.add("show-menu")
+                        document.getElementById("blog").classList.remove("show-menu")
+                        document.getElementById("blog").classList.add("hide-menu")
+                        document.getElementById("album").classList.remove("show-menu")
+                        document.getElementById("album").classList.add("hide-menu")
+                    }
+                    break
+                case "Blog ":
+                    if (blogSvg.classList.contains("nav__button--icon-rotate-180")) {
+                        blogSvg.classList.remove("nav__button--icon-rotate-180")
+                        document.getElementById("blog").classList.remove("show-menu")
+                        document.getElementById("blog").classList.add("hide-menu")
+                    } else {
+                        prinSvg.classList.remove("nav__button--icon-rotate-180")
+                        blogSvg.classList.add("nav__button--icon-rotate-180")
+                        albumSvg.classList.remove("nav__button--icon-rotate-180")
+                        document.getElementById("principles").classList.remove("show-menu")
+                        document.getElementById("principles").classList.add("hide-menu")
+                        document.getElementById("blog").classList.remove("hide-menu")
+                        document.getElementById("blog").classList.add("show-menu")
+                        document.getElementById("album").classList.remove("show-menu")
+                        document.getElementById("album").classList.add("hide-menu")
+                    }
+                    break
+                case "Album ":
+                    if (albumSvg.classList.contains("nav__button--icon-rotate-180")) {
+                        albumSvg.classList.remove("nav__button--icon-rotate-180")
+                        document.getElementById("album").classList.remove("show-menu")
+                        document.getElementById("album").classList.add("hide-menu")
+                    } else {
+                        prinSvg.classList.remove("nav__button--icon-rotate-180")
+                        blogSvg.classList.remove("nav__button--icon-rotate-180")
+                        albumSvg.classList.add("nav__button--icon-rotate-180")
+                        document.getElementById("principles").classList.remove("show-menu")
+                        document.getElementById("principles").classList.add("hide-menu")
+                        document.getElementById("blog").classList.remove("show-menu")
+                        document.getElementById("blog").classList.add("hide-menu")
+                        document.getElementById("album").classList.remove("hide-menu")
+                        document.getElementById("album").classList.add("show-menu")
+                    }
+                    break
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="header" id="top">
+        <div><a href="#top"><img src="assets/images/logo.svg" width="220" height="53" className="logo" /></a></div>
+        <div class="topnav">
+            <ul class="menubar-navigation">
+                <li><a onclick="toggleExpand(this)" class="nav__button">Principles
+                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="nav__svg" id="principlesSvg">
+                            <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835"
+                                class="nav__button--icon-stroke" />
+                        </svg>
+                    </a>
+                    <ul class="hide-menu" id="principles">
+                        <li><a tabindex="0" role="menuitem" href="#top">Software Design</a></li>
+                        <li><a tabindex="0" role="menuitem" href="#top">Software Life Cycle</a></li>
+                        <li><a tabindex="0" role="menuitem" href="#top">Software Reviews</a></li>
+                    </ul>
+                </li>
+                <li><a onclick="toggleExpand(this)">Blog
+                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="nav__svg" id="blogSvg">
+                            <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835"
+                                class="nav__button--icon-stroke" />
+                        </svg>
+                    </a>
+                    <ul class="hide-menu" id="blog">
+                        <li><a tabindex="0" class="e" href="#top">2025</a></li>
+                        <li><a tabindex="0" class="" href="#top">2026</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a onclick="toggleExpand(this)">Album
+                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="nav__svg" id="albumSvg">
+                            <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835"
+                                class="nav__button--icon-stroke" />
+                        </svg>
+                    </a>
+                    <ul class="hide-menu" id="album">
+                        <li><a tabindex="0" href="#top">Recipes</a></li>
+                        <li><a tabindex="0" href="#top">Favorites</a></li>
+                        <li><a tabindex="0" href="#top">1900s</a></li>
+                        <li><a tabindex="0" href="#top">2000s</a></li>
+                        <li><a tabindex="0" href="#top">2010s</a></li>
+                        <li><a tabindex="0" href="#top">2020s</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <h1>ARIA Test</h1>
+    <h2>Principles</h2>
+    <p>Principles pages.</p>
+    <h2>Blog</h2>
+    <p>Blog pages.</p>
+    <h2>Album</h2>
+    <div class="album-photos">
+        <img src="assets/images/2020s/2022-07-10-DSC03965-c-thumbnail.webp" width="320" height="180">
+        <img src="assets/images/2020s/2024-07-14-DSC04180-d-thumbnail.webp" width="320" height="180">
+        <img src="assets/images/2020s/2025-07-23-DSC04322b-thumbnail.webp" width="320" height="180">
+    </div>
+    <div class="social-row">
+        <a class="social" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ"
+            target="_blank">
+            <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                    d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z">
+                </path>
+            </svg>
+        </a>
+        <a class="social" rel="noopener noreferrer" href="https://www.facebook.com/gregory.swanson.315" target="_blank">
+            <svg height="36px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                    d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
+                </path>
+            </svg>
+        </a>
+    </div>
+
+</body>
+
+</html>
