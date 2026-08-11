@@ -46,11 +46,8 @@ class OverlayOpener {
     const photoCaptionBox = document.querySelector(".album-photos__photo-caption-box")
 
     if (imgElem) {
-      overlayImageDiv.style = "height:" + window.innerHeight + "px; width:" + window.innerWidth + "px;"
-
       if (photoCaptionBoxText) {
         if (this.image.caption.length == 0) {
-          // swapCaptionBoxBtnIco(TITLEBTNLEFT)
           photoCaptionBox.classList.add("album-photos__photo-caption-box--is-hidden")
           photoCaptionBoxText.innerText = ""
         } else {
@@ -85,7 +82,7 @@ class OverlayOpener {
           descriptor = sizesArray[1].split("x")
           let srcsetFilename = ""
 
-          srcsetFilename = this.path + files.filter(file => file.id == sizesArray[0])[0].filename
+          srcsetFilename = "/" + files.filter(file => file.id == sizesArray[0])[0].filename
 
           if (srcsetString.length) {
             srcsetString += ", " + srcsetFilename + " " + descriptor[0] + "w"
@@ -105,7 +102,7 @@ class OverlayOpener {
           overlayImageDiv.innerHTML = `
         <div class='lightbox__photo-overlay--spinner'></div>
         <div class='lightbox__photo-overlay__selectedImg'>
-        <img  src="${filename}" style="max-height:${window.innerHeight}px"
+        <img  src="${filename}" style="max-height:100vh;"
           alt="${this.image.alt}" srcset="${srcsetString}" sizes="100vw" />
           </div>
         `
@@ -114,7 +111,7 @@ class OverlayOpener {
           overlayImageDiv.innerHTML = `
         <div class='lightbox__photo-overlay--spinner'></div>
         <div class='lightbox__photo-overlay__selectedImg'>
-        <img  src="${filename}" style="max-height:${window.innerHeight}px"
+        <img  src="${filename}" style="max-height:100vh;"
           alt="${this.image.alt}" srcset="${srcsetString}" sizes="${sizes.toString()}" />
           </div>
         `

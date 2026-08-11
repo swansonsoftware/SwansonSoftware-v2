@@ -70,7 +70,7 @@ function ImageLightboxOverlay() {
             <path className="lightbox__photo-overlay__close-svg--path" d="m8.59 17.41 8.92-8.92M17.459 17.459l-8.92-8.92" />
           </svg>
         </button>
-        <div id="lightbox__image-overlay__image" className="lightbox__image-overlay__image"></div>
+        <div id="lightbox__image-overlay__image"></div>
       </div>
     </div>
   )

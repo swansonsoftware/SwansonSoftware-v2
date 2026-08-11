@@ -88,7 +88,7 @@ class ImageOverlayOpener {
 
               maxWidth = descriptor[0]
 
-              srcsetFilename = "../../../" + files.filter(file => file.id == sizesArray[0])[0].filename
+              srcsetFilename = "/" + files.filter(file => file.id == sizesArray[0])[0].filename
 
               if (srcsetString.length) {
                 srcsetString += ", " + srcsetFilename + " " + descriptor[0] + "w"

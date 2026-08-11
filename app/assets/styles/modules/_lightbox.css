@@ -44,8 +44,6 @@
       opacity: 1;
       height: 100vh;
       transform: scale(1);
-      left: 16px;
-      right: 16px;
       overflow-y: auto;
       z-index: $zIndex-5-FifthLevel;
     }
@@ -116,6 +114,8 @@
     transform: scale(0.5);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -127,9 +127,8 @@
       transform $transitionDuration $cb-ease-in-out;
 
     &--visible {
-      right: 30px;
       opacity: 1;
-      left: 0;
+      height: 100vh;
       transform: scale(1);
       z-index: $zIndex-5-FifthLevel;
       @mixin atMin200Wide {
