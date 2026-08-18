@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Accessibility Test</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-areas:
+                "head"
+                "main"
+                "footer";
+            grid-template-rows: 100px 1fr 140px;
+        }
+
+        header {
+            grid-area: head;
+            border: #005a9c solid 2px;
+            background: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 145px;
+        }
+
+        main {
+            grid-area: main;
+            max-width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 18px;
+        }
+
+        footer {
+            grid-area: footer;
+            background: #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrapper--header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+        }
+
+        .wrapper--main {
+            width: 100%;
+            padding-bottom: 10px;
+        }
+
+        .wrapper--footer {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        p {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin-top: 15px;
+        }
+
+        h1 {
+            font-size: 6rem;
+            padding: 20px 0;
+            margin: 0.67em 0 0 0;
+        }
+
+        h2 {
+            font-size: 5rem;
+            line-height: 1.15;
+            padding: 10px 0 5px 3px;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: 90vw;
+        }
+
+        .logo {
+            width: 440px;
+            height: 106px;
+        }
+
+        .social {
+            margin: 10px;
+        }
+
+        .social-icon {
+            height: 100px;
+        }
+
+        .album-photos {
+            display: grid;
+            row-gap: 15px;
+            column-gap: 60px;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        .topnav {
+            position: fixed;
+            background: #eee;
+            left: 3800px;
+            margin: 0;
+            padding: 25px 10px 0px 10px;
+        }
+
+        .topnav-expanded {
+            left: 0;
+            top: 140px;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .topnav-menu-icon-collapsed {
+            position: fixed;
+            left: 3800px;
+        }
+
+        .menubar-navigation {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            margin-right: 90px;
+            padding: 2px;
+            font-size: 110%;
+            list-style: none;
+            background-color: #eee;
+            border: #eee solid 1px;
+        }
+
+        .menubar-navigation li {
+            font-size: 3.5rem;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            border: 0 solid black;
+            list-style: none;
+        }
+
+        .menubar-navigation>li li {
+            display: block;
+        }
+
+        .menubar-navigation>li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .menubar-navigation ul {
+            position: relative;
+        }
+
+        .hide-menu {
+            display: none;
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            padding: 7px 4px;
+            border: 0;
+            background-color: #eee;
+        }
+
+        .show-menu {
+            display: block;
+            width: 8em;
+            margin: 2px;
+            padding: 4px;
+            padding-left: 8px;
+            background-color: #eee;
+            border: 2px solid black;
+            color: black;
+        }
+
+        .nav__button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+            background-color: transparent;
+            margin: 0 4px 0 0;
+            outline-offset: 2px;
+            border-radius: 9999px;
+            color: #000;
+            text-decoration-color: #000;
+        }
+
+        .nav__button:focus {
+            outline: 4px solid #000;
+        }
+
+        .nav__button--icon-stroke {
+            stroke: #000;
+            stroke-width: 2.5px;
+            stroke-linecap: round;
+        }
+
+        .nav__button--icon-rotate-180 {
+            transform: translateX(0) translateY(0) rotate(180deg) skewX(0) skewY(0) scaleX(1) scaleY(1);
+        }
+
+        .nav__svg {
+            margin-left: 5px;
+            height: 16px;
+            width: 16px;
+            z-index: 1;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav__svg:hover {
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            width: 144px;
+            height: 112px;
+            position: absolute;
+            z-index: 1;
+            top: 18px;
+            right: 24px;
+            background-color: #eee;
+            color: #000;
+            border: 1px solid #000;
+            border-radius: 9999px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .menu-icon--collapsed::after {
+            padding: 20px 20px;
+            content: "";
+            mask-image: url("/assets/images/menu-mobile-hamburger.svg"), linear-gradient(transparent, transparent);
+            mask-position: center;
+            mask-repeat: no-repeat;
+            /*mask-size: 5ex 5ex;*/
+            mask-size: 25ex 10ex;
+            background: 0 0;
+            background-color: currentColor;
+            vertical-align: middle;
+        }
+
+        .menu-icon--expanded::after {
+            padding: 20px 20px;
+            content: "";
+            mask-image: url("/assets/images/menu-mobile-close.svg"), linear-gradient(transparent, transparent);
+            mask-position: center;
+            mask-repeat: no-repeat;
+            /*mask-size: 5ex 5ex;*/
+            mask-size: 25ex 10ex;
+            background: 0 0;
+            background-color: currentColor;
+            vertical-align: middle;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        form>div {
+            padding: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #000;
+            background-color: #fff;
+            border-radius: 4px;
+            font-size: 3rem;
+        }
+
+        input {
+            font-size: 3rem;
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #000;
+            background-color: #fff;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        form>button {
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 5px 20px;
+            border-radius: 4px;
+            border: 1px solid black;
+        }
+
+        label {
+            font-size: 3rem;
+        }
+
+        @media (min-width: 1200px) {
+            header {
+                height: 100px;
+            }
+
+            .wrapper--header {
+                width: 1000px;
+            }
+
+            .wrapper--main {
+                width: 1000px;
+            }
+
+            .wrapper--footer {
+                width: 1000px;
+            }
+
+            .logo {
+                width: 220px;
+                height: 53px;
+            }
+
+            p {
+                font-size: 1.7rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .album-photos {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .social-icon {
+                height: 36px;
+            }
+
+            .topnav {
+                position: relative;
+                left: 0;
+                margin: 0;
+                padding: 25px 10px 0px 10px;
+            }
+
+            .menu-icon {
+                display: none;
+            }
+
+            .menubar-navigation ul {
+                position: fixed;
+            }
+
+            .menubar-navigation {
+                display: block;
+            }
+
+            .menubar-navigation li {
+                font-size: 1.5rem;
+            }
+
+            form>div {
+                padding: 5px;
+            }
+
+            form>button {
+                font-size: 1.3rem;
+            }
+
+            .grid {
+                grid-template-columns: .3fr 1fr;
+                width: 100%;
+            }
+
+            textarea {
+                font-size: 1.3rem;
+                width: 65%;
+                max-width: 90%;
+            }
+
+            input {
+                font-size: 1.3rem;
+                width: 65%;
+            }
+
+            label {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleMobileMenu(obj) {
+            if (obj.classList.contains("menu-icon--collapsed")) {
+                obj.classList.remove("menu-icon--collapsed")
+                obj.classList.add("menu-icon--expanded")
+                var menu = document.querySelector(".topnav")
+                if (menu) {
+                    menu.classList.add("topnav-expanded")
+                }
+            } else {
+                obj.classList.remove("menu-icon--expanded")
+                obj.classList.add("menu-icon--collapsed")
+                var menu = document.querySelector(".topnav")
+                if (menu) {
+                    menu.classList.remove("topnav-expanded")
+                }
+            }
+        }
+
+        function closeMenu(e) {
+            if (e.target.nodeName != "A" && e.target.nodeName != "svg" && e.target.nodeName != "path") {
+                closeMenuDisplay()
+            }
+        }
+
+        function toggleExpand(obj) {
+            if (obj) {
+                prinSvg = document.getElementById("principlesSvg")
+                blogSvg = document.getElementById("blogSvg")
+                albumSvg = document.getElementById("albumSvg")
+
+                switch (obj.innerText) {
+                    case "Principles":
+                        updateMenuDisplay(prinSvg, blogSvg, albumSvg, "principles", "blog", "album")
+                        break
+                    case "Blog ":
+                        updateMenuDisplay(blogSvg, prinSvg, albumSvg, "blog", "principles", "album")
+                        break
+                    case "Album ":
+                        updateMenuDisplay(albumSvg, prinSvg, blogSvg, "album", "principles", "blog")
+                        break
+                    default:
+                        closeMenuDisplay()
+                }
+            }
+        }
+
+        function updateMenuDisplay(svgToggleObj, svgHideA, svgHideB, idToggle, idHideA, idHideB) {
+            if (svgToggleObj.classList.contains("nav__button--icon-rotate-180")) {
+                svgToggleObj.classList.remove("nav__button--icon-rotate-180")
+                document.getElementById(idToggle).classList.remove("show-menu")
+                document.getElementById(idToggle).classList.add("hide-menu")
+            } else {
+                svgHideA.classList.remove("nav__button--icon-rotate-180")
+                svgHideB.classList.remove("nav__button--icon-rotate-180")
+                svgToggleObj.classList.add("nav__button--icon-rotate-180")
+                document.getElementById(idHideA).classList.remove("show-menu")
+                document.getElementById(idHideA).classList.add("hide-menu")
+                document.getElementById(idHideB).classList.remove("show-menu")
+                document.getElementById(idHideB).classList.add("hide-menu")
+                document.getElementById(idToggle).classList.remove("hide-menu")
+                document.getElementById(idToggle).classList.add("show-menu")
+            }
+        }
+
+        function closeMenuDisplay() {
+            document.getElementById("principlesSvg").classList.remove("nav__button--icon-rotate-180")
+            document.getElementById("blogSvg").classList.remove("nav__button--icon-rotate-180")
+            document.getElementById("albumSvg").classList.remove("nav__button--icon-rotate-180")
+            document.getElementById("principles").classList.remove("show-menu")
+            document.getElementById("principles").classList.add("hide-menu")
+            document.getElementById("blog").classList.remove("show-menu")
+            document.getElementById("blog").classList.add("hide-menu")
+            document.getElementById("album").classList.remove("show-menu")
+            document.getElementById("album").classList.add("hide-menu")
+        }
+
+        function addClickEventHandler() {
+            window.addEventListener("click", closeMenu)
+        }
+
+    </script>
+</head>
+
+<body id="app" onload="addClickEventHandler()">
+    <header id="top">
+        <div class="wrapper--header">
+            <div><a href="#top"><img src="assets/images/logo.svg" alt="alt text: Swanson Software"
+                        title="title text: Logo" class="logo" width="220" height="53" /></a></div>
+            <button onclick="toggleMobileMenu(this)" tabindex="0" class="menu-icon menu-icon--collapsed"
+                value="Value text: Hamburger menu icon"></button>
+            <nav class="topnav">
+                <ul class="menubar-navigation">
+                    <li><a onclick="toggleExpand(this)" class="nav__button">Principles
+                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="nav__svg"
+                                id="principlesSvg">
+                                <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835"
+                                    class="nav__button--icon-stroke" />
+                            </svg>
+                        </a>
+                        <ul class="hide-menu" id="principles">
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">Software Design</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">Software Life Cycle</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">Software Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li><a onclick="toggleExpand(this)">Blog
+                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="nav__svg" id="blogSvg">
+                                <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835"
+                                    class="nav__button--icon-stroke" />
+                            </svg>
+                        </a>
+                        <ul class="hide-menu" id="blog">
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">2025</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">2026</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a onclick="toggleExpand(this)">Album
+                            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="nav__svg" id="albumSvg">
+                                <path d="m14.673 4.579-6.527 6.842M1.327 4.586l6.819 6.835"
+                                    class="nav__button--icon-stroke" />
+                            </svg>
+                        </a>
+                        <ul class="hide-menu" id="album">
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">Recipes</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">Favorites</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">1900s</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">2000s</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">2010s</a></li>
+                            <li><a tabindex="0" onclick="toggleExpand(this)" href="#top">2020s</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper--main">
+            <h1>Screen Reader Test Page</h1>
+            <p>This page includes several HTML elements to demonstrate how a screen reader announces them.</p>
+            <p>The elements include alt, title, and name attributes, input fields have labels, but no ARIA is
+                used.</p>
+
+            <div class="album-photos">
+                <img src="assets/images/2020s/2025-07-23-DSC04322b-thumbnail.webp" alt="Alt text: colorful sunrise."
+                    width="320" height="180">
+            </div>
+            <form name="Form name: Sample Contact Form">
+                <div class="grid">
+                    <div><label for="name">Name:</label></div>
+                    <div><input type="text" name="name" id="name" placeholder="Enter Name"></input></div>
+                </div>
+                <div class="grid">
+                    <div><label for="email">Email: </label></div>
+                    <div><input type="email" name="email" id="email" placeholder="Enter Email"></input></div>
+                </div>
+                <div class="grid">
+                    <div><label for="subject">Subject:</label></div>
+                    <div><input type="text" name="subject" id="subject" placeholder="Enter Subject"></input></div>
+                </div>
+                <div class="grid">
+                    <div><label for="message">Message:</label></div>
+                    <div><textarea name="message" id="message" placeholder="Enter Message" rows="5"></textarea></div>
+                </div>
+                <button type="button" id="send" tabindex="0">Send</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="wrapper--footer">
+            <p>Links</p>
+            <a class="social" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ"
+                target="_blank" title="Title text: clickable icon to go to my YouTube page.">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z">
+                    </path>
+                </svg>
+            </a>
+            <a class="social" rel="noopener noreferrer" href="https://www.facebook.com/gregory.swanson.315"
+                target="_blank" title="Value text: clickable icon to go to my Facebook page">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
+                    </path>
+                </svg>
+            </a>
+        </div>
+        <div class="wrapper--footer">
+            <p>Buttons</p>
+            <button onclick="doNavigate('https://www.youtube.com/channel/UCP0ZqbwKwrFb98I4_UueOaQ')"
+                name="Name text: clickable icon to go to my YouTube channel">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z">
+                    </path>
+                </svg>
+            </button>
+            <button onclick="doNavigate('https://www.facebook.com/gregory.swanson.315')"
+                name="Name text: clickable icon to go to my Facebook page">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                    <path
+                        d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </footer>
+</body>
+
+</html>
