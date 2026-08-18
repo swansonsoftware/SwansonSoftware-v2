@@ -31,12 +31,12 @@ function Blog2026_01_WebsiteDesignStandard1() {
     { id: 2, listId: "footnote2", noteId: "#note2", text1: "Krug, 2014, chapter 7.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 3, listId: "footnote3", noteId: "#note3", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 4, listId: "footnote4", noteId: "#note4", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 5, listId: "footnote5", noteId: "#note5", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 6, listId: "footnote6", noteId: "#note6", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 7, listId: "footnote7", noteId: "#note7", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 8, listId: "footnote8", noteId: "#note8", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 9, listId: "footnote9", noteId: "#note9", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
-    { id: 19, listId: "footnote10", noteId: "#note10", text1: "Krug, 2014, chapter 6.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 5, listId: "footnote5", noteId: "#note5", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 6, listId: "footnote6", noteId: "#note6", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 7, listId: "footnote7", noteId: "#note7", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 8, listId: "footnote8", noteId: "#note8", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 9, listId: "footnote9", noteId: "#note9", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
+    { id: 19, listId: "footnote10", noteId: "#note10", text1: "Ibid.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     { id: 11, listId: "footnote11", noteId: "#note11", text1: "Firth, Ashley, 2024, Practical Web Accessibility: A Comprehensive Guide to Digital Inclusion, 2nd edition. Apress. Chapter 2.", text1IsLink: false, text1Link: "", text2: "", text2IsLink: false, text2Link: "", text3: "", text3IsLink: false, text3Link: "" },
     {
       id: 12,
@@ -115,6 +115,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
               <li className="list list--toc">
                 <hr className="list--toc-hr"></hr>
               </li>
+              <li className="list list--toc">Part 1: Conventions</li>
               <li className="list list--toc">
                 <HashLink to="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility" className="list--toc--a">
                   Part 2: Accessibility

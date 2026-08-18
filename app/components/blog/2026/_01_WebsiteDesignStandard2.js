@@ -219,6 +219,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
                   Part 1: Conventions
                 </HashLink>
               </li>
+              <li className="list list--toc">Part 2: Accessibility</li>
             </ul>
           </div>
           <div className="row__colspan-6">
@@ -324,7 +325,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Missing Alternative Text for Images
             </h3>
             <p className="dropCap">
-              Images need to have an alt attribute populated with alt text, unless the image is used for decoration only, in which case the attribute should be present but empty.<Footnote footnoteId={13}></Footnote> An alt attribute is used to provide text that is read and played by screen readers. Without alt text, the carefully curated, beautiful photos on your web page will be read by a screen reader simply “image.”
+              Images need to have an alt attribute populated with alt text, unless the image is used for decoration only, in which case the attribute should be present but empty.<Footnote footnoteId={13}></Footnote> An alt attribute is used to provide text that is read and played by screen readers. Without alt text, the carefully curated, beautiful photos on your web page will be announced “unlabeled graphic” by Windows’ Narrator screen reader, or not at all by the NVDA screen reader.
             </p>
             <pre className="page__code">{`<img width="220" height="53" class="logo" alt="Swanson Software logo" title="Swanson Software home" src="assets/images/logo-dark.svg">`}</pre>
             <p>It is up to the content creator to come up with the alt text, but if it’s vague or does not adequately convey the information in the image, then it’s not useful for screen reader users. And while accessibility scanners might warn about alt text longer than around 100 characters, long alt text is justified when it is needed.</p>

@@ -96,6 +96,7 @@ function BlogJan2025_ResSwitching3() {
                   Part 2: Finding the Breakpoints
                 </HashLink>
               </li>
+              <li className="list list--toc">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</li>
             </ul>
           </div>
           <div className="row__colspan-6">

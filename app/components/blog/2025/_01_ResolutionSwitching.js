@@ -89,6 +89,7 @@ function BlogJan2025_ResSwitching() {
               <li className="list list--toc">
                 <hr className="list--toc-hr"></hr>
               </li>
+              <li className="list list--toc">Part 1: Ideas for Choosing Breakpoints</li>
               <li className="list list--toc">
                 <HashLink to="/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints" className="list--toc--a">
                   Part 2: Finding the Breakpoints

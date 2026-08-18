@@ -87,6 +87,7 @@ function BlogJan2025_ResSwitching2() {
                   Part 1: Ideas for Choosing Breakpoints
                 </HashLink>
               </li>
+              <li className="list list--toc">Part 2: Finding the Breakpoints</li>
               <li className="list list--toc">
                 <HashLink to="/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression" className="list--toc--a">
                   Part 3: Portrait Orientation, DPR and Sizes, Image Compression
