@@ -10,7 +10,7 @@
 
   # ---------------------------------------------------------
   # 2. Force trailing slashes for clean URLs
-  #    Fixes /blog → /blog/ so React route loads correctly
+  #    Fixes /blog > /blog/ so React route loads correctly
   # ---------------------------------------------------------
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
