@@ -7,11 +7,10 @@ function Logo({ CloseMenu = { CloseMenu } }) {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
   const currBreadcrumbStyle = useRef("site-header__breadcrumb")
-  const assetsPath = window.location.protocol + "//" + window.location.host + "/assets/images/"
-  const logoDark = assetsPath + "logo-dark.svg"
-  const logoLite = assetsPath + "logo.svg"
-  const taglineDark = assetsPath + "tagline-dark.svg"
-  const taglineLite = assetsPath + "tagline.svg"
+  const logoDark = "/assets/images/logo-dark.svg"
+  const logoLite = "/assets/images/logo.svg"
+  const taglineDark = "/assets/images/tagline-dark.svg"
+  const taglineLite = "/assets/images/tagline.svg"
 
   function updateMenu() {
     appDispatch({ type: "selectMenu", selectedMenu: "" })

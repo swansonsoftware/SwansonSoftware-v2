@@ -396,7 +396,7 @@ function TopnavMenu({ CloseMenu = { CloseMenu }, updateSiteHeaderClass = { updat
             .map(menuTopic => {
               return (
                 <React.Fragment key={menuTopic.topicid}>
-                  <li key={menuTopic.topicid}>
+                  <li key={menuTopic.topicid} role="none">
                     <button
                       id={menuTopic.topicid}
                       type="button"
