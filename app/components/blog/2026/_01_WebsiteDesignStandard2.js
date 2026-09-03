@@ -76,13 +76,13 @@ function Blog2026_01_WebsiteDesignStandard2() {
   return (
     <Page title="Elements of a Standard for Website Design Part 2: Accessibility">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" dateModified="2026-08-19T08:10:09-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
       <meta name="description" content="This article addresses the most common website accessibility issues. The result is an accessibility baseline that is not difficult to achieve." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 2: Accessibility</h2>
-        <div className="headline__author">Gregory Swanson | Published June 5, 2026</div>
+        <div className="headline__author">Gregory Swanson | Updated August 19, 2026</div>
 
         <div className="row row--gutters">
           <div className="row__colspan-5">
@@ -327,7 +327,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p className="dropCap">
               Images need to have an alt attribute populated with alt text, unless the image is used for decoration only, in which case the attribute should be present but empty.<Footnote footnoteId={13}></Footnote> An alt attribute is used to provide text that is read and played by screen readers. Without alt text, the carefully curated, beautiful photos on your web page will be announced “unlabeled graphic” by Windows’ Narrator screen reader, or not at all by the NVDA screen reader.
             </p>
-            <pre className="page__code">{`<img width="220" height="53" class="logo" alt="Swanson Software logo" title="Swanson Software home" src="assets/images/logo-dark.svg">`}</pre>
+            <pre className="page__code">{`<img width="220" height="53" class="logo" alt="Swanson Software" title="Logo" src="assets/images/logo-dark.svg">`}</pre>
             <p>It is up to the content creator to come up with the alt text, but if it’s vague or does not adequately convey the information in the image, then it’s not useful for screen reader users. And while accessibility scanners might warn about alt text longer than around 100 characters, long alt text is justified when it is needed.</p>
             <h4 className="headline__h4">Guidelines for alt text:</h4>
             <ul>
@@ -561,7 +561,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p>There are many online sources that discuss ways to add a Skip Link or button that appears when a user hits the Tab key after navigating to a page.</p>
             <h4 className="headline__h4">Guidelines for adding a Skip to Main Content button or link</h4>
             <ul>
-              <li className="list">The link or button must be the first focusable element – unless there is a cookie disclaimer or signup form, which must be navigable by keyboard also, upon closing the next tab should show the Skip Link</li>
+              <li className="list">The link or button must be the first focusable element – unless there is a cookie disclaimer or signup form, which must be navigable by keyboard also, and upon closing the form the next tab should show the Skip Link</li>
               <li className="list">
                 The Skip Link is styled to be positioned off the page until it receives focus; with button height of 50 pixels, position it a few pixels further off the page:
                 <pre>{`.skiplink {
@@ -582,10 +582,11 @@ function Blog2026_01_WebsiteDesignStandard2() {
               <li className="list">
                 The Skip Link uses a hash and the value of the id attribute of the target element. For example:
                 <pre>{`<a href="/#maincontent">Skip to main content</a>`}</pre>
-                Typically, the link is styled with CSS
               </li>
               <li className="list">
-                The target of the Skip Link has an ID, this is the ID referenced above in the Skip Link<pre>{`<div id="maincontent">...`}</pre>
+                The target element with the ID referenced in the Skip Link:<pre>{`<div id="maincontent">...`}</pre>
+                Or
+                <pre>{`<main id="maincontent">...`}</pre>
               </li>
               <li className="list">
                 When setting focus to the main content landmark, the user must be able to see where focus has landed. If focus is set to the H1 heading of the page, a focus ring should appear around that. If focus is set to a div tag that wraps the page, a focus ring should appear on the div. You can achieve that with the <code>:focus-visible</code> pseudo class:
@@ -595,23 +596,44 @@ function Blog2026_01_WebsiteDesignStandard2() {
    border-radius: 15px;
 }
 `}</pre>
-                <div className="note">
-                  <p>In a React application, selecting a menu item may leave focus on the menu item, rendering the Skip to Main Content feature useless. To fix this:</p>
-                  <ol>
-                    <li className="list">Make focusable the top level div, which is the container app, by adding a tabindex property and set to -1</li>
-                    <li className="list">
-                      Add a useEffect to each page that can be accessed from the menu and add code to set focus to the React app div:
-                      <pre style={{ fontStyle: "normal" }}>{`useEffect(() => {
-  if (app) {
-    app.focus()
-  }
-}, [])
-`}</pre>
-                    </li>
-                  </ol>
-                </div>
               </li>
             </ul>
+            <div className="note">
+              <p>In a React application, selecting a menu item may leave focus on the menu item, rendering the Skip to Main Content feature useless. To fix this:</p>
+              <ol>
+                <li className="list">Make focusable an upper-level div, such as an overlay or something that is above the header, by adding a tabindex property and set to -1</li>
+                <li className="list">
+                  Create a custom hook that can be imported to each page and use a useEffect in the hook with code to set focus to the upper-level div:
+                  <pre style={{ fontStyle: "normal" }}>{`useEffect(() => {
+   const topTarget = document.getElementById("overlay")
+   if (topTarget) {
+      topTarget.focus()
+   }
+}, [])
+`}</pre>
+                </li>
+                <li className="list">
+                  Example React code for placing a SkipToContent component:
+                  <pre style={{ fontStyle: "normal" }}>{`return (
+  <>
+    <div id="overlay" tabIndex={-1}></div>
+    <header id="head" tabIndex={-1}>
+      <SkipToContent />
+      <Logo />
+      <Menu />
+    </header>
+  </>
+`}</pre>
+                </li>
+              </ol>
+            </div>
+            <div className="note">
+              <p>
+                Previously I recommended adding a tabIndex=”-1” to the React app div:
+                <pre style={{ fontStyle: "normal" }}>{`<div id="app" tabIndex="-1">…</div>`}</pre>I no longer recommend that approach because it can interfere with a screen reader.
+              </p>
+            </div>
+
             <h3 className="headline__h3" id="nokbdaccess" tabIndex={-1}>
               Content Not Accessible by Keyboard
             </h3>
