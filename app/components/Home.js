@@ -33,6 +33,12 @@ function Home() {
           </div>
           <div className="row__colspan-5">
             <div className="note note--dark">
+              <h2 className="headline__h3-cg-home">October 19, 2026</h2>
+              <p>
+                <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part3-aria">Elements of a Standard for Website Design Part 3</Link> adds ARIA to the accessibility baseline for websites introduced in Part 2.
+              </p>
+            </div>
+            <div className="note note--dark">
               <h2 className="headline__h3-cg-home">June 5, 2026</h2>
               <p>
                 <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility">Elements of a Standard for Website Design Part 2</Link> extends the basic accessibility introduced in Part 1 to an accessibility baseline for websites.
