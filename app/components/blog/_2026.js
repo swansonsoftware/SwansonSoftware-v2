@@ -50,6 +50,17 @@ function Blogs2026() {
               <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility">Part 2: Accessibility</Link>
             </p>
           </div>
+
+          <div className="row__colspan-4">
+            <h2 className="headline__h2">October 19</h2>
+          </div>
+          <div className="row__colspan-8">
+            <h3 className="headline__h3">Elements of a Standard for Website Design</h3>
+            <p className="dropCap">Part 3 adds ARIA to the accessibility baseline for websites introduced in Part 2.</p>
+            <p>
+              <Link to="/blog/2026/01/elements-of-a-standard-for-website-design-part3-aria">Part 3: ARIA</Link>
+            </p>
+          </div>
         </div>
       </div>
     </Page>

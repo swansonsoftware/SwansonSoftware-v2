@@ -121,6 +121,11 @@ function Blog2026_01_WebsiteDesignStandard1() {
                   Part 2: Accessibility
                 </HashLink>
               </li>
+              <li className="list list--toc">
+                <HashLink to="/blog/2026/01/elements-of-a-standard-for-website-design-part3-aria" className="list--toc--a">
+                  Part 3: ARIA
+                </HashLink>
+              </li>
             </ul>
           </div>
           <div className="row__colspan-6">

@@ -76,13 +76,13 @@ function Blog2026_01_WebsiteDesignStandard2() {
   return (
     <Page title="Elements of a Standard for Website Design Part 2: Accessibility">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" dateModified="2026-08-19T08:10:09-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" dateModified="2026-10-19T12:50:26-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
       <meta name="description" content="This article addresses the most common website accessibility issues. The result is an accessibility baseline that is not difficult to achieve." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 2: Accessibility</h2>
-        <div className="headline__author">Gregory Swanson | Updated August 19, 2026</div>
+        <div className="headline__author">Gregory Swanson | Updated October 19, 2026</div>
 
         <div className="row row--gutters">
           <div className="row__colspan-5">
@@ -220,6 +220,11 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 </HashLink>
               </li>
               <li className="list list--toc">Part 2: Accessibility</li>
+              <li className="list list--toc">
+                <HashLink to="/blog/2026/01/elements-of-a-standard-for-website-design-part3-aria" className="list--toc--a">
+                  Part 3: ARIA
+                </HashLink>
+              </li>
             </ul>
           </div>
           <div className="row__colspan-6">
@@ -329,6 +334,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
             </p>
             <pre className="page__code">{`<img width="220" height="53" class="logo" alt="Swanson Software" title="Logo" src="assets/images/logo-dark.svg">`}</pre>
             <p>It is up to the content creator to come up with the alt text, but if it’s vague or does not adequately convey the information in the image, then it’s not useful for screen reader users. And while accessibility scanners might warn about alt text longer than around 100 characters, long alt text is justified when it is needed.</p>
+            <p className="note">Alt text should not be written by humans; AI has a place here. Windows’ Copilot can generate alt text quickly and with appropriate detail.</p>
             <h4 className="headline__h4">Guidelines for alt text:</h4>
             <ul>
               <li className="list">Alt text describes what is in the picture; if a picture is for decoration only, the alt text should be empty (alt=””)</li>
@@ -434,9 +440,16 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 </p>
               </li>
               <li className="list">
-                Add a title attribute that contains an accessible name to either the a element or the img element
+                Add a title attribute that contains an accessible name to either the &lt;a&gt; element or the &lt;img&gt; element; note that adding a title also provides a tooltip for the mouse pointer.
                 <pre>{`<a href="concert-season.pdf" title="Get our new Concert Season Brochure">
 <img src="banner.jpg" alt=""/></a>`}</pre>
+              </li>
+              <li className="list">
+                Add an aria-labelledby that points to an element such as a &lt;div&gt;
+                <pre>{`<a href="concert-season.pdf">
+   <img src="banner.jpg" area-labelledby="id0"/>
+</a>
+<div id="id0">Get our new Concert Season Brochure</div>`}</pre>
               </li>
             </ul>
 
@@ -444,10 +457,13 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Empty Buttons
             </h3>
             <p className="dropCap">Like empty links, empty buttons are often created accidentally by wrapping an image with a button tag. Thus, there is no text that indicates what the button does.</p>
-            <pre className="page__code">{`<button aria-label="Delete item">
-  <img src="trash.svg" alt="">
+            <p className="note">
+              Empty Button: don’t do this – an empty button, the developer assumes that the image will convey meaning
+              <pre>{`<button onclick="doDelete()">
+  <img src="trash.svg">
 </button>
 `}</pre>
+            </p>
             <p>There are several ways to fix this, depending on context.</p>
             <ul>
               <li className="list">
@@ -471,6 +487,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
 `}</pre>
               </li>
             </ul>
+            <p className="note">Note that ARIA labels (aria-label) are not translated by the browser when the user is viewing a localized version of a web page. You need to provide localized ARIA attributes.</p>
 
             <h3 className="headline__h3" id="nodoclang" tabIndex={-1}>
               Missing Document Language

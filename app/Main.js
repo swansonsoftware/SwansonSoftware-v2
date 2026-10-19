@@ -55,6 +55,7 @@ const BlogResolutionSwitchingImages2 = React.lazy(() => import("./components/blo
 const BlogResolutionSwitchingImages3 = React.lazy(() => import("./components/blog/2025/_01_ResolutionSwitching3.js"))
 const BlogWebsiteDesignStandard1 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard1.js"))
 const BlogWebsiteDesignStandard2 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard2.js"))
+const BlogWebsiteDesignStandard3 = React.lazy(() => import("./components/blog/2026/_01_WebsiteDesignStandard3.js"))
 
 function Main() {
   const initialState = { backgroundStyle: "dark", siteHeaderClass: "site-header site-header--expand", homePageClass: "page", breadcrumbClass: "site-header__breadcrumb", selectedMenu: "", menuOverlay: "lightbox__menu-overlay", menuActiveCategory: "-1", menuDropdownActiveTopic: "-1", menuListClassByIconState: "disclosure-nav nav__topnav nav__menu-content nav__menu-content--icon-hidden", mobileMenuIconState: "site-header__menu-icon", captionBoxBtn: "0", imageOverlay: "lightbox__image-overlay", scrollTop: true, headerVisClass: "site-header site-header--expand" }
@@ -371,6 +372,7 @@ function Main() {
                 <Route path="/blog/2026" element={<Blogs2026 body="light" />} />
                 <Route path="/blog/2026/01/elements-of-a-standard-for-website-design-part1-conventions" element={<BlogWebsiteDesignStandard1 />} />
                 <Route path="/blog/2026/01/elements-of-a-standard-for-website-design-part2-accessibility" element={<BlogWebsiteDesignStandard2 />} />
+                <Route path="/blog/2026/01/elements-of-a-standard-for-website-design-part3-aria" element={<BlogWebsiteDesignStandard3 />} />
                 <Route path="/contact" element={<ContactUs body="light" />} />
                 {/* <Route path="/principles/process-models" element={<ProcessModels body="light" />} /> */}
                 <Route path="/principles" element={<Principles />} />
