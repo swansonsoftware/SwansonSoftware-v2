@@ -79,14 +79,16 @@ function Blog2026_01_WebsiteDesignStandard2() {
       <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" dateModified="2026-10-19T12:50:26-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
       <meta name="description" content="This article addresses the most common website accessibility issues. The result is an accessibility baseline that is not difficult to achieve." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 2: Accessibility</h2>
         <div className="headline__author">Gregory Swanson | Updated October 19, 2026</div>
 
         <div className="row row--gutters">
-          <div className="row__colspan-5">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-5" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink smooth to="#currentstate" className="list--toc--a">
@@ -226,7 +228,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-6">
             <p className="dropCap">Part 2 continues by extending the basic accessibility from Part 1 to an accessibility baseline for websites. Accessibility is a big topic that web developers may feel is burdensome to learn and a distraction from learning how to make things work with JavaScript, CSS, and their framework of choice. However, only 6 issues account for over 90% of accessibility errors on websites, and addressing those is a much easier goal to achieve, but we will go a little further and cover a handful of additional accessibility issues that are high on the list of annoyances, and not just for users with access needs.</p>
             <p>The sources for Part 2 provide the latest in-depth information if you are interested in learning more.</p>
@@ -805,7 +807,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

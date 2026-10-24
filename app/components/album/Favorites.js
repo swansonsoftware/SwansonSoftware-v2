@@ -35,14 +35,14 @@ function Favorites() {
       <CanonicalLink href="https://swansonsoftware.com/album/favorites/"></CanonicalLink>
       <meta name="description" content="Swanson Software Album, Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Favorites</h1>
         <div className="wrapper--album-photos">
           {photobooks.map(image => {
             return <PhotoBookBlock key={image.id} href={image.href} src={image.src} srcset={image.srcset} sizes={image.sizes} width={image.width} height={image.height} alt={image.alt} caption={image.caption} />
           })}
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

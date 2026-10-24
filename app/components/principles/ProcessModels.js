@@ -28,12 +28,14 @@ function ProcessModels() {
       <GStructuredData type="Article" datePublished="2025-03-06T08:26:21-08:00" headline="Software Development Process Models"></GStructuredData>
       <meta name="description" content="Software development process models" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <main className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Software Development Process Models</h1>
         <div className="headline__author">Gregory Swanson | updated February 19, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-4">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-4" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink to="#reqdocs" className="list--toc--a">
@@ -46,7 +48,7 @@ function ProcessModels() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-7">
             <p>....</p>
           </div>
@@ -78,7 +80,7 @@ function ProcessModels() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

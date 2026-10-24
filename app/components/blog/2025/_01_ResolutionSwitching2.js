@@ -49,13 +49,15 @@ function BlogJan2025_ResSwitching2() {
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part2-finding-the-breakpoints/"></CanonicalLink>
       <meta name="description" content="An analysis of device sizes to determine breakpoints for responsive design and resolution switching images, and a table of screen sizes for responsive design" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Choosing Breakpoints for Resolution Switching of Images</h1>
         <h2 className="headline__h2">Part 2: Finding the Breakpoints</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-6">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-6" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink smooth to="#findingBrkpts" className="list--toc--a">
@@ -94,7 +96,7 @@ function BlogJan2025_ResSwitching2() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-6">
             <h3 className="headline__h3" id="findingBrkpts" tabIndex={-1}>
               Finding Breakpoints Through Analysis of Device Screen Sizes
@@ -1418,7 +1420,7 @@ function BlogJan2025_ResSwitching2() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

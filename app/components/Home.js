@@ -26,12 +26,12 @@ function Home() {
 
       <div className="wrapper wrapper--home-page" id="maincontent" tabIndex={-1}>
         <div className="row row--gutters">
-          <div className="row__colspan-7">
+          <main className="row__colspan-7">
             <h1 className="headline__h1-cg">Software Craftsmanship</h1>
             <p className="dropCap">In many ways, software development is a craft, and the materials of the craft are frameworks, algorithms, APIs and libraries, and data. Choosing the right materials is crucial for an application’s success. Unlike traditional crafts where the tools and materials change little throughout an artisan’s career, the tools for software development and the materials used to create software change constantly, and it is crucial to a developer’s career success that they learn about the changes important to them.</p>
             <p className="dropCap">Swanson Software was created to disseminate knowledge about software craftsmanship. The philosophy at swansonsoftware.com is that any statements of facts that do not originate here must be cited. This philosophy values the quality of sources as well.</p>
-          </div>
-          <div className="row__colspan-5">
+          </main>
+          <aside className="row__colspan-5">
             <div className="note note--dark">
               <h2 className="headline__h3-cg-home">October 19, 2026</h2>
               <p>
@@ -68,7 +68,7 @@ function Home() {
                 <Link to="/principles/software-design">Software Design</Link> presents software design concepts and an answer to the question what is software design, as well as a definition of software design. Software design methods are discussed, as are software design strategies.
               </p>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </Page>

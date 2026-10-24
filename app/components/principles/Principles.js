@@ -24,7 +24,7 @@ function Principles() {
     <Page title="Principles">
       <GTag></GTag>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Principles</h1>
         <h2 className="headline__h2">On the Principles of Software Development</h2>
         <p>There are some things that others in software development have said and that should be remembered.</p>
@@ -59,7 +59,7 @@ function Principles() {
             <p>The benefits you get from software reviews, review types, and the review process.</p>
           </div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

@@ -37,7 +37,7 @@ function VegetableStock() {
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Vegetable Stock Recipe" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Vegetable Stock</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated November 10, 2025</div>
@@ -121,7 +121,7 @@ function VegetableStock() {
             <li>Once the juices have been extracted from the vegetables, add the extracted juices to the stock and then strain the stock. Portion the stock as desired and freeze until needed.</li>
           </ol>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

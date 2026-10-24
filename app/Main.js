@@ -330,7 +330,7 @@ function Main() {
         <BrowserRouter>
           {/*<SkipToContent />*/}
           <Header />
-          <main className={state.homePageClass}>
+          <div id="middle" className={state.homePageClass}>
             <Suspense fallback={<LoadingDotsIcon />}>
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -389,7 +389,7 @@ function Main() {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
-          </main>
+          </div>
           <Footer />
           <ScrollToTop />
         </BrowserRouter>

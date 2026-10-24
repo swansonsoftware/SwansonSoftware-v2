@@ -26,7 +26,7 @@ function Album() {
       <GTag></GTag>
       <CanonicalLink href="https://swansonsoftware.com/album/"></CanonicalLink>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Album</h1>
         <h2 className="headline__h2">Photos, Videos, Slideshows, a Couple Recipes</h2>
 
@@ -93,7 +93,7 @@ function Album() {
           </div>
           <div className="row__colspan-8"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

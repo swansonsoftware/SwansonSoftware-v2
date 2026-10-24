@@ -20,7 +20,7 @@ body,
 #app > header {
   grid-area: head;
 }
-#app > main {
+#app > #middle {
   grid-area: main;
   max-width: 100vw;
 }

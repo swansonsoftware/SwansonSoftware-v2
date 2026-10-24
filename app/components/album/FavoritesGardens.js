@@ -48,11 +48,11 @@ function FavoritesGardens() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Album, Garden Favorites" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper--album" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Garden Favorites</h1>
 
         <PhotoAlbum slideshows={slideshows} photos={photos} videos={videos} />
-      </div>
+      </main>
     </Page>
   )
 }

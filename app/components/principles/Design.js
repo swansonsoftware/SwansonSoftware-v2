@@ -113,14 +113,16 @@ function Design() {
       <CanonicalLink href="https://swansonsoftware.com/principles/software-design/"></CanonicalLink>
       <meta name="description" content="This article explores software design, beginning with an answer to the question, “what is software design” and a description of the properties of a good design. It continues by describing analysis and design activities, presenting software design principles and strategies including decomposition and composition, modularity, and abstraction, discussing design methods with emphasis on structured and object-oriented design, and concludes with the product of software design: the technical specification." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg" id="heading" tabIndex={-1}>
           Software Design
         </h1>
         <div className="headline__author">Gregory Swanson | Updated November 5, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-4">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-4" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink smooth to="#designDevLifecycle" href="#designDevLifecycle" className="list--toc--a">
@@ -204,7 +206,7 @@ function Design() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-7">
             <h2 className="headline__h2" id="designDevLifecycle" tabIndex={-1}>
               Design in the Development Lifecycle
@@ -831,7 +833,7 @@ function Design() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

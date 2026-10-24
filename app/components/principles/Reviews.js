@@ -68,12 +68,14 @@ function Reviews() {
       <CanonicalLink href="https://swansonsoftware.com/principles/software-reviews/"></CanonicalLink>
       <meta name="description" content="A survey of software review types, from informal walkthroughs to formal inspections, the review process, what to review, sample forms, and online tools." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Software Reviews</h1>
         <div className="headline__author">Gregory Swanson | updated March 26, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-4">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-4" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink smooth to="#components" className="list--toc--a">
@@ -170,7 +172,7 @@ function Reviews() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-7">
             <p className="dropCap">Software reviews are perhaps the best way to improve software quality, reduce development costs, and disseminate technical knowledge. A review can be performed on requirements, designs, code, test cases, and test data.</p>
             <p>Code reviews ensure that requirements are fulfilled and reduce the chance that code based on a misinterpreted understanding of the requirements gets very far through the life cycle. Code reviews are a way for less experienced team members to learn coding techniques as well as for more experienced team members to hone skills.</p>
@@ -721,7 +723,7 @@ function Reviews() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

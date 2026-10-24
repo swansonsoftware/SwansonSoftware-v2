@@ -76,14 +76,16 @@ function Blog2026_01_WebsiteDesignStandard1() {
       <GStructuredData type="BlogPosting" datePublished="2026-05-01T11:19:28-07:00" dateModified="2026-07-13T10:32:44-07:00" headline="Elements of a Standard for Website Design Part 1: Conventions"></GStructuredData>
       <meta name="description" content="Elements of a standard for website design, including conventions for website useability, accessibility, and design." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 1: Conventions</h2>
         <div className="headline__author">Gregory Swanson | Updated July 13, 2026</div>
 
         <div className="row row--gutters">
-          <div className="row__colspan-6">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-6" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink smooth to="#whofor" className="list--toc--a">
@@ -127,7 +129,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-6">
             <p className="dropCap">In this post, I present a vision for a standard on website design. Why do we need a standard for website design? Because the ecosystem for web development is huge, and a web developer can spend all their time learning how to put a website together with HTML, CSS, and JavaScript, but not know that you should not skip heading levels, or what breadcrumbs are and when and how they should appear, or what a favicon does, or whether it is appropriate to use the mailto: attribute in a &lt;a&gt; element, and so many other points that should be considered.</p>
           </div>
@@ -294,7 +296,7 @@ function Blog2026_01_WebsiteDesignStandard1() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

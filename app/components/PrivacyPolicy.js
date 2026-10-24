@@ -26,7 +26,7 @@ function PrivacyPolicy() {
       <GTag></GTag>
       <meta name="description" content="Swanson Software Privacy policy" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={"-1"}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={"-1"}>
         <h1 className="headline__h1">Privacy Policy</h1>
         <div className="headline__author">Last updated: January 1, 2026</div>
         <div className="row row--gutters">
@@ -180,7 +180,7 @@ function PrivacyPolicy() {
             </p>
           </div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

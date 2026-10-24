@@ -27,7 +27,7 @@ function About() {
       <CanonicalLink href="https://swansonsoftware.com/about-us/"></CanonicalLink>
       <meta name="description" content="About Swanson Software" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">About Us</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">
@@ -77,7 +77,7 @@ function About() {
             </Link>
           </div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

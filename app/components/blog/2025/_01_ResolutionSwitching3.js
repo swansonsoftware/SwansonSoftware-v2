@@ -50,13 +50,15 @@ function BlogJan2025_ResSwitching3() {
       <CanonicalLink href="https://swansonsoftware.com/blog/2025/01/resolution-switching-images-part3-portrait-orientation-dpr-and-sizes-image-compression/"></CanonicalLink>
       <meta name="description" content="Responsive images sizes attribute, responsive images example, and portrait mode CSS" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Choosing Breakpoints for Resolution Switching of Images</h1>
         <h2 className="headline__h2">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</h2>
         <div className="headline__author">Gregory Swanson | Updated November 10, 2025</div>
         <div className="row row--gutters">
-          <div className="row__colspan-6">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-6" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink smooth to="#portraitSizes" className="list--toc--a">
@@ -98,7 +100,7 @@ function BlogJan2025_ResSwitching3() {
               </li>
               <li className="list list--toc">Part 3: Portrait Orientation, DPR and Sizes, Image Compression</li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-6">
             <h3 className="headline__h3" id="portraitSizes" tabIndex={-1}>
               Sizes for Portrait Orientation
@@ -286,7 +288,7 @@ function BlogJan2025_ResSwitching3() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

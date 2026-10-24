@@ -24,10 +24,10 @@ function Thankyou() {
       <GTag></GTag>
       <meta name="description" content="Thank you" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent">
+      <main className="wrapper wrapper__article" id="maincontent">
         <h1 className="headline__h1-cg">Thank You</h1>
         <p>Thanks for contacting Swanson Software. If you requested a response, you can expect one within a few days if you provided an email.</p>
-      </div>
+      </main>
     </Page>
   )
 }

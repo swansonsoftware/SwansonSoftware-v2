@@ -171,12 +171,14 @@ function LifecycleModels() {
       <CanonicalLink href="https://swansonsoftware.com/principles/software-lifecycle/"></CanonicalLink>
       <meta name="description" content="This article describes the software life cycle, discusses the different terminology used, including software lifecycle and software development life cycle, and the acronym SDLC. It answers the questions “what is software life cycle” and “what is software development life cycle model” and it describes the categories of life cycle models, and how the types of software life cycle models fit the categories. Some examples of life cycle models are included." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Software Life Cycle</h1>
         <div className="headline__author">Gregory Swanson | updated April 8, 2026</div>
         <div className="row row--gutters">
-          <div className="row__colspan-5">
-            <h2 className="headline__h2-contents">Contents</h2>
+          <nav className="row__colspan-5" aria-labelledby="contents-lbl">
+            <h2 id="contents-lbl" className="headline__h2-contents">
+              Contents
+            </h2>
             <ul className="list--ul">
               <li className="list list--toc">
                 <HashLink to="#whatisslc" className="list--toc--a">
@@ -273,7 +275,7 @@ function LifecycleModels() {
                 </HashLink>
               </li>
             </ul>
-          </div>
+          </nav>
           <div className="row__colspan-6">
             <h2 className="headline__h2" id="whatisslc" tabIndex={-1}>
               What is Software Life Cycle?
@@ -1268,7 +1270,7 @@ function LifecycleModels() {
           </div>
           <div className="row__colspan-1"></div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

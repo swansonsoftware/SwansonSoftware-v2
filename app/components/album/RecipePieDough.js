@@ -32,7 +32,7 @@ function PieDough() {
       <GTag></GTag>
       <meta name="description" content="Gregory Swanson's Pie Dough Recipe" />
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1">Pie Dough</h1>
 
         <div className="album-recipe__author">Gregory Swanson | Updated November 6, 2025</div>
@@ -106,7 +106,7 @@ function PieDough() {
         <div className="album-recipe" style={{ paddingTop: "0" }}>
           <p>Retrieve a disk of dough from the refrigerator and let it sit on the counter for 10 minutes to soften. While rolling out the dough, stop and refrigerate the dough when half way to size for 20 to 30 minutes when the weather is warm.</p>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }

@@ -25,7 +25,7 @@ function Blogs2026() {
     <Page title="2026 Blog">
       <GTag></GTag>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-      <div className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
+      <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">2026</h1>
         <div className="row row--gutters">
           <div className="row__colspan-4">
@@ -62,7 +62,7 @@ function Blogs2026() {
             </p>
           </div>
         </div>
-      </div>
+      </main>
     </Page>
   )
 }
