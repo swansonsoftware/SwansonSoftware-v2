@@ -52,37 +52,38 @@ function Blog2026_01_WebsiteDesignStandard2() {
     { id: 22, listId: "footnote22", noteId: "#note22", text1: "Krug, 2014, chapter 12", text1IsLink: false, text1Link: "" },
     { id: 23, listId: "footnote23", noteId: "#note23", text1: "Firth, 2024, chapter 4. See ", text1IsLink: false, text1Link: "", text2: "Web Content Accessibility Guidelines (WCAG) 2.2", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/", text3: ", section 2.4.11 Focus Not Obscured", text3IsLink: false, text3Link: "" },
     { id: 24, listId: "footnote24", noteId: "#note24", text1: "See ", text1IsLink: false, text1Link: "", text2: "Web Content Accessibility Guidelines (WCAG) 2.2", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#on-focus", text3: ", “Success Criterion 3.2.1 On Focus”", text3IsLink: false, text3Link: "" },
-    { id: 25, listId: "footnote25", noteId: "#note25", text1: "Firth, 2024, chapter 4.", text1IsLink: false, text1Link: "" },
-    { id: 26, listId: "footnote26", noteId: "#note26", text1: "Ibid., chapter 4.", text1IsLink: false, text1Link: "" },
-    { id: 27, listId: "footnote27", noteId: "#note27", text1: "Ibid.", text1IsLink: false, text1Link: "" },
+    { id: 25, listId: "footnote25", noteId: "#note25", text1: "Horton, S. and Sloan, D., What Every Engineer Should Know About Digital Accessibility. CRC Press, 2024. Chapter 4.", text1IsLink: false, text1Link: "" },
+    { id: 26, listId: "footnote26", noteId: "#note26", text1: "Firth, 2024, chapter 4.", text1IsLink: false, text1Link: "" },
+    { id: 27, listId: "footnote27", noteId: "#note27", text1: "Ibid., chapter 4.", text1IsLink: false, text1Link: "" },
     { id: 28, listId: "footnote28", noteId: "#note28", text1: "Ibid.", text1IsLink: false, text1Link: "" },
-    { id: 29, listId: "footnote29", noteId: "#note29", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "" },
-    { id: 30, listId: "footnote30", noteId: "#note30", text1: "Ibid.", text1IsLink: false, text1Link: "" },
-    { id: 31, listId: "footnote31", noteId: "#note31", text1: "Ibid., chapter 3; Chris Lilley, 2010-2025, W3C, ", text1IsLink: false, text1Link: "", text2: "em, px, pt, cm, in …", text2IsLink: true, text2Link: "https://www.w3.org/Style/Examples/007/units.en.html", text3: ".", text3IsLink: false, text3Link: "" },
-    { id: 32, listId: "footnote32", noteId: "#note32", text1: "Low Vision Accessibility Task Force (a Task Force of the Web Content Accessibility Guidelines Working Group), 2016. Accessibility Requirements for People with Low Vision.", text1IsLink: false, text1Link: "" },
-    { id: 33, listId: "footnote33", noteId: "#note33", text1: "Firth, 2024, chapter 3. See also W3C ", text1IsLink: false, text1Link: "", text2: "Supplemental Guidance: Text Justification - Low Vision Accessibility Task Force", text2IsLink: true, text2Link: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Supplemental_Guidance:_Text_Justification", text3: ", and ", text3IsLink: false, text3Link: "", text4: "WCAG 2.1 Understanding Visual Presentation (Level AAA)", text4IsLink: true, text4Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
-    { id: 34, listId: "footnote34", noteId: "#note34", text1: "Ibid., chapter 3. There is an online tool: ", text1IsLink: false, text1Link: "", text2: "WebAIM: Contrast Checker", text2IsLink: true, text2Link: "https://webaim.org/resources/contrastchecker/" },
-    { id: 35, listId: "footnote35", noteId: "#note35", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "" },
-    { id: 36, listId: "footnote36", noteId: "#note36", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#text-spacing", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#text-spacing" },
-    { id: 37, listId: "footnote37", noteId: "#note37", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#visual-presentation ", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#visual-presentation" },
-    { id: 38, listId: "footnote38", noteId: "#note38", text1: "The reasons are explained in ", text1IsLink: false, text1Link: "", text2: "WCAG 2.1 Understanding Visual Presentation (Level AAA)", text2IsLink: true, text2Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
-    { id: 39, listId: "footnote39", noteId: "#note39", text1: "Firth, 2024, chapter 4.", text1IsLink: false, text1Link: "" },
-    { id: 40, listId: "footnote40", noteId: "#note40", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "" },
-    { id: 41, listId: "footnote41", noteId: "#note41", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "" },
-    { id: 42, listId: "footnote42", noteId: "#note42", text1: "Ibid.", text1IsLink: false, text1Link: "" },
-    { id: 43, listId: "footnote43", noteId: "#note43", text1: "Ibid., chapter 4.", text1IsLink: false, text1Link: "" }
+    { id: 29, listId: "footnote29", noteId: "#note29", text1: "Ibid.", text1IsLink: false, text1Link: "" },
+    { id: 30, listId: "footnote30", noteId: "#note30", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "" },
+    { id: 31, listId: "footnote31", noteId: "#note31", text1: "Ibid.", text1IsLink: false, text1Link: "" },
+    { id: 32, listId: "footnote32", noteId: "#note32", text1: "Ibid., chapter 3; Chris Lilley, 2010-2025, W3C, ", text1IsLink: false, text1Link: "", text2: "em, px, pt, cm, in …", text2IsLink: true, text2Link: "https://www.w3.org/Style/Examples/007/units.en.html", text3: ".", text3IsLink: false, text3Link: "" },
+    { id: 33, listId: "footnote33", noteId: "#note33", text1: "Low Vision Accessibility Task Force (a Task Force of the Web Content Accessibility Guidelines Working Group), 2016. Accessibility Requirements for People with Low Vision.", text1IsLink: false, text1Link: "" },
+    { id: 34, listId: "footnote34", noteId: "#note34", text1: "Firth, 2024, chapter 3. See also W3C ", text1IsLink: false, text1Link: "", text2: "Supplemental Guidance: Text Justification - Low Vision Accessibility Task Force", text2IsLink: true, text2Link: "https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Supplemental_Guidance:_Text_Justification", text3: ", and ", text3IsLink: false, text3Link: "", text4: "WCAG 2.1 Understanding Visual Presentation (Level AAA)", text4IsLink: true, text4Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
+    { id: 35, listId: "footnote35", noteId: "#note35", text1: "Ibid., chapter 3. There is an online tool: ", text1IsLink: false, text1Link: "", text2: "WebAIM: Contrast Checker", text2IsLink: true, text2Link: "https://webaim.org/resources/contrastchecker/" },
+    { id: 36, listId: "footnote36", noteId: "#note36", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "" },
+    { id: 37, listId: "footnote37", noteId: "#note37", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#text-spacing", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#text-spacing" },
+    { id: 38, listId: "footnote38", noteId: "#note38", text1: "See ", text1IsLink: false, text1Link: "", text2: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#visual-presentation ", text2IsLink: true, text2Link: "https://www.w3.org/TR/2024/REC-WCAG22-20241212/#visual-presentation" },
+    { id: 39, listId: "footnote39", noteId: "#note39", text1: "The reasons are explained in ", text1IsLink: false, text1Link: "", text2: "WCAG 2.1 Understanding Visual Presentation (Level AAA)", text2IsLink: true, text2Link: "https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation" },
+    { id: 40, listId: "footnote40", noteId: "#note40", text1: "Firth, 2024, chapter 4.", text1IsLink: false, text1Link: "" },
+    { id: 41, listId: "footnote41", noteId: "#note41", text1: "Ibid., chapter 3.", text1IsLink: false, text1Link: "" },
+    { id: 42, listId: "footnote42", noteId: "#note42", text1: "Ibid., chapter 2.", text1IsLink: false, text1Link: "" },
+    { id: 43, listId: "footnote43", noteId: "#note43", text1: "Ibid.", text1IsLink: false, text1Link: "" },
+    { id: 44, listId: "footnote44", noteId: "#note44", text1: "Ibid., chapter 4.", text1IsLink: false, text1Link: "" }
   ]
 
   return (
     <Page title="Elements of a Standard for Website Design Part 2: Accessibility">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" dateModified="2026-10-19T12:50:26-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2026-06-05T10:53:26-07:00" dateModified="2026-10-26T11:52:42-07:00" headline="Elements of a Standard for Website Design Part 2: Accessibility"></GStructuredData>
       <meta name="description" content="This article addresses the most common website accessibility issues. The result is an accessibility baseline that is not difficult to achieve." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 2: Accessibility</h2>
-        <div className="headline__author">Gregory Swanson | Updated October 19, 2026</div>
+        <div className="headline__author">Gregory Swanson | Updated October 26, 2026</div>
 
         <div className="row row--gutters">
           <nav className="row__colspan-5" aria-labelledby="contents-lbl">
@@ -667,17 +668,21 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p>
               When opening a modal dialog using the keyboard, closing the dialog must return the focus to the element that opened it.<Footnote footnoteId={24}></Footnote>
             </p>
+            <h4 className="headline__h4">Keyboard Accessibility for Responsive Menus</h4>
+            <p>
+              A website’s menu is often designed to have responsive capability where it converts from appearing stretched across the screen on larger devices to a single button on small devices. Responsive menus need to be keyboard accessible because some users need to use the browser’s zoom when reading web pages and that can trigger the menu’s responsive variation on larger devices, and small devices may have keyboards attached.<Footnote footnoteId={25}></Footnote>
+            </p>
             <h4 className="headline__h4">Keyboard Trap</h4>
             <p>
-              An example of a keyboard trap is when a keyboard user can’t close a modal dialog because focus is on an element in the underlying page. For example, a modal popup appears automatically, asking the user to rate the site or to sign up for a newsletter, and the focus was not set to an element on the dialog.<Footnote footnoteId={25}></Footnote>
+              An example of a keyboard trap is when a keyboard user can’t close a modal dialog because focus is on an element in the underlying page. For example, a modal popup appears automatically, asking the user to rate the site or to sign up for a newsletter, and the focus was not set to an element on the dialog.<Footnote footnoteId={26}></Footnote>
             </p>
             <h4 className="headline__h4">Focus Indicators</h4>
             <p>
-              Without a focus style for interactive elements, keyboard users can’t tell where they are on a page.<Footnote footnoteId={26}></Footnote> It is common to use a hover style (:hover) that lets mouse users know when the cursor is hovering over an element, but it is common to remove the outline that appears when an element has focus for aesthetic reasons (the same outline appears by clicking the element).<Footnote footnoteId={27}></Footnote> That outline is important for keyboard users, so important that the <code>:focus-visible</code> selector was added so the developer can provide a visual indicator for keyboard users that does not appear when users tap or click on elements.
+              Without a focus style for interactive elements, keyboard users can’t tell where they are on a page.<Footnote footnoteId={27}></Footnote> It is common to use a hover style (:hover) that lets mouse users know when the cursor is hovering over an element, but it is common to remove the outline that appears when an element has focus for aesthetic reasons (the same outline appears by clicking the element).<Footnote footnoteId={28}></Footnote> That outline is important for keyboard users, so important that the <code>:focus-visible</code> selector was added so the developer can provide a visual indicator for keyboard users that does not appear when users tap or click on elements.
             </p>
             <h4 className="headline__h4">CSS Focus</h4>
             <p>
-              Mouse users don’t need focus styles, and keyboard users don’t need hover styles. Combining <code>:hover</code> and <code>:focus-visible</code> selectors in a CSS rule makes managing the styles easy:<Footnote footnoteId={28}></Footnote>
+              Mouse users don’t need focus styles, and keyboard users don’t need hover styles. Combining <code>:hover</code> and <code>:focus-visible</code> selectors in a CSS rule makes managing the styles easy:<Footnote footnoteId={29}></Footnote>
             </p>
             <pre className="page__code--nobox">{`.button:hover,
 .button:focus {
@@ -697,7 +702,7 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Small Font Size Specified in Pixel (px) Units
             </h3>
             <p className="dropCap">
-              Small text is annoying for anyone with imperfect vision, and for people with good vision but who suffer from eye strain. It is best to follow the 16-pixel benchmark, which is 1em or 1rem.<Footnote footnoteId={29}></Footnote>
+              Small text is annoying for anyone with imperfect vision, and for people with good vision but who suffer from eye strain. It is best to follow the 16-pixel benchmark, which is 1em or 1rem.<Footnote footnoteId={30}></Footnote>
             </p>
             <div className="note">
               <p>Body text in printed material is commonly 12-points, where 1 point = 1/72 inch. Thus, 12-points = 12/72 inch.</p>
@@ -705,25 +710,25 @@ function Blog2026_01_WebsiteDesignStandard2() {
               <p>In relative units, 1rem = 16 pixels</p>
             </div>
             <p>
-              While WCAG does not mention anything about units for font size, font size should never be specified in pixel (px) units, it should be specified in relative units (em or rem).<Footnote footnoteId={30}></Footnote> Why? Because if you use pixel units, the browser won’t honor the user’s custom font size choices.
+              While WCAG does not mention anything about units for font size, font size should never be specified in pixel (px) units, it should be specified in relative units (em or rem).<Footnote footnoteId={31}></Footnote> Why? Because if you use pixel units, the browser won’t honor the user’s custom font size choices.
             </p>
             <p className="note">
-              W3C recommends using “em” units for text.<Footnote footnoteId={31}></Footnote>
+              W3C recommends using “em” units for text.<Footnote footnoteId={32}></Footnote>
             </p>
             <p>
-              When the browser doesn’t honor the user’s choice of custom font size, the user must use zoom to enlarge the page. Zooming a page has downsides: images get larger, scroll bars may appear and the user may need to scroll to see the content. Furthermore, WCAG’s Accessibility Requirements for People with Low Vision advises that users should not need to zoom the page to increase text size: “User Need - Text Size: Users can change the text size (font size) of all text, without zooming the entire interface.”<Footnote footnoteId={32}></Footnote>
+              When the browser doesn’t honor the user’s choice of custom font size, the user must use zoom to enlarge the page. Zooming a page has downsides: images get larger, scroll bars may appear and the user may need to scroll to see the content. Furthermore, WCAG’s Accessibility Requirements for People with Low Vision advises that users should not need to zoom the page to increase text size: “User Need - Text Size: Users can change the text size (font size) of all text, without zooming the entire interface.”<Footnote footnoteId={33}></Footnote>
             </p>
             <p>Web developers should experiment with the browser’s font size settings and try to make their sites work correctly with the different choices.</p>
             <h4 className="headline__h4">General advice for text on websites:</h4>
             <ul>
               <li className="list">
-                Do not justify text to make it fill the space evenly as this has adverse effects for screen readers; limit line length to about 80 characters<Footnote footnoteId={33}></Footnote>
+                Do not justify text to make it fill the space evenly as this has adverse effects for screen readers; limit line length to about 80 characters<Footnote footnoteId={34}></Footnote>
               </li>
               <li className="list">
-                Test that the contrast ratio between text and background is sufficient<Footnote footnoteId={34}></Footnote>
+                Test that the contrast ratio between text and background is sufficient<Footnote footnoteId={35}></Footnote>
               </li>
               <li className="list">
-                Use heading tags for heading text, do not style other tags to look like headings as those will be read as normal text by screen readers and furthermore prevents screen readers from navigating a page based on headings<Footnote footnoteId={35}></Footnote>
+                Use heading tags for heading text, do not style other tags to look like headings as those will be read as normal text by screen readers and furthermore prevents screen readers from navigating a page based on headings<Footnote footnoteId={36}></Footnote>
               </li>
             </ul>
 
@@ -733,14 +738,14 @@ function Blog2026_01_WebsiteDesignStandard2() {
             <p className="dropCap">Line height, the spacing between two lines of text, is just as important as text size in its effect on accessibility. WCAG specifically calls out spacing for line height.</p>
             <ul>
               <li className="list">
-                Level AA: Line spacing is at least 1.5 times the font size, and spacing following paragraphs is at least 2 times the font size<Footnote footnoteId={36}></Footnote>
+                Level AA: Line spacing is at least 1.5 times the font size, and spacing following paragraphs is at least 2 times the font size<Footnote footnoteId={37}></Footnote>
               </li>
               <li className="list">
-                Level AAA: Line spacing is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing<Footnote footnoteId={37}></Footnote>
+                Level AAA: Line spacing is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing<Footnote footnoteId={38}></Footnote>
               </li>
             </ul>
             <p>
-              In addition to the line spacing recommendation, the width of lines should be kept to about 80 characters.<Footnote footnoteId={38}></Footnote>
+              In addition to the line spacing recommendation, the width of lines should be kept to about 80 characters.<Footnote footnoteId={39}></Footnote>
             </p>
           </div>
           <div className="row__colspan-1"></div>
@@ -756,21 +761,21 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Menu Hover Effects
             </h3>
             <p className="dropCap">
-              Typical menu functionality on websites is to expand the menu when the mouse pointer hovers over a top-level menu item. This can be problematic for users who rely on voice-to-text software because voice commands typically initiate a full interaction such as a click.<Footnote footnoteId={39}></Footnote>
+              Typical menu functionality on websites is to expand the menu when the mouse pointer hovers over a top-level menu item. This can be problematic for users who rely on voice-to-text software because voice commands typically initiate a full interaction such as a click.<Footnote footnoteId={40}></Footnote>
             </p>
 
             <h3 className="headline__h3" id="color" tabIndex={-1}>
               Color
             </h3>
             <p className="dropCap">
-              Status messages should not rely on color alone to infer status because the meaning is obscured for anyone with color blindness. When using color for status messages, it is essential to include wording or icons to supplement the meaning indicated by the color.<Footnote footnoteId={40}></Footnote>
+              Status messages should not rely on color alone to infer status because the meaning is obscured for anyone with color blindness. When using color for status messages, it is essential to include wording or icons to supplement the meaning indicated by the color.<Footnote footnoteId={41}></Footnote>
             </p>
 
             <h3 className="headline__h3" id="clickarea" tabIndex={-1}>
               Click Area
             </h3>
             <p className="dropCap">
-              WCAG 2.1 section 2.5.5 Target Size provides rules for target area of clickable or tappable elements. Some users have trouble clicking or tapping these elements when the target area is insufficient.<Footnote footnoteId={41}></Footnote>
+              WCAG 2.1 section 2.5.5 Target Size provides rules for target area of clickable or tappable elements. Some users have trouble clicking or tapping these elements when the target area is insufficient.<Footnote footnoteId={42}></Footnote>
             </p>
             <p>WCAG includes two rules that cover target area for pointer inputs:</p>
             <ol>
@@ -782,14 +787,14 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Use Native HTML Tags
             </h3>
             <p className="dropCap">
-              Native tags are recognized by screen readers and they have accessibility built-in.<Footnote footnoteId={42}></Footnote> The HTML and CSS standards modernized, and browsers began to standardize their support for them, so there is perhaps no need to create custom versions of HTML tags such as buttons and checkboxes.
+              Native tags are recognized by screen readers and they have accessibility built-in.<Footnote footnoteId={43}></Footnote> The HTML and CSS standards modernized, and browsers began to standardize their support for them, so there is perhaps no need to create custom versions of HTML tags such as buttons and checkboxes.
             </p>
 
             <h3 className="headline__h3" id="cssborder" tabIndex={-1}>
               CSS Border
             </h3>
             <p className="dropCap">
-              Borders should be at least 2px wide.<Footnote footnoteId={43}></Footnote>
+              Borders should be at least 2px wide.<Footnote footnoteId={44}></Footnote>
             </p>
           </div>
           <div className="row__colspan-1"></div>

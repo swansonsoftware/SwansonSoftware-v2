@@ -47,13 +47,13 @@ function Blog2026_01_WebsiteDesignStandard3() {
   return (
     <Page title="Elements of a Standard for Website Design Part 3: ARIA">
       <GTag></GTag>
-      <GStructuredData type="BlogPosting" datePublished="2026-10-19T12:46:43-07:00" dateModified="2026-10-24T08:53:45-07:00" headline="Elements of a Standard for Website Design Part 3: ARIA"></GStructuredData>
+      <GStructuredData type="BlogPosting" datePublished="2026-10-19T12:46:43-07:00" dateModified="2026-10-26T11:52:42-07:00" headline="Elements of a Standard for Website Design Part 3: ARIA"></GStructuredData>
       <meta name="description" content="This article presents the essential ARIA that websites need." />
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <main className="wrapper wrapper__article" id="maincontent" tabIndex={-1}>
         <h1 className="headline__h1-cg">Elements of a Standard for Website Design</h1>
         <h2 className="headline__h2">Part 3: ARIA</h2>
-        <div className="headline__author">Gregory Swanson | Updated October 24, 2026</div>
+        <div className="headline__author">Gregory Swanson | Updated October 26, 2026</div>
 
         <div className="row row--gutters">
           <nav className="row__colspan-5" aria-labelledby="contents-lbl">
@@ -346,6 +346,7 @@ function Blog2026_01_WebsiteDesignStandard3() {
               In-page Navigation
             </h3>
             <p className="dropCap">In-page navigation is a list of links that can be a table of contents or a menu bar or side bar with links to topics on the page. In-page navigation is often wrapped by a &lt;div&gt;, but it would be more appropriate to wrap them in a &lt;nav&gt; and the &lt;nav&gt; might be placed in a &lt;section&gt;.</p>
+            <p className="note">While the main menu might contain an unordered list with menu and menuitem roles, in-page navigation should not have those roles.</p>
 
             <h3 className="headline__h3" id="complementary" tabIndex={-1}>
               Complementary (&lt;aside&gt;)
