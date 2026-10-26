@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import DispatchContext from "../DispatchContext.js"
 import StateContext from "../StateContext.js"
 
@@ -6,41 +6,38 @@ function HeaderMenuIcon(props) {
   const appDispatch = useContext(DispatchContext)
   const appState = useContext(StateContext)
   const menuIconBaseClass = useRef("site-header__menu-icon")
-  const menuIconState = useRef("site-header__menu-icon--collapsed")
-  const [menuBgColor, setMenuBgColor] = useState(appState.backgroundStyle == "dark" ? "site-header__menu-icon--dark" : "")
   const [ariaLabel, setAriaLabel] = useState("Open menu")
+  const menuIconState = appState.mobileMenuIconState.includes("--expanded") ? "site-header__menu-icon--expanded" : "site-header__menu-icon--collapsed"
+  const menuBgColor = appState.backgroundStyle === "dark" ? "site-header__menu-icon--dark" : ""
 
   function ToggleMenuIcon(e) {
-    e.preventDefault
-    if (e.code == "Enter" || e.type == "click") {
-      let menuButtons = document.querySelectorAll(".nav__button")
+    e.preventDefault()
 
-      if (menuIconState.current == "collapsed") {
-        setAriaLabel("Close menu")
-        menuIconState.current = "expanded"
-        if (menuButtons) {
-          menuButtons.forEach(button => {
-            button.tabIndex = 0
-          })
-        }
-      } else {
-        console.log("expanded")
-        menuIconState.current = "collapsed"
-        setAriaLabel("Open menu")
-        if (menuButtons) {
-          //prevent tabbing to hidden menu buttons
-          menuButtons.forEach(button => {
-            button.tabIndex = -1
-          })
-        }
+    if (e.code === "Enter" || e.type === "click") {
+      const isCollapsed = menuIconState.includes("--collapsed")
+
+      setAriaLabel(isCollapsed ? "Close menu" : "Open menu")
+
+      const newState = isCollapsed ? "site-header__menu-icon--expanded" : "site-header__menu-icon--collapsed"
+
+      appDispatch({
+        type: "mobileMenuIconState",
+        mobileMenuIconState: `${menuIconBaseClass.current} ${menuBgColor} ${newState}`
+      })
+
+      if (props.ToggleMenuIcon) {
+        props.ToggleMenuIcon()
       }
-      props.ToggleMenuIcon()
     }
   }
 
+  // Sync background color changes into global menu state
   useEffect(() => {
-    setMenuBgColor(appState.backgroundStyle == "dark" ? "site-header__menu-icon--dark" : "")
-    appDispatch({ type: "mobileMenuIconState", mobileMenuIconState: menuIconBaseClass.current + " " + menuBgColor + " " + menuIconState.current })
+    const updated = `${menuIconBaseClass.current} ${menuBgColor} ${menuIconState}`
+    appDispatch({
+      type: "mobileMenuIconState",
+      mobileMenuIconState: updated
+    })
   }, [appState.backgroundStyle])
 
   return <button tabIndex={0} aria-label={ariaLabel} onClick={ToggleMenuIcon} className={appState.mobileMenuIconState}></button>

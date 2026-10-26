@@ -459,13 +459,14 @@ function Blog2026_01_WebsiteDesignStandard2() {
               Empty Buttons
             </h3>
             <p className="dropCap">Like empty links, empty buttons are often created accidentally by wrapping an image with a button tag. Thus, there is no text that indicates what the button does.</p>
-            <p className="note">
-              Empty Button: don’t do this – an empty button, the developer assumes that the image will convey meaning
-              <pre>{`<button onclick="doDelete()">
-  <img src="trash.svg">
-</button>
-`}</pre>
-            </p>
+            <div className="note">
+              Empty Button: don’t do this – an empty button, the developer assumes that the image will convey meaning:<br></br>
+              <pre>
+                {`<button onclick="doDelete()"></button>
+   <img src="trash.svg">
+</button>`}
+              </pre>
+            </div>
             <p>There are several ways to fix this, depending on context.</p>
             <ul>
               <li className="list">
@@ -647,10 +648,8 @@ function Blog2026_01_WebsiteDesignStandard2() {
               </ol>
             </div>
             <div className="note">
-              <p>
-                Previously I recommended adding a tabIndex=”-1” to the React app div:
-                <pre style={{ fontStyle: "normal" }}>{`<div id="app" tabIndex="-1">…</div>`}</pre>I no longer recommend that approach because it can interfere with a screen reader.
-              </p>
+              <p>Previously I recommended adding a tabIndex=”-1” to the React app div:</p>
+              <pre style={{ fontStyle: "normal" }}>{`<div id="app" tabIndex="-1">…</div>`}</pre>I no longer recommend that approach because it can interfere with a screen reader.
             </div>
 
             <h3 className="headline__h3" id="nokbdaccess" tabIndex={-1}>

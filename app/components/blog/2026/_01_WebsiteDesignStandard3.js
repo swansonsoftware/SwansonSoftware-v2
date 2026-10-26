@@ -37,11 +37,11 @@ function Blog2026_01_WebsiteDesignStandard3() {
     { id: 6, listId: "footnote6", noteId: "#note6", text1: "See ", text1IsLink: false, text1Link: "", text2: "General Principles: Principles: ARIA Landmarks Example", text2IsLink: true, text2Link: "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles.html" },
     { id: 7, listId: "footnote7", noteId: "#note7", text1: "Landmark Regions | APG | WAI | W3C", text1IsLink: true, text1Link: "https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/" },
     { id: 8, listId: "footnote8", noteId: "#note8", text1: "Accessible Rich Internet Applications (WAI-ARIA) 1.2", text1IsLink: true, text1Link: "https://www.w3.org/TR/wai-aria-1.2/#landmark" },
-    { id: 9, listId: "footnote7", noteId: "#note7", text1: "See section 8.5 Conflicts with Host Language Semantics in ", text1IsLink: false, text1Link: "", text2: "Accessible Rich Internet Applications (WAI-ARIA) 1.2", text2IsLink: true, text2Link: "https://www.w3.org/TR/wai-aria-1.2/#host_general_conflict", text3: "“When a feature in the host language with identical role semantics and values is available, and the author has no compelling reason to avoid using the host language feature, authors SHOULD use the host language features rather than repurpose other elements with WAI-ARIA.”", text3IsLink: false, text3Link: "" },
-    { id: 10, listId: "footnote8", noteId: "#note8", text1: "Complementary Landmark: ARIA Landmarks Example", text1IsLink: true, text1Link: "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html" },
-    { id: 11, listId: "footnote9", noteId: "#note9", text1: "Accessible Rich Internet Applications (WAI-ARIA) 1.2", text1IsLink: true, text1Link: "https://www.w3.org/TR/wai-aria-1.2/#region" },
-    { id: 12, listId: "footnote10", noteId: "#note10", text1: "Firth, 2024, chapter 8.", text1IsLink: false, text1Link: "" },
-    { id: 13, listId: "footnote11", noteId: "#note11", text1: "Ibid.", text1IsLink: false, text1Link: "" }
+    { id: 9, listId: "footnote9", noteId: "#note9", text1: "See section 8.5 Conflicts with Host Language Semantics in ", text1IsLink: false, text1Link: "", text2: "Accessible Rich Internet Applications (WAI-ARIA) 1.2", text2IsLink: true, text2Link: "https://www.w3.org/TR/wai-aria-1.2/#host_general_conflict", text3: "“When a feature in the host language with identical role semantics and values is available, and the author has no compelling reason to avoid using the host language feature, authors SHOULD use the host language features rather than repurpose other elements with WAI-ARIA.”", text3IsLink: false, text3Link: "" },
+    { id: 10, listId: "footnote10", noteId: "#note10", text1: "Complementary Landmark: ARIA Landmarks Example", text1IsLink: true, text1Link: "https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html" },
+    { id: 11, listId: "footnote11", noteId: "#note11", text1: "Accessible Rich Internet Applications (WAI-ARIA) 1.2", text1IsLink: true, text1Link: "https://www.w3.org/TR/wai-aria-1.2/#region" },
+    { id: 12, listId: "footnote12", noteId: "#note12", text1: "Firth, 2024, chapter 8.", text1IsLink: false, text1Link: "" },
+    { id: 13, listId: "footnote13", noteId: "#note13", text1: "Ibid.", text1IsLink: false, text1Link: "" }
   ]
 
   return (
@@ -213,8 +213,8 @@ function Blog2026_01_WebsiteDesignStandard3() {
               Landmarks
             </h3>
             <p className="dropCap">A basic webpage design has sections for the header, navigation menu, main content, and footer. These sections are known as ARIA landmarks. The HTML5 specification added elements for these sections, and assistive technologies recognize them and announce them. Therefore, your first foray into ARIA is to use these elements instead of generic &lt;div&gt; elements. These elements make the code easier to read as well.</p>
-            <p className="note">
-              <h4 className="headline__h4">Landmark Roles</h4>
+            <div className="note" style={{ paddingTop: "20px" }}>
+              <span className="headline__h4">Landmark Roles</span>
               <Footnote footnoteId={6}></Footnote>{" "}
               <ul>
                 <li className="list">Banner - HTML element: &lt;header&gt;, top level, one per page</li>
@@ -226,7 +226,7 @@ function Blog2026_01_WebsiteDesignStandard3() {
                 <li className="list">Region - HTML element: &lt;section&gt;, can have multiple per page, should have unique labels</li>
                 <li className="list">Search - HTML element: &lt;search&gt;, can have multiple per page, should have unique labels</li>
               </ul>
-            </p>
+            </div>
             <p>While you should indicate a landmark using the HTML element intended for the purpose (&lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;, etc.), another way that works is to use a generic DIV element and give it an ARIA role (&lt;div role=“navigation”&gt;, &lt;div role=“main”&gt;, &lt;div role=“contentinfo”&gt;, etc.)</p>
             <p>Some landmarks may occur more than once on a page, and when they do, they should be given a unique label:</p>
             <pre className="page__code">&lt;section aria-labelledby="region1"&gt;</pre>
@@ -235,7 +235,7 @@ function Blog2026_01_WebsiteDesignStandard3() {
             <p>
               It might seem confusing when setting out to create a webpage structure using landmarks to find that “banner, main, complementary and contentinfo landmarks should be top level landmarks”<Footnote footnoteId={7}></Footnote> when you need to wrap everything with a &lt;div&gt; to achieve the layout you desire, making the top-level element a &lt;div&gt;. However, landmarks refer to “perceivable” content<Footnote footnoteId={8}></Footnote>, therefore the top-level landmark is in relation to other landmarks.
             </p>
-            <p className="note">
+            <div className="note" style={{ paddingTop: "20px" }}>
               Wrapping top-level landmarks with DIV elements that are not landmarks is valid:<br></br>
               <pre>{`<body>
    <div id=”app”>
@@ -251,7 +251,7 @@ function Blog2026_01_WebsiteDesignStandard3() {
       <footer>...</footer>
    </div>
 </body>`}</pre>
-            </p>
+            </div>
           </div>
           <div className="row__colspan-1"></div>
 
